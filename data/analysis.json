@@ -1,0 +1,32 @@
+{
+  "jee_example_app": {
+    "app_name": "jee_example_app",
+    "file_name": "jee-example-app-1.0.0.ear",
+    "target": "eap7",
+    "source": "weblogic"
+  },
+  "kafka_clients_sb_sample": {
+    "app_name": "kafka_clients_sb_sample",
+    "file_name": "kafka-clients-sb-sample.jar",
+    "target": "quarkus",
+    "source": ""
+  },
+  "spring_petclinic": {
+    "app_name": "spring_petclinic",
+    "file_name": "spring-petclinic-2.4.0.BUILD-SNAPSHOT.jar",
+    "target": "quarkus",
+    "source": ""
+  },
+  "camunda_bpm_spring_boot_starter_example": {
+    "app_name": "camunda_bpm_spring_boot_starter_example",
+    "file_name": "camunda-bpm-spring-boot-starter-example-war-2.0.0.war",
+    "target": "quarkus",
+    "source": ""
+  },
+  "administracion_efectivo": {
+    "app_name": "administracion_efectivo",
+    "file_name": "AdministracionEfectivo.ear",
+    "target": "eap8",
+    "source": ""
+  }
+}
