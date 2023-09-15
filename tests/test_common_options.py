@@ -4,6 +4,7 @@ import subprocess
 from utils import constants
 
 
+# Polarion TC MTA-372
 def test_list_targets():
     kantra_path = os.getenv(constants.KANTRA_CLI_PATH)
     command = kantra_path + ' analyze --list-targets'
@@ -14,6 +15,7 @@ def test_list_targets():
         assert i in output
 
 
+# Polarion TC MTA-372
 def test_list_sources():
     kantra_path = os.getenv(constants.KANTRA_CLI_PATH)
     command = kantra_path + ' analyze --list-sources'
