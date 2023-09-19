@@ -1,7 +1,10 @@
 import json
 import os
 
+from bs4 import BeautifulSoup
+
 from utils import constants
+
 
 def assert_story_points_from_report_file(**kwargs):
     """
@@ -22,7 +25,18 @@ def assert_story_points_from_report_file(**kwargs):
     report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
     report_path = kwargs.get('report_path', report_path)
 
-    with open(report_path + "/api/applications.json") as file:
-        json_data = json.load(file)
+    with open(report_path + "/static-report/output.js") as file:
+        js_report = file.read()
+    report_data = json.loads(js_report.split('window["apps"] = ')[1])
 
-    assert json_data[0]['storyPoints'] >= 0
+    story_points = -1
+    for rule in report_data[0]['rulesets']:
+        violations = rule.get('violations', {})
+
+        for violation in violations.values():
+            if 'incidents' in violation and 'effort' in violation:
+                if story_points == -1:
+                    story_points = 0
+                story_points += len(violation['incidents']) * violation['effort']
+
+    assert story_points >= 0, "Non valid value found in Story Points from Report: " + str(story_points)
