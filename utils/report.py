@@ -22,7 +22,7 @@ def assert_story_points_from_report_file(**kwargs):
         None.
 
     """
-    report_path = os.getenv('REPORT_OUTPUT_PATH')
+    report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
     report_path = kwargs.get('report_path', report_path)
 
     with open(report_path + "/static-report/output.js") as file:
