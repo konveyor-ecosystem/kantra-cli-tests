@@ -4,6 +4,7 @@ import subprocess
 import pytest
 
 from utils.command import build_analysis_command
+from utils.report import assert_story_points_from_report_file
 
 
 @pytest.mark.parametrize('app_name', json.load(open("data/analysis.json")))
@@ -19,4 +20,5 @@ def test_standard_analysis(app_name, analysis_data):
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
     assert 'generating static report' in output
-    # TODO: Assert report data
+
+    assert_story_points_from_report_file()
