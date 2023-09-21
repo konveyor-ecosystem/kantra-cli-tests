@@ -6,7 +6,28 @@ from bs4 import BeautifulSoup
 from utils import constants
 
 
-def assert_story_points_from_report_file(**kwargs):
+def get_json_from_report_output_file(**kwargs):
+    """
+        Loads and returns a JSON from the output.js file of the report
+
+        Args:
+            **kwargs: Optional keyword arguments.
+                report_path (str): The path to the report file. If not provided,
+                    the function will use the value of the 'REPORT_OUTPUT_PATH' environment variable.
+
+        Returns:
+            JSON data
+
+        """
+    report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
+    report_path = kwargs.get('report_path', report_path)
+
+    with open(report_path + "/static-report/output.js") as file:
+        js_report = file.read()
+    return json.loads(js_report.split('window["apps"] = ')[1])[0]
+
+
+def assert_story_points_from_report_file():
     """
     Asserts that the story points value in the report file is a number >= 0
 
@@ -22,15 +43,10 @@ def assert_story_points_from_report_file(**kwargs):
         None.
 
     """
-    report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
-    report_path = kwargs.get('report_path', report_path)
-
-    with open(report_path + "/static-report/output.js") as file:
-        js_report = file.read()
-    report_data = json.loads(js_report.split('window["apps"] = ')[1])
+    report_data = get_json_from_report_output_file()
 
     story_points = -1
-    for rule in report_data[0]['rulesets']:
+    for rule in report_data['rulesets']:
         violations = rule.get('violations', {})
 
         for violation in violations.values():
