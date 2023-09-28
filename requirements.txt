@@ -9,4 +9,5 @@ python-dotenv==0.21.0
 soupsieve==2.3.2.post1
 tomli==2.0.1
 pytest-check==2.1.2
-
+PyYAML~=6.0.1
+jsonschema~=4.19.1
