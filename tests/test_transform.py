@@ -13,7 +13,7 @@ def test_transform_xml_rules_to_yaml():
     custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/xml', 'javax-package-custom.windup.xml')
     output_path = os.getenv(constants.REPORT_OUTPUT_PATH)
 
-    command = kantra_path + ' transform rules --input ' + custom_rule_path + ' --output ' + output_path
+    command = f"{kantra_path} transform rules --input {custom_rule_path} --output {output_path}"
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
     yaml_path = output_path + "/01-javax-package-custom/javax-package-custom.windup.yaml"
