@@ -22,5 +22,5 @@ def test_list_sources():
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
-    for i in ['log4j', 'eap', 'springboot', 'openjdk11', 'java-ee', 'javaee', 'oraclejdk7']:
+    for i in ['log4j', 'eap', 'springboot', 'openjdk11', 'java-ee', 'javaee', 'openshift', 'oraclejdk']:
         assert i in output

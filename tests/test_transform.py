@@ -21,7 +21,7 @@ def test_transform_xml_rules_to_yaml():
     command = f"{kantra_path} transform rules --input {custom_rule_path} --output {output_path}"
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
-    yaml_path = output_path + "/01-javax-package-custom/javax-package-custom.windup.yaml"
+    yaml_path = output_path + "/01-javax-package-custom.windup.yaml"
 
     assert os.path.exists(yaml_path)
     with open(yaml_path) as file:
