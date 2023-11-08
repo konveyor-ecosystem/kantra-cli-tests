@@ -26,7 +26,7 @@ def build_analysis_command(binary_name, source, target, **kwargs):
 
     binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/applications', binary_name)
 
-    command = kantra_path + ' analyze --input ' + binary_path + ' --output ' + report_path
+    command = kantra_path + ' analyze --overwrite --input ' + binary_path + ' --output ' + report_path
 
     if source:
         command += ' --source ' + source
