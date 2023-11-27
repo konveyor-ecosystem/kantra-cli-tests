@@ -28,7 +28,7 @@ def test_skip_report(analysis_data):
 
 
 # Polarion TC 374
-def test_custom_rules(analysis_data):
+def test_custom_rules_bug_mta_1305(analysis_data):
     application_data = analysis_data['jee_example_app']
     custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/xml', 'javax-package-custom.windup.xml')
 

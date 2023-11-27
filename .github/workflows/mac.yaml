@@ -1,0 +1,91 @@
+name: Kantra CLI on MacOS
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Install Homebrew
+      run: |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      shell: bash
+
+    - name: Install Podman
+      run: |
+        brew install podman
+      shell: bash
+
+    - name: Verify Podman installation
+      run: |
+        podman --version
+      shell: bash
+
+    - name: Configure Podman
+      run: |
+        sudo ulimit -n unlimited
+        podman machine init test_vm -v $HOME:$HOME -v /private/tmp:/private/tmp -v /var/folders/:/var/folders/
+        podman machine set test_vm --cpus 4 --memory 4096 --disk-size 100
+        podman system connection default test_vm
+        podman machine start test_vm
+      shell: bash
+
+    - name: Pull Kantra Podman Image
+      run: podman pull quay.io/konveyor/kantra:latest
+      shell: bash
+
+    - name: Download Kantra
+      run: |
+        podman run --name kantra-download quay.io/konveyor/kantra:latest 1> /dev/null 2> /dev/null
+        podman cp kantra-download:/usr/local/bin/darwin-kantra kantra
+        podman rm kantra-download
+        ls -la
+      shell: bash
+
+    - name: Configure Environment Variables
+      run: |
+        cp .env.example .env
+        
+        > .env
+        echo "KANTRA_CLI_PATH=$GITHUB_WORKSPACE/kantra" >> .env
+        echo "REPORT_OUTPUT_PATH=$GITHUB_WORKSPACE/report" >> .env
+        echo "PROJECT_PATH=$GITHUB_WORKSPACE" >> .env
+        
+        cat .env
+      working-directory: ${{ github.workspace }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11.6'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run transform tests
+      run: |
+        pytest -s -k "transform and not bug"
+
+    - name: Run common option tests
+      run: |
+        pytest -s -k "common and not bug"
+
+    - name: Run advanced option tests
+      run: |
+        pytest -k "advanced and not bug"
+
+    - name: Run simple standard analysis test
+      run: |
+        pytest -s -k "jee_example_app and not bug"
+
+    - name: Save analysis output
+      uses: actions/upload-artifact@v2
+      with:
+        name: kantra-outputs
+        path: ${{ github.workspace }}/report
