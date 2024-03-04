@@ -16,7 +16,7 @@ def test_list_targets():
 
 
 # Polarion TC MTA-472
-def test_list_targets_duplicates_bug_mta_2064():
+def test_list_targets_duplicates():
     kantra_path = os.getenv(constants.KANTRA_CLI_PATH)
     command = kantra_path + ' analyze --list-targets'
 
