@@ -11,7 +11,7 @@ def test_list_targets():
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
-    for i in ['hibernate-search5', 'eap', 'azure-appservice', 'openjdk11', 'java-ee7', 'quarkus']:
+    for i in ['hibernate-search5', 'eap', 'cloud-readiness', 'camel4', 'openjdk11', 'java-ee7', 'quarkus']:
         assert i in output
 
 
