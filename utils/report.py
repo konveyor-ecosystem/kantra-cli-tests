@@ -22,7 +22,7 @@ def get_json_from_report_output_file(**kwargs):
     report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
     report_path = kwargs.get('report_path', report_path)
 
-    with open(report_path + "/static-report/output.js") as file:
+    with open(report_path + "/static-report/output.js", encoding='utf-8') as file:
         js_report = file.read()
     return json.loads(js_report.split('window["apps"] = ')[1])[0]
 
