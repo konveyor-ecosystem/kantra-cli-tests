@@ -28,5 +28,11 @@
     "file_name": "AdministracionEfectivo.ear",
     "target": "eap8",
     "source": ""
+  },
+  "fuse-kafka":{
+    "app_name": "fuse-kafka",
+    "file_name": "camel-cbr",
+    "target": "camel4",
+    "source": "camel2"
   }
 }
