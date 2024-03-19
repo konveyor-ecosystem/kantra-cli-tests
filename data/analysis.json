@@ -29,8 +29,8 @@
     "target": "eap8",
     "source": ""
   },
-  "fuse-kafka":{
-    "app_name": "fuse-kafka",
+  "fuse-karaf": {
+    "app_name": "fuse-karaf",
     "file_name": "camel-cbr",
     "target": "camel4",
     "source": "camel2"
