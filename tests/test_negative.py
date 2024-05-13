@@ -1,15 +1,6 @@
-import json
 import subprocess
 
-import pytest
-
 from utils.command import build_analysis_command
-
-with open("data/analysis.json", "r") as file:
-    json_data = json.load(file)
-
-# Getting first instance from JSON
-first_entity_key = next(iter(json_data))
 
 
 def test_analysis_wrong_target(analysis_data):
