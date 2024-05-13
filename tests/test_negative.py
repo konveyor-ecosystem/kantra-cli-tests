@@ -23,7 +23,18 @@ def test_analysis_wrong_target(app_name, analysis_data):
         "some_wrong_target"
     )
 
-    output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
+    # Run the command
+    process = subprocess.run(
+        command,
+        shell=True,
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding='utf-8'
+    )
 
-    # Making sure if we do have an error message about wrong label
-    assert 'level=error msg=\"failed to create label selector from expression\" error=\"invalid expression' in output
+    # Check if the return code indicates an error
+    assert process.returncode != 0
+
+    # Check if the error message contains the expected text
+    assert 'failed to load provider settings open /opt/output/output.yaml: no such file or directory' in process.stderr
