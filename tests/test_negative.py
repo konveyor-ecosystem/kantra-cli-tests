@@ -23,4 +23,4 @@ def test_analysis_wrong_target(analysis_data):
 
     assert process.returncode != 0
 
-    assert 'failed to load provider settings open /opt/output/output.yaml: no such file or directory' in process.stderr
+    assert 'Error: unknown target:' in process.stderr
