@@ -12,7 +12,7 @@ def test_list_targets():
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
     for i in ['hibernate-search5', 'eap', 'cloud-readiness', 'camel4', 'openjdk11', 'java-ee7', 'quarkus']:
-        assert i in output
+        assert i in output, f"Target '{i}' not found in output."
 
 
 # Polarion TC MTA-472
@@ -34,7 +34,7 @@ def test_list_sources():
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
     for i in ['log4j', 'eap', 'springboot', 'openjdk11', 'java-ee', 'javaee', 'openshift', 'oraclejdk']:
-        assert i in output
+        assert i in output, f"Source '{i}' not found in output."
 
 
 # Polarion TC MTA-488
