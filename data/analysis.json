@@ -38,7 +38,7 @@
   "gradle-multi-project": {
     "app_name": "gradle-multi-project",
     "file_name": "gradle-multi-project-example",
-    "target": "azure-appservice",
+    "target": "openjdk",
     "source": ""
   }
 }
