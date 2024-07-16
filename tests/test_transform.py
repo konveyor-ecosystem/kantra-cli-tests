@@ -56,7 +56,7 @@ def test_transform_code_with_openrewrite(transformation_name, openrewrite_transf
     command = f"{kantra_path} transform openrewrite --input {extracted_app_path} --target {application_data['target']}"
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
-    assert 'BUILD SUCCESS' in output
+    assert 'BUILD SUCCESS' in output, "Failed command is: " + command
 
     with open(
             os.path.join(extracted_app_path, application_data['assertion_file']), 'r'
