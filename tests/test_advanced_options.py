@@ -30,7 +30,7 @@ def test_skip_report(analysis_data):
 # Polarion TC 374
 def test_custom_rules(analysis_data):
     application_data = analysis_data['jee_example_app']
-    custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/xml', 'hibernate-custom.windup.xml')
+    custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/xml', 'weblogic-custom.windup.yaml')
 
     command = build_analysis_command(
         application_data['file_name'],
@@ -46,10 +46,10 @@ def test_custom_rules(analysis_data):
 
     report_data = get_json_from_report_output_file()
 
-    ruleset = next((item for item in report_data['rulesets'] if item.get('description') == 'CUSTOM TEST RULE'), None)
+    ruleset = next((item for item in report_data['rulesets'] if item.get('description') == 'temp ruleset'), None)
 
     assert ruleset is not None, "Ruleset property not found in output"
     assert len(ruleset.get('skipped', [])) == 0, "Custom Rule was skipped"
     assert len(ruleset.get('unmatched', [])) == 0, "Custom Rule was unmatched"
     assert 'violations' in ruleset, "Custom rules didn't trigger any violation"
-    assert 'hibernate4-00002-custom' in ruleset['violations'], "hibernate4-00002-custom triggered no violations"
+    assert 'weblogic-xml-custom-rule' in ruleset['violations'], "weblogic-xml-custom-rule triggered no violations"
