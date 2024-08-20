@@ -3,7 +3,7 @@ import subprocess
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
+from utils.report import assert_insights_from_report_file
 
 # Polarion TC 598
 def test_insights_binary_app(analysis_data):
@@ -20,4 +20,3 @@ def test_insights_binary_app(analysis_data):
 
     assert 'generating static report' in output
     assert_insights_from_report_file()
- 
