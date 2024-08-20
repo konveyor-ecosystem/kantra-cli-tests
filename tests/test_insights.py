@@ -5,8 +5,8 @@ from utils import constants
 from utils.command import build_analysis_command
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
 
-# Polarion TC 374
-def test_insights(analysis_data):
+# Polarion TC 598
+def test_insights_binary_app(analysis_data):
     application_data = analysis_data['jee_example_app']
     custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/xml', 'weblogic-custom.windup.yaml')
 
@@ -20,5 +20,4 @@ def test_insights(analysis_data):
 
     assert 'generating static report' in output
     assert_insights_from_report_file()
-
-  
+ 
