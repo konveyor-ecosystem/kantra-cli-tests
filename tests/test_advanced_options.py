@@ -3,7 +3,7 @@ import subprocess
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
+from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
 
 
 # Polarion TC 373
@@ -53,3 +53,21 @@ def test_custom_rules(analysis_data):
     assert len(ruleset.get('unmatched', [])) == 0, "Custom Rule was unmatched"
     assert 'violations' in ruleset, "Custom rules didn't trigger any violation"
     assert 'weblogic-xml-custom-rule' in ruleset['violations'], "weblogic-xml-custom-rule triggered no violations"
+
+
+def bug_mta_3663_test_bulk_analysis(analysis_data):
+    applications = [analysis_data['administracion_efectivo'], analysis_data['jee_example_app']]
+    clearReportDir()
+
+    for application in applications:
+        command = build_analysis_command(
+            application['file_name'],
+            application['source'],
+            application['target'],
+            True
+        )
+        output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
+
+        assert 'generating static report' in output
+
+    report_data = get_json_from_report_output_file()
