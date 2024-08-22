@@ -2,7 +2,7 @@ import os
 from utils import constants
 
 
-def build_analysis_command(binary_name, source, target, **kwargs):
+def build_analysis_command(binary_name, source, target, is_bulk=False, **kwargs):
     """
         Builds a string for executing the "analyze" subcommand
 
@@ -10,6 +10,7 @@ def build_analysis_command(binary_name, source, target, **kwargs):
             binary_name (str): binary file of the application to be analyzed.
             source (str): Source of the application.
             target (str): Target for the application to migrate to.
+            is_bulk (bool): Defines if '--bulk' (true) or `--overwrite`(false) run is performed
             **kwargs (str): Optional keyword arguments to be passed to Kantra as additional options.
                 this argument takes a dict, where each key is the argument, which can be passed with or without the '--'
 
@@ -24,9 +25,14 @@ def build_analysis_command(binary_name, source, target, **kwargs):
     if not binary_name:
         raise Exception('Binary path is required')
 
+    if is_bulk:
+        run_type = '--bulk'
+    else:
+        run_type = '--overwrite'
+
     binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/applications', binary_name)
 
-    command = kantra_path + ' analyze --overwrite --input ' + binary_path + ' --output ' + report_path
+    command = kantra_path + ' analyze ' + run_type + ' --input ' + binary_path + ' --output ' + report_path
 
     if source:
         command += ' --source ' + source
