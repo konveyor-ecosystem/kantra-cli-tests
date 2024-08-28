@@ -14,12 +14,13 @@ def test_insights_binary_app(analysis_data):
         application_data['source'],
         application_data['target']
     )
- 
+
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
- 
+
     assert 'generating static report' in output
     assert_insights_from_report_file()
- 
+
+# Polarion TC 3504, 3505, 3506
 def test_custom_rules(analysis_data):
     application_data = analysis_data['tackle-testapp-project']
     custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/yaml', 'custom_rule_insights.yaml')
