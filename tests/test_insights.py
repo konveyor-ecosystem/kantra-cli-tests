@@ -36,4 +36,16 @@ def test_custom_rules(analysis_data):
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
     assert 'generating static report' in output
-    assert_insights_from_report_file()
+    report_data = get_json_from_report_output_file()
+
+    for rule in report_data['rulesets']:
+        insights = rule.get('insights', {})
+
+        for insight in insights.values():
+            if rule['name'] == 'custom-ruleset':
+                if insight['description'] == 'Properties file (Insights TC0)':
+                    assert(insight['labels'][1], 'tag=Properties File (Insights TC0)')
+                elif insight['description'] == 'Properties file (Insights TC1)':
+                    assert(insight['labels'][1], 'tag=Properties File (Insights TC1)')
+                elif insight['description'] == 'Properties file (Insights TC2)':
+                    assert(insight['incidents'][0]['message'], 'Found properties file ruleID discover-properties-file-TC2')
