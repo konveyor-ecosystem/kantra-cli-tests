@@ -55,7 +55,7 @@ def test_custom_rules(analysis_data):
     assert 'weblogic-xml-custom-rule' in ruleset['violations'], "weblogic-xml-custom-rule triggered no violations"
 
 
-def bug_mta_3663_test_bulk_analysis(analysis_data):
+def test_bulk_analysis(analysis_data):
     applications = [analysis_data['administracion_efectivo'], analysis_data['jee_example_app']]
     clearReportDir()
 
@@ -70,4 +70,10 @@ def bug_mta_3663_test_bulk_analysis(analysis_data):
 
         assert 'generating static report' in output
 
-    report_data = get_json_from_report_output_file()
+    report_data = get_json_from_report_output_file(False)
+    assert len(report_data) >= 2, "Less than 2 application analysis detected"
+    for current_report in report_data:
+        assert len(current_report['rulesets']) >= 0, "No rulesets were applied"
+        assert len(current_report['depItems']) >= 0, "No dependencies were found"
+        violations = [item for item in current_report['rulesets'] if item.get('violations')]
+        assert len(violations) > 0, "No issues were found";

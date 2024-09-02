@@ -7,11 +7,12 @@ from bs4 import BeautifulSoup
 from utils import constants
 
 
-def get_json_from_report_output_file(**kwargs):
+def get_json_from_report_output_file(return_first = True, **kwargs):
     """
         Loads and returns a JSON from the output.js file of the report
 
         Args:
+            return_first: flag to return only first value (default). If false - will return array of values instead.
             **kwargs: Optional keyword arguments.
                 report_path (str): The path to the report file. If not provided,
                     the function will use the value of the 'REPORT_OUTPUT_PATH' environment variable.
@@ -25,7 +26,10 @@ def get_json_from_report_output_file(**kwargs):
 
     with open(report_path + "/static-report/output.js", encoding='utf-8') as file:
         js_report = file.read()
-    return json.loads(js_report.split('window["apps"] = ')[1])[0]
+    if return_first:
+        return json.loads(js_report.split('window["apps"] = ')[1])[0]
+    else:
+        return json.loads(js_report.split('window["apps"] = ')[1])
 
 
 def assert_story_points_from_report_file():
