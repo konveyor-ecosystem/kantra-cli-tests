@@ -73,7 +73,7 @@ def assert_insights_from_report_file():
                 the function will use the value of the 'REPORT_OUTPUT_PATH' environment variable.
 
     Raises:
-        AssertionError: If the story points in the report file do not match the provided value.
+        AssertionError: If the Insights occurence count in the report file is < 0.
 
     Returns:
         None.
@@ -91,7 +91,7 @@ def assert_insights_from_report_file():
                     occurrences = 0
                 occurrences += len(insight['incidents'])
 
-    assert occurrences >= 0, "Invalid value found for Insights occurrences in Report: " + str(occurrences)
+    assert occurrences > 0, "No insights were generated"
 
 def clearReportDir():
     report_path = os.getenv(constants.REPORT_OUTPUT_PATH)

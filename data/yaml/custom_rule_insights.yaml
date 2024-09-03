@@ -1,0 +1,25 @@
+- ruleID: discover-properties-file-TC0
+  description: "Properties file (Insights TC0)"
+  labels:
+  - konveyor.io/target=discovery
+  tag: ["Properties (Insights TC0)"]
+  when:
+    builtin.file:
+      pattern: "^.*\\.properties$"
+- ruleID: discover-properties-file-TC1
+  description: "Properties file (Insights TC1)"
+  labels:
+  - konveyor.io/target=discovery
+  tag: ["Properties File (Insights TC1)"]
+  message: Found properties file
+  when:
+    builtin.file:
+      pattern: "^.*\\.properties$"
+- ruleID: discover-properties-file-TC2
+  description: "Properties file (Insights TC2)"
+  labels:
+  - konveyor.io/target=discovery
+  message: Found properties file ruleID discover-properties-file-TC2
+  when:
+    builtin.file:
+      pattern: "^.*\\.properties$"

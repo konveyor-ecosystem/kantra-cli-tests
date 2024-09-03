@@ -40,5 +40,11 @@
     "file_name": "gradle-multi-project-example",
     "target": "openjdk",
     "source": ""
+  },
+  "tackle-testapp-project": {
+    "app_name": "tackle-testapp",
+    "file_name": "tackle-testapp",
+    "target": "",
+    "source": ""
   }
 }
