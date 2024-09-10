@@ -2,6 +2,7 @@ import os
 import subprocess
 
 from utils.command import build_analysis_command
+from utils.report import assert_story_points_from_report_file
 
 # Polarion TC MTA-536
 def test_java_provider_analysis_with_app(analysis_data):
