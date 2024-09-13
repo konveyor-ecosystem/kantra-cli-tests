@@ -7,7 +7,7 @@ from utils.report import get_json_from_report_output_file
 
 
 # Polarion TC MTA-542
-def test_nodejs_provider_analysis_with_app(nodejs_analysis_data):
+def test_nodejs_provider_analysis(nodejs_analysis_data):
     application_data = nodejs_analysis_data['nodejs_app_project']
     custom_rules_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/yaml', 'python_rules.yaml')
     command = build_analysis_command(
