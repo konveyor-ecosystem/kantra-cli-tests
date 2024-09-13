@@ -1,7 +1,6 @@
 import json
 import pytest
 
-
 @pytest.fixture(scope="session")
 def analysis_data():
     with open('data/analysis.json', 'r') as file:
@@ -19,4 +18,10 @@ def dotnet_analysis_data():
 def golang_analysis_data():
     with open('data/golang_analysis.json', 'r') as file:
         json_list = json.load(file)
+    return json_list
+
+@pytest.fixture(scope="session")
+def nodejs_analysis_data():
+    with open('data/nodejs.json', 'r') as file:
+        json_list =  json.load(file)
     return json_list
