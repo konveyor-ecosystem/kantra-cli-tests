@@ -22,6 +22,6 @@ def golang_analysis_data():
 
 @pytest.fixture(scope="session")
 def nodejs_analysis_data():
-    with open('data/nodejs.json', 'r') as file:
+    with open('data/nodejs_analysis.json', 'r') as file:
         json_list =  json.load(file)
     return json_list
