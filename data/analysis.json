@@ -46,5 +46,11 @@
     "file_name": "tackle-testapp",
     "target": "",
     "source": ""
+  },
+  "tackle-testapp-public": {
+    "app_name": "tackle-testapp-public",
+    "file_name": "tackle-testapp-public",
+    "target": "cloud-readiness",
+    "source": ""
   }
 }
