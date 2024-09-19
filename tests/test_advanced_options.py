@@ -3,7 +3,7 @@ import subprocess
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.read_xml import manage_credentials_in_maven
+from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
 
 
@@ -80,10 +80,10 @@ def test_bulk_analysis(analysis_data):
         assert len(violations) > 0, "No issues were found";
 
 # Validation for Jira ticket MTA-3779
-def test_private_repo(analysis_data):
+def test_analysis_of_private_repo(analysis_data):
     application_data = analysis_data['tackle-testapp-public']
-    custom_maven_settings = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/xml', 'settings-public.xml')
-    manage_credentials_in_maven(custom_maven_settings)
+    custom_maven_settings = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/xml', 'tackle-testapp-public-settings.xml')
+    manage_credentials_in_maven_xml(custom_maven_settings)
     command = build_analysis_command(
         application_data['file_name'],
         application_data['source'],
@@ -98,4 +98,4 @@ def test_private_repo(analysis_data):
     violations = [item for item in report_data[0]['rulesets'] if item.get('violations')]
     assert len(violations) > 1, "Expected issues are missing";
 
-    manage_credentials_in_maven(custom_maven_settings, True)
+    manage_credentials_in_maven_xml(custom_maven_settings, True)

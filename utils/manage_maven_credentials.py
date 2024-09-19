@@ -3,7 +3,16 @@ from utils import constants
 from lxml import etree
 
 
-def manage_credentials_in_maven(path, reset=False):
+def manage_credentials_in_maven_xml(path, reset=False):
+    """
+    Purpose of this function is to add/remove git user data from maven file allowing analysis to get access to git repo
+    Args:
+        path: path to the XML configuration file
+        reset: when False - credentials will be read from env variables and written to the file, if True - they will be removed from the file.
+
+    Returns: void
+
+    """
     tree = etree.parse(path)
     root = tree.getroot()
 
