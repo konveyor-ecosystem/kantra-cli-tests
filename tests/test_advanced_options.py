@@ -1,5 +1,7 @@
 import os
+import signal
 import subprocess
+import time
 
 from utils import constants
 from utils.command import build_analysis_command
@@ -99,3 +101,25 @@ def test_analysis_of_private_repo(analysis_data):
     assert len(violations) > 1, "Expected issues are missing";
 
     manage_credentials_in_maven_xml(custom_maven_settings, True)
+
+def test_no_container_leftovers(analysis_data):
+    application_data = analysis_data['jee_example_app']
+    command = build_analysis_command(
+        application_data['file_name'],
+        application_data['source'],
+        application_data['target']
+    )
+    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+
+    time.sleep(10)
+    process.send_signal(signal.SIGINT)
+
+    process.wait()
+
+    leftover = subprocess.run("podman ps | grep -v CONTAINER", shell=True, stdout=subprocess.PIPE, encoding='utf-8')
+    leftover_output = leftover.stdout.strip()
+
+    # assert len(leftover_output) == 0, "Output has non-zero length"
+    for line in leftover_output.splitlines():
+        assert not line.startswith("analysis-"), f"Found a leftover container with name: {line}"
+        assert not line.startswith("provider-"), f"Found a leftover container with name: {line}"
