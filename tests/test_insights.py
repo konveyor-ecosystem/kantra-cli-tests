@@ -58,3 +58,5 @@ def test_custom_rules(analysis_data, analysis_mode):
                     'Properties file (Insights TC1)', 'Properties file (Insights TC2)'):
                     # Assert insight occurrence is > 0 for each insight
                     assert len(insight['incidents']) > 0, "No insights were generated"
+                else:
+                    assert insight['description'] is not 'Properties file (Insights TC3', "Bug MTA-3352 Insight incorrectly generated"
