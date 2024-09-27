@@ -22,7 +22,7 @@ def test_insights_binary_app(analysis_data):
     assert 'generating static report' in output
     assert_insights_from_report_file()
 
-# Polarion TC 3503, 3504, 3505, 3506
+# Polarion TC 576, 577, 578, 589, 606
 @pytest.mark.parametrize('analysis_mode', ["source-only", "full"])
 def test_insights_custom_rules_bug_mta_3352(analysis_data, analysis_mode):
     application_data = analysis_data['tackle-testapp-project']
