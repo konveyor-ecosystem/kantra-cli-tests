@@ -23,3 +23,13 @@
   when:
     builtin.file:
       pattern: "^.*\\.properties$"
+- ruleID: discover-properties-file-TC3
+  description: "Properties file (Insights TC3)"
+  labels:
+  - konveyor.io/target=discovery
+  tag: ["Properties File (Insights TC3)"]
+  message: Found properties file, Insight muts not be created
+  effort: 1
+  when:
+    builtin.file:
+      pattern: "^.*\\.properties$"

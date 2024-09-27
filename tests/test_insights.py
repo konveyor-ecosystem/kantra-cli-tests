@@ -24,7 +24,7 @@ def test_insights_binary_app(analysis_data):
 
 # Polarion TC 3503, 3504, 3505, 3506
 @pytest.mark.parametrize('analysis_mode', ["source-only", "full"])
-def test_custom_rules(analysis_data, analysis_mode):
+def test_insights_custom_rules_bug_mta_3352(analysis_data, analysis_mode):
     application_data = analysis_data['tackle-testapp-project']
     custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/yaml',
         'custom_rule_insights.yaml')
@@ -59,4 +59,5 @@ def test_custom_rules(analysis_data, analysis_mode):
                     # Assert insight occurrence is > 0 for each insight
                     assert len(insight['incidents']) > 0, "No insights were generated"
                 else:
-                    assert insight['description'] is not 'Properties file (Insights TC3', "Bug MTA-3352 Insight incorrectly generated"
+                    assert insight['description'] != 'Properties file (Insights TC3)', \
+                        "Insight incorrectly generated"
