@@ -7,7 +7,7 @@ from utils.report import assert_story_points_from_report_file, get_json_from_rep
 
 
 # Polarion TC MTA-533, MTA-544
-def bug_mta_3661_test_go_provider_analysis_with_app(golang_analysis_data):
+def test_go_provider_analysis_with_app_bug_mta_3661(golang_analysis_data):
     application_data = golang_analysis_data['golang_app']
     custom_rules_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/yaml', 'golang-dep-rules.yaml')
 
