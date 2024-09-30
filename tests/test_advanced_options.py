@@ -120,5 +120,5 @@ def test_no_container_leftovers(analysis_data):
     leftover_output = leftover.stdout.strip()
 
     for line in leftover_output.splitlines():
-        assert not line.startswith("analysis-"), f"Found a leftover container with name: {line}"
-        assert not line.startswith("provider-"), f"Found a leftover container with name: {line}"
+        assert "analysis-" not in line, f"Found a leftover analysis container: \n{line}"
+        assert "provider-" not in line, f"Found a leftover provider container: \n {line}"
