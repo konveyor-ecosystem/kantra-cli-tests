@@ -116,10 +116,9 @@ def test_no_container_leftovers(analysis_data):
 
     process.wait()
 
-    leftover = subprocess.run("podman ps | grep -v CONTAINER", shell=True, stdout=subprocess.PIPE, encoding='utf-8')
+    leftover = subprocess.run("podman ps", shell=True, stdout=subprocess.PIPE, encoding='utf-8')
     leftover_output = leftover.stdout.strip()
 
-    # assert len(leftover_output) == 0, "Output has non-zero length"
     for line in leftover_output.splitlines():
         assert not line.startswith("analysis-"), f"Found a leftover container with name: {line}"
         assert not line.startswith("provider-"), f"Found a leftover container with name: {line}"
