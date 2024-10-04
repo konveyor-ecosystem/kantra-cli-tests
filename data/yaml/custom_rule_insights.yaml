@@ -1,3 +1,4 @@
+# zero effort, tag defined, message undefined; Insight must be created
 - ruleID: discover-properties-file-TC0
   description: "Properties file (Insights TC0)"
   labels:
@@ -6,6 +7,8 @@
   when:
     builtin.file:
       pattern: "^.*\\.properties$"
+
+# zero effort, tag and message defined; Insight must be created
 - ruleID: discover-properties-file-TC1
   description: "Properties file (Insights TC1)"
   labels:
@@ -15,20 +18,24 @@
   when:
     builtin.file:
       pattern: "^.*\\.properties$"
+
+# zero effort, tag undefined, message defined; Insight must be created
 - ruleID: discover-properties-file-TC2
   description: "Properties file (Insights TC2)"
   labels:
   - konveyor.io/target=discovery
-  message: Found properties file ruleID discover-properties-file-TC2
+  message: Found properties file
   when:
     builtin.file:
       pattern: "^.*\\.properties$"
+
+# non-zero_effort, tag and message defined; Insight must not be created
 - ruleID: discover-properties-file-TC3
   description: "Properties file (Insights TC3)"
   labels:
   - konveyor.io/target=discovery
   tag: ["Properties File (Insights TC3)"]
-  message: Found properties file, Insight muts not be created
+  message: Found properties file, Insight must not be created
   effort: 1
   when:
     builtin.file:
