@@ -46,3 +46,14 @@ def test_list_sources_duplicates():
 
     sources = str.split(output, "\n")
     assert len(sources) == len(set(sources))
+
+
+# Polarion TC MTA-596
+def test_list_providers():
+    kantra_path = os.getenv(constants.KANTRA_CLI_PATH)
+    command = kantra_path + ' analyze --list-providers'
+
+    output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
+
+    for i in ['java', 'python', 'go', 'dotnet', 'nodejs']:
+        assert i in output, f"Provider '{i}' not found in output."
