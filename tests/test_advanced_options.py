@@ -79,12 +79,17 @@ def test_bulk_analysis(analysis_data):
         assert len(current_report['rulesets']) >= 0, "No rulesets were applied"
         assert len(current_report['depItems']) >= 0, "No dependencies were found"
         violations = [item for item in current_report['rulesets'] if item.get('violations')]
-        assert len(violations) > 0, "No issues were found";
+        assert len(violations) > 0, "No issues were found"
+
 
 # Validation for Jira ticket MTA-3779
 def test_analysis_of_private_repo(analysis_data):
     application_data = analysis_data['tackle-testapp-public']
-    custom_maven_settings = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/xml', 'tackle-testapp-public-settings.xml')
+    custom_maven_settings = os.path.join(
+        os.getenv(constants.PROJECT_PATH),
+        'data/xml',
+        'tackle-testapp-public-settings.xml'
+    )
     manage_credentials_in_maven_xml(custom_maven_settings)
     command = build_analysis_command(
         application_data['file_name'],
@@ -101,6 +106,7 @@ def test_analysis_of_private_repo(analysis_data):
     assert len(violations) > 1, "Expected issues are missing";
 
     manage_credentials_in_maven_xml(custom_maven_settings, True)
+
 
 def test_no_container_leftovers(analysis_data):
     application_data = analysis_data['jee_example_app']
