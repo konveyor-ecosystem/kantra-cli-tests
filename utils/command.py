@@ -1,5 +1,4 @@
 import os
-import platform
 
 from utils import constants
 
@@ -50,7 +49,5 @@ def build_analysis_command(binary_name, source, target, is_bulk=False, **kwargs)
         if value:
             command += ' ' + value
 
-    if platform.system() != 'Windows':
-        command += ' 2>&1 | grep -vi ".metadata"'
     print(command)
     return command
