@@ -5,7 +5,7 @@ import time
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.common import with_run_local_parametrize
+from utils.common import run_containerless_parametrize
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
 
@@ -59,7 +59,8 @@ def test_custom_rules(analysis_data):
     assert 'weblogic-xml-custom-rule' in ruleset['violations'], "weblogic-xml-custom-rule triggered no violations"
 
 
-def test_bulk_analysis(analysis_data):
+@run_containerless_parametrize
+def test_bulk_analysis(analysis_data, additional_args):
     applications = [analysis_data['administracion_efectivo'], analysis_data['jee_example_app']]
     clearReportDir()
 
@@ -84,7 +85,7 @@ def test_bulk_analysis(analysis_data):
 
 
 # Validation for Jira ticket MTA-3779
-@with_run_local_parametrize
+@run_containerless_parametrize
 def test_analysis_of_private_repo(analysis_data, additional_args):
     application_data = analysis_data['tackle-testapp-public']
     custom_maven_settings = os.path.join(

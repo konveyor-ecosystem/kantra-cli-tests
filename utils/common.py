@@ -28,13 +28,14 @@ def extract_zip_to_temp_dir(application_path):
 
     yield tempdir.name
 
-def with_run_local_parametrize(func):
+def run_containerless_parametrize(func):
     @pytest.mark.parametrize(
         "additional_args",
         [
-            {"--run-local": "false"},  # Running in container mode
-            {"--run-local": "true"}   # Running without container
-        ]
+            {"--run-local=true": None},  # Running in container mode
+            {"--run-local=false": None}  # Running without container
+        ],
+        ids=lambda args: next(iter(args.keys()))  # Customizing output for better readability
     )
     @wraps(func)
     def wrapper(*args, **kwargs):

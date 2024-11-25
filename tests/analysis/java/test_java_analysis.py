@@ -6,19 +6,22 @@ import pytest
 
 from utils import constants
 from utils.command import build_analysis_command
+from utils.common import run_containerless_parametrize
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
 
-
+@run_containerless_parametrize
 @pytest.mark.parametrize('app_name', json.load(open("data/analysis.json")))
-def test_standard_analysis(app_name, analysis_data):
+def test_standard_analysis(app_name, analysis_data, additional_args):
     application_data = analysis_data[app_name]
+
+    additional_args_list = [f"{key} {value}" for key, value in additional_args.items()]
 
     command = build_analysis_command(
         application_data['file_name'],
         application_data['source'],
         application_data['target']
-    )
+    ) + " " + " ".join(additional_args_list)
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
