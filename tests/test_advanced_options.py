@@ -69,7 +69,8 @@ def test_bulk_analysis(analysis_data, additional_args):
             application['file_name'],
             application['source'],
             application['target'],
-            True
+            True,
+            **additional_args
         )
         output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
@@ -95,14 +96,13 @@ def test_analysis_of_private_repo(analysis_data, additional_args):
     )
     manage_credentials_in_maven_xml(custom_maven_settings)
 
-    additional_args_list = [f"{key} {value}" for key, value in additional_args.items()]
-
     command = build_analysis_command(
         application_data['file_name'],
         application_data['source'],
         application_data['target'],
-        **{'maven-settings': custom_maven_settings}
-    ) + " " + " ".join(additional_args_list)
+        **{'maven-settings': custom_maven_settings},
+        **additional_args
+    )
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
     assert 'generating static report' in output
@@ -120,7 +120,8 @@ def test_no_container_leftovers(analysis_data):
     command = build_analysis_command(
         application_data['file_name'],
         application_data['source'],
-        application_data['target']
+        application_data['target'],
+        **{"--run-local=": "false"} # Checking for container leftovers only if running in container mode
     )
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
 

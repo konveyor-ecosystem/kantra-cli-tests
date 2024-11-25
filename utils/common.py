@@ -32,8 +32,8 @@ def run_containerless_parametrize(func):
     @pytest.mark.parametrize(
         "additional_args",
         [
-            {"--run-local=true": None},  # Running in container mode
-            {"--run-local=false": None}  # Running without container
+            {"--run-local=true": None},  # Running without container
+            {"--run-local=false": None}  # Running in container mode
         ],
         ids=lambda args: next(iter(args.keys()))  # Customizing output for better readability
     )

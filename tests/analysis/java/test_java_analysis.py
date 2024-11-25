@@ -15,13 +15,12 @@ from utils.report import assert_story_points_from_report_file, get_json_from_rep
 def test_standard_analysis(app_name, analysis_data, additional_args):
     application_data = analysis_data[app_name]
 
-    additional_args_list = [f"{key} {value}" for key, value in additional_args.items()]
-
     command = build_analysis_command(
         application_data['file_name'],
         application_data['source'],
-        application_data['target']
-    ) + " " + " ".join(additional_args_list)
+        application_data['target'],
+        **additional_args
+    )
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
