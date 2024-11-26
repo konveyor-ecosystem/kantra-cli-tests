@@ -5,6 +5,7 @@ import time
 
 from utils import constants
 from utils.command import build_analysis_command
+from utils.common import run_containerless_parametrize
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
 
@@ -58,7 +59,8 @@ def test_custom_rules(analysis_data):
     assert 'weblogic-xml-custom-rule' in ruleset['violations'], "weblogic-xml-custom-rule triggered no violations"
 
 
-def test_bulk_analysis(analysis_data):
+@run_containerless_parametrize
+def test_bulk_analysis(analysis_data, additional_args):
     applications = [analysis_data['administracion_efectivo'], analysis_data['jee_example_app']]
     clearReportDir()
 
@@ -67,7 +69,8 @@ def test_bulk_analysis(analysis_data):
             application['file_name'],
             application['source'],
             application['target'],
-            True
+            True,
+            **additional_args
         )
         output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
@@ -83,7 +86,8 @@ def test_bulk_analysis(analysis_data):
 
 
 # Validation for Jira ticket MTA-3779
-def test_analysis_of_private_repo(analysis_data):
+@run_containerless_parametrize
+def test_analysis_of_private_repo(analysis_data, additional_args):
     application_data = analysis_data['tackle-testapp-public']
     custom_maven_settings = os.path.join(
         os.getenv(constants.PROJECT_PATH),
@@ -91,12 +95,15 @@ def test_analysis_of_private_repo(analysis_data):
         'tackle-testapp-public-settings.xml'
     )
     manage_credentials_in_maven_xml(custom_maven_settings)
+
     command = build_analysis_command(
         application_data['file_name'],
         application_data['source'],
         application_data['target'],
-        **{'maven-settings': custom_maven_settings}
+        **{'maven-settings': custom_maven_settings},
+        **additional_args
     )
+
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
     assert 'generating static report' in output
 
@@ -113,7 +120,8 @@ def test_no_container_leftovers(analysis_data):
     command = build_analysis_command(
         application_data['file_name'],
         application_data['source'],
-        application_data['target']
+        application_data['target'],
+        **{"--run-local=": "false"} # Checking for container leftovers only if running in container mode
     )
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
 
