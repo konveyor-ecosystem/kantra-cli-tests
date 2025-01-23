@@ -35,6 +35,9 @@ jobs:
         git clone https://github.com/ibragins/konveyor-cli-deployment.git
         cd konveyor-cli-deployment
         pip install -r requirements.txt
+
+        echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}' >> config.json
+
         .\install_cli.py --upstream true
         dir
 
@@ -42,9 +45,9 @@ jobs:
       run: |
         cp .env.example .env
         
-        echo "KANTRA_CLI_PATH=$GITHUB_WORKSPACE/kantra" >> .env
-        echo "REPORT_OUTPUT_PATH=$GITHUB_WORKSPACE/report" >> .env
-        echo "PROJECT_PATH=$GITHUB_WORKSPACE" >> .env
+        echo "KANTRA_CLI_PATH=${{ github.workspace }}/kantra" >> .env
+        echo "REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
+        echo "PROJECT_PATH=${{ github.workspace }}" >> .env
         
         cat .env
       working-directory: ${{ github.workspace }}
