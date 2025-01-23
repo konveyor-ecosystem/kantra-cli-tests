@@ -33,6 +33,7 @@ jobs:
 
         ./install_cli.py --upstream true
         ln -s ${{ github.workspace }}/kantra $(pwd)/kantra
+        mkdir ${{ github.workspace }}/report
         ls -la
 
     - name: Configure Test Environment Variables
