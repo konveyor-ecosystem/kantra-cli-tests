@@ -36,6 +36,10 @@ jobs:
         cd ..
         chmod +x /home/runner/.kantra/kantra
         ls -la /home/runner/.kantra
+        # Workaround ruleset home
+        mkdir -p /home/runner/.config
+        ln -s /home/runner/.kantra /home/runner/.config/.kantra
+
         #cp /home/runner/.kantra/kantra ${{ github.workspace }}/kantra
         #chmod +x ${{ github.workspace }}/kantra
         #${{ github.workspace }}/kantra --help
