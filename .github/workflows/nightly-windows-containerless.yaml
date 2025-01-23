@@ -65,7 +65,7 @@ jobs:
         pytest -s -k "jee_example_app and not bug"
 
     - name: Save analysis output
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: kantra-outputs
         path: ${{ github.workspace }}/report
