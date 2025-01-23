@@ -1,0 +1,63 @@
+name: Nightly CLI container-less on Linux
+
+on:
+  schedule:
+    - cron: '11 1,13 * * *'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'microsoft'
+        java-version: '21'
+    - run: java --version
+
+    - name: Set up Igor's kantra installer
+      run: |
+        git clone https://github.com/ibragins/konveyor-cli-deployment.git
+        cd konveyor-cli-deployment
+        .\install_cli.py --upstream true
+        dir
+
+    - name: Configure Test Environment Variables
+      run: |
+        cp .env.example .env
+        
+        > .env
+        echo "KANTRA_CLI_PATH=$GITHUB_WORKSPACE/kantra" >> .env
+        echo "REPORT_OUTPUT_PATH=$GITHUB_WORKSPACE/report" >> .env
+        echo "PROJECT_PATH=$GITHUB_WORKSPACE" >> .env
+        
+        cat .env
+      working-directory: ${{ github.workspace }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run transform tests
+      run: |
+        pytest -s -k "transform and not bug"
+
+    - name: Run common option tests
+      run: |
+        pytest -s -k "common and not bug"
+
+    - name: Run advanced option tests
+      run: |
+        pytest -k "advanced and not bug"
+
+    - name: Run simple standard analysis test
+      run: |
+        pytest -s -k "jee_example_app and not bug"
+
+    - name: Save analysis output
+      uses: actions/upload-artifact@v2
+      with:
+        name: kantra-outputs
+        path: ${{ github.workspace }}/report
