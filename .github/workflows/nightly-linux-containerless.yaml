@@ -45,7 +45,7 @@ jobs:
         mkdir ${{ github.workspace }}/report
         
         > .env
-        echo "KANTRA_CLI_PATH=${{ github.workspace }}//home/runner/.kantra/kantra" >> .env
+        echo "KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
         echo "REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
         echo "PROJECT_PATH=${{ github.workspace }}" >> .env
         
