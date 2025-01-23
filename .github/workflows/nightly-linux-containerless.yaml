@@ -32,7 +32,8 @@ jobs:
         echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}' >> config.json
 
         ./install_cli.py --upstream true
-        ln -s ${{ github.workspace }}/kantra $(pwd)/kantra
+        ls -la /home/runner/.kantra
+        ln -s /home/runner/.kantra/kantra $(pwd)/kantra
         mkdir ${{ github.workspace }}/report
         ls -la
 

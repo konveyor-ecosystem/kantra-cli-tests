@@ -38,7 +38,7 @@ jobs:
 
         echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}' >> config.json
 
-        .\install_cli.py --upstream true
+        python install_cli.py --upstream true
         dir
 
     - name: Configure Test Environment Variables
