@@ -1,8 +1,16 @@
-name: Nightly CLI container-less on Linux
+name: CLI container-less on Linux
 
 on:
   schedule:
-    - cron: '11 1,13 * * *'
+    - cron: '12 1,13 * * *'
+  pull_request:
+    branches: [ "main" ]
+    paths-ignore:
+      - '**.md'
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - '**.md'
 
 jobs:
   build:
