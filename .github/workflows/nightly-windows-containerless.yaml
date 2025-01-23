@@ -55,6 +55,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+        mkdir ${{ github.workspace }}\report
 
     - name: Run transform tests
       run: |

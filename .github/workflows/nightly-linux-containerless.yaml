@@ -33,8 +33,7 @@ jobs:
 
         ./install_cli.py --upstream true
         ls -la /home/runner/.kantra
-        ln -s /home/runner/.kantra/kantra $(pwd)/kantra
-        mkdir ${{ github.workspace }}/report
+        cp /home/runner/.kantra/kantra ${{ github.workspace }}/kantra
         ls -la
 
     - name: Configure Test Environment Variables
@@ -53,6 +52,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+        mkdir ${{ github.workspace }}/report
 
     - name: Run transform tests
       run: |
