@@ -30,11 +30,14 @@ jobs:
         cd konveyor-cli-deployment
         pip install -r requirements.txt
         echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}' >> config.json
+        cat config.json
 
         ./install_cli.py --upstream true
         ls -la /home/runner/.kantra
         cp /home/runner/.kantra/kantra ${{ github.workspace }}/kantra
+        chmod +x ${{ github.workspace }}/kantra
         ls -la
+        ${{ github.workspace }}/kantra --help
 
     - name: Configure Test Environment Variables
       run: |
