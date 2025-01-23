@@ -28,6 +28,7 @@ jobs:
       run: |
         git clone https://github.com/ibragins/konveyor-cli-deployment.git
         cd konveyor-cli-deployment
+        pip install -r requirements.txt
         ./install_cli.py --upstream true
         ln -s $GITHUB_WORKSPACE/kantra $(pwd)/kantra
         ls -la
