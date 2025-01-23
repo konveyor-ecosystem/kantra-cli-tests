@@ -33,18 +33,19 @@ jobs:
         cat config.json
 
         ./install_cli.py --upstream true
+        cd ..
         ls -la /home/runner/.kantra
-        cp /home/runner/.kantra/kantra ${{ github.workspace }}/kantra
-        chmod +x ${{ github.workspace }}/kantra
-        ls -la
-        ${{ github.workspace }}/kantra --help
+        #cp /home/runner/.kantra/kantra ${{ github.workspace }}/kantra
+        #chmod +x ${{ github.workspace }}/kantra
+        #${{ github.workspace }}/kantra --help
 
     - name: Configure Test Environment Variables
       run: |
         cp .env.example .env
+        mkdir ${{ github.workspace }}/report
         
         > .env
-        echo "KANTRA_CLI_PATH=${{ github.workspace }}/kantra" >> .env
+        echo "KANTRA_CLI_PATH=${{ github.workspace }}//home/runner/.kantra/kantra" >> .env
         echo "REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
         echo "PROJECT_PATH=${{ github.workspace }}" >> .env
         
@@ -55,7 +56,6 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-        mkdir ${{ github.workspace }}/report
 
     - name: Run transform tests
       run: |
