@@ -1,19 +1,23 @@
 name: CLI container-less on Linux
 
 on:
-  schedule:
-    - cron: '11 1,13 * * *'
-  pull_request:
-    branches: [ "main" ]
-    paths-ignore:
-      - '**.md'
-  push:
-    branches: [ "main" ]
-    paths-ignore:
-      - '**.md'
+  workflow_call:
+    inputs:
+      tag:
+        description: |
+          Tag release
+        required: false
+        type: string
+        default: latest
+      tier:
+        description: |
+          Test TIER name
+        required: false
+        type: string
+        default: TIER0
 
 jobs:
-  build:
+  linux-containerless:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,19 +34,14 @@ jobs:
         cd konveyor-cli-deployment
         pip install -r requirements.txt
         echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}' >> config.json
-        cat config.json
+
+        # Workaround ruleset home (?)
+        mkdir -p /home/runner/.config
 
         ./install_cli.py --upstream true
         cd ..
         chmod +x /home/runner/.kantra/kantra
-        ls -la /home/runner/.kantra
-        # Workaround ruleset home
-        mkdir -p /home/runner/.config
-        ln -s /home/runner/.kantra /home/runner/.config/.kantra
-
-        #cp /home/runner/.kantra/kantra ${{ github.workspace }}/kantra
-        #chmod +x ${{ github.workspace }}/kantra
-        #${{ github.workspace }}/kantra --help
+        /home/runner/.kantra/kantra --help
 
     - name: Configure Test Environment Variables
       run: |
@@ -55,9 +54,12 @@ jobs:
         echo "PROJECT_PATH=${{ github.workspace }}" >> .env
         
         cat .env
+
+        # Set test tier to ENV variable (could be changed)
+        export ${{ inputs.tier }}=1
       working-directory: ${{ github.workspace }}
 
-    - name: Install dependencies
+    - name: Install test dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt

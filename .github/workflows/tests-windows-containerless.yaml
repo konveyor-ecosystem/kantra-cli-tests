@@ -1,19 +1,23 @@
 name: CLI container-less on Windows
 
 on:
-  schedule:
-    - cron: '12 1,13 * * *'
-  pull_request:
-    branches: [ "main" ]
-    paths-ignore:
-      - '**.md'
-  push:
-    branches: [ "main" ]
-    paths-ignore:
-      - '**.md'
+  workflow_call:
+    inputs:
+      tag:
+        description: |
+          Tag release
+        required: false
+        type: string
+        default: latest
+      tier:
+        description: |
+          Test TIER name
+        required: false
+        type: string
+        default: TIER0
 
 jobs:
-  build:
+  windows-containerless:
     runs-on: windows-latest
 
     steps:
@@ -36,26 +40,26 @@ jobs:
         cd konveyor-cli-deployment
         pip install -r requirements.txt
 
-        #echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}\n' >> config.json
-        # Error parsing json, trying just dummy example file
+        # Error parsing json, trying just dummy example file, might be OK for upstream
         cp config.json.example config.json
 
+        # TODO: Use ${{ inputs.tag }} to specify required kantra version
         python install_cli.py --upstream true
-        dir
-        kantra
+        C:\Users\runneradmin\.kantra --help
 
     - name: Configure Test Environment Variables
       run: |
         cp .env.example .env
         
-        echo "KANTRA_CLI_PATH=${{ github.workspace }}\kantra" >> .env
+        echo "KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra" >> .env
         echo "REPORT_OUTPUT_PATH=${{ github.workspace }}\report" >> .env
         echo "PROJECT_PATH=${{ github.workspace }}" >> .env
-        
-        cat .env
+
+        # Set test tier to ENV variable (could be changed)
+        set ${{ inputs.tier }}=1
       working-directory: ${{ github.workspace }}
 
-    - name: Install dependencies
+    - name: Install test dependencies
       run: |
         pip install -r requirements.txt
         mkdir ${{ github.workspace }}\report

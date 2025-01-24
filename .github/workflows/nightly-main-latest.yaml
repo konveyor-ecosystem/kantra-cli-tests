@@ -1,0 +1,12 @@
+name: Nightly CLI test suite for main tests branch and latest kantra
+
+on:
+  schedule:
+    - cron: '12 1,13 * * *'
+
+jobs:
+  test-suite:
+    uses: ./.github/workflows/test-suite.yaml
+    with:
+      tag: latest
+      tier: TIER0

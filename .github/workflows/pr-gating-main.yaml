@@ -1,0 +1,18 @@
+name: PR/push CLI test suite for main tests branch and latest kantra
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths-ignore:
+      - '**.md'
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  test-suite:
+    uses: ./.github/workflows/test-suite.yaml
+    with:
+      tag: latest
+      tier: TIER0
