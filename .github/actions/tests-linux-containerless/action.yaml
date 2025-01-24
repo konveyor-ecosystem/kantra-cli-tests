@@ -1,87 +1,73 @@
 name: CLI container-less on Linux
 
-on:
-  workflow_call:
-    inputs:
-      tag:
-        description: |
-          Tag release
-        required: false
-        type: string
-        default: latest
-      tier:
-        description: |
-          Test TIER name
-        required: false
-        type: string
-        default: TIER0
+inputs:
+  tag:
+    description: |
+      Tag release
+    required: false
+    type: string
+    default: latest
+  tier:
+    description: |
+      Test TIER name
+    required: false
+    type: string
+    default: TIER0
 
-jobs:
-  linux-containerless:
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-java@v4
-      with:
-        distribution: 'microsoft'
-        java-version: '21'
-    - run: java --version
-
-    - name: Set up Igor's kantra installer
-      run: |
-        git clone https://github.com/ibragins/konveyor-cli-deployment.git
-        cd konveyor-cli-deployment
-        pip install -r requirements.txt
-        echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}' >> config.json
-
-        # Workaround ruleset home (?)
-        mkdir -p /home/runner/.config
-
-        ./install_cli.py --upstream true
-        cd ..
-        chmod +x /home/runner/.kantra/kantra
-        /home/runner/.kantra/kantra --help
-
-    - name: Configure Test Environment Variables
-      run: |
-        cp .env.example .env
-        mkdir ${{ github.workspace }}/report
-        
-        > .env
-        echo "KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
-        echo "REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
-        echo "PROJECT_PATH=${{ github.workspace }}" >> .env
-        
-        cat .env
-
-        # Set test tier to ENV variable (could be changed)
-        export ${{ inputs.tier }}=1
-      working-directory: ${{ github.workspace }}
-
-    - name: Install test dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
-    - name: Run transform tests
-      run: |
-        pytest -s -k "transform and not bug"
-
-    - name: Run common option tests
-      run: |
-        pytest -s -k "common and not bug"
-
-    - name: Run advanced option tests
-      run: |
-        pytest -k "advanced and not bug"
-
-    - name: Run simple standard analysis test
-      run: |
-        pytest -s -k "jee_example_app and not bug"
-
-    - name: Save analysis output
-      uses: actions/upload-artifact@v4
-      with:
-        name: kantra-outputs
-        path: ${{ github.workspace }}/report
+runs:
+  #linux-containerless:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v4
+   - uses: actions/setup-java@v4
+     with:
+       distribution: 'microsoft'
+       java-version: '21'
+   - run: java --version
+   - name: Set up Igor's kantra installer
+     run: |
+       git clone https://github.com/ibragins/konveyor-cli-deployment.git
+       cd konveyor-cli-deployment
+       pip install -r requirements.txt
+       echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}' >> config.json
+       # Workaround ruleset home (?)
+       mkdir -p /home/runner/.config
+       ./install_cli.py --upstream true
+       cd ..
+       chmod +x /home/runner/.kantra/kantra
+       /home/runner/.kantra/kantra --help
+   - name: Configure Test Environment Variables
+     run: |
+       cp .env.example .env
+       mkdir ${{ github.workspace }}/report
+       
+       > .env
+       echo "KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
+       echo "REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
+       echo "PROJECT_PATH=${{ github.workspace }}" >> .env
+       
+       cat .env
+       # Set test tier to ENV variable (could be changed)
+       export ${{ inputs.tier }}=1
+     working-directory: ${{ github.workspace }}
+   - name: Install test dependencies
+     run: |
+       python -m pip install --upgrade pip
+       pip install -r requirements.txt
+   - name: Run transform tests
+     run: |
+       pytest -s -k "transform and not bug"
+   - name: Run common option tests
+     run: |
+       pytest -s -k "common and not bug"
+   - name: Run advanced option tests
+     run: |
+       pytest -k "advanced and not bug"
+   - name: Run simple standard analysis test
+     run: |
+       pytest -s -k "jee_example_app and not bug"
+   - name: Save analysis output
+     uses: actions/upload-artifact@v4
+     with:
+       name: kantra-outputs
+       path: ${{ github.workspace }}/report

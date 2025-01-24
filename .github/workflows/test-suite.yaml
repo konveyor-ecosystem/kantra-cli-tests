@@ -32,7 +32,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Linux container-less tests
-      uses: ./tests-linux-containerless
+      uses: ./.github/actions/tests-linux-containerless
       with:
         tag: ${{ inputs.tag }}
         tier: ${{ inputs.tier }}
