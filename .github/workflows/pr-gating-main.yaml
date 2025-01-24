@@ -12,7 +12,7 @@ on:
 
 jobs:
   test-suite:
-    uses: aufi/kantra-cli-tests/.github/actions/test-suite@basic-workflows # Replace with konveyor-ecosystem (cannot do checkout before for different OSs)
+    uses: aufi/kantra-cli-tests/.github/actions/test-suite/action.yaml@basic-workflows # Replace with konveyor-ecosystem (cannot do checkout before for different OSs)
     with:
       tag: latest
       tier: TIER0
