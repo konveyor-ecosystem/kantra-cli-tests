@@ -17,28 +17,28 @@ on:
         default: TIER0
 
 jobs:
-  test-suite-windows-containerless:
+  tests-windows-containerless:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v4
     - name: Windows container-less tests
-      uses: ./.github/actions/tests-windows-containerless.yaml
+      uses: ./.github/workflows/tests-windows-containerless.yaml
       with:
         tag: ${{ inputs.tag }}
         tier: ${{ inputs.tier }}
 
-  test-suite-linux-containerless:
+  tests-linux-containerless:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Linux container-less tests
-      uses: ./tests-linux-containerless.yaml
+      uses: ./.github/workflows/tests-linux-containerless.yaml
       with:
         tag: ${{ inputs.tag }}
         tier: ${{ inputs.tier }}
 
 
-  #test-suite-linux-containers:
+  #tests-linux-containers:
   #  runs-on: ubuntu-latest
   #  steps:
   #  - name: Linux container-less tests
