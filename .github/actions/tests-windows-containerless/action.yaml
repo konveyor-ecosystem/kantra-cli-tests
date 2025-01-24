@@ -1,4 +1,5 @@
 name: CLI container-less on Windows
+
 inputs:
   tag:
     description: |
@@ -45,7 +46,7 @@ runs:
     run: |
       cp .env.example .env
       
-      echo "KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra" >> .env
+      echo "KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\kantra" >> .env
       echo "REPORT_OUTPUT_PATH=${{ github.workspace }}\report" >> .env
       echo "PROJECT_PATH=${{ github.workspace }}" >> .env
       # Set test tier to ENV variable (could be changed)
