@@ -40,7 +40,7 @@ runs:
       cp config.json.example config.json
       REM TODO: Use ${{ inputs.tag }} to specify required kantra version
       python install_cli.py --upstream true
-      C:\Users\runneradmin\.kantra --help
+      C:\Users\runneradmin\.kantra\kantra --help
   - name: Configure Test Environment Variables
     shell: cmd
     run: |
