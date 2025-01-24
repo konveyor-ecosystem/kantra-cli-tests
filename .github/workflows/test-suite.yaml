@@ -38,11 +38,11 @@ jobs:
         tier: ${{ inputs.tier }}
 
 
-  #tests-linux-containers:
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #  - name: Linux container-less tests
-  #    uses: ./tests-linux-containers.yaml
-  #    with:
-  #      tag: ${{ inputs.tag }}
-  #      tier: ${{ inputs.tier }}
+  tests-linux-containers:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Linux containers tests
+      uses: ./.github/actions/tests-linux-containers
+      with:
+        tag: ${{ inputs.tag }}
+        tier: ${{ inputs.tier }}
