@@ -41,6 +41,7 @@ jobs:
   tests-linux-containers:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v4
     - name: Linux containers tests
       uses: ./.github/actions/tests-linux-containers
       with:
