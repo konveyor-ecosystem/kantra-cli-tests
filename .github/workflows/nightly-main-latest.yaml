@@ -1,4 +1,4 @@
-name: Nightly CLI test suite for main tests branch and latest kantra
+name: Nightly CLI test suite for main branch and latest kantra
 
 on:
   schedule:
