@@ -36,9 +36,9 @@ runs:
       git clone https://github.com/ibragins/konveyor-cli-deployment.git
       cd konveyor-cli-deployment
       pip install -r requirements.txt
-      # Error parsing json, trying just dummy example file, might be OK for upstream
+      REM Error parsing json, trying just dummy example file, might be OK for upstream
       cp config.json.example config.json
-      # TODO: Use ${{ inputs.tag }} to specify required kantra version
+      REM TODO: Use ${{ inputs.tag }} to specify required kantra version
       python install_cli.py --upstream true
       C:\Users\runneradmin\.kantra --help
   - name: Configure Test Environment Variables
@@ -49,7 +49,7 @@ runs:
       echo "KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\kantra" >> .env
       echo "REPORT_OUTPUT_PATH=${{ github.workspace }}\report" >> .env
       echo "PROJECT_PATH=${{ github.workspace }}" >> .env
-      # Set test tier to ENV variable (could be changed)
+      REM # Set test tier to ENV variable (could be changed)
       set ${{ inputs.tier }}=1
     working-directory: ${{ github.workspace }}
   - name: Install test dependencies
