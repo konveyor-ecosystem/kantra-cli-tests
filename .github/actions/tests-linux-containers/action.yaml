@@ -21,6 +21,7 @@ runs:
   - name: Setup Homebrew
     uses: Homebrew/actions/setup-homebrew@master
   - name: Upgrade podman  # TODO: little strange, copied from kantra demo testing workflow.
+    shell: bash
     run: |
       sudo apt-get install -y ansible
       export DEB=$(curl -s https://passt.top/builds/latest/x86_64/ | grep deb | awk -F '"' '{ print $4}')

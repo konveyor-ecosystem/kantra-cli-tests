@@ -1,8 +1,8 @@
-name: Nightly CLI test suite for main branch and latest kantra
+name: Nightly CLI test for main
 
 on:
   schedule:
-    - cron: '12 1,13 * * *'
+    - cron: '08 1,13 * * *'
 
 jobs:
   test-suite:

@@ -1,4 +1,4 @@
-name: PR/push CLI test suite for main
+name: PR/push CLI tests for main
 
 on:
   pull_request:
