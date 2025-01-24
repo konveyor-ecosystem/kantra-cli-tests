@@ -22,7 +22,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Windows container-less tests
-      uses: ./.github/workflows/tests-windows-containerless.yaml
+      uses: ./../.github/workflows/tests-windows-containerless.yaml
       with:
         tag: ${{ inputs.tag }}
         tier: ${{ inputs.tier }}
@@ -32,7 +32,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Linux container-less tests
-      uses: ./.github/workflows/tests-linux-containerless.yaml
+      uses: ./../.github/workflows/tests-linux-containerless.yaml
       with:
         tag: ${{ inputs.tag }}
         tier: ${{ inputs.tier }}
