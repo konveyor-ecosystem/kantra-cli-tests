@@ -40,13 +40,14 @@ runs:
       cp config.json.example config.json
       REM TODO: Use ${{ inputs.tag }} to specify required kantra version
       python install_cli.py --upstream true
-      dir C:\Users\runneradmin\.kantra\
+      C:\Users\runneradmin\.kantra\windows-kantra.exe --help
+
   - name: Configure Test Environment Variables
     shell: cmd
     run: |
       cp .env.example .env
       
-      echo "KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\kantra" >> .env
+      echo "KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe" >> .env
       echo "REPORT_OUTPUT_PATH=${{ github.workspace }}\report" >> .env
       echo "PROJECT_PATH=${{ github.workspace }}" >> .env
       REM # Set test tier to ENV variable (could be changed)

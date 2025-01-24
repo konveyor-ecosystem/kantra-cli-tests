@@ -37,6 +37,7 @@ runs:
       cd ..
       chmod +x /home/runner/.kantra/kantra
       /home/runner/.kantra/kantra --help
+
   - name: Configure Test Environment Variables
     shell: bash
     run: |
