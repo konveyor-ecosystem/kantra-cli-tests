@@ -36,7 +36,7 @@ runs:
       git clone https://github.com/ibragins/konveyor-cli-deployment.git
       cd konveyor-cli-deployment
       pip install -r requirements.txt
-      echo '{}' >> config.json
+      echo '{"misc_downstream_path": "","temp_dir": "","extract_binary": "","get_images_output": "","bundle": "","no_brew": "","ssh_user": "","ssh_key": ""}' >> config.json
       # Workaround ruleset home (?)
       mkdir -p /home/runner/.config
       ./install_cli.py --upstream true
