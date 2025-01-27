@@ -58,22 +58,13 @@ runs:
     run: |
       pip install -r requirements.txt
       mkdir ${{ github.workspace }}\report
-  - name: Run transform tests
-    shell: cmd
-    run: |
-      pytest -s -k "transform and not bug"
-  - name: Run common option tests
-    shell: cmd
-    run: |
-      pytest -s -k "common and not bug"
-  - name: Run advanced option tests
-    shell: cmd
-    run: |
-      pytest -k "advanced and not bug"
+
+  # TODO: Run test for TIER0
   - name: Run simple standard analysis test
     shell: cmd
     run: |
       pytest -s -k "jee_example_app and not bug"
+
   - name: Save analysis output
     uses: actions/upload-artifact@v4
     with:

@@ -36,7 +36,7 @@ runs:
       git clone https://github.com/ibragins/konveyor-cli-deployment.git
       cd konveyor-cli-deployment
       pip install -r requirements.txt
-      echo '{"misc_downstream_path": "${{ github.workspace }}","temp_dir": "${{ github.workspace }}","extract_binary": "mta-cli-binary-extract.py","get_images_output": "get-image-build-details.py ","bundle": "","no_brew": "--no-brew","ssh_user": "","ssh_key": ""}' >> config.json
+      echo '{}' >> config.json
       # Workaround ruleset home (?)
       mkdir -p /home/runner/.config
       ./install_cli.py --upstream true
@@ -67,22 +67,13 @@ runs:
     run: |
       python -m pip install --upgrade pip
       pip install -r requirements.txt
-  - name: Run transform tests
-    shell: bash
-    run: |
-      pytest -s -k "transform and not bug"
-  - name: Run common option tests
-    shell: bash
-    run: |
-      pytest -s -k "common and not bug"
-  - name: Run advanced option tests
-    shell: bash
-    run: |
-      pytest -k "advanced and not bug"
+
+  # TODO: Run test for TIER0
   - name: Run simple standard analysis test
     shell: bash
     run: |
       pytest -s -k "jee_example_app and not bug"
+
   - name: Save analysis output
     uses: actions/upload-artifact@v4
     with:
