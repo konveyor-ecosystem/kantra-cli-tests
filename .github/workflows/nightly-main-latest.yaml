@@ -1,0 +1,12 @@
+name: Nightly CLI test for main
+
+on:
+  schedule:
+    - cron: '08 1,13 * * *'
+
+jobs:
+  test-suite:
+    uses: aufi/kantra-cli-tests/.github/workflows/test-suite.yaml@basic-workflows # Replace with konveyor-ecosystem (cannot do checkout before for different OSs)
+    with:
+      tag: latest
+      tier: TIER0

@@ -1,0 +1,49 @@
+name: CLI test suite
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: |
+          Tag release
+        required: false
+        type: string
+        default: latest
+      tier:
+        description: |
+          Test TIER name
+        required: false
+        type: string
+        default: TIER0
+
+jobs:
+  tests-windows-containerless:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Windows container-less tests
+      uses: ./.github/actions/tests-windows-containerless
+      with:
+        tag: ${{ inputs.tag }}
+        tier: ${{ inputs.tier }}
+
+  tests-linux-containerless:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Linux container-less tests
+      uses: ./.github/actions/tests-linux-containerless
+      with:
+        tag: ${{ inputs.tag }}
+        tier: ${{ inputs.tier }}
+
+
+  tests-linux-containers:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Linux containers tests
+      uses: ./.github/actions/tests-linux-containers
+      with:
+        tag: ${{ inputs.tag }}
+        tier: ${{ inputs.tier }}
