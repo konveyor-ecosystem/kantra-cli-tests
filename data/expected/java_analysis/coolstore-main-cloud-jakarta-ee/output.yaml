@@ -349,15 +349,15 @@
           package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: 11   * This code is distributed in the hope that it will be useful,
           but WITHOUT
-        lineNumber: 53
+        lineNumber: 532
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
         uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/AnyImpl.java
         variables:
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/AnyImpl.java
-          kind: Class
-          name: AnyImpl
+          kind: Method
+          name: create_output_stream
           package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: '41  import org.jboss.com.sun.corba.se.impl.encoding.EncapsOutputStream;
 
@@ -425,6 +425,30 @@
           59  import org.omg.CORBA.portable.OutputStream;\n60  import org.omg.CORBA.portable.Streamable;\n\
           61  \n62  // subclasses must provide a matching helper class"
         lineNumber: 52
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/AnyImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/AnyImpl.java
+          kind: Class
+          name: AnyImpl
+          package: org.jboss.com.sun.corba.se.impl.corba
+      - codeSnip: "43  import org.jboss.com.sun.corba.se.impl.logging.ORBUtilSystemException;\n\
+          44  import org.jboss.com.sun.corba.se.impl.orbutil.ORBUtility;\n45  import\
+          \ org.jboss.com.sun.corba.se.impl.orbutil.RepositoryIdFactory;\n46  import\
+          \ org.jboss.com.sun.corba.se.impl.orbutil.RepositoryIdStrings;\n47  import\
+          \ org.jboss.com.sun.corba.se.spi.logging.CORBALogDomains;\n48  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n\
+          49  import org.jboss.com.sun.corba.se.spi.orb.ORBVersionFactory;\n50  import\
+          \ org.jboss.com.sun.corba.se.spi.presentation.rmi.StubAdapter;\n51  import\
+          \ org.omg.CORBA.Any;\n52  import org.omg.CORBA.CompletionStatus;\n53  import\
+          \ org.omg.CORBA.Principal;\n54  import org.omg.CORBA.TCKind;\n55  import\
+          \ org.omg.CORBA.TypeCode;\n56  import org.omg.CORBA.TypeCodePackage.BadKind;\n\
+          57  import org.omg.CORBA.TypeCodePackage.Bounds;\n58  import org.omg.CORBA.portable.InputStream;\n\
+          59  import org.omg.CORBA.portable.OutputStream;\n60  import org.omg.CORBA.portable.Streamable;\n\
+          61  \n62  // subclasses must provide a matching helper class\n63  @SuppressWarnings(\"\
+          deprecation\")"
+        lineNumber: 53
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -636,26 +660,6 @@
           kind: Class
           name: AnyImpl
           package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: "522      }\n523  \n524      // /////////////////////////////////////////////////////////////////////////\n\
-          525      // accessors for marshaling/unmarshaling\n526  \n527      /**\n\
-          528       * returns an output stream that an Any value can be marshaled\
-          \ into.\n529       * \n530       * @result the OutputStream to marshal value\
-          \ of Any into\n531       */\n532      public org.omg.CORBA.portable.OutputStream\
-          \ create_output_stream()\n533      {\n534          // debug.log (\"create_output_stream\"\
-          );\n535          return new AnyOutputStream(orb);\n536      }\n537  \n538\
-          \      /**\n539       * returns an input stream that an Any value can be\
-          \ marshaled out of.\n540       * \n541       * @result the InputStream to\
-          \ marshal value of Any out of.\n542       */"
-        lineNumber: 532
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/AnyImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/AnyImpl.java
-          kind: Method
-          name: create_output_stream
-          package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: "533      {\n534          // debug.log (\"create_output_stream\"\
           );\n535          return new AnyOutputStream(orb);\n536      }\n537  \n538\
           \      /**\n539       * returns an input stream that an Any value can be\
@@ -818,15 +822,9 @@
           kind: Constructor
           name: ContextImpl
           package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: "26   * Licensed Materials - Property of IBM\n27   * RMI-IIOP v1.0\n\
-          28   * Copyright IBM Corp. 1998 1999  All Rights Reserved\n29   *\n30  \
-          \ */\n31  \n32  package org.jboss.com.sun.corba.se.impl.corba;\n33  \n34\
-          \  import java.util.Vector;\n35  \n36  import org.omg.CORBA.Bounds;\n37\
-          \  import org.omg.CORBA.ContextList;\n38  \n39  public class ContextListImpl\
-          \ extends ContextList\n40  {\n41      private final int INITIAL_CAPACITY\
-          \ = 2;\n42  \n43      private final int CAPACITY_INCREMENT = 2;\n44  \n\
-          45      private Vector<String> _contexts;\n46  "
-        lineNumber: 36
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 37
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -836,15 +834,15 @@
           kind: Class
           name: ContextListImpl
           package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: "27   * RMI-IIOP v1.0\n28   * Copyright IBM Corp. 1998 1999  All\
-          \ Rights Reserved\n29   *\n30   */\n31  \n32  package org.jboss.com.sun.corba.se.impl.corba;\n\
-          33  \n34  import java.util.Vector;\n35  \n36  import org.omg.CORBA.Bounds;\n\
-          37  import org.omg.CORBA.ContextList;\n38  \n39  public class ContextListImpl\
+      - codeSnip: "26   * Licensed Materials - Property of IBM\n27   * RMI-IIOP v1.0\n\
+          28   * Copyright IBM Corp. 1998 1999  All Rights Reserved\n29   *\n30  \
+          \ */\n31  \n32  package org.jboss.com.sun.corba.se.impl.corba;\n33  \n34\
+          \  import java.util.Vector;\n35  \n36  import org.omg.CORBA.Bounds;\n37\
+          \  import org.omg.CORBA.ContextList;\n38  \n39  public class ContextListImpl\
           \ extends ContextList\n40  {\n41      private final int INITIAL_CAPACITY\
           \ = 2;\n42  \n43      private final int CAPACITY_INCREMENT = 2;\n44  \n\
-          45      private Vector<String> _contexts;\n46  \n47      public ContextListImpl(org.omg.CORBA.ORB\
-          \ orb)"
-        lineNumber: 37
+          45      private Vector<String> _contexts;\n46  "
+        lineNumber: 36
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -2033,26 +2031,6 @@
           kind: Method
           name: member_name
           package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: "1080                  }\n1081                  catch (ArrayIndexOutOfBoundsException\
-          \ e)\n1082                  {\n1083                      throw new org.omg.CORBA.TypeCodePackage.Bounds();\n\
-          1084                  }\n1085              default :\n1086             \
-          \     throw new BadKind();\n1087          }\n1088      }\n1089  \n1090 \
-          \     public TypeCode member_type(int index) throws BadKind, org.omg.CORBA.TypeCodePackage.Bounds\n\
-          1091      {\n1092          switch (_kind)\n1093          {\n1094       \
-          \       case tk_indirect :\n1095                  return indirectType().member_type(index);\n\
-          1096              case TCKind._tk_except :\n1097              case TCKind._tk_struct\
-          \ :\n1098              case TCKind._tk_union :\n1099              case TCKind._tk_value\
-          \ :\n1100                  try"
-        lineNumber: 1090
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-          kind: Method
-          name: member_type
-          package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: "1096              case TCKind._tk_except :\n1097              case\
           \ TCKind._tk_struct :\n1098              case TCKind._tk_union :\n1099 \
           \             case TCKind._tk_value :\n1100                  try\n1101 \
@@ -2064,6 +2042,30 @@
           \     public Any member_label(int index) throws BadKind, org.omg.CORBA.TypeCodePackage.Bounds\n\
           1114      {\n1115          switch (_kind)\n1116          {"
         lineNumber: 1106
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+          kind: Method
+          name: member_type
+          package: org.jboss.com.sun.corba.se.impl.corba
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 33
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+          kind: Class
+          name: TypeCodeImpl
+          package: org.jboss.com.sun.corba.se.impl.corba
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 1090
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -2184,25 +2186,6 @@
           39  import org.omg.CORBA_2_3.portable.OutputStream;\n40  \n41  import org.jboss.com.sun.corba.se.impl.corba.AnyImpl;\n\
           42  import org.jboss.com.sun.corba.se.impl.encoding.CDRInputStream;"
         lineNumber: 32
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-          kind: Class
-          name: TypeCodeImpl
-          package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: "23   * questions.\n24   */\n25  \n26  package org.jboss.com.sun.corba.se.impl.corba;\n\
-          27  \n28  import java.io.ByteArrayOutputStream;\n29  import java.io.PrintStream;\n\
-          30  \n31  import org.omg.CORBA.Any;\n32  import org.omg.CORBA.StructMember;\n\
-          33  import org.omg.CORBA.TCKind;\n34  import org.omg.CORBA.TypeCode;\n35\
-          \  import org.omg.CORBA.UnionMember;\n36  import org.omg.CORBA.ValueMember;\n\
-          37  import org.omg.CORBA.TypeCodePackage.BadKind;\n38  import org.omg.CORBA_2_3.portable.InputStream;\n\
-          39  import org.omg.CORBA_2_3.portable.OutputStream;\n40  \n41  import org.jboss.com.sun.corba.se.impl.corba.AnyImpl;\n\
-          42  import org.jboss.com.sun.corba.se.impl.encoding.CDRInputStream;\n43\
-          \  import org.jboss.com.sun.corba.se.impl.encoding.CDROutputStream;"
-        lineNumber: 33
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -7214,7 +7197,7 @@
           package: org.jboss.com.sun.corba.se.impl.io
       - codeSnip: 11   * This code is distributed in the hope that it will be useful,
           but WITHOUT
-        lineNumber: 72
+        lineNumber: 70
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -7435,27 +7418,6 @@
           kind: Class
           name: IIOPInputStream
           package: org.jboss.com.sun.corba.se.impl.io
-      - codeSnip: "60  import org.jboss.com.sun.corba.se.spi.logging.CORBALogDomains;\n\
-          61  import org.jboss.com.sun.org.omg.CORBA.ValueDefPackage.FullValueDescription;\n\
-          62  import org.jboss.com.sun.org.omg.SendingContext.CodeBase;\n63  import\
-          \ org.jboss.sun.corba.Bridge;\n64  import org.omg.CORBA.CompletionStatus;\n\
-          65  import org.omg.CORBA.MARSHAL;\n66  import org.omg.CORBA.ORB;\n67  import\
-          \ org.omg.CORBA.SystemException;\n68  import org.omg.CORBA.TCKind;\n69 \
-          \ import org.omg.CORBA.TypeCode;\n70  import org.omg.CORBA.ValueMember;\n\
-          71  import org.omg.CORBA.portable.IndirectionException;\n72  import org.omg.CORBA.portable.ValueInputStream;\n\
-          73  \n74  /**\n75   * IIOPInputStream is used by the ValueHandlerImpl to\
-          \ handle Java serialization input semantics.\n76   * \n77   * @author Stephen\
-          \ Lewallen\n78   * @since JDK1.1.6\n79   */\n80  "
-        lineNumber: 70
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/io/IIOPInputStream.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/io/IIOPInputStream.java
-          kind: Class
-          name: IIOPInputStream
-          package: org.jboss.com.sun.corba.se.impl.io
       - codeSnip: "61  import org.jboss.com.sun.org.omg.CORBA.ValueDefPackage.FullValueDescription;\n\
           62  import org.jboss.com.sun.org.omg.SendingContext.CodeBase;\n63  import\
           \ org.jboss.sun.corba.Bridge;\n64  import org.omg.CORBA.CompletionStatus;\n\
@@ -7468,6 +7430,26 @@
           \ Lewallen\n78   * @since JDK1.1.6\n79   */\n80  \n81  public class IIOPInputStream\
           \ extends org.jboss.com.sun.corba.se.impl.io.InputStreamHook"
         lineNumber: 71
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/io/IIOPInputStream.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/io/IIOPInputStream.java
+          kind: Class
+          name: IIOPInputStream
+          package: org.jboss.com.sun.corba.se.impl.io
+      - codeSnip: "62  import org.jboss.com.sun.org.omg.SendingContext.CodeBase;\n\
+          63  import org.jboss.sun.corba.Bridge;\n64  import org.omg.CORBA.CompletionStatus;\n\
+          65  import org.omg.CORBA.MARSHAL;\n66  import org.omg.CORBA.ORB;\n67  import\
+          \ org.omg.CORBA.SystemException;\n68  import org.omg.CORBA.TCKind;\n69 \
+          \ import org.omg.CORBA.TypeCode;\n70  import org.omg.CORBA.ValueMember;\n\
+          71  import org.omg.CORBA.portable.IndirectionException;\n72  import org.omg.CORBA.portable.ValueInputStream;\n\
+          73  \n74  /**\n75   * IIOPInputStream is used by the ValueHandlerImpl to\
+          \ handle Java serialization input semantics.\n76   * \n77   * @author Stephen\
+          \ Lewallen\n78   * @since JDK1.1.6\n79   */\n80  \n81  public class IIOPInputStream\
+          \ extends org.jboss.com.sun.corba.se.impl.io.InputStreamHook\n82  {"
+        lineNumber: 72
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -9574,7 +9556,7 @@
           kind: Class
           name: RequestPartitioningComponentImpl
           package: org.jboss.com.sun.corba.se.impl.ior.iiop
-      - lineNumber: 77
+      - lineNumber: 89
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -9902,6 +9884,57 @@
 
           86  import org.omg.CORBA.MARSHAL;'
         lineNumber: 76
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/javax/rmi/CORBA/Util.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/javax/rmi/CORBA/Util.java
+          kind: Class
+          name: Util
+          package: ''
+      - codeSnip: '67  import org.jboss.com.sun.corba.se.spi.copyobject.CopierManager;
+
+          68  import org.jboss.com.sun.corba.se.spi.copyobject.ObjectCopier;
+
+          69  import org.jboss.com.sun.corba.se.spi.copyobject.ReflectiveCopyException;
+
+          70  import org.jboss.com.sun.corba.se.spi.logging.CORBALogDomains;
+
+          71  import org.jboss.com.sun.corba.se.spi.orb.ORB;
+
+          72  import org.jboss.com.sun.corba.se.spi.orb.ORBVersionFactory;
+
+          73  import org.jboss.com.sun.corba.se.spi.protocol.CorbaClientDelegate;
+
+          74  import org.jboss.com.sun.corba.se.spi.protocol.LocalClientRequestDispatcher;
+
+          75  import org.jboss.com.sun.corba.se.spi.transport.CorbaContactInfoList;
+
+          76  import org.omg.CORBA.ACTIVITY_COMPLETED;
+
+          77  import org.omg.CORBA.ACTIVITY_REQUIRED;
+
+          78  import org.omg.CORBA.Any;
+
+          79  import org.omg.CORBA.BAD_OPERATION;
+
+          80  import org.omg.CORBA.BAD_PARAM;
+
+          81  import org.omg.CORBA.COMM_FAILURE;
+
+          82  import org.omg.CORBA.CompletionStatus;
+
+          83  import org.omg.CORBA.INVALID_ACTIVITY;
+
+          84  import org.omg.CORBA.INVALID_TRANSACTION;
+
+          85  import org.omg.CORBA.INV_OBJREF;
+
+          86  import org.omg.CORBA.MARSHAL;
+
+          87  import org.omg.CORBA.NO_PERMISSION;'
+        lineNumber: 77
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -10441,27 +10474,6 @@
           kind: Class
           name: Util
           package: ''
-      - codeSnip: "79  import org.omg.CORBA.BAD_OPERATION;\n80  import org.omg.CORBA.BAD_PARAM;\n\
-          81  import org.omg.CORBA.COMM_FAILURE;\n82  import org.omg.CORBA.CompletionStatus;\n\
-          83  import org.omg.CORBA.INVALID_ACTIVITY;\n84  import org.omg.CORBA.INVALID_TRANSACTION;\n\
-          85  import org.omg.CORBA.INV_OBJREF;\n86  import org.omg.CORBA.MARSHAL;\n\
-          87  import org.omg.CORBA.NO_PERMISSION;\n88  import org.omg.CORBA.OBJECT_NOT_EXIST;\n\
-          89  import org.omg.CORBA.SystemException;\n90  import org.omg.CORBA.TCKind;\n\
-          91  import org.omg.CORBA.TRANSACTION_REQUIRED;\n92  import org.omg.CORBA.TRANSACTION_ROLLEDBACK;\n\
-          93  import org.omg.CORBA.TypeCode;\n94  import org.omg.CORBA.portable.InputStream;\n\
-          95  import org.omg.CORBA.portable.OutputStream;\n96  import org.omg.CORBA.portable.UnknownException;\n\
-          97  \n98  /**\n99   * Provides utility methods that can be used by stubs\
-          \ and ties to perform common operations."
-        lineNumber: 89
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/javax/rmi/CORBA/Util.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/javax/rmi/CORBA/Util.java
-          kind: Class
-          name: Util
-          package: ''
       - codeSnip: "80  import org.omg.CORBA.BAD_PARAM;\n81  import org.omg.CORBA.COMM_FAILURE;\n\
           82  import org.omg.CORBA.CompletionStatus;\n83  import org.omg.CORBA.INVALID_ACTIVITY;\n\
           84  import org.omg.CORBA.INVALID_TRANSACTION;\n85  import org.omg.CORBA.INV_OBJREF;\n\
@@ -10654,7 +10666,7 @@
           kind: Class
           name: IORSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
-      - lineNumber: 43
+      - lineNumber: 50
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -10664,7 +10676,7 @@
           kind: Class
           name: OMGSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
-      - lineNumber: 50
+      - lineNumber: 51
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -10749,6 +10761,27 @@
           50  import org.omg.CORBA.INV_OBJREF;\n51  import org.omg.CORBA.INV_POLICY;\n\
           52  import org.omg.CORBA.MARSHAL;"
         lineNumber: 42
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
+          kind: Class
+          name: OMGSystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: "33  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
+          35  \n36  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n\
+          37  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n38\
+          \  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n39  import org.omg.CORBA.BAD_CONTEXT;\n\
+          40  import org.omg.CORBA.BAD_INV_ORDER;\n41  import org.omg.CORBA.BAD_OPERATION;\n\
+          42  import org.omg.CORBA.BAD_PARAM;\n43  import org.omg.CORBA.BAD_TYPECODE;\n\
+          44  import org.omg.CORBA.CompletionStatus;\n45  import org.omg.CORBA.DATA_CONVERSION;\n\
+          46  import org.omg.CORBA.IMP_LIMIT;\n47  import org.omg.CORBA.INITIALIZE;\n\
+          48  import org.omg.CORBA.INTERNAL;\n49  import org.omg.CORBA.INTF_REPOS;\n\
+          50  import org.omg.CORBA.INV_OBJREF;\n51  import org.omg.CORBA.INV_POLICY;\n\
+          52  import org.omg.CORBA.MARSHAL;\n53  import org.omg.CORBA.NO_IMPLEMENT;"
+        lineNumber: 43
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -11004,57 +11037,6 @@
           kind: Class
           name: OMGSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: '41  import org.omg.CORBA.BAD_OPERATION;
-
-          42  import org.omg.CORBA.BAD_PARAM;
-
-          43  import org.omg.CORBA.BAD_TYPECODE;
-
-          44  import org.omg.CORBA.CompletionStatus;
-
-          45  import org.omg.CORBA.DATA_CONVERSION;
-
-          46  import org.omg.CORBA.IMP_LIMIT;
-
-          47  import org.omg.CORBA.INITIALIZE;
-
-          48  import org.omg.CORBA.INTERNAL;
-
-          49  import org.omg.CORBA.INTF_REPOS;
-
-          50  import org.omg.CORBA.INV_OBJREF;
-
-          51  import org.omg.CORBA.INV_POLICY;
-
-          52  import org.omg.CORBA.MARSHAL;
-
-          53  import org.omg.CORBA.NO_IMPLEMENT;
-
-          54  import org.omg.CORBA.NO_RESOURCES;
-
-          55  import org.omg.CORBA.OBJECT_NOT_EXIST;
-
-          56  import org.omg.CORBA.OBJ_ADAPTER;
-
-          57  import org.omg.CORBA.OMGVMCID;
-
-          58  import org.omg.CORBA.TRANSACTION_ROLLEDBACK;
-
-          59  import org.omg.CORBA.TRANSIENT;
-
-          60  import org.omg.CORBA.UNKNOWN;
-
-          61  '
-        lineNumber: 51
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
-          kind: Class
-          name: OMGSystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: "42  import org.omg.CORBA.BAD_PARAM;\n43  import org.omg.CORBA.BAD_TYPECODE;\n\
           44  import org.omg.CORBA.CompletionStatus;\n45  import org.omg.CORBA.DATA_CONVERSION;\n\
           46  import org.omg.CORBA.IMP_LIMIT;\n47  import org.omg.CORBA.INITIALIZE;\n\
@@ -11235,7 +11217,7 @@
           package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: 11   * This code is distributed in the hope that it will be useful,
           but WITHOUT
-        lineNumber: 54
+        lineNumber: 40
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -11245,17 +11227,33 @@
           kind: Class
           name: ORBUtilSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "30  \n31  package org.jboss.com.sun.corba.se.impl.logging;\n32\
-          \  \n33  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
-          35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n37  import\
-          \ org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n38  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n\
-          39  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n40  import org.omg.CORBA.BAD_INV_ORDER;\n\
-          41  import org.omg.CORBA.BAD_OPERATION;\n42  import org.omg.CORBA.BAD_PARAM;\n\
-          43  import org.omg.CORBA.BAD_TYPECODE;\n44  import org.omg.CORBA.COMM_FAILURE;\n\
-          45  import org.omg.CORBA.CompletionStatus;\n46  import org.omg.CORBA.DATA_CONVERSION;\n\
-          47  import org.omg.CORBA.INITIALIZE;\n48  import org.omg.CORBA.INTERNAL;\n\
-          49  import org.omg.CORBA.INV_OBJREF;\n50  import org.omg.CORBA.MARSHAL;"
-        lineNumber: 40
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 42
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
+          kind: Class
+          name: ORBUtilSystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 51
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
+          kind: Class
+          name: ORBUtilSystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 54
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -11277,26 +11275,6 @@
           49  import org.omg.CORBA.INV_OBJREF;\n50  import org.omg.CORBA.MARSHAL;\n\
           51  import org.omg.CORBA.NO_IMPLEMENT;"
         lineNumber: 41
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
-          kind: Class
-          name: ORBUtilSystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "32  \n33  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
-          35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n37  import\
-          \ org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n38  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n\
-          39  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n40  import org.omg.CORBA.BAD_INV_ORDER;\n\
-          41  import org.omg.CORBA.BAD_OPERATION;\n42  import org.omg.CORBA.BAD_PARAM;\n\
-          43  import org.omg.CORBA.BAD_TYPECODE;\n44  import org.omg.CORBA.COMM_FAILURE;\n\
-          45  import org.omg.CORBA.CompletionStatus;\n46  import org.omg.CORBA.DATA_CONVERSION;\n\
-          47  import org.omg.CORBA.INITIALIZE;\n48  import org.omg.CORBA.INTERNAL;\n\
-          49  import org.omg.CORBA.INV_OBJREF;\n50  import org.omg.CORBA.MARSHAL;\n\
-          51  import org.omg.CORBA.NO_IMPLEMENT;\n52  import org.omg.CORBA.OBJECT_NOT_EXIST;"
-        lineNumber: 42
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -11505,26 +11483,6 @@
           kind: Class
           name: ORBUtilSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "41  import org.omg.CORBA.BAD_OPERATION;\n42  import org.omg.CORBA.BAD_PARAM;\n\
-          43  import org.omg.CORBA.BAD_TYPECODE;\n44  import org.omg.CORBA.COMM_FAILURE;\n\
-          45  import org.omg.CORBA.CompletionStatus;\n46  import org.omg.CORBA.DATA_CONVERSION;\n\
-          47  import org.omg.CORBA.INITIALIZE;\n48  import org.omg.CORBA.INTERNAL;\n\
-          49  import org.omg.CORBA.INV_OBJREF;\n50  import org.omg.CORBA.MARSHAL;\n\
-          51  import org.omg.CORBA.NO_IMPLEMENT;\n52  import org.omg.CORBA.OBJECT_NOT_EXIST;\n\
-          53  import org.omg.CORBA.OBJ_ADAPTER;\n54  import org.omg.CORBA.TRANSIENT;\n\
-          55  import org.omg.CORBA.UNKNOWN;\n56  \n57  public class ORBUtilSystemException\
-          \ extends LogWrapperBase\n58  {\n59  \n60      public ORBUtilSystemException(Logger\
-          \ logger)\n61      {"
-        lineNumber: 51
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
-          kind: Class
-          name: ORBUtilSystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: "42  import org.omg.CORBA.BAD_PARAM;\n43  import org.omg.CORBA.BAD_TYPECODE;\n\
           44  import org.omg.CORBA.COMM_FAILURE;\n45  import org.omg.CORBA.CompletionStatus;\n\
           46  import org.omg.CORBA.DATA_CONVERSION;\n47  import org.omg.CORBA.INITIALIZE;\n\
@@ -11582,6 +11540,54 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
           kind: Class
           name: ORBUtilSystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 44
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+          kind: Class
+          name: POASystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 46
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+          kind: Class
+          name: POASystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 47
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+          kind: Class
+          name: POASystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 50
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+          kind: Class
+          name: POASystemException
           package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: "30  \n31  package org.jboss.com.sun.corba.se.impl.logging;\n32\
           \  \n33  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
@@ -11664,27 +11670,6 @@
           kind: Class
           name: POASystemException
           package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "34  import java.util.logging.Logger;\n35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n\
-          37  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n38  import\
-          \ org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n39  import\
-          \ org.jboss.com.sun.corba.se.spi.orb.ORB;\n40  import org.omg.CORBA.BAD_INV_ORDER;\n\
-          41  import org.omg.CORBA.BAD_OPERATION;\n42  import org.omg.CORBA.BAD_PARAM;\n\
-          43  import org.omg.CORBA.CompletionStatus;\n44  import org.omg.CORBA.INITIALIZE;\n\
-          45  import org.omg.CORBA.INTERNAL;\n46  import org.omg.CORBA.NO_IMPLEMENT;\n\
-          47  import org.omg.CORBA.OBJECT_NOT_EXIST;\n48  import org.omg.CORBA.OBJ_ADAPTER;\n\
-          49  import org.omg.CORBA.TRANSIENT;\n50  import org.omg.CORBA.UNKNOWN;\n\
-          51  \n52  public class POASystemException extends LogWrapperBase\n53  {\n\
-          54  "
-        lineNumber: 44
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
-          kind: Class
-          name: POASystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: "35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n\
           37  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n38  import\
           \ org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n39  import\
@@ -11697,48 +11682,6 @@
           51  \n52  public class POASystemException extends LogWrapperBase\n53  {\n\
           54  \n55      public POASystemException(Logger logger)"
         lineNumber: 45
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
-          kind: Class
-          name: POASystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n37 \
-          \ import org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n38  import\
-          \ org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n39  import\
-          \ org.jboss.com.sun.corba.se.spi.orb.ORB;\n40  import org.omg.CORBA.BAD_INV_ORDER;\n\
-          41  import org.omg.CORBA.BAD_OPERATION;\n42  import org.omg.CORBA.BAD_PARAM;\n\
-          43  import org.omg.CORBA.CompletionStatus;\n44  import org.omg.CORBA.INITIALIZE;\n\
-          45  import org.omg.CORBA.INTERNAL;\n46  import org.omg.CORBA.NO_IMPLEMENT;\n\
-          47  import org.omg.CORBA.OBJECT_NOT_EXIST;\n48  import org.omg.CORBA.OBJ_ADAPTER;\n\
-          49  import org.omg.CORBA.TRANSIENT;\n50  import org.omg.CORBA.UNKNOWN;\n\
-          51  \n52  public class POASystemException extends LogWrapperBase\n53  {\n\
-          54  \n55      public POASystemException(Logger logger)\n56      {"
-        lineNumber: 46
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
-          kind: Class
-          name: POASystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "37  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n\
-          38  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n39\
-          \  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n40  import org.omg.CORBA.BAD_INV_ORDER;\n\
-          41  import org.omg.CORBA.BAD_OPERATION;\n42  import org.omg.CORBA.BAD_PARAM;\n\
-          43  import org.omg.CORBA.CompletionStatus;\n44  import org.omg.CORBA.INITIALIZE;\n\
-          45  import org.omg.CORBA.INTERNAL;\n46  import org.omg.CORBA.NO_IMPLEMENT;\n\
-          47  import org.omg.CORBA.OBJECT_NOT_EXIST;\n48  import org.omg.CORBA.OBJ_ADAPTER;\n\
-          49  import org.omg.CORBA.TRANSIENT;\n50  import org.omg.CORBA.UNKNOWN;\n\
-          51  \n52  public class POASystemException extends LogWrapperBase\n53  {\n\
-          54  \n55      public POASystemException(Logger logger)\n56      {\n57  \
-          \        super(logger);"
-        lineNumber: 47
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -11787,24 +11730,17 @@
           kind: Class
           name: POASystemException
           package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "40  import org.omg.CORBA.BAD_INV_ORDER;\n41  import org.omg.CORBA.BAD_OPERATION;\n\
-          42  import org.omg.CORBA.BAD_PARAM;\n43  import org.omg.CORBA.CompletionStatus;\n\
-          44  import org.omg.CORBA.INITIALIZE;\n45  import org.omg.CORBA.INTERNAL;\n\
-          46  import org.omg.CORBA.NO_IMPLEMENT;\n47  import org.omg.CORBA.OBJECT_NOT_EXIST;\n\
-          48  import org.omg.CORBA.OBJ_ADAPTER;\n49  import org.omg.CORBA.TRANSIENT;\n\
-          50  import org.omg.CORBA.UNKNOWN;\n51  \n52  public class POASystemException\
-          \ extends LogWrapperBase\n53  {\n54  \n55      public POASystemException(Logger\
-          \ logger)\n56      {\n57          super(logger);\n58      }\n59  \n60  \
-          \    private static LogWrapperFactory factory = new LogWrapperFactory()"
-        lineNumber: 50
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 41
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/UtilSystemException.java
         variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/UtilSystemException.java
           kind: Class
-          name: POASystemException
+          name: UtilSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: "30  \n31  package org.jboss.com.sun.corba.se.impl.logging;\n32\
           \  \n33  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
@@ -11817,26 +11753,6 @@
           47  import org.omg.CORBA.UNKNOWN;\n48  \n49  public class UtilSystemException\
           \ extends LogWrapperBase\n50  {"
         lineNumber: 40
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/UtilSystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/UtilSystemException.java
-          kind: Class
-          name: UtilSystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "31  package org.jboss.com.sun.corba.se.impl.logging;\n32  \n33\
-          \  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
-          35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n37  import\
-          \ org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n38  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n\
-          39  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n40  import org.omg.CORBA.BAD_OPERATION;\n\
-          41  import org.omg.CORBA.BAD_PARAM;\n42  import org.omg.CORBA.CompletionStatus;\n\
-          43  import org.omg.CORBA.DATA_CONVERSION;\n44  import org.omg.CORBA.INTERNAL;\n\
-          45  import org.omg.CORBA.INV_OBJREF;\n46  import org.omg.CORBA.MARSHAL;\n\
-          47  import org.omg.CORBA.UNKNOWN;\n48  \n49  public class UtilSystemException\
-          \ extends LogWrapperBase\n50  {\n51  "
-        lineNumber: 41
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -12381,6 +12297,18 @@
           kind: Class
           name: POAFactory
           package: org.jboss.com.sun.corba.se.impl.oa.poa
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 1515
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/oa/poa/POAImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/oa/poa/POAImpl.java
+          kind: Method
+          name: id_to_reference
+          package: org.jboss.com.sun.corba.se.impl.oa.poa
       - codeSnip: "1326                  ORBUtility.dprint(this, \"Exiting deactivate_object\
           \ on poa \" + this);\n1327              }\n1328  \n1329              unlock();\n\
           1330          }\n1331      }\n1332  \n1333      /**\n1334       * <code>create_reference</code>\
@@ -12475,25 +12403,6 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/oa/poa/POAImpl.java
           kind: Method
           name: reference_to_id
-          package: org.jboss.com.sun.corba.se.impl.oa.poa
-      - codeSnip: "1505          }\n1506          finally\n1507          {\n1508 \
-          \             unlock();\n1509          }\n1510      }\n1511  \n1512    \
-          \  /**\n1513       * <code>id_to_reference</code> <b>3.3.8.24</b>\n1514\
-          \       */\n1515      public org.omg.CORBA.Object id_to_reference(byte[]\
-          \ id) throws ObjectNotActive, WrongPolicy\n1516  \n1517      {\n1518   \
-          \       try\n1519          {\n1520              lock();\n1521  \n1522  \
-          \            if (debug)\n1523              {\n1524                  ORBUtility.dprint(this,\
-          \ \"Calling id_to_reference(id=\" + id + \") on poa \" + this);\n1525  \
-          \            }"
-        lineNumber: 1515
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/oa/poa/POAImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/oa/poa/POAImpl.java
-          kind: Method
-          name: id_to_reference
           package: org.jboss.com.sun.corba.se.impl.oa.poa
       - codeSnip: "1691          {\n1692              if (debug)\n1693           \
           \   {\n1694                  ORBUtility.dprint(this, \"Exiting getInvocationServant\
@@ -13642,18 +13551,6 @@
           kind: Method
           name: isAbstractBase
           package: org.jboss.com.sun.corba.se.impl.orbutil
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 336
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/RepositoryId_1_3_1.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/RepositoryId_1_3_1.java
-          kind: Constant
-          name: korg_omg_CORBA_Object
-          package: org.jboss.com.sun.corba.se.impl.orbutil
       - codeSnip: "31  import java.lang.reflect.Method;\n32  import java.net.MalformedURLException;\n\
           33  import java.util.Hashtable;\n34  \n35  import javax.rmi.CORBA.Util;\n\
           36  \n37  import org.jboss.com.sun.corba.se.impl.util.IdentityHashtable;\n\
@@ -13694,6 +13591,29 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/RepositoryId_1_3_1.java
           kind: Class
           name: RepositoryId_1_3_1
+          package: org.jboss.com.sun.corba.se.impl.orbutil
+      - codeSnip: "326              (byte) '6', (byte) '7', (byte) '8', (byte) '9',\
+          \ (byte) 'A', (byte) 'B', (byte) 'C', (byte) 'D', (byte) 'E',\n327     \
+          \         (byte) 'F',};\n328  \n329      // bug fix for 4328952; to eliminate\
+          \ possibility of overriding this\n330      // in a subclass.\n331      public\
+          \ static final RepositoryIdCache_1_3_1 cache = new RepositoryIdCache_1_3_1();\n\
+          332  \n333      // Interface Rep ID Strings\n334      public static final\
+          \ String kjava_rmi_Remote = createForAnyType(java.rmi.Remote.class);\n335\
+          \  \n336      public static final String korg_omg_CORBA_Object = createForAnyType(org.omg.CORBA.Object.class);\n\
+          337  \n338      // Dummy arguments for getIdFromHelper method\n339     \
+          \ public static final Class<?> kNoParamTypes[] = {};\n340  \n341      public\
+          \ static final Object kNoArgs[] = {};\n342  \n343      // To create a RepositoryID,\
+          \ use code similar to the following:\n344      // RepositoryId.cache.getId(\
+          \ id );\n345  \n346      RepositoryId_1_3_1()"
+        lineNumber: 336
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/RepositoryId_1_3_1.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/RepositoryId_1_3_1.java
+          kind: Constant
+          name: korg_omg_CORBA_Object
           package: org.jboss.com.sun.corba.se.impl.orbutil
       - codeSnip: '902      {
 
@@ -14031,18 +13951,6 @@
           kind: Class
           name: ''
           package: org.jboss.com.sun.corba.se.impl.orbutil.fsm
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 39
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/DynamicMethodMarshallerImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/DynamicMethodMarshallerImpl.java
-          kind: Class
-          name: ''
-          package: org.jboss.com.sun.corba.se.impl.presentation.rmi
       - codeSnip: "251  \n252      private static ReaderWriter corbaObjectRW = new\
           \ ReaderWriterBase(\"org.omg.CORBA.Object\")\n253      {\n254          public\
           \ Object read(InputStream is)\n255          {\n256              return is.read_Object();\n\
@@ -14072,6 +13980,25 @@
           44  {\n45      Method method;\n46  \n47      ExceptionHandler ehandler;\n\
           48  "
         lineNumber: 38
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/DynamicMethodMarshallerImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/DynamicMethodMarshallerImpl.java
+          kind: Class
+          name: ''
+          package: org.jboss.com.sun.corba.se.impl.presentation.rmi
+      - codeSnip: "29  import java.io.Serializable;\n30  import java.lang.reflect.Method;\n\
+          31  import java.rmi.RemoteException;\n32  \n33  import javax.rmi.PortableRemoteObject;\n\
+          34  import javax.rmi.CORBA.Util;\n35  \n36  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n\
+          37  import org.jboss.com.sun.corba.se.spi.presentation.rmi.DynamicMethodMarshaller;\n\
+          38  import org.omg.CORBA.portable.ApplicationException;\n39  import org.omg.CORBA.portable.IDLEntity;\n\
+          40  import org.omg.CORBA_2_3.portable.InputStream;\n41  import org.omg.CORBA_2_3.portable.OutputStream;\n\
+          42  \n43  public class DynamicMethodMarshallerImpl implements DynamicMethodMarshaller\n\
+          44  {\n45      Method method;\n46  \n47      ExceptionHandler ehandler;\n\
+          48  \n49      boolean hasArguments = true;"
+        lineNumber: 39
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -14460,18 +14387,6 @@
           kind: Method
           name: orb
           package: org.jboss.com.sun.corba.se.impl.presentation.rmi
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 37
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/ReflectiveTie.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/ReflectiveTie.java
-          kind: Class
-          name: ReflectiveTie
-          package: org.jboss.com.sun.corba.se.impl.presentation.rmi
       - codeSnip: "110          {\n111              // ignore\n112          }\n113\
           \      }\n114  \n115      public org.omg.CORBA.ORB orb()\n116      {\n117\
           \          return _orb();\n118      }\n119  \n120      public void orb(org.omg.CORBA.ORB\
@@ -14525,6 +14440,26 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/ReflectiveTie.java
           kind: Method
           name: _invoke
+          package: org.jboss.com.sun.corba.se.impl.presentation.rmi
+      - codeSnip: "27  \n28  import java.lang.reflect.InvocationTargetException;\n\
+          29  import java.lang.reflect.Method;\n30  import java.rmi.Remote;\n31  \n\
+          32  import javax.rmi.CORBA.Tie;\n33  \n34  import org.jboss.com.sun.corba.se.impl.logging.ORBUtilSystemException;\n\
+          35  import org.jboss.com.sun.corba.se.spi.presentation.rmi.DynamicMethodMarshaller;\n\
+          36  import org.jboss.com.sun.corba.se.spi.presentation.rmi.PresentationManager;\n\
+          37  import org.omg.CORBA.SystemException;\n38  import org.omg.CORBA.portable.ResponseHandler;\n\
+          39  import org.omg.CORBA.portable.UnknownException;\n40  import org.omg.CORBA_2_3.portable.InputStream;\n\
+          41  import org.omg.CORBA_2_3.portable.OutputStream;\n42  import org.omg.PortableServer.Servant;\n\
+          43  \n44  public final class ReflectiveTie extends Servant implements Tie\n\
+          45  {\n46      private Remote target = null;\n47  "
+        lineNumber: 37
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/ReflectiveTie.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/presentation/rmi/ReflectiveTie.java
+          kind: Class
+          name: ReflectiveTie
           package: org.jboss.com.sun.corba.se.impl.presentation.rmi
       - codeSnip: "28  import java.lang.reflect.InvocationTargetException;\n29  import\
           \ java.lang.reflect.Method;\n30  import java.rmi.Remote;\n31  \n32  import\
@@ -35075,7 +35010,15 @@
           kind: Constructor
           name: SharedFile
           package: javax.mail.util
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+      - codeSnip: "110       */\n111      static class SharedFile {\n112  \tprivate\
+          \ int cnt;\n113  \tprivate RandomAccessFile in;\n114  \n115  \tSharedFile(String\
+          \ file) throws IOException {\n116  \t    this.in = new RandomAccessFile(file,\
+          \ \"r\");\n117  \t}\n118  \n119  \tSharedFile(File file) throws IOException\
+          \ {\n120  \t    this.in = new RandomAccessFile(file, \"r\");\n121  \t}\n\
+          122  \n123  \tpublic synchronized RandomAccessFile open() {\n124  \t   \
+          \ cnt++;\n125  \t    return in;\n126  \t}\n127  \n128  \tpublic synchronized\
+          \ void close() throws IOException {\n129  \t    if (cnt > 0 && --cnt <=\
+          \ 0)\n130  \t\tin.close();"
         lineNumber: 120
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
@@ -35643,7 +35586,20 @@
           kind: Constructor
           name: find
           package: javax.ws.rs.ext
-      - lineNumber: 150
+      - codeSnip: "140      /**\n141       * Adds a jar or a directory with this name\
+          \ to the classpath.\n142       *\n143       * @param name The name of the\
+          \ jar or directory to add.\n144       * @throws IOException when the jar\
+          \ or directory could not be found.\n145       */\n146      public static\
+          \ void addJarOrDirectoryToClasspath(String name) throws IOException {\n\
+          147          LOG.debug(\"Adding location to classpath: \" + name);\n148\
+          \  \n149          try {\n150              URL url = new File(name).toURI().toURL();\n\
+          151              URLClassLoader sysloader = (URLClassLoader) ClassLoader.getSystemClassLoader();\n\
+          152              Method method = URLClassLoader.class.getDeclaredMethod(\"\
+          addURL\", URL.class);\n153              method.setAccessible(true);\n154\
+          \              method.invoke(sysloader, url);\n155          } catch (Exception\
+          \ e) {\n156              throw new FlywayException(\"Unable to load \" +\
+          \ name, e);\n157          }\n158      }\n159  }\n"
+        lineNumber: 150
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35659,8 +35615,19 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/ClassUtils.java
           kind: Constructor
           name: addJarOrDirectoryToClasspath
-          package: ''
-      - lineNumber: 42
+          package: org.flywaydb.core.internal.util
+      - codeSnip: "32      }\n33  \n34      /**\n35       * Retrieves the file path\
+          \ of this URL, with any trailing slashes removed.\n36       *\n37      \
+          \ * @param url The URL to get the file path for.\n38       * @return The\
+          \ file path.\n39       */\n40      public static String toFilePath(URL url)\
+          \ {\n41          try {\n42              String filePath = new File(URLDecoder.decode(url.getPath().replace(\"\
+          +\", \"%2b\"), \"UTF-8\")).getAbsolutePath();\n43              if (filePath.endsWith(\"\
+          /\")) {\n44                  return filePath.substring(0, filePath.length()\
+          \ - 1);\n45              }\n46              return filePath;\n47       \
+          \   } catch (UnsupportedEncodingException e) {\n48              throw new\
+          \ IllegalStateException(\"Can never happen\", e);\n49          }\n50   \
+          \   }\n51  }\n"
+        lineNumber: 42
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35676,8 +35643,19 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/UrlUtils.java
           kind: Constructor
           name: toFilePath
-          package: ''
-      - lineNumber: 67
+          package: org.flywaydb.core.internal.util
+      - codeSnip: "57      public String getLocation() {\n58          return location;\n\
+          59      }\n60  \n61      public String getLocationOnDisk() {\n62       \
+          \   URL url = getUrl();\n63          if (url == null) {\n64            \
+          \  throw new FlywayException(\"Unable to location resource on disk: \" +\
+          \ location);\n65          }\n66          try {\n67              return new\
+          \ File(URLDecoder.decode(url.getPath(), \"UTF-8\")).getAbsolutePath();\n\
+          68          } catch (UnsupportedEncodingException e) {\n69             \
+          \ throw new FlywayException(\"Unknown encoding: UTF-8\", e);\n70       \
+          \   }\n71      }\n72  \n73      /**\n74       * @return The url of this\
+          \ resource.\n75       */\n76      private URL getUrl() {\n77          return\
+          \ classLoader.getResource(location);"
+        lineNumber: 67
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35693,8 +35671,22 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/classpath/ClassPathResource.java
           kind: Constructor
           name: getLocationOnDisk
-          package: ''
-      - lineNumber: 37
+          package: org.flywaydb.core.internal.util.scanner.classpath
+      - codeSnip: "27  import java.util.TreeSet;\n28  \n29  /**\n30   * ClassPathLocationScanner\
+          \ for the file system.\n31   */\n32  public class FileSystemClassPathLocationScanner\
+          \ implements ClassPathLocationScanner {\n33      private static final Log\
+          \ LOG = LogFactory.getLog(FileSystemClassPathLocationScanner.class);\n34\
+          \  \n35      public Set<String> findResourceNames(String location, URL locationUrl)\
+          \ throws IOException {\n36          String filePath = UrlUtils.toFilePath(locationUrl);\n\
+          37          File folder = new File(filePath);\n38          if (!folder.isDirectory())\
+          \ {\n39              LOG.debug(\"Skipping path as it is not a directory:\
+          \ \" + filePath);\n40              return new TreeSet<String>();\n41   \
+          \       }\n42  \n43          String classPathRootOnDisk = filePath.substring(0,\
+          \ filePath.length() - location.length());\n44          if (!classPathRootOnDisk.endsWith(File.separator))\
+          \ {\n45              classPathRootOnDisk = classPathRootOnDisk + File.separator;\n\
+          46          }\n47          LOG.debug(\"Scanning starting at classpath root\
+          \ in filesystem: \" + classPathRootOnDisk);"
+        lineNumber: 37
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35710,8 +35702,17 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/classpath/FileSystemClassPathLocationScanner.java
           kind: Constructor
           name: findResourceNames
-          package: ''
-      - lineNumber: 46
+          package: org.flywaydb.core.internal.util.scanner.classpath
+      - codeSnip: "36       * The location of the resource on the filesystem.\n37\
+          \       */\n38      private File location;\n39  \n40      /**\n41      \
+          \ * Creates a new ClassPathResource.\n42       *\n43       * @param location\
+          \ The location of the resource on the filesystem.\n44       */\n45     \
+          \ public FileSystemResource(String location) {\n46          this.location\
+          \ = new File(location);\n47      }\n48  \n49      /**\n50       * @return\
+          \ The location of the resource on the classpath.\n51       */\n52      public\
+          \ String getLocation() {\n53          return StringUtils.replaceAll(location.getPath(),\
+          \ \"\\\\\", \"/\");\n54      }\n55  \n56      /**"
+        lineNumber: 46
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35727,8 +35728,19 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/filesystem/FileSystemResource.java
           kind: Constructor
           name: FileSystemResource
-          package: ''
-      - lineNumber: 73
+          package: org.flywaydb.core.internal.util.scanner.filesystem
+      - codeSnip: "63      }\n64  \n65      /**\n66       * Loads this resource as\
+          \ a string.\n67       *\n68       * @param encoding The encoding to use.\n\
+          69       * @return The string contents of the resource.\n70       */\n71\
+          \      public String loadAsString(String encoding) {\n72          try {\n\
+          73              InputStream inputStream = new FileInputStream(location);\n\
+          74              Reader reader = new InputStreamReader(inputStream, Charset.forName(encoding));\n\
+          75  \n76              return FileCopyUtils.copyToString(reader);\n77   \
+          \       } catch (IOException e) {\n78              throw new FlywayException(\"\
+          Unable to load filesystem resource: \" + location.getPath() + \" (encoding:\
+          \ \" + encoding + \")\", e);\n79          }\n80      }\n81  \n82      /**\n\
+          83       * Loads this resource as a byte array."
+        lineNumber: 73
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35744,8 +35756,18 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/filesystem/FileSystemResource.java
           kind: Constructor
           name: loadAsString
-          package: ''
-      - lineNumber: 89
+          package: org.flywaydb.core.internal.util.scanner.filesystem
+      - codeSnip: "79          }\n80      }\n81  \n82      /**\n83       * Loads this\
+          \ resource as a byte array.\n84       *\n85       * @return The contents\
+          \ of the resource.\n86       */\n87      public byte[] loadAsBytes() {\n\
+          88          try {\n89              InputStream inputStream = new FileInputStream(location);\n\
+          90              return FileCopyUtils.copyToByteArray(inputStream);\n91 \
+          \         } catch (IOException e) {\n92              throw new FlywayException(\"\
+          Unable to load filesystem resource: \" + location.getPath(), e);\n93   \
+          \       }\n94      }\n95  \n96      /**\n97       * @return The filename\
+          \ of this resource, without the path.\n98       */\n99      public String\
+          \ getFilename() {"
+        lineNumber: 89
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35761,8 +35783,24 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/filesystem/FileSystemResource.java
           kind: Constructor
           name: loadAsBytes
-          package: ''
-      - lineNumber: 48
+          package: org.flywaydb.core.internal.util.scanner.filesystem
+      - codeSnip: "38       * @param location The location in the filesystem to start\
+          \ searching. Subdirectories are also searched.\n39       * @param prefix\
+          \   The prefix of the resource names to match.\n40       * @param suffix\
+          \   The suffix of the resource names to match.\n41       * @return The resources\
+          \ that were found.\n42       * @throws java.io.IOException when the location\
+          \ could not be scanned.\n43       */\n44      public Resource[] scanForResources(Location\
+          \ location, String prefix, String suffix) throws IOException {\n45     \
+          \     String path = location.getPath();\n46          LOG.debug(\"Scanning\
+          \ for filesystem resources at '\" + path + \"' (Prefix: '\" + prefix + \"\
+          ', Suffix: '\" + suffix + \"')\");\n47  \n48          File dir = new File(path);\n\
+          49          if (!dir.isDirectory() || !dir.canRead()) {\n50            \
+          \  LOG.warn(\"Unable to resolve location filesystem:\" + path);\n51    \
+          \          return new Resource[0];\n52          }\n53  \n54          Set<Resource>\
+          \ resources = new TreeSet<Resource>();\n55  \n56          Set<String> resourceNames\
+          \ = findResourceNames(path, prefix, suffix);\n57          for (String resourceName\
+          \ : resourceNames) {\n58              resources.add(new FileSystemResource(resourceName));"
+        lineNumber: 48
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35778,8 +35816,24 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/filesystem/FileSystemScanner.java
           kind: Constructor
           name: scanForResources
-          package: ''
-      - lineNumber: 76
+          package: org.flywaydb.core.internal.util.scanner.filesystem
+      - codeSnip: "66       * Finds the resources names present at this location and\
+          \ below on the classpath starting with this prefix and\n67       * ending\
+          \ with this suffix.\n68       *\n69       * @param path   The path on the\
+          \ classpath to scan.\n70       * @param prefix The filename prefix to match.\n\
+          71       * @param suffix The filename suffix to match.\n72       * @return\
+          \ The resource names.\n73       * @throws java.io.IOException when scanning\
+          \ this location failed.\n74       */\n75      private Set<String> findResourceNames(String\
+          \ path, String prefix, String suffix) throws IOException {\n76         \
+          \ Set<String> resourceNames = findResourceNamesFromFileSystem(path, new\
+          \ File(path));\n77          return filterResourceNames(resourceNames, prefix,\
+          \ suffix);\n78      }\n79  \n80      /**\n81       * Finds all the resource\
+          \ names contained in this file system folder.\n82       *\n83       * @param\
+          \ scanRootLocation The root location of the scan on disk.\n84       * @param\
+          \ folder           The folder to look for resources under on disk.\n85 \
+          \      * @return The resource names;\n86       * @throws IOException when\
+          \ the folder could not be read."
+        lineNumber: 76
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -35795,7 +35849,7 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/filesystem/FileSystemScanner.java
           kind: Constructor
           name: findResourceNames
-          package: ''
+          package: org.flywaydb.core.internal.util.scanner.filesystem
       - codeSnip: "62              }\n63          });\n64  \n65          return propValue;\n\
           66      }\n67  \n68      private void getPropertiesFromFile(Properties props,\
           \ String fileName)\n69      {\n70          try\n71          {\n72      \
@@ -35863,33 +35917,8 @@
           kind: Constructor
           name: getPropertiesFromFile
           package: ''
-      - lineNumber: 288
-        message: "An application running inside a container could lose access to a\
-          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
-          \ depend on the function of the file in local storage:\n\n * Logging: Log\
-          \ to standard output and use a centralized log collector to analyze the\
-          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
-          \ configuration settings in environment variables so that they can be updated\
-          \ without code changes.\n * Data storage: Use a database backing service\
-          \ for relational data or use a persistent data storage system.\n * Temporary\
-          \ data storage: Use the file system of a running container as a brief, single-transaction\
-          \ cache."
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/javax/rmi/GetORBPropertiesFileAction.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/javax/rmi/GetORBPropertiesFileAction.java
-          kind: Constructor
-          name: getPropertiesFromFile
-          package: ''
-      - codeSnip: "2282      }\n2283  \n2284      public String description()\n2285\
-          \      {\n2286          return \"TypeCodeImpl with kind \" + _kind + \"\
-          \ and id \" + _id;\n2287      }\n2288  \n2289      public String toString()\n\
-          2290      {\n2291          ByteArrayOutputStream byteOut = new ByteArrayOutputStream(1024);\n\
-          2292          PrintStream printOut = new PrintStream(byteOut, true);\n2293\
-          \          printStream(printOut);\n2294          return super.toString()\
-          \ + \" =\\n\" + byteOut.toString();\n2295      }\n2296  \n2297      public\
-          \ void printStream(PrintStream s)\n2298      {\n2299          printStream(s,\
-          \ 0);\n2300      }\n2301  \n2302      private void printStream(PrintStream\
-          \ s, int level)"
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
         lineNumber: 2292
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
@@ -36215,7 +36244,23 @@
           kind: Constructor
           name: getBookmarkableURL
           package: javax.faces.application
-      - lineNumber: 264
+      - codeSnip: "254  \n255          if (classLoader.getClass().getName().startsWith(\"\
+          com.ibm\")) {\n256              // WebSphere\n257              Enumeration<URL>\
+          \ urls = classLoader.getResources(location.getPath() + \"/flyway.location\"\
+          );\n258              if (!urls.hasMoreElements()) {\n259               \
+          \   LOG.warn(\"Unable to resolve location \" + location + \" (ClassLoader:\
+          \ \" + classLoader + \")\"\n260                          + \" On WebSphere\
+          \ an empty file named flyway.location must be present on the classpath location\
+          \ for WebSphere to find it!\");\n261              }\n262              while\
+          \ (urls.hasMoreElements()) {\n263                  URL url = urls.nextElement();\n\
+          264                  locationUrls.add(new URL(URLDecoder.decode(url.toExternalForm(),\
+          \ \"UTF-8\").replace(\"/flyway.location\", \"\")));\n265              }\n\
+          266          } else {\n267              Enumeration<URL> urls = classLoader.getResources(location.getPath());\n\
+          268              while (urls.hasMoreElements()) {\n269                 \
+          \ locationUrls.add(urls.nextElement());\n270              }\n271       \
+          \   }\n272  \n273          locationUrlCache.put(location, locationUrls);\n\
+          274  "
+        lineNumber: 264
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -36232,8 +36277,23 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/classpath/ClassPathScanner.java
           kind: Constructor
           name: getLocationUrlsForPath
-          package: ''
-      - lineNumber: 72
+          package: org.flywaydb.core.internal.util.scanner.classpath
+      - codeSnip: "62          // We'll assume URLs of the format \"jar:path!/entry\"\
+          , with the protocol\n63          // being arbitrary as long as following\
+          \ the entry format.\n64          // We'll also handle paths with and without\
+          \ leading \"file:\" prefix.\n65          String urlFile = locationUrl.getFile();\n\
+          66  \n67          int separatorIndex = urlFile.indexOf(\"!/\");\n68    \
+          \      if (separatorIndex != -1) {\n69              String jarFileUrl =\
+          \ urlFile.substring(0, separatorIndex);\n70              if (jarFileUrl.startsWith(\"\
+          file:\")) {\n71                  try {\n72                      return new\
+          \ JarFile(new URL(jarFileUrl).toURI().getSchemeSpecificPart());\n73    \
+          \              } catch (URISyntaxException ex) {\n74                   \
+          \   // Fallback for URLs that are not valid URIs (should hardly ever happen).\n\
+          75                      return new JarFile(jarFileUrl.substring(\"file:\"\
+          .length()));\n76                  }\n77              }\n78             \
+          \ return new JarFile(jarFileUrl);\n79          }\n80  \n81          return\
+          \ new JarFile(urlFile);\n82      }"
+        lineNumber: 72
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -36250,7 +36310,7 @@
           file: file:///root/.m2/repository/org/flywaydb/flyway-core/4.1.2/org/flywaydb/core/internal/util/scanner/classpath/JarFileClassPathLocationScanner.java
           kind: Constructor
           name: getJarFromUrl
-          package: ''
+          package: org.flywaydb.core.internal.util.scanner.classpath
       labels:
       - konveyor.io/source
       - konveyor.io/target=cloud-readiness
@@ -36692,6 +36752,22 @@
           kind: Class
           name: AppendUID
           package: com.sun.mail.imap
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+        lineNumber: 45
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/DefaultFolder.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/DefaultFolder.java
+          kind: Class
+          name: ''
+          package: com.sun.mail.imap
       - codeSnip: "33   * recipient has the option to distribute your version of this\
           \ file under\n34   * either the CDDL, the GPL Version 2 or to extend the\
           \ choice of license to\n35   * its licensees as provided above.  However,\
@@ -36742,30 +36818,6 @@
           file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/DefaultFolder.java
           kind: Class
           name: DefaultFolder
-          package: com.sun.mail.imap
-      - codeSnip: "35   * its licensees as provided above.  However, if you add GPL\
-          \ Version 2 code\n36   * and therefore, elected the GPL Version 2 license,\
-          \ then the option applies\n37   * only if the new code is made subject to\
-          \ such option by the copyright\n38   * holder.\n39   */\n40  \n41  package\
-          \ com.sun.mail.imap;\n42  \n43  import javax.mail.*;\n44  import javax.mail.internet.*;\n\
-          45  import com.sun.mail.util.*;\n46  import com.sun.mail.iap.*;\n47  import\
-          \ com.sun.mail.imap.protocol.*;\n48  \n49  /**\n50   * The default IMAP\
-          \ folder (root of the naming hierarchy).\n51   *\n52   * @author  John Mani\n\
-          53   */\n54  \n55  public class DefaultFolder extends IMAPFolder {"
-        lineNumber: 45
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/DefaultFolder.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/DefaultFolder.java
-          kind: Class
-          name: ''
           package: com.sun.mail.imap
       - codeSnip: "36   * and therefore, elected the GPL Version 2 license, then the\
           \ option applies\n37   * only if the new code is made subject to such option\
@@ -36924,6 +36976,54 @@
           kind: Class
           name: IMAPBodyPart
           package: com.sun.mail.imap
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+        lineNumber: 55
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
+          kind: Class
+          name: ''
+          package: com.sun.mail.imap
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+        lineNumber: 56
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
+          kind: Class
+          name: ''
+          package: com.sun.mail.imap
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+        lineNumber: 57
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
+          kind: Class
+          name: ''
+          package: com.sun.mail.imap
       - codeSnip: "40  \n41  package com.sun.mail.imap;\n42  \n43  import java.util.Date;\n\
           44  import java.util.Vector;\n45  import java.util.Hashtable;\n46  import\
           \ java.util.NoSuchElementException;\n47  import java.util.logging.Level;\n\
@@ -37005,83 +37105,6 @@
           \ IMAPStore\n63   * object. When the folder is opened, it gets its own protocol\
           \ connection. <p>"
         lineNumber: 53
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
-          kind: Class
-          name: ''
-          package: com.sun.mail.imap
-      - codeSnip: "45  import java.util.Hashtable;\n46  import java.util.NoSuchElementException;\n\
-          47  import java.util.logging.Level;\n48  import java.io.*;\n49  \n50  import\
-          \ javax.mail.*;\n51  import javax.mail.event.*;\n52  import javax.mail.internet.*;\n\
-          53  import javax.mail.search.*;\n54  \n55  import com.sun.mail.util.*;\n\
-          56  import com.sun.mail.iap.*;\n57  import com.sun.mail.imap.protocol.*;\n\
-          58  \n59  /**\n60   * This class implements an IMAP folder. <p>\n61   *\n\
-          62   * A closed IMAPFolder object shares a protocol connection with its\
-          \ IMAPStore\n63   * object. When the folder is opened, it gets its own protocol\
-          \ connection. <p>\n64   *\n65   * Applications that need to make use of\
-          \ IMAP-specific features may cast"
-        lineNumber: 55
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
-          kind: Class
-          name: ''
-          package: com.sun.mail.imap
-      - codeSnip: "46  import java.util.NoSuchElementException;\n47  import java.util.logging.Level;\n\
-          48  import java.io.*;\n49  \n50  import javax.mail.*;\n51  import javax.mail.event.*;\n\
-          52  import javax.mail.internet.*;\n53  import javax.mail.search.*;\n54 \
-          \ \n55  import com.sun.mail.util.*;\n56  import com.sun.mail.iap.*;\n57\
-          \  import com.sun.mail.imap.protocol.*;\n58  \n59  /**\n60   * This class\
-          \ implements an IMAP folder. <p>\n61   *\n62   * A closed IMAPFolder object\
-          \ shares a protocol connection with its IMAPStore\n63   * object. When the\
-          \ folder is opened, it gets its own protocol connection. <p>\n64   *\n65\
-          \   * Applications that need to make use of IMAP-specific features may cast\n\
-          66   * a <code>Folder</code> object to an <code>IMAPFolder</code> object\
-          \ and"
-        lineNumber: 56
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
-          kind: Class
-          name: ''
-          package: com.sun.mail.imap
-      - codeSnip: "47  import java.util.logging.Level;\n48  import java.io.*;\n49\
-          \  \n50  import javax.mail.*;\n51  import javax.mail.event.*;\n52  import\
-          \ javax.mail.internet.*;\n53  import javax.mail.search.*;\n54  \n55  import\
-          \ com.sun.mail.util.*;\n56  import com.sun.mail.iap.*;\n57  import com.sun.mail.imap.protocol.*;\n\
-          58  \n59  /**\n60   * This class implements an IMAP folder. <p>\n61   *\n\
-          62   * A closed IMAPFolder object shares a protocol connection with its\
-          \ IMAPStore\n63   * object. When the folder is opened, it gets its own protocol\
-          \ connection. <p>\n64   *\n65   * Applications that need to make use of\
-          \ IMAP-specific features may cast\n66   * a <code>Folder</code> object to\
-          \ an <code>IMAPFolder</code> object and\n67   * use the methods on this\
-          \ class. The {@link #getQuota getQuota} and"
-        lineNumber: 57
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -37190,6 +37213,38 @@
           kind: Class
           name: IMAPInputStream
           package: com.sun.mail.imap
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+        lineNumber: 51
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
+          kind: Class
+          name: FetchProfileCondition
+          package: com.sun.mail.imap
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+        lineNumber: 53
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
+          kind: Class
+          name: FetchProfileCondition
+          package: com.sun.mail.imap
       - codeSnip: "37   * only if the new code is made subject to such option by the\
           \ copyright\n38   * holder.\n39   */\n40  \n41  package com.sun.mail.imap;\n\
           42  \n43  import java.util.Date;\n44  import java.io.*;\n45  import java.util.*;\n\
@@ -37234,30 +37289,6 @@
           kind: Class
           name: FetchProfileCondition
           package: com.sun.mail.imap
-      - codeSnip: "41  package com.sun.mail.imap;\n42  \n43  import java.util.Date;\n\
-          44  import java.io.*;\n45  import java.util.*;\n46  \n47  import javax.mail.*;\n\
-          48  import javax.mail.internet.*;\n49  import javax.activation.*;\n50  \n\
-          51  import com.sun.mail.util.*;\n52  import com.sun.mail.iap.*;\n53  import\
-          \ com.sun.mail.imap.protocol.*;\n54  \n55  /**\n56   * This class implements\
-          \ an IMAPMessage object. <p>\n57   *\n58   * An IMAPMessage object starts\
-          \ out as a light-weight object. It gets\n59   * filled-in incrementally\
-          \ when a request is made for some item. Or\n60   * when a prefetch is done\
-          \ using the FetchProfile. <p>\n61   *"
-        lineNumber: 51
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
-          kind: Class
-          name: FetchProfileCondition
-          package: com.sun.mail.imap
       - codeSnip: "42  \n43  import java.util.Date;\n44  import java.io.*;\n45  import\
           \ java.util.*;\n46  \n47  import javax.mail.*;\n48  import javax.mail.internet.*;\n\
           49  import javax.activation.*;\n50  \n51  import com.sun.mail.util.*;\n\
@@ -37269,31 +37300,6 @@
           61   *\n62   * An IMAPMessage has a messageNumber and a sequenceNumber.\
           \ The "
         lineNumber: 52
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
-          kind: Class
-          name: FetchProfileCondition
-          package: com.sun.mail.imap
-      - codeSnip: "43  import java.util.Date;\n44  import java.io.*;\n45  import java.util.*;\n\
-          46  \n47  import javax.mail.*;\n48  import javax.mail.internet.*;\n49  import\
-          \ javax.activation.*;\n50  \n51  import com.sun.mail.util.*;\n52  import\
-          \ com.sun.mail.iap.*;\n53  import com.sun.mail.imap.protocol.*;\n54  \n\
-          55  /**\n56   * This class implements an IMAPMessage object. <p>\n57   *\n\
-          58   * An IMAPMessage object starts out as a light-weight object. It gets\n\
-          59   * filled-in incrementally when a request is made for some item. Or\n\
-          60   * when a prefetch is done using the FetchProfile. <p>\n61   *\n62 \
-          \  * An IMAPMessage has a messageNumber and a sequenceNumber. The \n63 \
-          \  * messageNumber is its index into its containing folder's messageCache."
-        lineNumber: 53
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -37492,7 +37498,7 @@
           name: IMAPNestedMessage
           package: com.sun.mail.imap
       - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 58
+        lineNumber: 56
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -37508,7 +37514,7 @@
           name: ''
           package: com.sun.mail.imap
       - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 60
+        lineNumber: 57
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -37597,8 +37603,7 @@
           kind: Class
           name: ''
           package: com.sun.mail.imap
-      - codeSnip: "46  import java.io.PrintStream;\n47  import java.io.IOException;\n\
-          48  import java.net.InetAddress;\n49  import java.net.UnknownHostException;\n\
+      - codeSnip: "48  import java.net.InetAddress;\n49  import java.net.UnknownHostException;\n\
           50  import java.util.logging.Level;\n51  \n52  import javax.mail.*;\n53\
           \  import javax.mail.event.*;\n54  \n55  import com.sun.mail.iap.*;\n56\
           \  import com.sun.mail.imap.protocol.*;\n57  import com.sun.mail.util.PropUtil;\n\
@@ -37606,34 +37611,10 @@
           60  import com.sun.mail.util.MailConnectException;\n61  \n62  /**\n63  \
           \ * This class provides access to an IMAP message store. <p>\n64   *\n65\
           \   * Applications that need to make use of IMAP-specific features may cast\n\
-          66   * a <code>Store</code> object to an <code>IMAPStore</code> object and"
-        lineNumber: 56
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPStore.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPStore.java
-          kind: Class
-          name: ''
-          package: com.sun.mail.imap
-      - codeSnip: "47  import java.io.IOException;\n48  import java.net.InetAddress;\n\
-          49  import java.net.UnknownHostException;\n50  import java.util.logging.Level;\n\
-          51  \n52  import javax.mail.*;\n53  import javax.mail.event.*;\n54  \n55\
-          \  import com.sun.mail.iap.*;\n56  import com.sun.mail.imap.protocol.*;\n\
-          57  import com.sun.mail.util.PropUtil;\n58  import com.sun.mail.util.MailLogger;\n\
-          59  import com.sun.mail.util.SocketConnectException;\n60  import com.sun.mail.util.MailConnectException;\n\
-          61  \n62  /**\n63   * This class provides access to an IMAP message store.\
-          \ <p>\n64   *\n65   * Applications that need to make use of IMAP-specific\
-          \ features may cast\n66   * a <code>Store</code> object to an <code>IMAPStore</code>\
-          \ object and\n67   * use the methods on this class. The {@link #getQuota\
-          \ getQuota} and"
-        lineNumber: 57
+          66   * a <code>Store</code> object to an <code>IMAPStore</code> object and\n\
+          67   * use the methods on this class. The {@link #getQuota getQuota} and\n\
+          68   * {@link #setQuota setQuota} methods support the IMAP QUOTA extension."
+        lineNumber: 58
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -37661,6 +37642,33 @@
           \ QUOTA extension.\n69   * Refer to <A HREF=\"http://www.ietf.org/rfc/rfc2087.txt\"\
           >RFC 2087</A>"
         lineNumber: 59
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPStore.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPStore.java
+          kind: Class
+          name: ''
+          package: com.sun.mail.imap
+      - codeSnip: "50  import java.util.logging.Level;\n51  \n52  import javax.mail.*;\n\
+          53  import javax.mail.event.*;\n54  \n55  import com.sun.mail.iap.*;\n56\
+          \  import com.sun.mail.imap.protocol.*;\n57  import com.sun.mail.util.PropUtil;\n\
+          58  import com.sun.mail.util.MailLogger;\n59  import com.sun.mail.util.SocketConnectException;\n\
+          60  import com.sun.mail.util.MailConnectException;\n61  \n62  /**\n63  \
+          \ * This class provides access to an IMAP message store. <p>\n64   *\n65\
+          \   * Applications that need to make use of IMAP-specific features may cast\n\
+          66   * a <code>Store</code> object to an <code>IMAPStore</code> object and\n\
+          67   * use the methods on this class. The {@link #getQuota getQuota} and\n\
+          68   * {@link #setQuota setQuota} methods support the IMAP QUOTA extension.\n\
+          69   * Refer to <A HREF=\"http://www.ietf.org/rfc/rfc2087.txt\">RFC 2087</A>\n\
+          70   * for more information. <p>"
+        lineNumber: 60
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -38190,7 +38198,7 @@
           name: FetchResponse
           package: com.sun.mail.imap.protocol
       - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 54
+        lineNumber: 53
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -38274,16 +38282,16 @@
           kind: Class
           name: IMAPProtocol
           package: com.sun.mail.imap.protocol
-      - codeSnip: "43  import java.io.*;\n44  import java.util.*;\n45  import java.text.*;\n\
-          46  import java.lang.reflect.*;\n47  import java.util.logging.Level;\n48\
-          \  \n49  import javax.mail.*;\n50  import javax.mail.internet.*;\n51  import\
-          \ javax.mail.search.*;\n52  \n53  import com.sun.mail.util.*;\n54  import\
-          \ com.sun.mail.iap.*;\n55  import com.sun.mail.auth.Ntlm;\n56  \n57  import\
-          \ com.sun.mail.imap.ACL;\n58  import com.sun.mail.imap.Rights;\n59  import\
-          \ com.sun.mail.imap.AppendUID;\n60  import com.sun.mail.imap.SortTerm;\n\
-          61  \n62  /**\n63   * This class extends the iap.Protocol object and implements\
-          \ IMAP"
-        lineNumber: 53
+      - codeSnip: "44  import java.util.*;\n45  import java.text.*;\n46  import java.lang.reflect.*;\n\
+          47  import java.util.logging.Level;\n48  \n49  import javax.mail.*;\n50\
+          \  import javax.mail.internet.*;\n51  import javax.mail.search.*;\n52  \n\
+          53  import com.sun.mail.util.*;\n54  import com.sun.mail.iap.*;\n55  import\
+          \ com.sun.mail.auth.Ntlm;\n56  \n57  import com.sun.mail.imap.ACL;\n58 \
+          \ import com.sun.mail.imap.Rights;\n59  import com.sun.mail.imap.AppendUID;\n\
+          60  import com.sun.mail.imap.SortTerm;\n61  \n62  /**\n63   * This class\
+          \ extends the iap.Protocol object and implements IMAP\n64   * semantics.\
+          \ In general, there is a method corresponding to each"
+        lineNumber: 54
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -39782,6 +39790,22 @@
           kind: Class
           name: SMTPSenderFailedException
           package: com.sun.mail.smtp
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+        lineNumber: 55
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/smtp/SMTPTransport.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/smtp/SMTPTransport.java
+          kind: Class
+          name: Authenticator
+          package: com.sun.mail.smtp
       - codeSnip: "40  \n41  package com.sun.mail.smtp;\n42  \n43  import java.io.*;\n\
           44  import java.net.*;\n45  import java.util.*;\n46  import java.util.logging.Level;\n\
           47  import java.lang.reflect.*;\n48  import javax.net.ssl.SSLSocket;\n49\
@@ -39865,32 +39889,6 @@
           \ on the SMTP protocol provider. <p>\n63   *\n64   * This class includes\
           \ many protected methods that allow a subclass to"
         lineNumber: 54
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/smtp/SMTPTransport.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/smtp/SMTPTransport.java
-          kind: Class
-          name: Authenticator
-          package: com.sun.mail.smtp
-      - codeSnip: "45  import java.util.*;\n46  import java.util.logging.Level;\n\
-          47  import java.lang.reflect.*;\n48  import javax.net.ssl.SSLSocket;\n49\
-          \  \n50  import javax.mail.*;\n51  import javax.mail.event.*;\n52  import\
-          \ javax.mail.internet.*;\n53  \n54  import com.sun.mail.util.*;\n55  import\
-          \ com.sun.mail.auth.*;\n56  \n57  /**\n58   * This class implements the\
-          \ Transport abstract class using SMTP for\n59   * message submission and\
-          \ transport. <p>\n60   *\n61   * See the <a href=\"package-summary.html\"\
-          >com.sun.mail.smtp</a> package\n62   * documentation for further information\
-          \ on the SMTP protocol provider. <p>\n63   *\n64   * This class includes\
-          \ many protected methods that allow a subclass to\n65   * extend this class\
-          \ and add support for non-standard SMTP commands."
-        lineNumber: 55
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -41130,19 +41128,7 @@
           kind: Class
           name: MimeMultipart
           package: javax.mail.internet
-      - codeSnip: "33   * recipient has the option to distribute your version of this\
-          \ file under\n34   * either the CDDL, the GPL Version 2 or to extend the\
-          \ choice of license to\n35   * its licensees as provided above.  However,\
-          \ if you add GPL Version 2 code\n36   * and therefore, elected the GPL Version\
-          \ 2 license, then the option applies\n37   * only if the new code is made\
-          \ subject to such option by the copyright\n38   * holder.\n39   */\n40 \
-          \ \n41  package javax.mail.internet;\n42  \n43  import javax.mail.*;\n44\
-          \  import java.io.*;\n45  import java.util.Enumeration;\n46  \n47  /**\n\
-          48   * The MimePart interface models an <strong>Entity</strong> as defined\n\
-          49   * by MIME (RFC2045, Section 2.4). <p>\n50   *\n51   * MimePart extends\
-          \ the Part interface to add additional RFC822 and MIME\n52   * specific\
-          \ semantics and attributes. It provides the base interface for\n53   * the\
-          \ MimeMessage and  MimeBodyPart classes "
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
         lineNumber: 43
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\

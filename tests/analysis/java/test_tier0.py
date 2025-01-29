@@ -37,6 +37,8 @@ def test_analysis(tc_name, java_analysis_data):
     else:
         raise Exception("Missing input application")
 
+    # TODO: settings.xml with credentials needed e.g. by tackle-testapp-public
+
     # Build and execute analysis command
     command = build_analysis_command(
         input_path,
