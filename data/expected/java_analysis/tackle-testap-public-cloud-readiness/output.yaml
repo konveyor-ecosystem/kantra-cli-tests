@@ -31,7 +31,7 @@
         lineNumber: 2
         message: When migrating environments, hard-coded IP addresses may need to
           be modified or eliminated.
-        uri: file:///opt/input/source/src/main/resources/persistence.properties
+        uri: src/main/resources/persistence.properties
         variables:
           matchingText: 10.19.2.93
       labels:

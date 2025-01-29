@@ -18,7 +18,12 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, initializ
 
     expected_output, expected_output_path = dict(), os.path.join(expected_output_dir, "output.yaml")
     got_output, got_output_path = get_dict_from_output_file("output.yaml", dir=output_dir)
-    got_output = normalize_output(got_output)
+    got_output_normalized_path = got_output_path + ".normalized"
+    # create a preprocessed/normalized outfile file to allow its comparision across platforms and setups
+    with open(got_output_normalized_path, 'w') as f:
+            yaml.dump(normalize_output(got_output), f)
+    with open(got_output_normalized_path, encoding='utf-8') as file:
+        got_output = yaml.safe_load(file)
 
     if not os.path.exists(expected_output_dir):
         os.mkdir(expected_output_dir)
@@ -27,13 +32,13 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, initializ
         with open(expected_output_path, 'w') as f:
             yaml.dump(got_output, f)
 
-        assert False, "Expected output file '%s' did not exist, initializing it with the current test output" % expected_output_path
+        assert False, "Expected output file '%s' did not exist, initializing it with the current test output" % got_output_normalized_path
 
     else:
         with open(expected_output_path) as f:
             expected_output = yaml.safe_load(f)
 
-    assert got_output == expected_output, "Got different analysis output, diff: \n%s" % get_files_diff(expected_output_path, got_output_path)
+    assert got_output == expected_output, "Got different analysis output, diff: \n%s" % get_files_diff(expected_output_path, got_output_normalized_path)
 
 
 def assert_analysis_output_dependencies(expected_output_dir, output_dir):
@@ -95,12 +100,24 @@ def normalize_output(rulesets: dict):
         if ruleset.get('skipped'):
             del ruleset['skipped']
         if ruleset.get('insights'):
-            del ruleset['insights'] # This is for tags, maybe keep them?
+            del ruleset['insights']
 
-        # TODO: incidents path make compatible container with containerless and fix slashes
+        if ruleset.get('violations'):
+            for rulename in ruleset['violations']:
+                print("RULENAME: %s\n" % rulename)
+                violation = ruleset.get('violations').get(rulename)
+                print("VIOLATION: %s\n" % violation)
+                if violation:
+                    for incident in violation.get('incidents'):
+                        incident['uri'] = trim_incident_uri(incident['uri'])    # Normalize incidents path to make compatible container with containerless, fix slashes, etc.
 
     return rulesets
 
 def get_files_diff(a, b):
-    # TODO: do something better
-    return os.popen("diff -u --color '%s' '%s'" % (a, b)).read()
+    return os.popen("diff -u '%s' '%s'" % (a, b)).read()
+
+def trim_incident_uri(uri):
+    uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
+    uri = uri.replace("file:////", "file:///")    # ensure windows&unix mixture will not produce invalid file protocol prefix
+    uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix
+    return uri

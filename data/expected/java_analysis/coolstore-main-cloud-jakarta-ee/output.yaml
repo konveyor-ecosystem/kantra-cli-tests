@@ -2011,6 +2011,27 @@
           kind: Method
           name: currentUnionMemberIndex
           package: org.jboss.com.sun.corba.se.impl.corba
+      - codeSnip: "1056              case TCKind._tk_struct :\n1057              case\
+          \ TCKind._tk_union :\n1058              case TCKind._tk_enum :\n1059   \
+          \           case TCKind._tk_value :\n1060                  return _memberCount;\n\
+          1061              default :\n1062                  throw new BadKind();\n\
+          1063          }\n1064      }\n1065  \n1066      public String member_name(int\
+          \ index) throws BadKind, org.omg.CORBA.TypeCodePackage.Bounds\n1067    \
+          \  {\n1068          switch (_kind)\n1069          {\n1070              case\
+          \ tk_indirect :\n1071                  return indirectType().member_name(index);\n\
+          1072              case TCKind._tk_except :\n1073              case TCKind._tk_struct\
+          \ :\n1074              case TCKind._tk_union :\n1075              case TCKind._tk_enum\
+          \ :\n1076              case TCKind._tk_value :"
+        lineNumber: 1066
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+          kind: Method
+          name: member_name
+          package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: "1073              case TCKind._tk_struct :\n1074              case\
           \ TCKind._tk_union :\n1075              case TCKind._tk_enum :\n1076   \
           \           case TCKind._tk_value :\n1077                  try\n1078   \
@@ -2073,7 +2094,7 @@
           package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: 11   * This code is distributed in the hope that it will be useful,
           but WITHOUT
-        lineNumber: 32
+        lineNumber: 31
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -2082,66 +2103,6 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
           kind: Class
           name: TypeCodeImpl
-          package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 37
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-          kind: Class
-          name: TypeCodeImpl
-          package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 853
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-          kind: Method
-          name: equal
-          package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 1066
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-          kind: Method
-          name: member_name
-          package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 1127
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-          kind: Method
-          name: member_label
-          package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 1228
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
-          kind: Method
-          name: member_visibility
           package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: "1103                  }\n1104                  catch (ArrayIndexOutOfBoundsException\
           \ e)\n1105                  {\n1106                      throw new org.omg.CORBA.TypeCodePackage.Bounds();\n\
@@ -2155,6 +2116,27 @@
           \ a new Any for this?\n1123                      return new AnyImpl(_orb,\
           \ _unionLabels[index]);"
         lineNumber: 1113
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+          kind: Method
+          name: member_label
+          package: org.jboss.com.sun.corba.se.impl.corba
+      - codeSnip: "1117              case tk_indirect :\n1118                  return\
+          \ indirectType().member_label(index);\n1119              case TCKind._tk_union\
+          \ :\n1120                  try\n1121                  {\n1122          \
+          \            // _REVISIT_ Why create a new Any for this?\n1123         \
+          \             return new AnyImpl(_orb, _unionLabels[index]);\n1124     \
+          \             }\n1125                  catch (ArrayIndexOutOfBoundsException\
+          \ e)\n1126                  {\n1127                      throw new org.omg.CORBA.TypeCodePackage.Bounds();\n\
+          1128                  }\n1129              default :\n1130             \
+          \     throw new BadKind();\n1131          }\n1132      }\n1133  \n1134 \
+          \     public TypeCode discriminator_type() throws BadKind\n1135      {\n\
+          1136          switch (_kind)\n1137          {"
+        lineNumber: 1127
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -2184,16 +2166,36 @@
           kind: Method
           name: member_visibility
           package: org.jboss.com.sun.corba.se.impl.corba
-      - codeSnip: "21   * Please contact Oracle, 500 Oracle Parkway, Redwood Shores,\
-          \ CA 94065 USA\n22   * or visit www.oracle.com if you need additional information\
+      - codeSnip: "1218          {\n1219              case tk_indirect :\n1220   \
+          \               return indirectType().member_visibility(index);\n1221  \
+          \            case TCKind._tk_value :\n1222                  try\n1223  \
+          \                {\n1224                      return _memberAccess[index];\n\
+          1225                  }\n1226                  catch (ArrayIndexOutOfBoundsException\
+          \ e)\n1227                  {\n1228                      throw new org.omg.CORBA.TypeCodePackage.Bounds();\n\
+          1229                  }\n1230              default :\n1231             \
+          \     throw new BadKind();\n1232          }\n1233      }\n1234  \n1235 \
+          \     public short type_modifier() throws BadKind\n1236      {\n1237   \
+          \       switch (_kind)\n1238          {"
+        lineNumber: 1228
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+          kind: Method
+          name: member_visibility
+          package: org.jboss.com.sun.corba.se.impl.corba
+      - codeSnip: "22   * or visit www.oracle.com if you need additional information\
           \ or have any\n23   * questions.\n24   */\n25  \n26  package org.jboss.com.sun.corba.se.impl.corba;\n\
           27  \n28  import java.io.ByteArrayOutputStream;\n29  import java.io.PrintStream;\n\
           30  \n31  import org.omg.CORBA.Any;\n32  import org.omg.CORBA.StructMember;\n\
           33  import org.omg.CORBA.TCKind;\n34  import org.omg.CORBA.TypeCode;\n35\
           \  import org.omg.CORBA.UnionMember;\n36  import org.omg.CORBA.ValueMember;\n\
           37  import org.omg.CORBA.TypeCodePackage.BadKind;\n38  import org.omg.CORBA_2_3.portable.InputStream;\n\
-          39  import org.omg.CORBA_2_3.portable.OutputStream;\n40  \n41  import org.jboss.com.sun.corba.se.impl.corba.AnyImpl;"
-        lineNumber: 31
+          39  import org.omg.CORBA_2_3.portable.OutputStream;\n40  \n41  import org.jboss.com.sun.corba.se.impl.corba.AnyImpl;\n\
+          42  import org.jboss.com.sun.corba.se.impl.encoding.CDRInputStream;"
+        lineNumber: 32
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -2285,6 +2287,28 @@
           kind: Class
           name: TypeCodeImpl
           package: org.jboss.com.sun.corba.se.impl.corba
+      - codeSnip: "27  \n28  import java.io.ByteArrayOutputStream;\n29  import java.io.PrintStream;\n\
+          30  \n31  import org.omg.CORBA.Any;\n32  import org.omg.CORBA.StructMember;\n\
+          33  import org.omg.CORBA.TCKind;\n34  import org.omg.CORBA.TypeCode;\n35\
+          \  import org.omg.CORBA.UnionMember;\n36  import org.omg.CORBA.ValueMember;\n\
+          37  import org.omg.CORBA.TypeCodePackage.BadKind;\n38  import org.omg.CORBA_2_3.portable.InputStream;\n\
+          39  import org.omg.CORBA_2_3.portable.OutputStream;\n40  \n41  import org.jboss.com.sun.corba.se.impl.corba.AnyImpl;\n\
+          42  import org.jboss.com.sun.corba.se.impl.encoding.CDRInputStream;\n43\
+          \  import org.jboss.com.sun.corba.se.impl.encoding.CDROutputStream;\n44\
+          \  import org.jboss.com.sun.corba.se.impl.encoding.TypeCodeInputStream;\n\
+          45  import org.jboss.com.sun.corba.se.impl.encoding.TypeCodeOutputStream;\n\
+          46  import org.jboss.com.sun.corba.se.impl.encoding.TypeCodeReader;\n47\
+          \  import org.jboss.com.sun.corba.se.impl.encoding.WrapperInputStream;"
+        lineNumber: 37
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+          kind: Class
+          name: TypeCodeImpl
+          package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: "270              // set up content type\n271              switch\
           \ (_kind)\n272              {\n273                  case TCKind._tk_sequence\
           \ :\n274                  case TCKind._tk_array :\n275                 \
@@ -2350,6 +2374,59 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
           kind: Class
           name: TypeCodeImpl
+          package: org.jboss.com.sun.corba.se.impl.corba
+      - codeSnip: '843                              if (_id.compareTo(tc.id()) !=
+          0)
+
+          844                              {
+
+          845                                  return false;
+
+          846                              }
+
+          847                              // check for equality with the true type
+
+          848                              return _contentType.equal(tc.content_type());
+
+          849                          }
+
+          850                      }
+
+          851              }
+
+          852          }
+
+          853          catch (org.omg.CORBA.TypeCodePackage.Bounds e)
+
+          854          {
+
+          855          }
+
+          856          catch (BadKind e)
+
+          857          {
+
+          858          }
+
+          859          // dont have to worry about these since the code ensures these
+          dont
+
+          860          // arise.
+
+          861          return false;
+
+          862      }
+
+          863  '
+        lineNumber: 853
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/corba/TypeCodeImpl.java
+          kind: Method
+          name: equal
           package: org.jboss.com.sun.corba.se.impl.corba
       - codeSnip: "960                      if (!myRealType.member_type(i).equivalent(otherRealType.member_type(i)))\n\
           961                          return false;\n962                  }\n963\
@@ -3120,18 +3197,6 @@
           kind: Method
           name: read
           package: org.jboss.com.sun.corba.se.impl.encoding
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 156
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStreamBase.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStreamBase.java
-          kind: Method
-          name: read_any_array
-          package: org.jboss.com.sun.corba.se.impl.encoding
       - codeSnip: "112  \n113      public abstract Principal read_Principal();\n114\
           \  \n115      public int read() throws java.io.IOException\n116      {\n\
           117          throw new org.omg.CORBA.NO_IMPLEMENT();\n118      }\n119  \n\
@@ -3233,6 +3298,28 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStreamBase.java
           kind: Method
           name: read_value
+          package: org.jboss.com.sun.corba.se.impl.encoding
+      - codeSnip: "146      // org.jboss.com.sun.corba.se.impl.encoding.MarshalInputStream\n\
+          147      public abstract void consumeEndian();\n148  \n149      public abstract\
+          \ int getPosition();\n150  \n151      // org.omg.CORBA.DataInputStream\n\
+          152      public abstract Object read_Abstract();\n153  \n154      public\
+          \ abstract java.io.Serializable read_Value();\n155  \n156      public abstract\
+          \ void read_any_array(org.omg.CORBA.AnySeqHolder seq, int offset, int length);\n\
+          157  \n158      public abstract void read_boolean_array(org.omg.CORBA.BooleanSeqHolder\
+          \ seq, int offset, int length);\n159  \n160      public abstract void read_char_array(org.omg.CORBA.CharSeqHolder\
+          \ seq, int offset, int length);\n161  \n162      public abstract void read_wchar_array(org.omg.CORBA.WCharSeqHolder\
+          \ seq, int offset, int length);\n163  \n164      public abstract void read_octet_array(org.omg.CORBA.OctetSeqHolder\
+          \ seq, int offset, int length);\n165  \n166      public abstract void read_short_array(org.omg.CORBA.ShortSeqHolder\
+          \ seq, int offset, int length);"
+        lineNumber: 156
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStreamBase.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStreamBase.java
+          kind: Method
+          name: read_any_array
           package: org.jboss.com.sun.corba.se.impl.encoding
       - codeSnip: "148  \n149      public abstract int getPosition();\n150  \n151\
           \      // org.omg.CORBA.DataInputStream\n152      public abstract Object\
@@ -3738,20 +3825,17 @@
           kind: Method
           name: orb
           package: org.jboss.com.sun.corba.se.impl.encoding
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 87
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStream_1_0.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStream_1_0.java
-          kind: Class
-          name: CDRInputStream_1_0
-          package: org.jboss.com.sun.corba.se.impl.encoding
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
+      - codeSnip: " 81  import org.omg.CORBA.SystemException;\n 82  import org.omg.CORBA.TCKind;\n\
+          \ 83  import org.omg.CORBA.TypeCode;\n 84  import org.omg.CORBA.TypeCodePackage.BadKind;\n\
+          \ 85  import org.omg.CORBA.portable.BoxedValueHelper;\n 86  import org.omg.CORBA.portable.CustomValue;\n\
+          \ 87  import org.omg.CORBA.portable.IDLEntity;\n 88  import org.omg.CORBA.portable.IndirectionException;\n\
+          \ 89  import org.omg.CORBA.portable.StreamableValue;\n 90  import org.omg.CORBA.portable.ValueBase;\n\
+          \ 91  import org.omg.CORBA.portable.ValueFactory;\n 92  \n 93  @SuppressWarnings(\"\
+          deprecation\")\n 94  public class CDRInputStream_1_0 extends CDRInputStreamBase\
+          \ implements RestorableInputStream\n 95  {\n 96      private static final\
+          \ String kReadMethod = \"read\";\n 97  \n 98      private static final int\
+          \ maxBlockLength = 0x7fffff00;\n 99  \n100      protected BufferManagerRead\
+          \ bufferManagerRead;\n101  "
         lineNumber: 91
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
@@ -4266,6 +4350,27 @@
           \ extends CDRInputStreamBase implements RestorableInputStream\n95  {\n96\
           \      private static final String kReadMethod = \"read\";"
         lineNumber: 86
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStream_1_0.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDRInputStream_1_0.java
+          kind: Class
+          name: CDRInputStream_1_0
+          package: org.jboss.com.sun.corba.se.impl.encoding
+      - codeSnip: "77  import org.omg.CORBA.CompletionStatus;\n78  import org.omg.CORBA.CustomMarshal;\n\
+          79  import org.omg.CORBA.MARSHAL;\n80  import org.omg.CORBA.Principal;\n\
+          81  import org.omg.CORBA.SystemException;\n82  import org.omg.CORBA.TCKind;\n\
+          83  import org.omg.CORBA.TypeCode;\n84  import org.omg.CORBA.TypeCodePackage.BadKind;\n\
+          85  import org.omg.CORBA.portable.BoxedValueHelper;\n86  import org.omg.CORBA.portable.CustomValue;\n\
+          87  import org.omg.CORBA.portable.IDLEntity;\n88  import org.omg.CORBA.portable.IndirectionException;\n\
+          89  import org.omg.CORBA.portable.StreamableValue;\n90  import org.omg.CORBA.portable.ValueBase;\n\
+          91  import org.omg.CORBA.portable.ValueFactory;\n92  \n93  @SuppressWarnings(\"\
+          deprecation\")\n94  public class CDRInputStream_1_0 extends CDRInputStreamBase\
+          \ implements RestorableInputStream\n95  {\n96      private static final\
+          \ String kReadMethod = \"read\";\n97  "
+        lineNumber: 87
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -5012,18 +5117,6 @@
           kind: Method
           name: writeIDLEntity
           package: org.jboss.com.sun.corba.se.impl.encoding
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 78
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDROutputStream_1_0.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDROutputStream_1_0.java
-          kind: Class
-          name: CDROutputStream_1_0
-          package: org.jboss.com.sun.corba.se.impl.encoding
       - codeSnip: "137  \n138      private RepositoryIdStrings repIdStrs;\n139  \n\
           140      // Code set converters (created when first needed)\n141      private\
           \ CodeSetConversion.CTBConverter charConverter;\n142  \n143      private\
@@ -5594,6 +5687,26 @@
           \ = 0xffffffff;\n84  \n85      protected boolean littleEndian;\n86  \n87\
           \      protected BufferManagerWrite bufferManagerWrite;"
         lineNumber: 77
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDROutputStream_1_0.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/encoding/CDROutputStream_1_0.java
+          kind: Class
+          name: CDROutputStream_1_0
+          package: org.jboss.com.sun.corba.se.impl.encoding
+      - codeSnip: "68  import org.omg.CORBA.SystemException;\n69  import org.omg.CORBA.TypeCode;\n\
+          70  import org.omg.CORBA.VM_CUSTOM;\n71  import org.omg.CORBA.VM_NONE;\n\
+          72  import org.omg.CORBA.VM_TRUNCATABLE;\n73  import org.omg.CORBA.TypeCodePackage.BadKind;\n\
+          74  import org.omg.CORBA.portable.BoxedValueHelper;\n75  import org.omg.CORBA.portable.CustomValue;\n\
+          76  import org.omg.CORBA.portable.IDLEntity;\n77  import org.omg.CORBA.portable.StreamableValue;\n\
+          78  import org.omg.CORBA.portable.ValueBase;\n79  \n80  @SuppressWarnings(\"\
+          deprecation\")\n81  public class CDROutputStream_1_0 extends CDROutputStreamBase\n\
+          82  {\n83      private static final int INDIRECTION_TAG = 0xffffffff;\n\
+          84  \n85      protected boolean littleEndian;\n86  \n87      protected BufferManagerWrite\
+          \ bufferManagerWrite;\n88  "
+        lineNumber: 78
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -9481,7 +9594,7 @@
           kind: Class
           name: RequestPartitioningComponentImpl
           package: org.jboss.com.sun.corba.se.impl.ior.iiop
-      - lineNumber: 77
+      - lineNumber: 91
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -9641,27 +9754,6 @@
           kind: Method
           name: copyObject
           package: ''
-      - codeSnip: " 81  import org.omg.CORBA.COMM_FAILURE;\n 82  import org.omg.CORBA.CompletionStatus;\n\
-          \ 83  import org.omg.CORBA.INVALID_ACTIVITY;\n 84  import org.omg.CORBA.INVALID_TRANSACTION;\n\
-          \ 85  import org.omg.CORBA.INV_OBJREF;\n 86  import org.omg.CORBA.MARSHAL;\n\
-          \ 87  import org.omg.CORBA.NO_PERMISSION;\n 88  import org.omg.CORBA.OBJECT_NOT_EXIST;\n\
-          \ 89  import org.omg.CORBA.SystemException;\n 90  import org.omg.CORBA.TCKind;\n\
-          \ 91  import org.omg.CORBA.TRANSACTION_REQUIRED;\n 92  import org.omg.CORBA.TRANSACTION_ROLLEDBACK;\n\
-          \ 93  import org.omg.CORBA.TypeCode;\n 94  import org.omg.CORBA.portable.InputStream;\n\
-          \ 95  import org.omg.CORBA.portable.OutputStream;\n 96  import org.omg.CORBA.portable.UnknownException;\n\
-          \ 97  \n 98  /**\n 99   * Provides utility methods that can be used by stubs\
-          \ and ties to perform common operations.\n100   */\n101  public class Util\
-          \ implements javax.rmi.CORBA.UtilDelegate"
-        lineNumber: 91
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/javax/rmi/CORBA/Util.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/javax/rmi/CORBA/Util.java
-          kind: Class
-          name: Util
-          package: ''
       - codeSnip: " 82  import org.omg.CORBA.CompletionStatus;\n 83  import org.omg.CORBA.INVALID_ACTIVITY;\n\
           \ 84  import org.omg.CORBA.INVALID_TRANSACTION;\n 85  import org.omg.CORBA.INV_OBJREF;\n\
           \ 86  import org.omg.CORBA.MARSHAL;\n 87  import org.omg.CORBA.NO_PERMISSION;\n\
@@ -9809,6 +9901,57 @@
 
           86  import org.omg.CORBA.MARSHAL;'
         lineNumber: 76
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/javax/rmi/CORBA/Util.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/javax/rmi/CORBA/Util.java
+          kind: Class
+          name: Util
+          package: ''
+      - codeSnip: '67  import org.jboss.com.sun.corba.se.spi.copyobject.CopierManager;
+
+          68  import org.jboss.com.sun.corba.se.spi.copyobject.ObjectCopier;
+
+          69  import org.jboss.com.sun.corba.se.spi.copyobject.ReflectiveCopyException;
+
+          70  import org.jboss.com.sun.corba.se.spi.logging.CORBALogDomains;
+
+          71  import org.jboss.com.sun.corba.se.spi.orb.ORB;
+
+          72  import org.jboss.com.sun.corba.se.spi.orb.ORBVersionFactory;
+
+          73  import org.jboss.com.sun.corba.se.spi.protocol.CorbaClientDelegate;
+
+          74  import org.jboss.com.sun.corba.se.spi.protocol.LocalClientRequestDispatcher;
+
+          75  import org.jboss.com.sun.corba.se.spi.transport.CorbaContactInfoList;
+
+          76  import org.omg.CORBA.ACTIVITY_COMPLETED;
+
+          77  import org.omg.CORBA.ACTIVITY_REQUIRED;
+
+          78  import org.omg.CORBA.Any;
+
+          79  import org.omg.CORBA.BAD_OPERATION;
+
+          80  import org.omg.CORBA.BAD_PARAM;
+
+          81  import org.omg.CORBA.COMM_FAILURE;
+
+          82  import org.omg.CORBA.CompletionStatus;
+
+          83  import org.omg.CORBA.INVALID_ACTIVITY;
+
+          84  import org.omg.CORBA.INVALID_TRANSACTION;
+
+          85  import org.omg.CORBA.INV_OBJREF;
+
+          86  import org.omg.CORBA.MARSHAL;
+
+          87  import org.omg.CORBA.NO_PERMISSION;'
+        lineNumber: 77
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -10571,19 +10714,7 @@
           kind: Class
           name: OMGSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
-      - lineNumber: 52
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
-          kind: Class
-          name: OMGSystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 60
+      - lineNumber: 55
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -11025,6 +11156,27 @@
           kind: Class
           name: OMGSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: "42  import org.omg.CORBA.BAD_PARAM;\n43  import org.omg.CORBA.BAD_TYPECODE;\n\
+          44  import org.omg.CORBA.CompletionStatus;\n45  import org.omg.CORBA.DATA_CONVERSION;\n\
+          46  import org.omg.CORBA.IMP_LIMIT;\n47  import org.omg.CORBA.INITIALIZE;\n\
+          48  import org.omg.CORBA.INTERNAL;\n49  import org.omg.CORBA.INTF_REPOS;\n\
+          50  import org.omg.CORBA.INV_OBJREF;\n51  import org.omg.CORBA.INV_POLICY;\n\
+          52  import org.omg.CORBA.MARSHAL;\n53  import org.omg.CORBA.NO_IMPLEMENT;\n\
+          54  import org.omg.CORBA.NO_RESOURCES;\n55  import org.omg.CORBA.OBJECT_NOT_EXIST;\n\
+          56  import org.omg.CORBA.OBJ_ADAPTER;\n57  import org.omg.CORBA.OMGVMCID;\n\
+          58  import org.omg.CORBA.TRANSACTION_ROLLEDBACK;\n59  import org.omg.CORBA.TRANSIENT;\n\
+          60  import org.omg.CORBA.UNKNOWN;\n61  \n62  public class OMGSystemException\
+          \ extends LogWrapperBase"
+        lineNumber: 52
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
+          kind: Class
+          name: OMGSystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: "43  import org.omg.CORBA.BAD_TYPECODE;\n44  import org.omg.CORBA.CompletionStatus;\n\
           45  import org.omg.CORBA.DATA_CONVERSION;\n46  import org.omg.CORBA.IMP_LIMIT;\n\
           47  import org.omg.CORBA.INITIALIZE;\n48  import org.omg.CORBA.INTERNAL;\n\
@@ -11056,26 +11208,6 @@
           60  import org.omg.CORBA.UNKNOWN;\n61  \n62  public class OMGSystemException\
           \ extends LogWrapperBase\n63  {\n64  "
         lineNumber: 54
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
-          kind: Class
-          name: OMGSystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "45  import org.omg.CORBA.DATA_CONVERSION;\n46  import org.omg.CORBA.IMP_LIMIT;\n\
-          47  import org.omg.CORBA.INITIALIZE;\n48  import org.omg.CORBA.INTERNAL;\n\
-          49  import org.omg.CORBA.INTF_REPOS;\n50  import org.omg.CORBA.INV_OBJREF;\n\
-          51  import org.omg.CORBA.INV_POLICY;\n52  import org.omg.CORBA.MARSHAL;\n\
-          53  import org.omg.CORBA.NO_IMPLEMENT;\n54  import org.omg.CORBA.NO_RESOURCES;\n\
-          55  import org.omg.CORBA.OBJECT_NOT_EXIST;\n56  import org.omg.CORBA.OBJ_ADAPTER;\n\
-          57  import org.omg.CORBA.OMGVMCID;\n58  import org.omg.CORBA.TRANSACTION_ROLLEDBACK;\n\
-          59  import org.omg.CORBA.TRANSIENT;\n60  import org.omg.CORBA.UNKNOWN;\n\
-          61  \n62  public class OMGSystemException extends LogWrapperBase\n63  {\n\
-          64  \n65      public OMGSystemException(Logger logger)"
-        lineNumber: 55
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -11163,6 +11295,37 @@
           kind: Class
           name: OMGSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: "50  import org.omg.CORBA.INV_OBJREF;\n51  import org.omg.CORBA.INV_POLICY;\n\
+          52  import org.omg.CORBA.MARSHAL;\n53  import org.omg.CORBA.NO_IMPLEMENT;\n\
+          54  import org.omg.CORBA.NO_RESOURCES;\n55  import org.omg.CORBA.OBJECT_NOT_EXIST;\n\
+          56  import org.omg.CORBA.OBJ_ADAPTER;\n57  import org.omg.CORBA.OMGVMCID;\n\
+          58  import org.omg.CORBA.TRANSACTION_ROLLEDBACK;\n59  import org.omg.CORBA.TRANSIENT;\n\
+          60  import org.omg.CORBA.UNKNOWN;\n61  \n62  public class OMGSystemException\
+          \ extends LogWrapperBase\n63  {\n64  \n65      public OMGSystemException(Logger\
+          \ logger)\n66      {\n67          super(logger);\n68      }\n69  \n70  \
+          \    private static LogWrapperFactory factory = new LogWrapperFactory()"
+        lineNumber: 60
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/OMGSystemException.java
+          kind: Class
+          name: OMGSystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 43
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
+          kind: Class
+          name: ORBUtilSystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: "30  \n31  package org.jboss.com.sun.corba.se.impl.logging;\n32\
           \  \n33  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
           35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n37  import\
@@ -11215,27 +11378,6 @@
           49  import org.omg.CORBA.INV_OBJREF;\n50  import org.omg.CORBA.MARSHAL;\n\
           51  import org.omg.CORBA.NO_IMPLEMENT;\n52  import org.omg.CORBA.OBJECT_NOT_EXIST;"
         lineNumber: 42
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/ORBUtilSystemException.java
-          kind: Class
-          name: ORBUtilSystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "33  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
-          35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n37  import\
-          \ org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n38  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n\
-          39  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n40  import org.omg.CORBA.BAD_INV_ORDER;\n\
-          41  import org.omg.CORBA.BAD_OPERATION;\n42  import org.omg.CORBA.BAD_PARAM;\n\
-          43  import org.omg.CORBA.BAD_TYPECODE;\n44  import org.omg.CORBA.COMM_FAILURE;\n\
-          45  import org.omg.CORBA.CompletionStatus;\n46  import org.omg.CORBA.DATA_CONVERSION;\n\
-          47  import org.omg.CORBA.INITIALIZE;\n48  import org.omg.CORBA.INTERNAL;\n\
-          49  import org.omg.CORBA.INV_OBJREF;\n50  import org.omg.CORBA.MARSHAL;\n\
-          51  import org.omg.CORBA.NO_IMPLEMENT;\n52  import org.omg.CORBA.OBJECT_NOT_EXIST;\n\
-          53  import org.omg.CORBA.OBJ_ADAPTER;"
-        lineNumber: 43
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -11520,6 +11662,18 @@
           kind: Class
           name: ORBUtilSystemException
           package: org.jboss.com.sun.corba.se.impl.logging
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 45
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
+          kind: Class
+          name: POASystemException
+          package: org.jboss.com.sun.corba.se.impl.logging
       - codeSnip: "30  \n31  package org.jboss.com.sun.corba.se.impl.logging;\n32\
           \  \n33  import java.util.logging.Level;\n34  import java.util.logging.Logger;\n\
           35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n37  import\
@@ -11613,27 +11767,6 @@
           51  \n52  public class POASystemException extends LogWrapperBase\n53  {\n\
           54  "
         lineNumber: 44
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/logging/POASystemException.java
-          kind: Class
-          name: POASystemException
-          package: org.jboss.com.sun.corba.se.impl.logging
-      - codeSnip: "35  \n36  import org.jboss.com.sun.corba.se.impl.util.SUNVMCID;\n\
-          37  import org.jboss.com.sun.corba.se.spi.logging.LogWrapperBase;\n38  import\
-          \ org.jboss.com.sun.corba.se.spi.logging.LogWrapperFactory;\n39  import\
-          \ org.jboss.com.sun.corba.se.spi.orb.ORB;\n40  import org.omg.CORBA.BAD_INV_ORDER;\n\
-          41  import org.omg.CORBA.BAD_OPERATION;\n42  import org.omg.CORBA.BAD_PARAM;\n\
-          43  import org.omg.CORBA.CompletionStatus;\n44  import org.omg.CORBA.INITIALIZE;\n\
-          45  import org.omg.CORBA.INTERNAL;\n46  import org.omg.CORBA.NO_IMPLEMENT;\n\
-          47  import org.omg.CORBA.OBJECT_NOT_EXIST;\n48  import org.omg.CORBA.OBJ_ADAPTER;\n\
-          49  import org.omg.CORBA.TRANSIENT;\n50  import org.omg.CORBA.UNKNOWN;\n\
-          51  \n52  public class POASystemException extends LogWrapperBase\n53  {\n\
-          54  \n55      public POASystemException(Logger logger)"
-        lineNumber: 45
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -12845,6 +12978,18 @@
           kind: Method
           name: internalWriteUTF
           package: org.jboss.com.sun.corba.se.impl.orbutil
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 67
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ORBUtility.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ORBUtility.java
+          kind: Class
+          name: ORBUtility
+          package: org.jboss.com.sun.corba.se.impl.orbutil
       - codeSnip: "112          {\n113              return (type.kind().value() ==\
           \ TCKind._tk_except && type.member_count() == 3\n114                   \
           \   && type.member_type(0).equal(systemExceptionMembers[0].type)\n115  \
@@ -13103,28 +13248,6 @@
           \ in util.Utility for pure ORB reasons.\n75   */\n76  public final class\
           \ ORBUtility"
         lineNumber: 66
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ORBUtility.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ORBUtility.java
-          kind: Class
-          name: ORBUtility
-          package: org.jboss.com.sun.corba.se.impl.orbutil
-      - codeSnip: "57  import org.jboss.com.sun.corba.se.spi.protocol.CorbaClientDelegate;\n\
-          58  import org.jboss.com.sun.corba.se.spi.protocol.CorbaMessageMediator;\n\
-          59  import org.jboss.com.sun.corba.se.spi.transport.CorbaContactInfoList;\n\
-          60  import org.omg.CORBA.Any;\n61  import org.omg.CORBA.BAD_OPERATION;\n\
-          62  import org.omg.CORBA.BAD_PARAM;\n63  import org.omg.CORBA.CompletionStatus;\n\
-          64  import org.omg.CORBA.INTERNAL;\n65  import org.omg.CORBA.StructMember;\n\
-          66  import org.omg.CORBA.SystemException;\n67  import org.omg.CORBA.TCKind;\n\
-          68  import org.omg.CORBA.TypeCode;\n69  import org.omg.CORBA.TypeCodePackage.BadKind;\n\
-          70  import org.omg.CORBA.portable.InputStream;\n71  import org.omg.CORBA.portable.OutputStream;\n\
-          72  \n73  /**\n74   * Handy class full of static functions that don't belong\
-          \ in util.Utility for pure ORB reasons.\n75   */\n76  public final class\
-          \ ORBUtility\n77  {"
-        lineNumber: 67
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -13807,6 +13930,18 @@
           kind: Method
           name: isAbstractBase
           package: org.jboss.com.sun.corba.se.impl.orbutil
+      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
+          but WITHOUT
+        lineNumber: 208
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ValueHandlerImpl_1_3.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ValueHandlerImpl_1_3.java
+          kind: Method
+          name: readCharArray
+          package: org.jboss.com.sun.corba.se.impl.orbutil
       - codeSnip: "188      {\n189          RepositoryId_1_3 repId = RepositoryId_1_3.cache.getId(id);\n\
           190          return repId.isSequence();\n191      }\n192  \n193      /**\n\
           194       * Preserves the incorrect 1.3 behavior which truncates Java chars\
@@ -13832,28 +13967,6 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ValueHandlerImpl_1_3.java
           kind: Method
           name: writeCharArray
-          package: org.jboss.com.sun.corba.se.impl.orbutil
-      - codeSnip: "198      protected void writeCharArray(org.omg.CORBA_2_3.portable.OutputStream\
-          \ out, char[] array, int offset, int length)\n199      {\n200          out.write_char_array(array,\
-          \ offset, length);\n201      }\n202  \n203      /**\n204       * Preserves\
-          \ the incorrect 1.3 behavior which truncates Java chars in arrays to 8-bit\
-          \ CORBA chars. Bug 4367783. This\n205       * enables us to continue interoperating\
-          \ with our legacy ORBs. If this goes into Ladybird, then Ladybird and Kestrel\n\
-          206       * will interoperate as long as people don't use chars greater\
-          \ than 8-bits.\n207       */\n208      protected void readCharArray(org.omg.CORBA_2_3.portable.InputStream\
-          \ in, char[] array, int offset, int length)\n209      {\n210          in.read_char_array(array,\
-          \ offset, length);\n211      }\n212  \n213      protected final String getOutputStreamClassName()\n\
-          214      {\n215          return \"org.jboss.com.sun.corba.se.impl.orbutil.IIOPOutputStream_1_3\"\
-          ;\n216      }\n217  \n218      protected final String getInputStreamClassName()"
-        lineNumber: 208
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ValueHandlerImpl_1_3.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/orbutil/ValueHandlerImpl_1_3.java
-          kind: Method
-          name: readCharArray
           package: org.jboss.com.sun.corba.se.impl.orbutil
       - codeSnip: "26   * Licensed Materials - Property of IBM\n27   * RMI-IIOP v1.0\n\
           28   * Copyright IBM Corp. 1998 1999  All Rights Reserved\n29   *\n30  \
@@ -18079,18 +18192,6 @@
           kind: Method
           name: type
           package: org.jboss.com.sun.corba.se.impl.protocol.giopmsgheaders
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 43
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/RepositoryId.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/RepositoryId.java
-          kind: Class
-          name: RepositoryId
-          package: org.jboss.com.sun.corba.se.impl.util
       - codeSnip: "319              (byte) '6', (byte) '7', (byte) '8', (byte) '9',\
           \ (byte) 'A', (byte) 'B', (byte) 'C', (byte) 'D', (byte) 'E',\n320     \
           \         (byte) 'F',};\n321  \n322      // bug fix for 4328952; to eliminate\
@@ -18126,6 +18227,26 @@
           \ // because that is the only legal use of '.' in a Java name.\n51  \n52\
           \      public static final byte[] IDL_IDENTIFIER_CHARS = {"
         lineNumber: 42
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/RepositoryId.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/RepositoryId.java
+          kind: Class
+          name: RepositoryId
+          package: org.jboss.com.sun.corba.se.impl.util
+      - codeSnip: "33  \n34  import java.io.IOException;\n35  import java.lang.reflect.Method;\n\
+          36  import java.net.MalformedURLException;\n37  import java.util.Hashtable;\n\
+          38  \n39  import javax.rmi.CORBA.Util;\n40  \n41  import org.jboss.com.sun.corba.se.impl.io.ObjectStreamClass;\n\
+          42  import org.omg.CORBA.portable.IDLEntity;\n43  import org.omg.CORBA.portable.ValueBase;\n\
+          44  \n45  public class RepositoryId\n46  {\n47  \n48      // Legal IDL Identifier\
+          \ characters (1 = legal). Note that '.' (2E) is marked as legal even though\
+          \ it is not legal in\n49      // IDL. This allows us to treat a fully qualified\
+          \ Java name with '.' package separators uniformly, and is safe\n50     \
+          \ // because that is the only legal use of '.' in a Java name.\n51  \n52\
+          \      public static final byte[] IDL_IDENTIFIER_CHARS = {\n53  "
+        lineNumber: 43
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
           more modern technology.
@@ -18340,18 +18461,6 @@
           kind: Method
           name: readAbstractAndNarrow
           package: org.jboss.com.sun.corba.se.impl.util
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
-        lineNumber: 55
-        message: Common Object Request Broker Architecture (CORBA) found in the application.
-          CORBA is not recommended in cloud environments. Try to replace it with a
-          more modern technology.
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/Utility.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/Utility.java
-          kind: Class
-          name: Utility
-          package: org.jboss.com.sun.corba.se.impl.util
       - codeSnip: "38  \n39  import javax.rmi.PortableRemoteObject;\n40  import javax.rmi.CORBA.Tie;\n\
           41  import javax.rmi.CORBA.Util;\n42  \n43  import org.jboss.com.sun.corba.se.impl.logging.OMGSystemException;\n\
           44  import org.jboss.com.sun.corba.se.impl.logging.UtilSystemException;\n\
@@ -18540,6 +18649,27 @@
           file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/Utility.java
           kind: Method
           name: getFactory
+          package: org.jboss.com.sun.corba.se.impl.util
+      - codeSnip: "45  import org.jboss.com.sun.corba.se.spi.logging.CORBALogDomains;\n\
+          46  import org.jboss.com.sun.corba.se.spi.presentation.rmi.PresentationManager;\n\
+          47  import org.jboss.com.sun.corba.se.spi.presentation.rmi.StubAdapter;\n\
+          48  import org.omg.CORBA.BAD_OPERATION;\n49  import org.omg.CORBA.CompletionStatus;\n\
+          50  import org.omg.CORBA.ORB;\n51  import org.omg.CORBA.SystemException;\n\
+          52  import org.omg.CORBA.portable.BoxedValueHelper;\n53  import org.omg.CORBA.portable.Delegate;\n\
+          54  import org.omg.CORBA.portable.InputStream;\n55  import org.omg.CORBA.portable.ValueFactory;\n\
+          56  \n57  /**\n58   * Handy class full of static functions.\n59   */\n60\
+          \  public final class Utility\n61  {\n62  \n63      public static final\
+          \ String STUB_PREFIX = \"_\";\n64  \n65      public static final String\
+          \ RMI_STUB_SUFFIX = \"_Stub\";"
+        lineNumber: 55
+        message: Common Object Request Broker Architecture (CORBA) found in the application.
+          CORBA is not recommended in cloud environments. Try to replace it with a
+          more modern technology.
+        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/Utility.java
+        variables:
+          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/org/jboss/com/sun/corba/se/impl/util/Utility.java
+          kind: Class
+          name: Utility
           package: org.jboss.com.sun.corba.se.impl.util
       - codeSnip: "609       * @param remoteCodebase the codebase to use. May be null.\n\
           610       * \n611       * @param onlyMostDerived if true, will fail if cannot\
@@ -20012,8 +20142,16 @@
           kind: Interface
           name: CorbaMessageMediator
           package: org.jboss.com.sun.corba.se.spi.protocol
-      - codeSnip: 11   * This code is distributed in the hope that it will be useful,
-          but WITHOUT
+      - codeSnip: "21   * Please contact Oracle, 500 Oracle Parkway, Redwood Shores,\
+          \ CA 94065 USA\n22   * or visit www.oracle.com if you need additional information\
+          \ or have any\n23   * questions.\n24   */\n25  \n26  package org.jboss.com.sun.corba.se.spi.protocol;\n\
+          27  \n28  import org.jboss.com.sun.corba.se.impl.orbutil.ORBUtility;\n29\
+          \  import org.jboss.com.sun.corba.se.spi.ior.IOR;\n30  import org.jboss.com.sun.corba.se.spi.orb.ORB;\n\
+          31  import org.omg.CORBA.BAD_PARAM;\n32  \n33  /**\n34   * Thrown to signal\
+          \ an OBJECT_FORWARD or LOCATION_FORWARD\n35   */\n36  public class ForwardException\
+          \ extends RuntimeException\n37  {\n38  \n39      private static final long\
+          \ serialVersionUID = 3312717244337667473L;\n40  \n41      private org.omg.CORBA.Object\
+          \ obj;"
         lineNumber: 31
         message: Common Object Request Broker Architecture (CORBA) found in the application.
           CORBA is not recommended in cloud environments. Try to replace it with a
@@ -34686,7 +34824,16 @@
           kind: Constructor
           name: toMsgString
           package: com.sun.mail.util.logging
-      - lineNumber: 74
+      - codeSnip: "64      /**\n65       * The constructor that takes a filename as\
+          \ an argument.\n66       *\n67       * @param new_fname The file name of\
+          \ the mailcap file.\n68       */\n69      public MailcapFile(String new_fname)\
+          \ throws IOException {\n70  \tif (LogSupport.isLoggable())\n71  \t    LogSupport.log(\"\
+          new MailcapFile: file \" + new_fname);\n72  \tFileReader reader = null;\n\
+          73  \ttry {\n74  \t    reader = new FileReader(new_fname);\n75  \t    parse(new\
+          \ BufferedReader(reader));\n76  \t} finally {\n77  \t    if (reader != null)\
+          \ {\n78  \t\ttry {\n79  \t\t    reader.close();\n80  \t\t} catch (IOException\
+          \ ex) { }\n81  \t    }\n82  \t}\n83      }\n84  "
+        lineNumber: 74
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -34702,8 +34849,17 @@
           file: file:///root/.m2/repository/javax/activation/activation/1.1/com/sun/activation/registries/MailcapFile.java
           kind: Constructor
           name: MailcapFile
-          package: ''
-      - lineNumber: 48
+          package: com.sun.activation.registries
+      - codeSnip: "38       * The construtor that takes a filename as an argument.\n\
+          39       *\n40       * @param new_fname The file name of the mime types\
+          \ file.\n41       */\n42      public MimeTypeFile(String new_fname) throws\
+          \ IOException {\n43  \tFile mime_file = null;\n44  \tFileReader fr = null;\n\
+          45  \n46  \tfname = new_fname; // remember the file name\n47  \n48  \tmime_file\
+          \ = new File(fname); // get a file object\n49  \n50  \tfr = new FileReader(mime_file);\n\
+          51  \n52  \ttry {\n53  \t    parse(new BufferedReader(fr));\n54  \t} finally\
+          \ {\n55  \t    try {\n56  \t\tfr.close(); // close it\n57  \t    } catch\
+          \ (IOException e) {\n58  \t\t// ignore it"
+        lineNumber: 48
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -34719,8 +34875,16 @@
           file: file:///root/.m2/repository/javax/activation/activation/1.1/com/sun/activation/registries/MimeTypeFile.java
           kind: Constructor
           name: MimeTypeFile
-          package: ''
-      - lineNumber: 50
+          package: com.sun.activation.registries
+      - codeSnip: "40       * @param new_fname The file name of the mime types file.\n\
+          41       */\n42      public MimeTypeFile(String new_fname) throws IOException\
+          \ {\n43  \tFile mime_file = null;\n44  \tFileReader fr = null;\n45  \n46\
+          \  \tfname = new_fname; // remember the file name\n47  \n48  \tmime_file\
+          \ = new File(fname); // get a file object\n49  \n50  \tfr = new FileReader(mime_file);\n\
+          51  \n52  \ttry {\n53  \t    parse(new BufferedReader(fr));\n54  \t} finally\
+          \ {\n55  \t    try {\n56  \t\tfr.close(); // close it\n57  \t    } catch\
+          \ (IOException e) {\n58  \t\t// ignore it\n59  \t    }\n60  \t}"
+        lineNumber: 50
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -34736,25 +34900,19 @@
           file: file:///root/.m2/repository/javax/activation/activation/1.1/com/sun/activation/registries/MimeTypeFile.java
           kind: Constructor
           name: MimeTypeFile
-          package: ''
-      - lineNumber: 85
-        message: "An application running inside a container could lose access to a\
-          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
-          \ depend on the function of the file in local storage:\n\n * Logging: Log\
-          \ to standard output and use a centralized log collector to analyze the\
-          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
-          \ configuration settings in environment variables so that they can be updated\
-          \ without code changes.\n * Data storage: Use a database backing service\
-          \ for relational data or use a persistent data storage system.\n * Temporary\
-          \ data storage: Use the file system of a running container as a brief, single-transaction\
-          \ cache."
-        uri: file:///root/.m2/repository/javax/activation/activation/1.1/javax/activation/FileDataSource.java
-        variables:
-          file: file:///root/.m2/repository/javax/activation/activation/1.1/javax/activation/FileDataSource.java
-          kind: Constructor
-          name: FileDataSource
-          package: ''
-      - lineNumber: 97
+          package: com.sun.activation.registries
+      - codeSnip: " 87  \n 88      /**\n 89       * This method will return an InputStream\
+          \ representing the\n 90       * the data and will throw an IOException if\
+          \ it can\n 91       * not do so. This method will return a new\n 92    \
+          \   * instance of InputStream with each invocation.\n 93       *\n 94  \
+          \     * @return an InputStream\n 95       */\n 96      public InputStream\
+          \ getInputStream() throws IOException {\n 97  \treturn new FileInputStream(_file);\n\
+          \ 98      }\n 99  \n100      /**\n101       * This method will return an\
+          \ OutputStream representing the\n102       * the data and will throw an\
+          \ IOException if it can\n103       * not do so. This method will return\
+          \ a new instance of\n104       * OutputStream with each invocation.\n105\
+          \       *\n106       * @return an OutputStream\n107       */"
+        lineNumber: 97
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -34770,8 +34928,21 @@
           file: file:///root/.m2/repository/javax/activation/activation/1.1/javax/activation/FileDataSource.java
           kind: Constructor
           name: getInputStream
-          package: ''
-      - lineNumber: 109
+          package: javax.activation
+      - codeSnip: " 99  \n100      /**\n101       * This method will return an OutputStream\
+          \ representing the\n102       * the data and will throw an IOException if\
+          \ it can\n103       * not do so. This method will return a new instance\
+          \ of\n104       * OutputStream with each invocation.\n105       *\n106 \
+          \      * @return an OutputStream\n107       */\n108      public OutputStream\
+          \ getOutputStream() throws IOException {\n109  \treturn new FileOutputStream(_file);\n\
+          110      }\n111  \n112      /**\n113       * This method returns the MIME\
+          \ type of the data in the form of a\n114       * string. This method uses\
+          \ the currently installed FileTypeMap. If\n115       * there is no FileTypeMap\
+          \ explictly set, the FileDataSource will\n116       * call the <code>getDefaultFileTypeMap</code>\
+          \ method on\n117       * FileTypeMap to acquire a default FileTypeMap. <i>Note:\
+          \ By\n118       * default, the FileTypeMap used will be a MimetypesFileTypeMap.</i>\n\
+          119       *"
+        lineNumber: 109
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
           \ depend on the function of the file in local storage:\n\n * Logging: Log\
@@ -34787,7 +34958,35 @@
           file: file:///root/.m2/repository/javax/activation/activation/1.1/javax/activation/FileDataSource.java
           kind: Constructor
           name: getOutputStream
-          package: ''
+          package: javax.activation
+      - codeSnip: "75  \n76      /**\n77       * Creates a FileDataSource from\n78\
+          \       * the specified path name. <i>Note:\n79       * The file will not\
+          \ actually be opened until a method is\n80       * called that requires\
+          \ the file to be opened.</i>\n81       *\n82       * @param name the system-dependent\
+          \ file name.\n83       */\n84      public FileDataSource(String name) {\n\
+          85  \tthis(new File(name));\t// use the file constructor\n86      }\n87\
+          \  \n88      /**\n89       * This method will return an InputStream representing\
+          \ the\n90       * the data and will throw an IOException if it can\n91 \
+          \      * not do so. This method will return a new\n92       * instance of\
+          \ InputStream with each invocation.\n93       *\n94       * @return an InputStream\n\
+          95       */"
+        lineNumber: 85
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: file:///root/.m2/repository/javax/activation/activation/1.1/javax/activation/FileDataSource.java
+        variables:
+          file: file:///root/.m2/repository/javax/activation/activation/1.1/javax/activation/FileDataSource.java
+          kind: Constructor
+          name: FileDataSource
+          package: javax.activation
       - codeSnip: "1063  \telse\n1064  \t    addressMap.put(addresstype, protocol);\n\
           1065      }\n1066  \n1067      /**\n1068       * Load from the named file.\n\
           1069       */\n1070      private void loadFile(String name, StreamLoader\
@@ -35048,7 +35247,18 @@
           kind: Constructor
           name: toResult
           package: javax.xml.bind
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+      - codeSnip: "106      public final void marshal( Object obj, java.io.OutputStream\
+          \ os )\n107          throws JAXBException {\n108              \n109    \
+          \      checkNotNull( obj, \"obj\", os, \"os\" );\n110          marshal(\
+          \ obj, new StreamResult(os) );\n111      }\n112  \n113      public void\
+          \ marshal(Object jaxbElement, File output) throws JAXBException {\n114 \
+          \         checkNotNull(jaxbElement, \"jaxbElement\", output, \"output\"\
+          \ );\n115          try {\n116              OutputStream os = new BufferedOutputStream(new\
+          \ FileOutputStream(output));\n117              try {\n118              \
+          \    marshal( jaxbElement, new StreamResult(os) );\n119              } finally\
+          \ {\n120                  os.close();\n121              }\n122         \
+          \ } catch (IOException e) {\n123              throw new JAXBException(e);\n\
+          124          }\n125      }\n126  "
         lineNumber: 116
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
@@ -35860,23 +36070,6 @@
           kind: Constructor
           name: getPropertiesFromFile
           package: ''
-      - lineNumber: 288
-        message: "An application running inside a container could lose access to a\
-          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
-          \ depend on the function of the file in local storage:\n\n * Logging: Log\
-          \ to standard output and use a centralized log collector to analyze the\
-          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
-          \ configuration settings in environment variables so that they can be updated\
-          \ without code changes.\n * Data storage: Use a database backing service\
-          \ for relational data or use a persistent data storage system.\n * Temporary\
-          \ data storage: Use the file system of a running container as a brief, single-transaction\
-          \ cache."
-        uri: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/javax/rmi/GetORBPropertiesFileAction.java
-        variables:
-          file: file:///root/.m2/repository/org/jboss/spec/javax/rmi/jboss-rmi-api_1.0_spec/1.0.2.Final/javax/rmi/GetORBPropertiesFileAction.java
-          kind: Constructor
-          name: getPropertiesFromFile
-          package: ''
       - codeSnip: "2282      }\n2283  \n2284      public String description()\n2285\
           \      {\n2286          return \"TypeCodeImpl with kind \" + _kind + \"\
           \ and id \" + _id;\n2287      }\n2288  \n2289      public String toString()\n\
@@ -36075,20 +36268,7 @@
           kind: Constructor
           name: toURL
           package: javax.xml.bind.helpers
-      - codeSnip: "166       * portion of the url.</p>\n167       *\n168       * @param\
-          \ context the {@link FacesContext} for the current request\n169       *\n\
-          170       * @throws MalformedURLException if the process of constructing\
-          \ the\n171       * URL causes this exception to be thrown.\n172       */\n\
-          173      public URL getActionURL(FacesContext context) throws MalformedURLException\
-          \ {\n174  \n175          ExternalContext extContext = context.getExternalContext();\n\
-          176          return new URL(extContext.getRequestScheme(),\n177        \
-          \          extContext.getRequestServerName(),\n178                  extContext.getRequestServerPort(),\n\
-          179                  context.getApplication().getViewHandler().getActionURL(context,\
-          \ getToViewId(context)));\n180          \n181      }\n182  \n183  \n184\
-          \      /**\n185       * <p class=\"changed_added_2_0\">Construct an absolute\
-          \ URL to this\n186       * <code>NavigationCase</code> instance using {@link\n\
-          187       * javax.faces.application.ViewHandler#getResourceURL} on the path\n\
-          188       * portion of the url.</p>\n189       *"
+      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
         lineNumber: 176
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\
@@ -36301,8 +36481,16 @@
       description: Java Mail API
       effort: 3
       incidents:
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 61
+      - codeSnip: "50  import java.security.GeneralSecurityException;\n51  import\
+          \ java.security.NoSuchAlgorithmException;\n52  import java.util.Locale;\n\
+          53  import java.util.logging.Level;\n54  import javax.crypto.Cipher;\n55\
+          \  import javax.crypto.NoSuchPaddingException;\n56  import javax.crypto.SecretKey;\n\
+          57  import javax.crypto.SecretKeyFactory;\n58  import javax.crypto.spec.DESKeySpec;\n\
+          59  \n60  import com.sun.mail.util.BASE64DecoderStream;\n61  import com.sun.mail.util.BASE64EncoderStream;\n\
+          62  import com.sun.mail.util.MailLogger;\n63  \n64  \n65  /**\n66   * NTLMAuthentication:\n\
+          67   *\n68   * @author Michael McMahon\n69   * @author Bill Shannon (adapted\
+          \ for JavaMail)\n70   */"
+        lineNumber: 60
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -36317,16 +36505,15 @@
           kind: Class
           name: Ntlm
           package: com.sun.mail.auth
-      - codeSnip: "50  import java.security.GeneralSecurityException;\n51  import\
-          \ java.security.NoSuchAlgorithmException;\n52  import java.util.Locale;\n\
-          53  import java.util.logging.Level;\n54  import javax.crypto.Cipher;\n55\
-          \  import javax.crypto.NoSuchPaddingException;\n56  import javax.crypto.SecretKey;\n\
+      - codeSnip: "51  import java.security.NoSuchAlgorithmException;\n52  import\
+          \ java.util.Locale;\n53  import java.util.logging.Level;\n54  import javax.crypto.Cipher;\n\
+          55  import javax.crypto.NoSuchPaddingException;\n56  import javax.crypto.SecretKey;\n\
           57  import javax.crypto.SecretKeyFactory;\n58  import javax.crypto.spec.DESKeySpec;\n\
           59  \n60  import com.sun.mail.util.BASE64DecoderStream;\n61  import com.sun.mail.util.BASE64EncoderStream;\n\
           62  import com.sun.mail.util.MailLogger;\n63  \n64  \n65  /**\n66   * NTLMAuthentication:\n\
           67   *\n68   * @author Michael McMahon\n69   * @author Bill Shannon (adapted\
-          \ for JavaMail)\n70   */"
-        lineNumber: 60
+          \ for JavaMail)\n70   */\n71  public class Ntlm {"
+        lineNumber: 61
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -36834,22 +37021,6 @@
           kind: Class
           name: ''
           package: com.sun.mail.imap
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 51
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPBodyPart.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPBodyPart.java
-          kind: Class
-          name: IMAPBodyPart
-          package: com.sun.mail.imap
       - codeSnip: "36   * and therefore, elected the GPL Version 2 license, then the\
           \ option applies\n37   * only if the new code is made subject to such option\
           \ by the copyright\n38   * holder.\n39   */\n40  \n41  package com.sun.mail.imap;\n\
@@ -36916,6 +37087,28 @@
           kind: Class
           name: IMAPBodyPart
           package: com.sun.mail.imap
+      - codeSnip: "41  package com.sun.mail.imap;\n42  \n43  import java.io.*;\n44\
+          \  \n45  import java.util.Enumeration;\n46  import javax.mail.*;\n47  import\
+          \ javax.mail.internet.*;\n48  import javax.activation.*;\n49  \n50  import\
+          \ com.sun.mail.util.*;\n51  import com.sun.mail.iap.*;\n52  import com.sun.mail.imap.protocol.*;\n\
+          53  \n54  /**\n55   * An IMAP body part.\n56   *\n57   * @author  John Mani\n\
+          58   * @author  Bill Shannon\n59   */\n60  \n61  public class IMAPBodyPart\
+          \ extends MimeBodyPart implements ReadableMime {"
+        lineNumber: 51
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPBodyPart.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPBodyPart.java
+          kind: Class
+          name: IMAPBodyPart
+          package: com.sun.mail.imap
       - codeSnip: "42  \n43  import java.io.*;\n44  \n45  import java.util.Enumeration;\n\
           46  import javax.mail.*;\n47  import javax.mail.internet.*;\n48  import\
           \ javax.activation.*;\n49  \n50  import com.sun.mail.util.*;\n51  import\
@@ -36938,22 +37131,6 @@
           file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPBodyPart.java
           kind: Class
           name: IMAPBodyPart
-          package: com.sun.mail.imap
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 57
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
-          kind: Class
-          name: ''
           package: com.sun.mail.imap
       - codeSnip: "40  \n41  package com.sun.mail.imap;\n42  \n43  import java.util.Date;\n\
           44  import java.util.Vector;\n45  import java.util.Hashtable;\n46  import\
@@ -37101,6 +37278,32 @@
           kind: Class
           name: ''
           package: com.sun.mail.imap
+      - codeSnip: "47  import java.util.logging.Level;\n48  import java.io.*;\n49\
+          \  \n50  import javax.mail.*;\n51  import javax.mail.event.*;\n52  import\
+          \ javax.mail.internet.*;\n53  import javax.mail.search.*;\n54  \n55  import\
+          \ com.sun.mail.util.*;\n56  import com.sun.mail.iap.*;\n57  import com.sun.mail.imap.protocol.*;\n\
+          58  \n59  /**\n60   * This class implements an IMAP folder. <p>\n61   *\n\
+          62   * A closed IMAPFolder object shares a protocol connection with its\
+          \ IMAPStore\n63   * object. When the folder is opened, it gets its own protocol\
+          \ connection. <p>\n64   *\n65   * Applications that need to make use of\
+          \ IMAP-specific features may cast\n66   * a <code>Folder</code> object to\
+          \ an <code>IMAPFolder</code> object and\n67   * use the methods on this\
+          \ class. The {@link #getQuota getQuota} and"
+        lineNumber: 57
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPFolder.java
+          kind: Class
+          name: ''
+          package: com.sun.mail.imap
       - codeSnip: "34   * either the CDDL, the GPL Version 2 or to extend the choice\
           \ of license to\n35   * its licensees as provided above.  However, if you\
           \ add GPL Version 2 code\n36   * and therefore, elected the GPL Version\
@@ -37195,22 +37398,6 @@
           kind: Class
           name: IMAPInputStream
           package: com.sun.mail.imap
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 51
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
-          kind: Class
-          name: FetchProfileCondition
-          package: com.sun.mail.imap
       - codeSnip: "37   * only if the new code is made subject to such option by the\
           \ copyright\n38   * holder.\n39   */\n40  \n41  package com.sun.mail.imap;\n\
           42  \n43  import java.util.Date;\n44  import java.io.*;\n45  import java.util.*;\n\
@@ -37241,6 +37428,30 @@
           55  /**\n56   * This class implements an IMAPMessage object. <p>\n57   *\n\
           58   * An IMAPMessage object starts out as a light-weight object. It gets"
         lineNumber: 48
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/IMAPMessage.java
+          kind: Class
+          name: FetchProfileCondition
+          package: com.sun.mail.imap
+      - codeSnip: "41  package com.sun.mail.imap;\n42  \n43  import java.util.Date;\n\
+          44  import java.io.*;\n45  import java.util.*;\n46  \n47  import javax.mail.*;\n\
+          48  import javax.mail.internet.*;\n49  import javax.activation.*;\n50  \n\
+          51  import com.sun.mail.util.*;\n52  import com.sun.mail.iap.*;\n53  import\
+          \ com.sun.mail.imap.protocol.*;\n54  \n55  /**\n56   * This class implements\
+          \ an IMAPMessage object. <p>\n57   *\n58   * An IMAPMessage object starts\
+          \ out as a light-weight object. It gets\n59   * filled-in incrementally\
+          \ when a request is made for some item. Or\n60   * when a prefetch is done\
+          \ using the FetchProfile. <p>\n61   *"
+        lineNumber: 51
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -38207,38 +38418,6 @@
           kind: Class
           name: FetchResponse
           package: com.sun.mail.imap.protocol
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 54
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/protocol/IMAPProtocol.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/protocol/IMAPProtocol.java
-          kind: Class
-          name: IMAPProtocol
-          package: com.sun.mail.imap.protocol
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 57
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/protocol/IMAPProtocol.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/protocol/IMAPProtocol.java
-          kind: Class
-          name: IMAPProtocol
-          package: com.sun.mail.imap.protocol
       - codeSnip: "39   */\n40  \n41  package com.sun.mail.imap.protocol;\n42  \n\
           43  import java.io.*;\n44  import java.util.*;\n45  import java.text.*;\n\
           46  import java.lang.reflect.*;\n47  import java.util.logging.Level;\n48\
@@ -38332,6 +38511,30 @@
           kind: Class
           name: IMAPProtocol
           package: com.sun.mail.imap.protocol
+      - codeSnip: "44  import java.util.*;\n45  import java.text.*;\n46  import java.lang.reflect.*;\n\
+          47  import java.util.logging.Level;\n48  \n49  import javax.mail.*;\n50\
+          \  import javax.mail.internet.*;\n51  import javax.mail.search.*;\n52  \n\
+          53  import com.sun.mail.util.*;\n54  import com.sun.mail.iap.*;\n55  import\
+          \ com.sun.mail.auth.Ntlm;\n56  \n57  import com.sun.mail.imap.ACL;\n58 \
+          \ import com.sun.mail.imap.Rights;\n59  import com.sun.mail.imap.AppendUID;\n\
+          60  import com.sun.mail.imap.SortTerm;\n61  \n62  /**\n63   * This class\
+          \ extends the iap.Protocol object and implements IMAP\n64   * semantics.\
+          \ In general, there is a method corresponding to each"
+        lineNumber: 54
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/protocol/IMAPProtocol.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/protocol/IMAPProtocol.java
+          kind: Class
+          name: IMAPProtocol
+          package: com.sun.mail.imap.protocol
       - codeSnip: "45  import java.text.*;\n46  import java.lang.reflect.*;\n47  import\
           \ java.util.logging.Level;\n48  \n49  import javax.mail.*;\n50  import javax.mail.internet.*;\n\
           51  import javax.mail.search.*;\n52  \n53  import com.sun.mail.util.*;\n\
@@ -38343,6 +38546,32 @@
           \ each\n65   * IMAP protocol command. The typical implementation issues\
           \ the"
         lineNumber: 55
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/protocol/IMAPProtocol.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/imap/protocol/IMAPProtocol.java
+          kind: Class
+          name: IMAPProtocol
+          package: com.sun.mail.imap.protocol
+      - codeSnip: "47  import java.util.logging.Level;\n48  \n49  import javax.mail.*;\n\
+          50  import javax.mail.internet.*;\n51  import javax.mail.search.*;\n52 \
+          \ \n53  import com.sun.mail.util.*;\n54  import com.sun.mail.iap.*;\n55\
+          \  import com.sun.mail.auth.Ntlm;\n56  \n57  import com.sun.mail.imap.ACL;\n\
+          58  import com.sun.mail.imap.Rights;\n59  import com.sun.mail.imap.AppendUID;\n\
+          60  import com.sun.mail.imap.SortTerm;\n61  \n62  /**\n63   * This class\
+          \ extends the iap.Protocol object and implements IMAP\n64   * semantics.\
+          \ In general, there is a method corresponding to each\n65   * IMAP protocol\
+          \ command. The typical implementation issues the\n66   * appropriate protocol\
+          \ command, collects all responses, processes\n67   * those responses that\
+          \ are specific to this command and then"
+        lineNumber: 57
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -38675,7 +38904,16 @@
           kind: Class
           name: MailboxInfo
           package: com.sun.mail.imap.protocol
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
+      - codeSnip: "34   * either the CDDL, the GPL Version 2 or to extend the choice\
+          \ of license to\n35   * its licensees as provided above.  However, if you\
+          \ add GPL Version 2 code\n36   * and therefore, elected the GPL Version\
+          \ 2 license, then the option applies\n37   * only if the new code is made\
+          \ subject to such option by the copyright\n38   * holder.\n39   */\n40 \
+          \ \n41  package com.sun.mail.imap.protocol;\n42  \n43  import java.util.*;\n\
+          44  import com.sun.mail.iap.*;\n45  \n46  /**\n47   * This class and its\
+          \ inner class represent the response to the\n48   * NAMESPACE command. <p>\n\
+          49   *\n50   * See <A HREF=\"http://www.ietf.org/rfc/rfc2342.txt\">RFC 2342</A>.\n\
+          51   *\n52   * @author Bill Shannon\n53   */\n54  "
         lineNumber: 44
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
@@ -39781,22 +40019,6 @@
           kind: Class
           name: SMTPSenderFailedException
           package: com.sun.mail.smtp
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 54
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/smtp/SMTPTransport.java
-        variables:
-          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/smtp/SMTPTransport.java
-          kind: Class
-          name: Authenticator
-          package: com.sun.mail.smtp
       - codeSnip: "40  \n41  package com.sun.mail.smtp;\n42  \n43  import java.io.*;\n\
           44  import java.net.*;\n45  import java.util.*;\n46  import java.util.logging.Level;\n\
           47  import java.lang.reflect.*;\n48  import javax.net.ssl.SSLSocket;\n49\
@@ -39855,6 +40077,31 @@
           62   * documentation for further information on the SMTP protocol provider.\
           \ <p>"
         lineNumber: 52
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/smtp/SMTPTransport.java
+        variables:
+          file: file:///root/.m2/repository/com/sun/mail/javax.mail/1.5.0/com/sun/mail/smtp/SMTPTransport.java
+          kind: Class
+          name: Authenticator
+          package: com.sun.mail.smtp
+      - codeSnip: "44  import java.net.*;\n45  import java.util.*;\n46  import java.util.logging.Level;\n\
+          47  import java.lang.reflect.*;\n48  import javax.net.ssl.SSLSocket;\n49\
+          \  \n50  import javax.mail.*;\n51  import javax.mail.event.*;\n52  import\
+          \ javax.mail.internet.*;\n53  \n54  import com.sun.mail.util.*;\n55  import\
+          \ com.sun.mail.auth.*;\n56  \n57  /**\n58   * This class implements the\
+          \ Transport abstract class using SMTP for\n59   * message submission and\
+          \ transport. <p>\n60   *\n61   * See the <a href=\"package-summary.html\"\
+          >com.sun.mail.smtp</a> package\n62   * documentation for further information\
+          \ on the SMTP protocol provider. <p>\n63   *\n64   * This class includes\
+          \ many protected methods that allow a subclass to"
+        lineNumber: 54
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
           \ names, properties, credentials, or certificates.\n\n Recommendations\n\
@@ -40103,7 +40350,18 @@
           kind: Class
           name: LogManagerProperties
           package: com.sun.mail.util.logging
-      - codeSnip: 11   * obtain a copy of the License at
+      - codeSnip: "34   * recipient has the option to distribute your version of this\
+          \ file under\n35   * either the CDDL, the GPL Version 2 or to extend the\
+          \ choice of license to\n36   * its licensees as provided above.  However,\
+          \ if you add GPL Version 2 code\n37   * and therefore, elected the GPL Version\
+          \ 2 license, then the option applies\n38   * only if the new code is made\
+          \ subject to such option by the copyright\n39   * holder.\n40   */\n41 \
+          \ \n42  package com.sun.mail.util.logging;\n43  \n44  import com.sun.mail.smtp.SMTPTransport;\n\
+          45  import java.io.*;\n46  import java.lang.reflect.Array;\n47  import java.net.InetAddress;\n\
+          48  import java.net.URLConnection;\n49  import java.net.UnknownHostException;\n\
+          50  import java.nio.charset.Charset;\n51  import java.security.AccessController;\n\
+          52  import java.security.PrivilegedAction;\n53  import java.util.*;\n54\
+          \  import java.util.logging.*;"
         lineNumber: 44
         message: "The configuration parameters of SMTP services for outbound mail\
           \ may contain environment-specific values such as static IP addresses, host\
@@ -40327,22 +40585,6 @@
           kind: Class
           name: TerminatorEvent
           package: javax.mail
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 798
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/Session.java
-        variables:
-          file: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/Session.java
-          kind: Method
-          name: getService
-          package: javax.mail
       - codeSnip: "46  import java.security.*;\n47  import java.util.Enumeration;\n\
           48  import java.util.Hashtable;\n49  import java.util.Properties;\n50  import\
           \ java.util.StringTokenizer;\n51  import java.util.Vector;\n52  import java.util.logging.Level;\n\
@@ -40395,6 +40637,32 @@
           file: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/Session.java
           kind: Class
           name: Session
+          package: javax.mail
+      - codeSnip: "788  \t\tserviceClass = Class.forName(provider.getClassName());\n\
+          789  \t    } catch (Exception ex) {\n790  \t\t// Nothing worked, give up.\n\
+          791  \t\tlogger.log(Level.FINE, \"Exception loading provider\", ex);\n792\
+          \  \t\tthrow new NoSuchProviderException(provider.getProtocol());\n793 \
+          \ \t    }\n794  \t}\n795  \n796  \t// construct an instance of the class\n\
+          797  \ttry {\n798  \t    Class[] c = {javax.mail.Session.class, javax.mail.URLName.class};\n\
+          799  \t    Constructor cons = serviceClass.getConstructor(c);\n800  \n801\
+          \  \t    Object[] o = {this, url};\n802  \t    service = cons.newInstance(o);\n\
+          803  \n804  \t} catch (Exception ex) {\n805  \t    logger.log(Level.FINE,\
+          \ \"Exception loading provider\", ex);\n806  \t    throw new NoSuchProviderException(provider.getProtocol());\n\
+          807  \t}\n808  "
+        lineNumber: 798
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/Session.java
+        variables:
+          file: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/Session.java
+          kind: Method
+          name: getService
           package: javax.mail
       - codeSnip: "36   * and therefore, elected the GPL Version 2 license, then the\
           \ option applies\n37   * only if the new code is made subject to such option\
@@ -40736,22 +41004,6 @@
           kind: Class
           name: InternetAddress
           package: javax.mail.internet
-      - codeSnip: 11   * https://glassfish.dev.java.net/public/CDDL+GPL_1_1.html
-        lineNumber: 46
-        message: "The configuration parameters of SMTP services for outbound mail\
-          \ may contain environment-specific values such as static IP addresses, host\
-          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
-          \n * In a cloud environment, mail systems should be considered backing services\
-          \ and treated like attached resources.\n * Ensure that the configuration\
-          \ of the underlying outbound mail connection is not environment-specific.\n\
-          \ * In OpenShift Container Platform, store configuration parameters as environment\
-          \ variables or in a ConfigMap."
-        uri: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/internet/InternetHeaders.java
-        variables:
-          file: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/internet/InternetHeaders.java
-          kind: Class
-          name: InternetHeaders
-          package: javax.mail.internet
       - codeSnip: "35   * its licensees as provided above.  However, if you add GPL\
           \ Version 2 code\n36   * and therefore, elected the GPL Version 2 license,\
           \ then the option applies\n37   * only if the new code is made subject to\
@@ -40779,6 +41031,32 @@
           file: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/internet/InternetHeaders.java
           kind: Class
           name: InternetHeader
+          package: javax.mail.internet
+      - codeSnip: "36   * and therefore, elected the GPL Version 2 license, then the\
+          \ option applies\n37   * only if the new code is made subject to such option\
+          \ by the copyright\n38   * holder.\n39   */\n40  \n41  package javax.mail.internet;\n\
+          42  \n43  import java.io.*;\n44  import java.util.*;\n45  import javax.mail.*;\n\
+          46  import com.sun.mail.util.LineInputStream;\n47  import com.sun.mail.util.PropUtil;\n\
+          48  \n49  /**\n50   * InternetHeaders is a utility class that manages RFC822\
+          \ style\n51   * headers. Given an RFC822 format message stream, it reads\
+          \ lines\n52   * until the blank line that indicates end of header. The input\
+          \ stream\n53   * is positioned at the start of the body. The lines are stored\
+          \ \n54   * within the object and can be extracted as either Strings or\n\
+          55   * {@link javax.mail.Header} objects. <p>\n56   *"
+        lineNumber: 46
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/internet/InternetHeaders.java
+        variables:
+          file: file:///root/.m2/repository/javax/javaee-api/7.0/javax/mail/internet/InternetHeaders.java
+          kind: Class
+          name: InternetHeaders
           package: javax.mail.internet
       - codeSnip: "37   * only if the new code is made subject to such option by the\
           \ copyright\n38   * holder.\n39   */\n40  \n41  package javax.mail.internet;\n\
@@ -42219,7 +42497,7 @@
           \ is more scaleable and elastic.\n * The application can survive EAP node\
           \ failures because a JVM failure does not cause session data loss.\n * Session\
           \ data can be shared by multiple applications."
-        uri: file:///opt/input/source/src/main/webapp/WEB-INF/web.xml
+        uri: src/main/webapp/WEB-INF/web.xml
         variables:
           data: distributable
           innerText: ''
@@ -42310,7 +42588,7 @@
         message: If you migrate your application to JBoss EAP 7.3, or later, and want
           to ensure its Maven building, running or testing works as expected, use
           instead the Jakarta EE dependency with groupId `com.sun.activation`
-        uri: file:///opt/input/source/pom.xml
+        uri: pom.xml
         variables:
           name: javax.activation.activation
           version: '1.1'
@@ -42357,7 +42635,7 @@
         lineNumber: 18
         message: Replace `http://xmlns.jcp.org/xml/ns/javaee` with `https://jakarta.ee/xml/ns/jakartaee`
           and change the schema version number
-        uri: file:///opt/input/source/src/main/webapp/WEB-INF/beans.xml
+        uri: src/main/webapp/WEB-INF/beans.xml
         variables:
           matchingText: http://xmlns.jcp.org/xml/ns/javaee
       - codeSnip: "  1  <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n  2  <!--\n  3\
@@ -42381,7 +42659,7 @@
         lineNumber: 20
         message: Replace `http://xmlns.jcp.org/xml/ns/javaee` with `https://jakarta.ee/xml/ns/jakartaee`
           and change the schema version number
-        uri: file:///opt/input/source/src/main/webapp/WEB-INF/beans.xml
+        uri: src/main/webapp/WEB-INF/beans.xml
         variables:
           matchingText: http://xmlns.jcp.org/xml/ns/javaee
       - codeSnip: "  1  <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n  2  <!--\n  3\
@@ -42405,7 +42683,7 @@
         lineNumber: 21
         message: Replace `http://xmlns.jcp.org/xml/ns/javaee` with `https://jakarta.ee/xml/ns/jakartaee`
           and change the schema version number
-        uri: file:///opt/input/source/src/main/webapp/WEB-INF/beans.xml
+        uri: src/main/webapp/WEB-INF/beans.xml
         variables:
           matchingText: http://xmlns.jcp.org/xml/ns/javaee
       labels:
@@ -42441,7 +42719,7 @@
         lineNumber: 3
         message: Replace `http://xmlns.jcp.org/xml/ns/persistence` with `https://jakarta.ee/xml/ns/persistence`
           and change the schema version number
-        uri: file:///opt/input/source/src/main/resources/META-INF/persistence.xml
+        uri: src/main/resources/META-INF/persistence.xml
         variables:
           matchingText: http://xmlns.jcp.org/xml/ns/persistence
       - codeSnip: "  1  <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n  2  <persistence\
@@ -42460,7 +42738,7 @@
         lineNumber: 5
         message: Replace `http://xmlns.jcp.org/xml/ns/persistence` with `https://jakarta.ee/xml/ns/persistence`
           and change the schema version number
-        uri: file:///opt/input/source/src/main/resources/META-INF/persistence.xml
+        uri: src/main/resources/META-INF/persistence.xml
         variables:
           matchingText: http://xmlns.jcp.org/xml/ns/persistence
       - codeSnip: "  1  <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n  2  <persistence\
@@ -42479,7 +42757,7 @@
         lineNumber: 6
         message: Replace `http://xmlns.jcp.org/xml/ns/persistence` with `https://jakarta.ee/xml/ns/persistence`
           and change the schema version number
-        uri: file:///opt/input/source/src/main/resources/META-INF/persistence.xml
+        uri: src/main/resources/META-INF/persistence.xml
         variables:
           matchingText: http://xmlns.jcp.org/xml/ns/persistence
       labels:
@@ -42519,7 +42797,7 @@
         lineNumber: 21
         message: Replace `beans_1_1.xsd` with `beans_3_0.xsd` and update the version
           attribute to `"3.0"`
-        uri: file:///opt/input/source/src/main/webapp/WEB-INF/beans.xml
+        uri: src/main/webapp/WEB-INF/beans.xml
         variables:
           matchingText: beans_1_1.xsd
       labels:
@@ -42554,7 +42832,7 @@
         lineNumber: 6
         message: Replace `persistence_2_1.xsd` with `persistence_3_0.xsd` and update
           the version attribute to `"3.0"`
-        uri: file:///opt/input/source/src/main/resources/META-INF/persistence.xml
+        uri: src/main/resources/META-INF/persistence.xml
         variables:
           matchingText: persistence_2_1.xsd
       labels:
@@ -42589,7 +42867,7 @@
         lineNumber: 2
         message: In the root tag, replace the `version` attribute value `2.1` with
           `3.0`
-        uri: file:///opt/input/source/src/main/resources/META-INF/persistence.xml
+        uri: src/main/resources/META-INF/persistence.xml
         variables:
           matchingText: version="2.1"
       - codeSnip: "  1  <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n  2  <persistence\
@@ -42608,7 +42886,7 @@
         lineNumber: 8
         message: In the root tag, replace the `version` attribute value `2.1` with
           `3.0`
-        uri: file:///opt/input/source/src/main/resources/META-INF/persistence.xml
+        uri: src/main/resources/META-INF/persistence.xml
         variables:
           data: persistence
           innerText: "\n    \n        java:jboss/datasources/CoolstoreDS\n       \
@@ -42671,7 +42949,7 @@
           \ TODO: Add OpenShift profile here -->\n 67      </profiles>\n 68  </project>\n"
         lineNumber: 19
         message: Update group dependency by replacing the `javax` groupId with `jakarta.platform`
-        uri: file:///opt/input/source/pom.xml
+        uri: pom.xml
         variables:
           matchingText: groupId>javax<
       - codeSnip: "  1  <?xml version=\"1.0\" encoding=\"UTF-8\"?>\n  2  <project\
@@ -42713,7 +42991,7 @@
           \ TODO: Add OpenShift profile here -->\n 67      </profiles>\n 68  </project>\n"
         lineNumber: 25
         message: Update group dependency by replacing the `javax` groupId with `jakarta.platform`
-        uri: file:///opt/input/source/pom.xml
+        uri: pom.xml
         variables:
           matchingText: groupId>javax<
       labels:
@@ -42775,7 +43053,7 @@
         lineNumber: 26
         message: Update artifact dependency by replacing the `javaee-api` artifactId
           with `jakarta.jakartaee-api`
-        uri: file:///opt/input/source/pom.xml
+        uri: pom.xml
         variables:
           matchingText: artifactId>javaee-api<
       labels:
@@ -42837,7 +43115,7 @@
         lineNumber: 20
         message: Update artifact dependency by replacing the `javaee-web-api` artifactId
           with `jakarta.jakartaee-web-api`
-        uri: file:///opt/input/source/pom.xml
+        uri: pom.xml
         variables:
           matchingText: artifactId>javaee-web-api<
       labels:
@@ -42867,7 +43145,7 @@
           \ public class InventoryEntity implements Serializable {"
         lineNumber: 5
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
+        uri: src/main/java/com/redhat/coolstore/model/InventoryEntity.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
           kind: Module
@@ -42883,7 +43161,7 @@
           \ public class InventoryEntity implements Serializable {\n16  "
         lineNumber: 6
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
+        uri: src/main/java/com/redhat/coolstore/model/InventoryEntity.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
           kind: Module
@@ -42900,7 +43178,7 @@
           \ static final long serialVersionUID = 7526472295622776147L; "
         lineNumber: 7
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
+        uri: src/main/java/com/redhat/coolstore/model/InventoryEntity.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
           kind: Module
@@ -42917,7 +43195,7 @@
           \ static final long serialVersionUID = 7526472295622776147L; \n18  "
         lineNumber: 8
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
+        uri: src/main/java/com/redhat/coolstore/model/InventoryEntity.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
           kind: Module
@@ -42935,7 +43213,7 @@
           \      @Id"
         lineNumber: 9
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
+        uri: src/main/java/com/redhat/coolstore/model/InventoryEntity.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
           kind: Module
@@ -42953,7 +43231,7 @@
           \      @Id\n20      private String itemId;"
         lineNumber: 10
         message: Replace the `javax.xml` import statement with `jakarta.xml`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
+        uri: src/main/java/com/redhat/coolstore/model/InventoryEntity.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/InventoryEntity.java
           kind: Module
@@ -42969,7 +43247,7 @@
           15  import javax.persistence.Table;\n16  \n17  @Entity"
         lineNumber: 7
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -42986,7 +43264,7 @@
           \ = \"ORDERS\")"
         lineNumber: 8
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -43003,7 +43281,7 @@
           \ = \"ORDERS\")\n19  public class Order implements Serializable {"
         lineNumber: 9
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -43020,7 +43298,7 @@
           \ = \"ORDERS\")\n19  public class Order implements Serializable {\n20  "
         lineNumber: 10
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -43038,7 +43316,7 @@
           21  \tprivate static final long serialVersionUID = -1L;"
         lineNumber: 11
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -43056,7 +43334,7 @@
           \ = -1L;\n22  "
         lineNumber: 12
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -43074,7 +43352,7 @@
           \ = -1L;\n22  \n23  \t@Id"
         lineNumber: 13
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -43092,7 +43370,7 @@
           24  \t@GeneratedValue"
         lineNumber: 14
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -43109,7 +43387,7 @@
           \ = -1L;\n22  \n23  \t@Id\n24  \t@GeneratedValue\n25  \tprivate long orderId;"
         lineNumber: 15
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
+        uri: src/main/java/com/redhat/coolstore/model/Order.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/Order.java
           kind: Module
@@ -43125,7 +43403,7 @@
           15  "
         lineNumber: 5
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
+        uri: src/main/java/com/redhat/coolstore/model/OrderItem.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
           kind: Module
@@ -43141,7 +43419,7 @@
           15  \n16  \t@Id"
         lineNumber: 6
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
+        uri: src/main/java/com/redhat/coolstore/model/OrderItem.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
           kind: Module
@@ -43157,7 +43435,7 @@
           15  \n16  \t@Id\n17  \t@Column(name=\"ID\")"
         lineNumber: 7
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
+        uri: src/main/java/com/redhat/coolstore/model/OrderItem.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
           kind: Module
@@ -43173,7 +43451,7 @@
           15  \n16  \t@Id\n17  \t@Column(name=\"ID\")\n18  \t@GeneratedValue"
         lineNumber: 8
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
+        uri: src/main/java/com/redhat/coolstore/model/OrderItem.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
           kind: Module
@@ -43190,7 +43468,7 @@
           \ \tprivate long id;"
         lineNumber: 9
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
+        uri: src/main/java/com/redhat/coolstore/model/OrderItem.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/OrderItem.java
           kind: Module
@@ -43206,7 +43484,7 @@
           17  \t"
         lineNumber: 7
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/ShoppingCart.java
+        uri: src/main/java/com/redhat/coolstore/model/ShoppingCart.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/model/ShoppingCart.java
           kind: Module
@@ -43220,7 +43498,7 @@
           12      private EntityManager em;\n13  "
         lineNumber: 3
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/persistence/Resources.java
+        uri: src/main/java/com/redhat/coolstore/persistence/Resources.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/persistence/Resources.java
           kind: Module
@@ -43234,7 +43512,7 @@
           12      private EntityManager em;\n13  \n14      @Produces"
         lineNumber: 4
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/persistence/Resources.java
+        uri: src/main/java/com/redhat/coolstore/persistence/Resources.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/persistence/Resources.java
           kind: Module
@@ -43249,7 +43527,7 @@
           \ EntityManager getEntityManager() {"
         lineNumber: 5
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/persistence/Resources.java
+        uri: src/main/java/com/redhat/coolstore/persistence/Resources.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/persistence/Resources.java
           kind: Module
@@ -43264,7 +43542,7 @@
           \ EntityManager getEntityManager() {\n16          return em;"
         lineNumber: 6
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/persistence/Resources.java
+        uri: src/main/java/com/redhat/coolstore/persistence/Resources.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/persistence/Resources.java
           kind: Module
@@ -43280,7 +43558,7 @@
           \  import javax.ws.rs.core.MediaType;\n18  \n19  import com.redhat.coolstore.model.Product;"
         lineNumber: 9
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43297,7 +43575,7 @@
           20  import com.redhat.coolstore.model.ShoppingCart;"
         lineNumber: 10
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43314,7 +43592,7 @@
           20  import com.redhat.coolstore.model.ShoppingCart;\n21  import com.redhat.coolstore.model.ShoppingCartItem;"
         lineNumber: 11
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43331,7 +43609,7 @@
           21  import com.redhat.coolstore.model.ShoppingCartItem;\n22  import com.redhat.coolstore.service.ShoppingCartService;"
         lineNumber: 12
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43349,7 +43627,7 @@
           23  "
         lineNumber: 13
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43367,7 +43645,7 @@
           23  \n24  @SessionScoped"
         lineNumber: 14
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43385,7 +43663,7 @@
           \ @SessionScoped\n25  @Path(\"/cart\")"
         lineNumber: 15
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43403,7 +43681,7 @@
           \ implements Serializable {"
         lineNumber: 16
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43421,7 +43699,7 @@
           \ Serializable {\n27  "
         lineNumber: 17
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/CartEndpoint.java
           kind: Module
@@ -43436,7 +43714,7 @@
           14  \n15  import com.redhat.coolstore.model.Order;\n16  import com.redhat.coolstore.service.OrderService;"
         lineNumber: 6
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
           kind: Module
@@ -43452,7 +43730,7 @@
           17  "
         lineNumber: 7
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
           kind: Module
@@ -43468,7 +43746,7 @@
           17  \n18  @RequestScoped"
         lineNumber: 8
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
           kind: Module
@@ -43484,7 +43762,7 @@
           17  \n18  @RequestScoped\n19  @Path(\"/orders\")"
         lineNumber: 9
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
           kind: Module
@@ -43500,7 +43778,7 @@
           17  \n18  @RequestScoped\n19  @Path(\"/orders\")\n20  @Consumes(MediaType.APPLICATION_JSON)"
         lineNumber: 10
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
           kind: Module
@@ -43517,7 +43795,7 @@
           21  @Produces(MediaType.APPLICATION_JSON)"
         lineNumber: 11
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
           kind: Module
@@ -43534,7 +43812,7 @@
           22  public class OrderEndpoint implements Serializable {"
         lineNumber: 12
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
           kind: Module
@@ -43551,7 +43829,7 @@
           22  public class OrderEndpoint implements Serializable {\n23  "
         lineNumber: 13
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/OrderEndpoint.java
           kind: Module
@@ -43566,7 +43844,7 @@
           15  @Path(\"/products\")\n16  @Consumes(MediaType.APPLICATION_JSON)"
         lineNumber: 6
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
           kind: Module
@@ -43582,7 +43860,7 @@
           \  @Produces(MediaType.APPLICATION_JSON)"
         lineNumber: 7
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
           kind: Module
@@ -43599,7 +43877,7 @@
           \ implements Serializable {\n19  "
         lineNumber: 9
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
+        uri: src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/ProductEndpoint.java
           kind: Module
@@ -43612,7 +43890,7 @@
           \  \n10  }\n"
         lineNumber: 3
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/RestApplication.java
+        uri: src/main/java/com/redhat/coolstore/rest/RestApplication.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/RestApplication.java
           kind: Module
@@ -43625,7 +43903,7 @@
           \  \n10  }\n"
         lineNumber: 4
         message: Replace the `javax.ws` import statement with `jakarta.ws`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/RestApplication.java
+        uri: src/main/java/com/redhat/coolstore/rest/RestApplication.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/rest/RestApplication.java
           kind: Module
@@ -43641,7 +43919,7 @@
           \ log;\n22  "
         lineNumber: 12
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
+        uri: src/main/java/com/redhat/coolstore/service/CatalogService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
           kind: Module
@@ -43656,7 +43934,7 @@
           14  \n15  import com.redhat.coolstore.model.*;\n16  "
         lineNumber: 6
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
+        uri: src/main/java/com/redhat/coolstore/service/CatalogService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
           kind: Module
@@ -43672,7 +43950,7 @@
           \  public class CatalogService {"
         lineNumber: 8
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
+        uri: src/main/java/com/redhat/coolstore/service/CatalogService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
           kind: Module
@@ -43688,7 +43966,7 @@
           \  public class CatalogService {\n19  "
         lineNumber: 9
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
+        uri: src/main/java/com/redhat/coolstore/service/CatalogService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
           kind: Module
@@ -43704,7 +43982,7 @@
           \  public class CatalogService {\n19  \n20      @Inject"
         lineNumber: 10
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
+        uri: src/main/java/com/redhat/coolstore/service/CatalogService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
           kind: Module
@@ -43720,7 +43998,7 @@
           \ log;\n22  \n23      @Inject"
         lineNumber: 13
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
+        uri: src/main/java/com/redhat/coolstore/service/CatalogService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/CatalogService.java
           kind: Module
@@ -43736,7 +44014,7 @@
           \ = 50;"
         lineNumber: 6
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/InventoryNotificationMDB.java
+        uri: src/main/java/com/redhat/coolstore/service/InventoryNotificationMDB.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/InventoryNotificationMDB.java
           kind: Module
@@ -43751,7 +44029,7 @@
           \ class OrderService {\n14  \n15    @Inject"
         lineNumber: 5
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
           kind: Module
@@ -43767,7 +44045,7 @@
           \ em;"
         lineNumber: 6
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
           kind: Module
@@ -43783,7 +44061,7 @@
           \ em;\n17  "
         lineNumber: 7
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
           kind: Module
@@ -43799,7 +44077,7 @@
           \ em;\n17  \n18    public void save(Order order) {"
         lineNumber: 8
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
           kind: Module
@@ -43815,7 +44093,7 @@
           \ em;\n17  \n18    public void save(Order order) {\n19      em.persist(order);"
         lineNumber: 9
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
           kind: Module
@@ -43832,7 +44110,7 @@
           20    }"
         lineNumber: 10
         message: Replace the `javax.persistence` import statement with `jakarta.persistence`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderService.java
           kind: Module
@@ -43847,7 +44125,7 @@
           13  "
         lineNumber: 3
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
           kind: Module
@@ -43863,7 +44141,7 @@
           \ {"
         lineNumber: 4
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
           kind: Module
@@ -43880,7 +44158,7 @@
           , propertyValue = \"topic/orders\"),"
         lineNumber: 5
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
           kind: Module
@@ -43898,7 +44176,7 @@
           \ = \"destinationType\", propertyValue = \"javax.jms.Topic\"),"
         lineNumber: 6
         message: Replace the `javax.jms` import statement with `jakarta.jms`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
           kind: Module
@@ -43917,7 +44195,7 @@
           \ = \"acknowledgeMode\", propertyValue = \"Auto-acknowledge\")})"
         lineNumber: 7
         message: Replace the `javax.jms` import statement with `jakarta.jms`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
           kind: Module
@@ -43937,7 +44215,7 @@
           \ class OrderServiceMDB implements MessageListener { "
         lineNumber: 8
         message: Replace the `javax.jms` import statement with `jakarta.jms`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
           kind: Module
@@ -43957,7 +44235,7 @@
           \ class OrderServiceMDB implements MessageListener { \n19  "
         lineNumber: 9
         message: Replace the `javax.jms` import statement with `jakarta.jms`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
+        uri: src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/OrderServiceMDB.java
           kind: Module
@@ -43972,7 +44250,7 @@
           13  \n14  @Stateless\n15  public class ProductService {\n16  \n17      @Inject"
         lineNumber: 7
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ProductService.java
+        uri: src/main/java/com/redhat/coolstore/service/ProductService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ProductService.java
           kind: Module
@@ -43988,7 +44266,7 @@
           18      CatalogService cm;"
         lineNumber: 8
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ProductService.java
+        uri: src/main/java/com/redhat/coolstore/service/ProductService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ProductService.java
           kind: Module
@@ -44004,7 +44282,7 @@
           \ static final long serialVersionUID = 2088590587856645568L;\n19  "
         lineNumber: 9
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/PromoService.java
+        uri: src/main/java/com/redhat/coolstore/service/PromoService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/PromoService.java
           kind: Module
@@ -44019,7 +44297,7 @@
           \ calculateShipping(ShoppingCart sc) {"
         lineNumber: 6
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShippingService.java
+        uri: src/main/java/com/redhat/coolstore/service/ShippingService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShippingService.java
           kind: Module
@@ -44034,7 +44312,7 @@
           \ calculateShipping(ShoppingCart sc) {\n17  "
         lineNumber: 7
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShippingService.java
+        uri: src/main/java/com/redhat/coolstore/service/ShippingService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShippingService.java
           kind: Module
@@ -44049,7 +44327,7 @@
           14  public class ShoppingCartOrderProcessor  {\n15  "
         lineNumber: 5
         message: Replace the `javax.annotation` import statement with `jakarta.annotation`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
+        uri: src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
           kind: Module
@@ -44064,7 +44342,7 @@
           14  public class ShoppingCartOrderProcessor  {"
         lineNumber: 4
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
+        uri: src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
           kind: Module
@@ -44079,7 +44357,7 @@
           14  public class ShoppingCartOrderProcessor  {\n15  \n16      @Inject"
         lineNumber: 6
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
+        uri: src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
           kind: Module
@@ -44095,7 +44373,7 @@
           17      Logger log;"
         lineNumber: 7
         message: Replace the `javax.jms` import statement with `jakarta.jms`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
+        uri: src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
           kind: Module
@@ -44111,7 +44389,7 @@
           17      Logger log;\n18  "
         lineNumber: 8
         message: Replace the `javax.jms` import statement with `jakarta.jms`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
+        uri: src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartOrderProcessor.java
           kind: Module
@@ -44126,7 +44404,7 @@
           14  import com.redhat.coolstore.model.ShoppingCartItem;\n15  \n16  @Stateful"
         lineNumber: 6
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartService.java
+        uri: src/main/java/com/redhat/coolstore/service/ShoppingCartService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartService.java
           kind: Module
@@ -44142,7 +44420,7 @@
           17  public class ShoppingCartService  {"
         lineNumber: 7
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartService.java
+        uri: src/main/java/com/redhat/coolstore/service/ShoppingCartService.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/service/ShoppingCartService.java
           kind: Module
@@ -44158,7 +44436,7 @@
           15  import java.util.logging.Logger;\n16  "
         lineNumber: 6
         message: Replace the `javax.annotation` import statement with `jakarta.annotation`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
+        uri: src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
           kind: Module
@@ -44174,7 +44452,7 @@
           15  import java.util.logging.Logger;\n16  \n17  /**"
         lineNumber: 7
         message: Replace the `javax.annotation` import statement with `jakarta.annotation`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
+        uri: src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
           kind: Module
@@ -44191,7 +44469,7 @@
           \ on 2017-04-04."
         lineNumber: 8
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
+        uri: src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
           kind: Module
@@ -44208,7 +44486,7 @@
           \ on 2017-04-04.\n19   */"
         lineNumber: 9
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
+        uri: src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
           kind: Module
@@ -44225,7 +44503,7 @@
           \ on 2017-04-04.\n19   */\n20  @Singleton"
         lineNumber: 10
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
+        uri: src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
           kind: Module
@@ -44242,7 +44520,7 @@
           \ on 2017-04-04.\n19   */\n20  @Singleton\n21  @Startup"
         lineNumber: 11
         message: Replace the `javax.ejb` import statement with `jakarta.ejb`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
+        uri: src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
           kind: Module
@@ -44259,7 +44537,7 @@
           21  @Startup\n22  @TransactionManagement(TransactionManagementType.BEAN)"
         lineNumber: 12
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
+        uri: src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/DataBaseMigrationStartup.java
           kind: Module
@@ -44273,7 +44551,7 @@
           \ injectionPoint) {"
         lineNumber: 3
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Producers.java
+        uri: src/main/java/com/redhat/coolstore/utils/Producers.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Producers.java
           kind: Module
@@ -44287,7 +44565,7 @@
           \ injectionPoint) {\n14          return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());"
         lineNumber: 4
         message: Replace the `javax.enterprise` import statement with `jakarta.enterprise`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Producers.java
+        uri: src/main/java/com/redhat/coolstore/utils/Producers.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Producers.java
           kind: Module
@@ -44303,7 +44581,7 @@
           \     log.info(\"AppListener(postStart)\");"
         lineNumber: 6
         message: Replace the `javax.inject` import statement with `jakarta.inject`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/StartupListener.java
+        uri: src/main/java/com/redhat/coolstore/utils/StartupListener.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/StartupListener.java
           kind: Module
@@ -44321,7 +44599,7 @@
           20  import java.util.logging.Logger;\n21  \n22  /**"
         lineNumber: 12
         message: Replace the `javax.json` import statement with `jakarta.json`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
+        uri: src/main/java/com/redhat/coolstore/utils/Transformers.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
           kind: Module
@@ -44340,7 +44618,7 @@
           \ on 2017-03-30."
         lineNumber: 13
         message: Replace the `javax.json` import statement with `jakarta.json`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
+        uri: src/main/java/com/redhat/coolstore/utils/Transformers.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
           kind: Module
@@ -44358,7 +44636,7 @@
           \ on 2017-03-30.\n24   */"
         lineNumber: 14
         message: Replace the `javax.json` import statement with `jakarta.json`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
+        uri: src/main/java/com/redhat/coolstore/utils/Transformers.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
           kind: Module
@@ -44376,7 +44654,7 @@
           \ class Transformers {"
         lineNumber: 15
         message: Replace the `javax.json` import statement with `jakarta.json`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
+        uri: src/main/java/com/redhat/coolstore/utils/Transformers.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
           kind: Module
@@ -44393,7 +44671,7 @@
           \ on 2017-03-30.\n24   */\n25  public class Transformers {\n26  "
         lineNumber: 16
         message: Replace the `javax.json` import statement with `jakarta.json`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
+        uri: src/main/java/com/redhat/coolstore/utils/Transformers.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
           kind: Module
@@ -44412,7 +44690,7 @@
           ,\"Stefan Olson\",\"Martin Ericsson\"};"
         lineNumber: 17
         message: Replace the `javax.json` import statement with `jakarta.json`
-        uri: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
+        uri: src/main/java/com/redhat/coolstore/utils/Transformers.java
         variables:
           file: file:///opt/input/source/src/main/java/com/redhat/coolstore/utils/Transformers.java
           kind: Module
@@ -44449,7 +44727,7 @@
           \ 17  </persistence>\n"
         lineNumber: 10
         message: Rename properties prefixed by `javax` with `jakarta`
-        uri: file:///opt/input/source/src/main/resources/META-INF/persistence.xml
+        uri: src/main/resources/META-INF/persistence.xml
         variables:
           matchingText: <property name="javax.
       labels:

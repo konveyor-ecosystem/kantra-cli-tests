@@ -34,14 +34,14 @@ runs:
     shell: cmd
     run: |
       docker --help
-      git clone https://github.com/ibragins/konveyor-cli-deployment.git
-      cd konveyor-cli-deployment
-      pip install -r requirements.txt
-      REM Error parsing json, trying just dummy example file, might be OK for upstream
-      cp config.json.example config.json
-      REM TODO: Use ${{ inputs.tag }} to specify required kantra version
-      python install_cli.py --upstream true
-      C:\Users\runneradmin\.kantra\windows-kantra.exe --help
+      REM  git clone https://github.com/ibragins/konveyor-cli-deployment.git
+      REM  cd konveyor-cli-deployment
+      REM  pip install -r requirements.txt
+      REM  REM Error parsing json, trying just dummy example file, might be OK for upstream
+      REM  cp config.json.example config.json
+      REM  REM TODO: Use ${{ inputs.tag }} to specify required kantra version
+      REM  python install_cli.py --upstream true
+      REM  C:\Users\runneradmin\.kantra\windows-kantra.exe --help
 
   - name: Extract kantra
     shell: cmd

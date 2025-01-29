@@ -41,7 +41,7 @@
           \ for relational data or use a persistent data storage system.\n * Temporary\
           \ data storage: Use the file system of a running container as a brief, single-transaction\
           \ cache."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/export/XMLExporter.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/export/XMLExporter.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/export/XMLExporter.java
           kind: Constructor
@@ -67,7 +67,7 @@
           \ for relational data or use a persistent data storage system.\n * Temporary\
           \ data storage: Use the file system of a running container as a brief, single-transaction\
           \ cache."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
           kind: Constructor
@@ -97,7 +97,7 @@
           \ for relational data or use a persistent data storage system.\n * Temporary\
           \ data storage: Use the file system of a running container as a brief, single-transaction\
           \ cache."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/webapp/filter/FileUploadFilter.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/webapp/filter/FileUploadFilter.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/webapp/filter/FileUploadFilter.java
           kind: Constructor
@@ -149,7 +149,7 @@
           \ for relational data or use a persistent data storage system.\n * Temporary\
           \ data storage: Use the file system of a running container as a brief, single-transaction\
           \ cache."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/captcha/Captcha.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/captcha/Captcha.java
         variables:
           class: ''
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/captcha/Captcha.java
@@ -177,7 +177,7 @@
           \ for relational data or use a persistent data storage system.\n * Temporary\
           \ data storage: Use the file system of a running container as a brief, single-transaction\
           \ cache."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/feedreader/FeedInput.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/feedreader/FeedInput.java
         variables:
           class: ''
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/feedreader/FeedInput.java
@@ -206,7 +206,7 @@
           \ for relational data or use a persistent data storage system.\n * Temporary\
           \ data storage: Use the file system of a running container as a brief, single-transaction\
           \ cache."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
         variables:
           class: ''
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
@@ -248,7 +248,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
           kind: Module
@@ -267,7 +267,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
           kind: Module
@@ -288,7 +288,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
           kind: Module
@@ -310,7 +310,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
           kind: Module
@@ -333,7 +333,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
           kind: Module
@@ -356,7 +356,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
           kind: Module
@@ -380,7 +380,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
           kind: Module
@@ -404,7 +404,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
           kind: Module
@@ -429,7 +429,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
           kind: Module
@@ -455,7 +455,7 @@
           \ of the underlying outbound mail connection is not environment-specific.\n\
           \ * In OpenShift Container Platform, store configuration parameters as environment\
           \ variables or in a ConfigMap."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        uri: AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
         variables:
           file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
           kind: Module
@@ -495,7 +495,7 @@
           \ is more scaleable and elastic.\n * The application can survive EAP node\
           \ failures because a JVM failure does not cause session data loss.\n * Session\
           \ data can be shared by multiple applications."
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/tmp/coolstore-main-cloud-jakarta-ee/src/main/webapp/WEB-INF/web.xml
+        uri: AdministracionEfectivo.ear/tmp/coolstore-main-cloud-jakarta-ee/src/main/webapp/WEB-INF/web.xml
         variables:
           data: distributable
           innerText: ''
@@ -548,7 +548,7 @@
         lineNumber: 2
         message: When migrating environments, hard-coded IP addresses may need to
           be modified or eliminated.
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/tackle-testapp/src/main/resources/persistence.properties
+        uri: AdministracionEfectivo.ear/tackle-testapp/src/main/resources/persistence.properties
         variables:
           matchingText: 10.19.2.93
       - codeSnip: "  1   jdbc.driverClassName=oracle.jdbc.driver.OracleDriver\n  2\
@@ -562,7 +562,7 @@
         lineNumber: 2
         message: When migrating environments, hard-coded IP addresses may need to
           be modified or eliminated.
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/tackle-testapp/target/classes/persistence.properties
+        uri: AdministracionEfectivo.ear/tackle-testapp/target/classes/persistence.properties
         variables:
           matchingText: 10.19.2.93
       - codeSnip: "  1   jdbc.driverClassName=oracle.jdbc.driver.OracleDriver\n  2\
@@ -576,7 +576,7 @@
         lineNumber: 2
         message: When migrating environments, hard-coded IP addresses may need to
           be modified or eliminated.
-        uri: file:///opt/input/source/AdministracionEfectivo.ear/tmp/tackle-testap-public-cloud-readiness/src/main/resources/persistence.properties
+        uri: AdministracionEfectivo.ear/tmp/tackle-testap-public-cloud-readiness/src/main/resources/persistence.properties
         variables:
           matchingText: 10.19.2.93
       labels:
