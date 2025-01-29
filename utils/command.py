@@ -3,7 +3,7 @@ import os
 from utils import constants
 
 
-def build_analysis_command(binary_name, source, target, is_bulk=False, **kwargs):
+def build_analysis_command(binary_name, source, target, is_bulk=False, output_path=None, **kwargs):
     """
         Builds a string for executing the "analyze" subcommand
 
@@ -22,7 +22,12 @@ def build_analysis_command(binary_name, source, target, is_bulk=False, **kwargs)
             Exception: If `binary_path` is not provided.
     """
     kantra_path = os.getenv(constants.KANTRA_CLI_PATH)
-    report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
+
+    if output_path:
+        report_path = output_path
+    else:
+        report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
+
     if not binary_name:
         raise Exception('Binary path is required')
 
@@ -31,7 +36,10 @@ def build_analysis_command(binary_name, source, target, is_bulk=False, **kwargs)
     else:
         run_type = '--overwrite'
 
-    binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/applications', binary_name)
+    if os.path.isabs(binary_name):
+        binary_path = binary_name
+    else:
+        binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/applications', binary_name)
 
     command = kantra_path + ' analyze ' + run_type + ' --input ' + binary_path + ' --output ' + report_path
 

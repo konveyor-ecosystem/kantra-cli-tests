@@ -1,0 +1,15 @@
+{
+  "tackle-testap-public-cloud-readiness": {
+      "input": {
+        "git": "https://github.com/konveyor/tackle-testapp-public",
+        "branch": "main"
+      },
+      "sources": [],
+      "targets": [
+          "cloud-readiness"
+      ],
+      "settings": "data/xml/tackle-testapp-public-settings.xml"
+      
+      
+  }
+}

@@ -7,6 +7,11 @@ def analysis_data():
         json_list = json.load(file)
     return json_list
 
+@pytest.fixture(scope="session")
+def java_analysis_data():
+    with open('data/java_analysis.json', 'r') as file:
+        json_list = json.load(file)
+    return json_list
 
 @pytest.fixture(scope="session")
 def dotnet_analysis_data():

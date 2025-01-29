@@ -1,0 +1,56 @@
+import json
+import os
+import subprocess
+
+import pytest
+
+from utils import constants
+from utils.command import build_analysis_command
+from utils.common import run_containerless_parametrize
+from utils.manage_maven_credentials import manage_credentials_in_maven_xml
+from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
+from utils.output import assert_analysis_output_violations, assert_analysis_output_dependencies
+
+project_path = os.getenv(constants.PROJECT_PATH)
+output_root_path = os.getenv(constants.REPORT_OUTPUT_PATH, "./output")
+
+@pytest.mark.parametrize('tc_name', json.load(open("data/java_analysis.json")))
+def test_analysis(tc_name, java_analysis_data):
+    tc = java_analysis_data[tc_name]
+    output_dir = os.path.join(output_root_path, tc_name)
+
+    # Get the input application
+    input = tc['input']
+    input_path = os.path.join(project_path, "data", "applications", "tmp", tc_name)
+    if input.get('git'):
+        if not os.path.exists(input_path):
+            os.system("git clone %s %s" % (input['git'], input_path))
+            #if input['branch']:
+                # chdir?
+                #os.system("git fetch origin %s:fetched" % input['branch'])
+                #os.system("git checkout fetched")
+    elif input.get('local'):    # could absolute or be relative to data/applications
+        input_path = input['local']
+    elif input.get['remote_binary']:
+        if not os.path.exists(input_path):
+            os.system("curl -o %s %s" % (input_path, input['remote_binary']))
+    else:
+        raise "Missing input application"
+
+    # Build and execute analysis command
+    command = build_analysis_command(
+        input_path,
+        " --source ".join(tc['sources']),
+        " --target ".join(tc['targets']),
+        output_path=output_dir
+    )
+    output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
+
+    # Check console output
+
+    # Check analysis results (deeply)
+    expected_output_dir = os.path.join(project_path, "data", "expected", "java_analysis", tc_name)
+    assert_analysis_output_violations(expected_output_dir, output_dir)
+    
+    # Check dependencies
+    assert_analysis_output_dependencies(expected_output_dir, output_dir)

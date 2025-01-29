@@ -4,7 +4,7 @@ import yaml
 from utils import constants
 
 
-def assert_analysis_output_violations(expected_output_dir, initialize_if_empty = True):
+def assert_analysis_output_violations(expected_output_dir, output_dir, initialize_if_empty = True):
     """
     Asserts that the Violations (Issues) and their Incidents from analysis output
 
@@ -17,7 +17,7 @@ def assert_analysis_output_violations(expected_output_dir, initialize_if_empty =
     """
 
     expected_output, expected_output_path = dict(), os.path.join(expected_output_dir, "output.yaml")
-    got_output, got_output_path = get_dict_from_output_file("output.yaml")
+    got_output, got_output_path = get_dict_from_output_file("output.yaml", dir=output_dir)
     got_output = normalize_output(got_output)
 
     if not os.path.exists(expected_output_dir):
@@ -36,7 +36,7 @@ def assert_analysis_output_violations(expected_output_dir, initialize_if_empty =
     assert got_output == expected_output, "Got different analysis output, diff: \n%s" % get_files_diff(expected_output_path, got_output_path)
 
 
-def assert_analysis_output_dependencies(expected_output_dir):
+def assert_analysis_output_dependencies(expected_output_dir, output_dir):
     """
     Asserts that the Dependencies from analysis output
 
@@ -49,7 +49,7 @@ def assert_analysis_output_dependencies(expected_output_dir):
     """
 
     expected_output, expected_output_path = dict(), os.path.join(expected_output_dir, "dependencies.yaml")
-    got_output, got_output_path = get_dict_from_output_file("dependencies.yaml")
+    got_output, got_output_path = get_dict_from_output_file("dependencies.yaml", dir=output_dir)
 
     if not os.path.exists(expected_output_path):
         with open(expected_output_path, 'w') as f:
@@ -64,9 +64,9 @@ def assert_analysis_output_dependencies(expected_output_dir):
     assert got_output == expected_output, "Got different dependencies output, diff: \n%s" % get_files_diff(expected_output_path, got_output_path)
 
 
-def get_dict_from_output_file(filename, **kwargs):
+def get_dict_from_output_file(filename, dir=None, **kwargs):
     """
-        Loads and returns a YAML from analysis output Violation file output.yaml
+        Loads and returns a YAML from analysis output Violation file output.yaml, TODO dir cleaner
 
         Returns:
             dict (from YAML file data)
@@ -74,6 +74,8 @@ def get_dict_from_output_file(filename, **kwargs):
         """
     report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
     report_path = kwargs.get('report_path', report_path)
+    if dir:
+        report_path = dir
     output_path = os.path.join(report_path, filename)
 
     with open(output_path, encoding='utf-8') as file:
