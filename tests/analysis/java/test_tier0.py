@@ -29,13 +29,13 @@ def test_analysis(tc_name, java_analysis_data):
                 # chdir?
                 #os.system("git fetch origin %s:fetched" % input['branch'])
                 #os.system("git checkout fetched")
-    elif input.get('local'):    # could absolute or be relative to data/applications
+    elif input.get('local'):    # could be absolute, or relative to data/applications
         input_path = input['local']
     elif input.get['remote_binary']:
         if not os.path.exists(input_path):
             os.system("curl -o %s %s" % (input_path, input['remote_binary']))
     else:
-        raise "Missing input application"
+        raise Exception("Missing input application")
 
     # Build and execute analysis command
     command = build_analysis_command(

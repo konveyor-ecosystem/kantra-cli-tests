@@ -59,11 +59,10 @@ runs:
       pip install -r requirements.txt
       mkdir ${{ github.workspace }}\report
 
-  # TODO: Run test for TIER0
-  - name: Run simple standard analysis test
+  - name: Run TIER0 analysis test
     shell: cmd
     run: |
-      pytest -s -k "jee_example_app and not bug"
+      pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
     uses: actions/upload-artifact@v4

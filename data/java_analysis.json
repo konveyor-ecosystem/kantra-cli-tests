@@ -1,15 +1,31 @@
 {
   "tackle-testap-public-cloud-readiness": {
       "input": {
-        "git": "https://github.com/konveyor/tackle-testapp-public",
-        "branch": "main"
+        "git": "https://github.com/konveyor/tackle-testapp-public"
+      },
+      "sources": [],
+      "targets": [
+          "cloud-readiness",
+          "linux"
+      ]
+  },
+  "coolstore-main-cloud-jakarta-ee": {
+      "input": {
+        "git": "https://github.com/konveyor-ecosystem/coolstore"
+      },
+      "sources": [],
+      "targets": [
+          "cloud-readiness",
+          "jakarta-ee"
+      ]
+  },
+  "binary-administracion-efectivo-cloud-readiness": {
+      "input": {
+        "local": "AdministracionEfectivo.ear"
       },
       "sources": [],
       "targets": [
           "cloud-readiness"
-      ],
-      "settings": "data/xml/tackle-testapp-public-settings.xml"
-      
-      
+      ]
   }
 }
