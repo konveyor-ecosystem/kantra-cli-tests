@@ -103,4 +103,4 @@ def normalize_output(rulesets: dict):
 
 def get_files_diff(a, b):
     # TODO: do something better
-    return os.popen("diff '%s' '%s'" % (a, b)).read()
+    return os.popen("diff -u --color '%s' '%s'" % (a, b)).read()

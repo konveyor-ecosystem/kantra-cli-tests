@@ -55,7 +55,7 @@ runs:
       set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
       set PROJECT_PATH=${{ github.workspace }}
 
-      pytest -X utf8 -s tests/analysis/java/test_tier0.py
+      pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
     uses: actions/upload-artifact@v4
