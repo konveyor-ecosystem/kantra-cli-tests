@@ -94,9 +94,10 @@ def normalize_output(rulesets: dict):
             del ruleset['unmatched']
         if ruleset.get('skipped'):
             del ruleset['skipped']
-        #del ruleset['insights'] # This is for tags, maybe keep them?
+        if ruleset.get('insights'):
+            del ruleset['insights'] # This is for tags, maybe keep them?
 
-        # TODO: incidents path make compatible container with containerless
+        # TODO: incidents path make compatible container with containerless and fix slashes
 
     return ruleset
 

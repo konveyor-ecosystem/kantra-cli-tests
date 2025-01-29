@@ -243,3 +243,4 @@ fabric.properties
 
 # Test output and temporary directories
 data/applications/tmp
+data/applications/*-exploded

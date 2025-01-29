@@ -1,4 +1,6 @@
-# Kantra
+# Kantra CLI tests
+
+[![Nightly CLI test for main](https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/workflows/nightly-main-latest.yaml/badge.svg)](https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/workflows/nightly-main-latest.yaml)
 
 Kantra is an experimental CLI that unifies analysis and transformation capabilities of Konveyor.
 
@@ -11,6 +13,14 @@ This repository contains the e2e tests for Kantra.
    dependencies.
 3. Copy the `.env.example` file and remove the `.example` extension.
 4. Replace each variable with your custom values.
+
+## Run tests
+
+### TIER0
+
+```
+$ pytest -s tests/analysis/java/test_tier0.py
+```
 
 ## Code of Conduct
 
