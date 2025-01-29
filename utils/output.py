@@ -104,12 +104,13 @@ def normalize_output(rulesets: dict):
 
         if ruleset.get('violations'):
             for rulename in ruleset['violations']:
-                print("RULENAME: %s\n" % rulename)
                 violation = ruleset.get('violations').get(rulename)
-                print("VIOLATION: %s\n" % violation)
                 if violation:
                     for incident in violation.get('incidents'):
                         incident['uri'] = trim_incident_uri(incident['uri'])    # Normalize incidents path to make compatible container with containerless, fix slashes, etc.
+
+    # delete not matched ruleset
+    rulesets = [ruleset for ruleset in rulesets if ruleset.get('violations') or ruleset.get('tags')]
 
     return rulesets
 
@@ -119,5 +120,5 @@ def get_files_diff(a, b):
 def trim_incident_uri(uri):
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
     uri = uri.replace("file:////", "file:///")    # ensure windows&unix mixture will not produce invalid file protocol prefix
-    uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix
+    uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
     return uri

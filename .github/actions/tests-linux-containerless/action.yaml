@@ -52,6 +52,7 @@ runs:
       docker cp kantra-download:/usr/local/etc/maven.default.index $KANTRA_DIR/maven.default.index
       ls -l $KANTRA_DIR
       chmod +x /home/runner/.kantra/kantra
+      ln -s /home/runner/.kantra /home/runner/.config/.kantra
       /home/runner/.kantra/kantra --help
 
   - name: Configure Test Environment Variables
