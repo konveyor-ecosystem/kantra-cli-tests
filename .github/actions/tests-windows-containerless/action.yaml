@@ -42,17 +42,6 @@ runs:
       python install_cli.py --upstream true
       C:\Users\runneradmin\.kantra\windows-kantra.exe --help
 
-  - name: Configure Test Environment Variables
-    shell: cmd
-    run: |
-      cp .env.example .env
-      
-      echo "KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe" >> .env
-      echo "REPORT_OUTPUT_PATH=${{ github.workspace }}\report" >> .env
-      echo "PROJECT_PATH=${{ github.workspace }}" >> .env
-      REM # Set test tier to ENV variable (could be changed)
-      set ${{ inputs.tier }}=1
-    working-directory: ${{ github.workspace }}
   - name: Install test dependencies
     shell: cmd
     run: |
@@ -62,6 +51,10 @@ runs:
   - name: Run TIER0 analysis test
     shell: cmd
     run: |
+      set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
+      set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
+      set PROJECT_PATH=${{ github.workspace }}
+
       pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
