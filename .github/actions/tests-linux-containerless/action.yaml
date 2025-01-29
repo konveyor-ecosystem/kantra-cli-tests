@@ -45,9 +45,9 @@ runs:
       mkdir ${{ github.workspace }}/report
       
       > .env
-      echo "KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
-      echo "REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
-      echo "PROJECT_PATH=${{ github.workspace }}" >> .env
+      echo "export KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
+      echo "export REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
+      echo "export PROJECT_PATH=${{ github.workspace }}" >> .env
       
       cat .env
       # Set test tier to ENV variable (could be changed)
@@ -62,6 +62,7 @@ runs:
   - name: Run TIER0 analysis test
     shell: bash
     run: |
+      . ${{ github.workspace }}/.env
       pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
