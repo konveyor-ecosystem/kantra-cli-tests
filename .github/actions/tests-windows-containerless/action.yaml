@@ -33,6 +33,7 @@ runs:
   - name: Set up Igor's kantra installer
     shell: cmd
     run: |
+      docker --help
       git clone https://github.com/ibragins/konveyor-cli-deployment.git
       cd konveyor-cli-deployment
       pip install -r requirements.txt
@@ -41,6 +42,21 @@ runs:
       REM TODO: Use ${{ inputs.tag }} to specify required kantra version
       python install_cli.py --upstream true
       C:\Users\runneradmin\.kantra\windows-kantra.exe --help
+
+  - name: Extract kantra
+    shell: cmd
+    run: |
+      set KANTRA_DIR=C:\Users\runneradmin\.kantra
+      md %KANTRA_DIR%
+      docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+      docker cp kantra-download:/usr/local/bin/windows-kantra.exe %KANTRA_DIR%\windows-kantra.exe
+      docker cp kantra-download:/jdtls %KANTRA_DIR%\jdtls
+      docker cp kantra-download:/bin/fernflower.jar %KANTRA_DIR%\fernflower.jar
+      docker cp kantra-download:/usr/local/static-report %KANTRA_DIR%\static-report
+      docker cp kantra-download:/opt/rulesets %KANTRA_DIR%\rulesets
+      docker cp kantra-download:/usr/local/etc/maven.default.index %KANTRA_DIR%\maven.default.index
+      dir %KANTRA_DIR%
+      %KANTRA_DIR%\windows-kantra.exe --help
 
   - name: Install test dependencies
     shell: cmd
