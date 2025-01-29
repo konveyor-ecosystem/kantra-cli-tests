@@ -1,26 +1,125 @@
-description: This ruleset provides analysis of logging libraries.
-name: technology-usage
-tags:
-- Bean=EJB XML
-- Connect=EJB XML
-- Connect=Servlet
-- Embedded framework - Spring MVC
-- Embedded framework - Spring Web
-- Embedded library - Spring Boot Actuator
-- Embedded=Properties
-- Embedded=Spring Web
-- HTTP=Servlet
-- Java EE=EJB XML
-- Java EE=JPA named queries
-- Java EE=Servlet
-- Java Servlet
-- Other=Properties
-- Persistence=JPA named queries
-- Servlet
-- Spring Boot Actuator
-- Spring MVC
-- Spring Web
-- Store=JPA named queries
-- Sustain=Properties
-- View=Spring Web
-- Web=Spring Web
+- description: Recommend OpenFeign instead of Feign.
+  name: azure/springboot
+- description: Rules for changes between Camel 3.0 and Camel 4.0
+  name: camel3
+- description: Rules for changes in XML file (e.g. pom.xml) to run on Apache Camel
+    3
+  name: camel3/camel2
+- description: This ruleset detects logging configurations that may be problematic
+    when migrating an application to a cloud environment.
+  name: cloud-readiness
+- name: discovery-rules
+  tags:
+  - EJB XML
+  - Java Source
+  - Maven XML
+  - Properties
+  violations:
+    hardcoded-ip-address:
+      category: mandatory
+      description: Hardcoded IP Address
+      effort: 1
+      incidents:
+      - codeSnip: "  1   jdbc.driverClassName=oracle.jdbc.driver.OracleDriver\n  2\
+          \   jdbc.url=jdbc:oracle:thin:@10.19.2.93:1521:xe\n  3   jdbc.user=customers\n\
+          \  4   jdbc.password=customers\n  5   hibernate.hbm2ddl.auto=create-drop\n\
+          \  6   hibernate.dialect=org.hibernate.dialect.OracleDialect\n  7  \n  8\
+          \  # PostgreSQL\n  9  #jdbc.driverClassName=org.postgresql.Driver \n 10\
+          \  #jdbc.url=jdbc:postgresql://customers-postgresql:5432/customers\n 11\
+          \  #jdbc.user=customers\n 12  #jdbc.password=customers\n 13  #hibernate.hbm2ddl.auto=create-drop\n\
+          \ 14  #hibernate.dialect=org.hibernate.dialect.PostgreSQL9Dialect\n"
+        lineNumber: 2
+        message: When migrating environments, hard-coded IP addresses may need to
+          be modified or eliminated.
+        uri: file:///opt/input/source/src/main/resources/persistence.properties
+        variables:
+          matchingText: 10.19.2.93
+      labels:
+      - discovery
+      - konveyor.io/target=cloud-readiness
+      - konveyor.io/target=discovery
+- description: This ruleset provides help for migrating to a unified KIE (Knowledge
+    Is Everything) API in the upgrade from version 5 to 6.
+  name: droolsjbpm
+- description: This ruleset provides generic migration knowledge from the Seam 2 UI
+    controls to pure JSF 2 UI Controls
+  name: eap6/java-ee/seam
+- name: eap7/weblogic/tests/data
+- description: This ruleset provides analysis of Java EE applications that need to
+    change certain CDI-related method calls.
+  name: eap8/eap7
+- description: This ruleset provides analysis of Maven built applications that use
+    Thorntail Maven Plugin, which should be replaced by JBoss EAP XP Bootable JAR
+    Maven Plugin, when migrating to JBoss EAP XP.
+  name: eapxp/thorntail
+- description: This ruleset provides analysis of Maven built applications when migrating
+    from EAP XP 5 to 6.
+  name: eapxp6/eapxp5
+- description: This rule set configures the organization matching functionality, using
+    known root-package prefixes to identify libraries and other code.
+  name: filemappings
+- description: This ruleset provides analysis of JBoss SOA Platform 5 applications
+    and provides information on how to migrate these to Red Hat JBoss Fuse Service
+    Works
+  name: fuse-service-works/soa-p-5
+- description: This ruleset contains rules that assist in migrating from Sonic ESB
+    to Apache Camel.
+  name: fuse/sonicesb
+- description: This ruleset provides analysis of deprecated Hibernate java constructs
+    and their migration to newer one.
+  name: hibernate
+- name: jakarta-ee9
+- description: This ruleset provides analysis of applications that need to change
+    their pom dependencies to upgrade dependencies that belong to the groupId `org.apache.tomcat`
+  name: jws5
+- description: This ruleset provides analysis with respect to API removals between
+    OpenJDK 8 and 11.
+  name: openjdk11/openjdk8
+- description: This ruleset provides analysis regarding deprecated APIs in OpenJDK
+    21.
+  name: openjdk17
+- description: This ruleset provides analysis Security Manager classes and methods
+    deprecated between OpenJDK 11 to 17.
+  name: openjdk17/openjdk11
+- description: This ruleset provides analysis with respect to the migration from OracleJDK
+    to OpenJDK.
+  name: openjdk7/oraclejdk7
+- description: This ruleset identifies usage of Java APIs and technologies which are
+    not provided by Open Liberty.
+  name: openliberty/websphere
+- description: This is a ruleset for Windows operating system specific rules while
+    migrating to Linux operating system.
+  name: os/windows
+- description: This ruleset gives hints to migrate from SpringBoot devtools to Quarkus
+  name: quarkus/springboot
+- description: Verify the version of the Spring Boot framework is compatible with
+    those supported by Red Hat Runtimes
+  name: rhr/springboot
+- description: Ruleset for migration of Spring Framework versions
+  name: spring-framework
+- description: This ruleset provides analysis of logging libraries.
+  name: technology-usage
+  tags:
+  - Bean=EJB XML
+  - Connect=EJB XML
+  - Connect=Servlet
+  - Embedded framework - Spring MVC
+  - Embedded framework - Spring Web
+  - Embedded library - Spring Boot Actuator
+  - Embedded=Properties
+  - Embedded=Spring Web
+  - HTTP=Servlet
+  - Java EE=EJB XML
+  - Java EE=JPA named queries
+  - Java EE=Servlet
+  - Java Servlet
+  - Other=Properties
+  - Persistence=JPA named queries
+  - Servlet
+  - Spring Boot Actuator
+  - Spring MVC
+  - Spring Web
+  - Store=JPA named queries
+  - Sustain=Properties
+  - View=Spring Web
+  - Web=Spring Web

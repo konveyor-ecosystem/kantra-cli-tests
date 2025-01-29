@@ -1,110 +1,754 @@
-description: This ruleset provides analysis of logging libraries.
-name: technology-usage
-tags:
-- AOP Alliance
-- Apache Commons Logging
-- Apache Log4J
-- Bean=EJB XML
-- Bouncy Castle
-- Clustering Web Session
-- Clustering=Web Session
-- Connect=EAR Deployment
-- Connect=EJB XML
-- Connect=Kafka Client
-- Connect=Mail
-- Connect=Servlet
-- Database Driver=Oracle DB Driver
-- EAR
-- Embedded Oracle DB Driver
-- Embedded framework - AOP Alliance
-- Embedded framework - GIN
-- Embedded framework - Hibernate
-- Embedded framework - Quartz
-- Embedded framework - Spring
-- Embedded framework - Spring DI
-- Embedded framework - Spring Scheduled
-- Embedded library - Apache Commons Logging
-- Embedded library - Apache Log4J
-- Embedded library - Bouncy Castle
-- Embedded library - JBoss logging
-- Embedded library - JFreeChart
-- Embedded library - JSF
-- Embedded library - Jasypt
-- Embedded library - Kafka Client
-- Embedded library - Logging Utils
-- Embedded library - PrimeFaces
-- Embedded library - SLF4J
-- Embedded technology - Java Server Faces
-- Embedded=AOP Alliance
-- Embedded=GIN
-- Embedded=Hibernate
-- Embedded=Kafka Client
-- Embedded=Oracle DB Driver
-- Embedded=Properties
-- Embedded=Quartz
-- Embedded=Spring DI
-- Embedded=Spring Scheduled
-- Execute=AOP Alliance
-- Execute=GIN
-- Execute=Java EE XML
-- Execute=Quartz
-- Execute=Spring DI
-- Execute=Spring Scheduled
-- GIN
-- HTTP=Servlet
-- Hibernate
-- Inversion of Control=AOP Alliance
-- Inversion of Control=GIN
-- Inversion of Control=Spring DI
-- JBoss logging
-- JFreeChart
-- JSF
-- JSF XML
-- Jasypt
-- Java EE Application Deployment
-- Java EE XML
-- Java EE=EAR Deployment
-- Java EE=EJB XML
-- Java EE=JPA XML
-- Java EE=JPA entities
-- Java EE=JPA named queries
-- Java EE=JSF XML
-- Java EE=Java EE XML
-- Java EE=Mail
-- Java EE=Persistence units
-- Java EE=Servlet
-- Java EE=Web Session
-- Java Servlet
-- Kafka Client
-- Logging Utils
-- Mail usage
-- Object Mapping=Hibernate
-- Oracle DB Driver
-- Other=EAR Deployment
-- Other=Mail
-- Other=Properties
-- Persistence=JPA XML
-- Persistence=JPA entities
-- Persistence=JPA named queries
-- Persistence=Persistence units
-- PrimeFaces
-- Processing=Java EE XML
-- Processing=Quartz
-- Processing=Spring Scheduled
-- Quartz
-- SLF4J
-- Servlet
-- Spring
-- Spring DI
-- Spring Scheduled
-- Store=Hibernate
-- Store=JPA XML
-- Store=JPA entities
-- Store=JPA named queries
-- Store=Oracle DB Driver
-- Store=Persistence units
-- Streaming=Kafka Client
-- Sustain=Properties
-- Sustain=Web Session
-- View=JSF XML
-- Web=JSF XML
+- description: Recommend OpenFeign instead of Feign.
+  name: azure/springboot
+- description: Rules for changes between Camel 3.0 and Camel 4.0
+  name: camel3
+- description: Rules for changes in XML file (e.g. pom.xml) to run on Apache Camel
+    3
+  name: camel3/camel2
+- description: This ruleset detects logging configurations that may be problematic
+    when migrating an application to a cloud environment.
+  name: cloud-readiness
+  violations:
+    local-storage-00001:
+      category: mandatory
+      description: File system - Java IO
+      effort: 1
+      incidents:
+      - codeSnip: "18  import org.primefaces.component.api.DynamicColumn;\n19  import\
+          \ org.primefaces.component.api.UIColumn;\n20  import org.primefaces.component.datatable.DataTable;\n\
+          21  \n22  public class XMLExporter extends Exporter {\n23     public void\
+          \ export(FacesContext context, DataTable table, String filename, boolean\
+          \ pageOnly, boolean selectionOnly, String encodingType, MethodExpression\
+          \ preProcessor, MethodExpression postProcessor) throws IOException {\n24\
+          \        ExternalContext externalContext = context.getExternalContext();\n\
+          25        this.configureResponse(externalContext, filename);\n26       \
+          \ OutputStream os = externalContext.getResponseOutputStream();\n27     \
+          \   OutputStreamWriter osw = new OutputStreamWriter(os, encodingType);\n\
+          28        PrintWriter writer = new PrintWriter(osw);\n29        writer.write(\"\
+          <?xml version=\\\"1.0\\\"?>\\n\");\n30        writer.write(\"<\" + table.getId()\
+          \ + \">\\n\");\n31        if (pageOnly) {\n32           this.exportPageOnly(table,\
+          \ writer);\n33        } else if (selectionOnly) {\n34           this.exportSelectionOnly(context,\
+          \ table, writer);\n35        } else {\n36           this.exportAll(table,\
+          \ writer);\n37        }\n38  "
+        lineNumber: 28
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/export/XMLExporter.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/export/XMLExporter.java
+          kind: Constructor
+          name: export
+          package: org.primefaces.component.export
+      - codeSnip: "135     }\n136  \n137     private BufferedImage getSourceImage(FacesContext\
+          \ context, String imagePath) throws IOException {\n138        BufferedImage\
+          \ outputImage = null;\n139        boolean isExternal = imagePath.startsWith(\"\
+          http\");\n140        if (isExternal) {\n141           URL url = new URL(imagePath);\n\
+          142           outputImage = ImageIO.read(url);\n143        } else {\n144\
+          \           ServletContext servletContext = (ServletContext)context.getExternalContext().getContext();\n\
+          145           outputImage = ImageIO.read(new File(servletContext.getRealPath(\"\
+          \") + imagePath));\n146        }\n147  \n148        return outputImage;\n\
+          149     }\n150  }\n"
+        lineNumber: 145
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
+          kind: Constructor
+          name: getSourceImage
+          package: org.primefaces.component.imagecropper
+      - codeSnip: "38           if (logger.isLoggable(Level.FINE)) {\n39         \
+          \     logger.fine(\"Parsing file upload request\");\n40           }\n41\
+          \  \n42           DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();\n\
+          43           if (this.thresholdSize != null) {\n44              diskFileItemFactory.setSizeThreshold(Integer.valueOf(this.thresholdSize));\n\
+          45           }\n46  \n47           if (this.uploadDir != null) {\n48   \
+          \           diskFileItemFactory.setRepository(new File(this.uploadDir));\n\
+          49           }\n50  \n51           ServletFileUpload servletFileUpload =\
+          \ new ServletFileUpload(diskFileItemFactory);\n52           MultipartRequest\
+          \ multipartRequest = new MultipartRequest(httpServletRequest, servletFileUpload);\n\
+          53           if (logger.isLoggable(Level.FINE)) {\n54              logger.fine(\"\
+          File upload request parsed succesfully, continuing with filter chain with\
+          \ a wrapped multipart request\");\n55           }\n56  \n57           filterChain.doFilter(multipartRequest,\
+          \ response);\n58        } else {"
+        lineNumber: 48
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/webapp/filter/FileUploadFilter.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/webapp/filter/FileUploadFilter.java
+          kind: Constructor
+          name: doFilter
+          package: org.primefaces.webapp.filter
+      labels:
+      - konveyor.io/source
+      - konveyor.io/target=cloud-readiness
+      - storage
+      links:
+      - title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+        url: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+      - title: 'OpenShift Container Platform: Understanding cluster logging'
+        url: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+      - title: 'OpenShift Container Platform: Understanding persistent storage'
+        url: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+      - title: 'Twelve-Factor App: Backing services'
+        url: https://12factor.net/backing-services
+      - title: 'Twelve-Factor App: Config'
+        url: https://12factor.net/config
+      - title: 'Twelve-Factor App: Logs'
+        url: https://12factor.net/logs
+    local-storage-00002:
+      category: mandatory
+      description: File system - java.net.URL/URI
+      effort: 1
+      incidents:
+      - codeSnip: " 85     }\n 86  \n 87     protected void validateValue(FacesContext\
+          \ context, Object value) {\n 88        super.validateValue(context, value);\n\
+          \ 89        if (this.isValid()) {\n 90           String result = null;\n\
+          \ 91           Verification verification = (Verification)value;\n 92  \n\
+          \ 93           String msg;\n 94           try {\n 95              URL url\
+          \ = new URL(\"http://api-verify.recaptcha.net/verify\");\n 96          \
+          \    URLConnection conn = url.openConnection();\n 97              conn.setDoInput(true);\n\
+          \ 98              conn.setDoOutput(true);\n 99              conn.setUseCaches(false);\n\
+          100              conn.setRequestProperty(\"Content-Type\", \"application/x-www-form-urlencoded\"\
+          );\n101              msg = this.createPostParameters(context, verification);\n\
+          102              OutputStream out = conn.getOutputStream();\n103       \
+          \       out.write(msg.getBytes());\n104              out.flush();\n105 \
+          \             out.close();"
+        lineNumber: 95
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/captcha/Captcha.java
+        variables:
+          class: ''
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/captcha/Captcha.java
+          kind: Constructor
+          name: validateValue
+          package: org.primefaces.component.captcha
+      - codeSnip: " 4  import com.sun.syndication.io.SyndFeedInput;\n 5  import com.sun.syndication.io.XmlReader;\n\
+          \ 6  import java.net.URL;\n 7  import java.util.ArrayList;\n 8  import java.util.Iterator;\n\
+          \ 9  import java.util.List;\n10  \n11  public class FeedInput {\n12    \
+          \ public List parse(String url, int size) throws Exception {\n13       \
+          \ List entries = new ArrayList();\n14        URL feedSource = new URL(url);\n\
+          15        SyndFeedInput input = new SyndFeedInput();\n16        SyndFeed\
+          \ feed = input.build(new XmlReader(feedSource));\n17        int i = 0;\n\
+          18  \n19        for(Iterator i$ = feed.getEntries().iterator(); i$.hasNext();\
+          \ ++i) {\n20           Object f = i$.next();\n21           if (i == size)\
+          \ {\n22              break;\n23           }\n24  "
+        lineNumber: 14
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/feedreader/FeedInput.java
+        variables:
+          class: ''
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/feedreader/FeedInput.java
+          kind: Constructor
+          name: parse
+          package: org.primefaces.component.feedreader
+      - codeSnip: "131     }\n132  \n133     protected boolean isExternalImage(ImageCropper\
+          \ cropper) {\n134        return cropper.getImage().startsWith(\"http\");\n\
+          135     }\n136  \n137     private BufferedImage getSourceImage(FacesContext\
+          \ context, String imagePath) throws IOException {\n138        BufferedImage\
+          \ outputImage = null;\n139        boolean isExternal = imagePath.startsWith(\"\
+          http\");\n140        if (isExternal) {\n141           URL url = new URL(imagePath);\n\
+          142           outputImage = ImageIO.read(url);\n143        } else {\n144\
+          \           ServletContext servletContext = (ServletContext)context.getExternalContext().getContext();\n\
+          145           outputImage = ImageIO.read(new File(servletContext.getRealPath(\"\
+          \") + imagePath));\n146        }\n147  \n148        return outputImage;\n\
+          149     }\n150  }\n"
+        lineNumber: 141
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
+        variables:
+          class: ''
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/org/primefaces/component/imagecropper/ImageCropperRenderer.java
+          kind: Constructor
+          name: getSourceImage
+          package: org.primefaces.component.imagecropper
+      labels:
+      - konveyor.io/source
+      - konveyor.io/target=cloud-readiness
+      - storage
+      links:
+      - title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+        url: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+      - title: 'OpenShift Container Platform: Understanding cluster logging'
+        url: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+      - title: 'OpenShift Container Platform: Understanding persistent storage'
+        url: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+      - title: 'Twelve-Factor App: Backing services'
+        url: https://12factor.net/backing-services
+      - title: 'Twelve-Factor App: Config'
+        url: https://12factor.net/config
+      - title: 'Twelve-Factor App: Logs'
+        url: https://12factor.net/logs
+    mail-00000:
+      category: optional
+      description: Java Mail API
+      effort: 3
+      incidents:
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.MessagingException;\n 4  import javax.mail.internet.AddressException;\n\
+          \ 5  \n 6  public interface EmailMessageBeanLocal {\n 7     void enviaMail()\
+          \ throws AddressException, MessagingException;\n 8  }\n"
+        lineNumber: 3
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
+          kind: Module
+          name: javax.mail.MessagingException
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.MessagingException;\n 4  import javax.mail.internet.AddressException;\n\
+          \ 5  \n 6  public interface EmailMessageBeanLocal {\n 7     void enviaMail()\
+          \ throws AddressException, MessagingException;\n 8  }\n"
+        lineNumber: 4
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageBeanLocal.java
+          kind: Module
+          name: javax.mail.internet.AddressException
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.Message;\n 4  import javax.mail.MessagingException;\n 5  import\
+          \ javax.mail.Session;\n 6  import javax.mail.Transport;\n 7  import javax.mail.Message.RecipientType;\n\
+          \ 8  import javax.mail.internet.AddressException;\n 9  import javax.mail.internet.InternetAddress;\n\
+          10  import javax.mail.internet.MimeMessage;\n11  \n12  public class EmailMessageImplBean\
+          \ implements EmailMessageBeanLocal {\n13     private Session session;"
+        lineNumber: 3
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+          kind: Module
+          name: javax.mail.Message
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.Message;\n 4  import javax.mail.MessagingException;\n 5  import\
+          \ javax.mail.Session;\n 6  import javax.mail.Transport;\n 7  import javax.mail.Message.RecipientType;\n\
+          \ 8  import javax.mail.internet.AddressException;\n 9  import javax.mail.internet.InternetAddress;\n\
+          10  import javax.mail.internet.MimeMessage;\n11  \n12  public class EmailMessageImplBean\
+          \ implements EmailMessageBeanLocal {\n13     private Session session;\n\
+          14  "
+        lineNumber: 4
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+          kind: Module
+          name: javax.mail.MessagingException
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.Message;\n 4  import javax.mail.MessagingException;\n 5  import\
+          \ javax.mail.Session;\n 6  import javax.mail.Transport;\n 7  import javax.mail.Message.RecipientType;\n\
+          \ 8  import javax.mail.internet.AddressException;\n 9  import javax.mail.internet.InternetAddress;\n\
+          10  import javax.mail.internet.MimeMessage;\n11  \n12  public class EmailMessageImplBean\
+          \ implements EmailMessageBeanLocal {\n13     private Session session;\n\
+          14  \n15     public void enviaMail() throws AddressException, MessagingException\
+          \ {"
+        lineNumber: 5
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+          kind: Module
+          name: javax.mail.Session
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.Message;\n 4  import javax.mail.MessagingException;\n 5  import\
+          \ javax.mail.Session;\n 6  import javax.mail.Transport;\n 7  import javax.mail.Message.RecipientType;\n\
+          \ 8  import javax.mail.internet.AddressException;\n 9  import javax.mail.internet.InternetAddress;\n\
+          10  import javax.mail.internet.MimeMessage;\n11  \n12  public class EmailMessageImplBean\
+          \ implements EmailMessageBeanLocal {\n13     private Session session;\n\
+          14  \n15     public void enviaMail() throws AddressException, MessagingException\
+          \ {\n16        this.session.setDebug(true);"
+        lineNumber: 6
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+          kind: Module
+          name: javax.mail.Transport
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.Message;\n 4  import javax.mail.MessagingException;\n 5  import\
+          \ javax.mail.Session;\n 6  import javax.mail.Transport;\n 7  import javax.mail.Message.RecipientType;\n\
+          \ 8  import javax.mail.internet.AddressException;\n 9  import javax.mail.internet.InternetAddress;\n\
+          10  import javax.mail.internet.MimeMessage;\n11  \n12  public class EmailMessageImplBean\
+          \ implements EmailMessageBeanLocal {\n13     private Session session;\n\
+          14  \n15     public void enviaMail() throws AddressException, MessagingException\
+          \ {\n16        this.session.setDebug(true);\n17        String from = this.session.getProperty(\"\
+          mail.smtp.user\") + \"@gmail.com\";"
+        lineNumber: 7
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+          kind: Module
+          name: javax.mail.Message.RecipientType
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.Message;\n 4  import javax.mail.MessagingException;\n 5  import\
+          \ javax.mail.Session;\n 6  import javax.mail.Transport;\n 7  import javax.mail.Message.RecipientType;\n\
+          \ 8  import javax.mail.internet.AddressException;\n 9  import javax.mail.internet.InternetAddress;\n\
+          10  import javax.mail.internet.MimeMessage;\n11  \n12  public class EmailMessageImplBean\
+          \ implements EmailMessageBeanLocal {\n13     private Session session;\n\
+          14  \n15     public void enviaMail() throws AddressException, MessagingException\
+          \ {\n16        this.session.setDebug(true);\n17        String from = this.session.getProperty(\"\
+          mail.smtp.user\") + \"@gmail.com\";\n18        Message message = null;"
+        lineNumber: 8
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+          kind: Module
+          name: javax.mail.internet.AddressException
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.Message;\n 4  import javax.mail.MessagingException;\n 5  import\
+          \ javax.mail.Session;\n 6  import javax.mail.Transport;\n 7  import javax.mail.Message.RecipientType;\n\
+          \ 8  import javax.mail.internet.AddressException;\n 9  import javax.mail.internet.InternetAddress;\n\
+          10  import javax.mail.internet.MimeMessage;\n11  \n12  public class EmailMessageImplBean\
+          \ implements EmailMessageBeanLocal {\n13     private Session session;\n\
+          14  \n15     public void enviaMail() throws AddressException, MessagingException\
+          \ {\n16        this.session.setDebug(true);\n17        String from = this.session.getProperty(\"\
+          mail.smtp.user\") + \"@gmail.com\";\n18        Message message = null;\n\
+          19        message = new MimeMessage(this.session);"
+        lineNumber: 9
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+          kind: Module
+          name: javax.mail.internet.InternetAddress
+          package: mx.com.bcm.banamex.ae.negocio.common
+      - codeSnip: " 1  package mx.com.bcm.banamex.ae.negocio.common;\n 2  \n 3  import\
+          \ javax.mail.Message;\n 4  import javax.mail.MessagingException;\n 5  import\
+          \ javax.mail.Session;\n 6  import javax.mail.Transport;\n 7  import javax.mail.Message.RecipientType;\n\
+          \ 8  import javax.mail.internet.AddressException;\n 9  import javax.mail.internet.InternetAddress;\n\
+          10  import javax.mail.internet.MimeMessage;\n11  \n12  public class EmailMessageImplBean\
+          \ implements EmailMessageBeanLocal {\n13     private Session session;\n\
+          14  \n15     public void enviaMail() throws AddressException, MessagingException\
+          \ {\n16        this.session.setDebug(true);\n17        String from = this.session.getProperty(\"\
+          mail.smtp.user\") + \"@gmail.com\";\n18        Message message = null;\n\
+          19        message = new MimeMessage(this.session);\n20        message.setFrom(new\
+          \ InternetAddress(from));"
+        lineNumber: 10
+        message: "The configuration parameters of SMTP services for outbound mail\
+          \ may contain environment-specific values such as static IP addresses, host\
+          \ names, properties, credentials, or certificates.\n\n Recommendations\n\
+          \n * In a cloud environment, mail systems should be considered backing services\
+          \ and treated like attached resources.\n * Ensure that the configuration\
+          \ of the underlying outbound mail connection is not environment-specific.\n\
+          \ * In OpenShift Container Platform, store configuration parameters as environment\
+          \ variables or in a ConfigMap."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+        variables:
+          file: file:///opt/input/source/AdministracionEfectivo.ear/java-project/src/main/java/mx/com/bcm/banamex/ae/negocio/common/EmailMessageImplBean.java
+          kind: Module
+          name: javax.mail.internet.MimeMessage
+          package: mx.com.bcm.banamex.ae.negocio.common
+      labels:
+      - konveyor.io/source=java
+      - konveyor.io/source=java-ee
+      - konveyor.io/target=cloud-readiness
+      - mail
+      links:
+      - title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+        url: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+      - title: Twelve-factor app - Backing services
+        url: https://12factor.net/backing-services
+      - title: Twelve-factor app - Config
+        url: https://12factor.net/config
+    session-00000:
+      category: mandatory
+      description: HTTP session replication (distributable web.xml)
+      effort: 3
+      incidents:
+      - codeSnip: "  1  <!--suppress ServletWithoutMappingInspection -->\n  2  <web-app\
+          \ xmlns=\"http://java.sun.com/xml/ns/javaee\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\
+          \n  3           xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd\"\
+          \n  4           version=\"3.0\">\n  5      <distributable />\n  6  </web-app>\n"
+        lineNumber: 5
+        message: "Session replication ensures that client sessions are not disrupted\
+          \ by node failure. Each node in the cluster shares information about ongoing\
+          \ sessions and can take over sessions if another node disappears. In a cloud\
+          \ environment, however, data in the memory of a running container can be\
+          \ wiped out by a restart.\n\n Recommendations\n\n * Review the session replication\
+          \ usage and ensure that it is configured properly.\n * Disable HTTP session\
+          \ clustering and accept its implications.\n * Re-architect the application\
+          \ so that sessions are stored in a cache backing service or a remote data\
+          \ grid.\n\n A remote data grid has the following benefits:\n\n * The application\
+          \ is more scaleable and elastic.\n * The application can survive EAP node\
+          \ failures because a JVM failure does not cause session data loss.\n * Session\
+          \ data can be shared by multiple applications."
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/tmp/coolstore-main-cloud-jakarta-ee/src/main/webapp/WEB-INF/web.xml
+        variables:
+          data: distributable
+          innerText: ''
+          matchingXML: ''
+      labels:
+      - clustering
+      - konveyor.io/source=java
+      - konveyor.io/source=java-ee
+      - konveyor.io/target=cloud-readiness
+      links:
+      - title: 'Getting Started with JBoss EAP for OpenShift Container Platform: Clustering'
+        url: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/getting_started_with_jboss_eap_for_openshift_container_platform/index#reference_clustering
+      - title: 'JBoss EAP:  Externalize HTTP Sessions to Red Hat Data Grid'
+        url: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html-single/configuration_guide/index#jdg_externalize_http_sessions
+      - title: 'JBoss EAP: Clustering in Web Applications'
+        url: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3/html/development_guide/clustering_in_web_applications
+      - title: Running Data Grid on OpenShift
+        url: https://access.redhat.com/documentation/en-us/red_hat_data_grid/8.0/html-single/running_data_grid_on_openshift/index
+      - title: 'Twelve-Factor App: Backing services'
+        url: https://12factor.net/backing-services
+      - title: 'Twelve-Factor App: Processes'
+        url: https://12factor.net/processes
+- name: discovery-rules
+  tags:
+  - EJB XML
+  - JPA XML
+  - Java Source
+  - License=Apache License 2.0
+  - License=GNU GPL
+  - License=GNU LGPL
+  - Manifest
+  - Maven XML
+  - Properties
+  - Spring XML
+  - Web XML
+  violations:
+    hardcoded-ip-address:
+      category: mandatory
+      description: Hardcoded IP Address
+      effort: 1
+      incidents:
+      - codeSnip: "  1   jdbc.driverClassName=oracle.jdbc.driver.OracleDriver\n  2\
+          \   jdbc.url=jdbc:oracle:thin:@10.19.2.93:1521:xe\n  3   jdbc.user=customers\n\
+          \  4   jdbc.password=customers\n  5   hibernate.hbm2ddl.auto=create-drop\n\
+          \  6   hibernate.dialect=org.hibernate.dialect.OracleDialect\n  7  \n  8\
+          \  # PostgreSQL\n  9  #jdbc.driverClassName=org.postgresql.Driver \n 10\
+          \  #jdbc.url=jdbc:postgresql://customers-postgresql:5432/customers\n 11\
+          \  #jdbc.user=customers\n 12  #jdbc.password=customers\n 13  #hibernate.hbm2ddl.auto=create-drop\n\
+          \ 14  #hibernate.dialect=org.hibernate.dialect.PostgreSQL9Dialect\n"
+        lineNumber: 2
+        message: When migrating environments, hard-coded IP addresses may need to
+          be modified or eliminated.
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/tackle-testapp/src/main/resources/persistence.properties
+        variables:
+          matchingText: 10.19.2.93
+      - codeSnip: "  1   jdbc.driverClassName=oracle.jdbc.driver.OracleDriver\n  2\
+          \   jdbc.url=jdbc:oracle:thin:@10.19.2.93:1521:xe\n  3   jdbc.user=customers\n\
+          \  4   jdbc.password=customers\n  5   hibernate.hbm2ddl.auto=create-drop\n\
+          \  6   hibernate.dialect=org.hibernate.dialect.OracleDialect\n  7  \n  8\
+          \  # PostgreSQL\n  9  #jdbc.driverClassName=org.postgresql.Driver \n 10\
+          \  #jdbc.url=jdbc:postgresql://customers-postgresql:5432/customers\n 11\
+          \  #jdbc.user=customers\n 12  #jdbc.password=customers\n 13  #hibernate.hbm2ddl.auto=create-drop\n\
+          \ 14  #hibernate.dialect=org.hibernate.dialect.PostgreSQL9Dialect\n"
+        lineNumber: 2
+        message: When migrating environments, hard-coded IP addresses may need to
+          be modified or eliminated.
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/tackle-testapp/target/classes/persistence.properties
+        variables:
+          matchingText: 10.19.2.93
+      - codeSnip: "  1   jdbc.driverClassName=oracle.jdbc.driver.OracleDriver\n  2\
+          \   jdbc.url=jdbc:oracle:thin:@10.19.2.93:1521:xe\n  3   jdbc.user=customers\n\
+          \  4   jdbc.password=customers\n  5   hibernate.hbm2ddl.auto=create-drop\n\
+          \  6   hibernate.dialect=org.hibernate.dialect.OracleDialect\n  7  \n  8\
+          \  # PostgreSQL\n  9  #jdbc.driverClassName=org.postgresql.Driver \n 10\
+          \  #jdbc.url=jdbc:postgresql://customers-postgresql:5432/customers\n 11\
+          \  #jdbc.user=customers\n 12  #jdbc.password=customers\n 13  #hibernate.hbm2ddl.auto=create-drop\n\
+          \ 14  #hibernate.dialect=org.hibernate.dialect.PostgreSQL9Dialect\n"
+        lineNumber: 2
+        message: When migrating environments, hard-coded IP addresses may need to
+          be modified or eliminated.
+        uri: file:///opt/input/source/AdministracionEfectivo.ear/tmp/tackle-testap-public-cloud-readiness/src/main/resources/persistence.properties
+        variables:
+          matchingText: 10.19.2.93
+      labels:
+      - discovery
+      - konveyor.io/target=cloud-readiness
+      - konveyor.io/target=discovery
+- description: This ruleset provides help for migrating to a unified KIE (Knowledge
+    Is Everything) API in the upgrade from version 5 to 6.
+  name: droolsjbpm
+- description: This ruleset provides generic migration knowledge from the Seam 2 UI
+    controls to pure JSF 2 UI Controls
+  name: eap6/java-ee/seam
+- name: eap7/weblogic/tests/data
+- description: This ruleset provides analysis of Java EE applications that need to
+    change certain CDI-related method calls.
+  name: eap8/eap7
+- description: This ruleset provides analysis of Maven built applications that use
+    Thorntail Maven Plugin, which should be replaced by JBoss EAP XP Bootable JAR
+    Maven Plugin, when migrating to JBoss EAP XP.
+  name: eapxp/thorntail
+- description: This ruleset provides analysis of Maven built applications when migrating
+    from EAP XP 5 to 6.
+  name: eapxp6/eapxp5
+- description: This rule set configures the organization matching functionality, using
+    known root-package prefixes to identify libraries and other code.
+  name: filemappings
+- description: This ruleset provides analysis of JBoss SOA Platform 5 applications
+    and provides information on how to migrate these to Red Hat JBoss Fuse Service
+    Works
+  name: fuse-service-works/soa-p-5
+- description: This ruleset contains rules that assist in migrating from Sonic ESB
+    to Apache Camel.
+  name: fuse/sonicesb
+- description: This ruleset provides analysis of deprecated Hibernate java constructs
+    and their migration to newer one.
+  name: hibernate
+- name: jakarta-ee9
+- description: This ruleset provides analysis of applications that need to change
+    their pom dependencies to upgrade dependencies that belong to the groupId `org.apache.tomcat`
+  name: jws5
+- description: This ruleset provides analysis with respect to API removals between
+    OpenJDK 8 and 11.
+  name: openjdk11/openjdk8
+- description: This ruleset provides analysis regarding deprecated APIs in OpenJDK
+    21.
+  name: openjdk17
+- description: This ruleset provides analysis Security Manager classes and methods
+    deprecated between OpenJDK 11 to 17.
+  name: openjdk17/openjdk11
+- description: This ruleset provides analysis with respect to the migration from OracleJDK
+    to OpenJDK.
+  name: openjdk7/oraclejdk7
+- description: This ruleset identifies usage of Java APIs and technologies which are
+    not provided by Open Liberty.
+  name: openliberty/websphere
+- description: This is a ruleset for Windows operating system specific rules while
+    migrating to Linux operating system.
+  name: os/windows
+- description: This ruleset gives hints to migrate from SpringBoot devtools to Quarkus
+  name: quarkus/springboot
+- description: Verify the version of the Spring Boot framework is compatible with
+    those supported by Red Hat Runtimes
+  name: rhr/springboot
+- description: Ruleset for migration of Spring Framework versions
+  name: spring-framework
+- description: This ruleset provides analysis of logging libraries.
+  name: technology-usage
+  tags:
+  - AOP Alliance
+  - Apache Commons Logging
+  - Apache Log4J
+  - Bean=EJB XML
+  - Bouncy Castle
+  - Clustering Web Session
+  - Clustering=Web Session
+  - Connect=EAR Deployment
+  - Connect=EJB XML
+  - Connect=Kafka Client
+  - Connect=Mail
+  - Connect=Servlet
+  - Database Driver=Oracle DB Driver
+  - EAR
+  - Embedded Oracle DB Driver
+  - Embedded framework - AOP Alliance
+  - Embedded framework - GIN
+  - Embedded framework - Hibernate
+  - Embedded framework - Quartz
+  - Embedded framework - Spring
+  - Embedded framework - Spring DI
+  - Embedded framework - Spring Scheduled
+  - Embedded library - Apache Commons Logging
+  - Embedded library - Apache Log4J
+  - Embedded library - Bouncy Castle
+  - Embedded library - JBoss logging
+  - Embedded library - JFreeChart
+  - Embedded library - JSF
+  - Embedded library - Jasypt
+  - Embedded library - Kafka Client
+  - Embedded library - Logging Utils
+  - Embedded library - PrimeFaces
+  - Embedded library - SLF4J
+  - Embedded technology - Java Server Faces
+  - Embedded=AOP Alliance
+  - Embedded=GIN
+  - Embedded=Hibernate
+  - Embedded=Kafka Client
+  - Embedded=Oracle DB Driver
+  - Embedded=Properties
+  - Embedded=Quartz
+  - Embedded=Spring DI
+  - Embedded=Spring Scheduled
+  - Execute=AOP Alliance
+  - Execute=GIN
+  - Execute=Java EE XML
+  - Execute=Quartz
+  - Execute=Spring DI
+  - Execute=Spring Scheduled
+  - GIN
+  - HTTP=Servlet
+  - Hibernate
+  - Inversion of Control=AOP Alliance
+  - Inversion of Control=GIN
+  - Inversion of Control=Spring DI
+  - JBoss logging
+  - JFreeChart
+  - JSF
+  - JSF XML
+  - Jasypt
+  - Java EE Application Deployment
+  - Java EE XML
+  - Java EE=EAR Deployment
+  - Java EE=EJB XML
+  - Java EE=JPA XML
+  - Java EE=JPA entities
+  - Java EE=JPA named queries
+  - Java EE=JSF XML
+  - Java EE=Java EE XML
+  - Java EE=Mail
+  - Java EE=Persistence units
+  - Java EE=Servlet
+  - Java EE=Web Session
+  - Java Servlet
+  - Kafka Client
+  - Logging Utils
+  - Mail usage
+  - Object Mapping=Hibernate
+  - Oracle DB Driver
+  - Other=EAR Deployment
+  - Other=Mail
+  - Other=Properties
+  - Persistence=JPA XML
+  - Persistence=JPA entities
+  - Persistence=JPA named queries
+  - Persistence=Persistence units
+  - PrimeFaces
+  - Processing=Java EE XML
+  - Processing=Quartz
+  - Processing=Spring Scheduled
+  - Quartz
+  - SLF4J
+  - Servlet
+  - Spring
+  - Spring DI
+  - Spring Scheduled
+  - Store=Hibernate
+  - Store=JPA XML
+  - Store=JPA entities
+  - Store=JPA named queries
+  - Store=Oracle DB Driver
+  - Store=Persistence units
+  - Streaming=Kafka Client
+  - Sustain=Properties
+  - Sustain=Web Session
+  - View=JSF XML
+  - Web=JSF XML

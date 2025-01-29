@@ -99,7 +99,7 @@ def normalize_output(rulesets: dict):
 
         # TODO: incidents path make compatible container with containerless and fix slashes
 
-    return ruleset
+    return rulesets
 
 def get_files_diff(a, b):
     # TODO: do something better
