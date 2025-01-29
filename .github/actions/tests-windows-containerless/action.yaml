@@ -33,7 +33,6 @@ runs:
   - name: Set up Igor's kantra installer
     shell: cmd
     run: |
-      docker --help
       REM  git clone https://github.com/ibragins/konveyor-cli-deployment.git
       REM  cd konveyor-cli-deployment
       REM  pip install -r requirements.txt
@@ -49,7 +48,7 @@ runs:
       set KANTRA_DIR=C:\Users\runneradmin\.kantra
       md %KANTRA_DIR%
       docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
-      docker cp kantra-download:/usr/local/bin/windows-kantra.exe %KANTRA_DIR%\windows-kantra.exe
+      docker cp kantra-download:/usr/local/bin/windows-kantra %KANTRA_DIR%\windows-kantra.exe
       docker cp kantra-download:/jdtls %KANTRA_DIR%\jdtls
       docker cp kantra-download:/bin/fernflower.jar %KANTRA_DIR%\fernflower.jar
       docker cp kantra-download:/usr/local/static-report %KANTRA_DIR%\static-report

@@ -44,7 +44,7 @@ runs:
       export KANTRA_DIR=/home/runner/.kantra
       mkdir $KANTRA_DIR
       docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
-      docker cp kantra-download:/usr/local/bin/windows-kantra.exe $KANTRA_DIR/kantra
+      docker cp kantra-download:/usr/local/bin/kantra $KANTRA_DIR/kantra
       docker cp kantra-download:/jdtls $KANTRA_DIR/jdtls
       docker cp kantra-download:/bin/fernflower.jar $KANTRA_DIR/fernflower.jar
       docker cp kantra-download:/usr/local/static-report $KANTRA_DIR/static-report
