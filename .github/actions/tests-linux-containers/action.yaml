@@ -71,7 +71,7 @@ runs:
 
   - name: Save analysis output
     uses: actions/upload-artifact@v4
-    if: ${{ always() && contains(needs.*.result, 'failure') }}
+    if: always()
     with:
       name: kantra-outputs-linux-containers
       path: ${{ github.workspace }}/report
