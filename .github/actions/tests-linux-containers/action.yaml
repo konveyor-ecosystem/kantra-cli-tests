@@ -20,16 +20,11 @@ runs:
   - uses: actions/checkout@v4
   - name: Setup Homebrew
     uses: Homebrew/actions/setup-homebrew@master
-  - name: Upgrade podman  # TODO: little strange, copied from kantra demo testing workflow.
+  - name: Install podman
     shell: bash
     run: |
       sudo apt install -y podman
-      #export DEB=$(curl -s https://passt.top/builds/latest/x86_64/ | grep deb | awk -F '"' '{ print $4}')
-      #sudo ansible -m apt -a deb=https://passt.top/builds/latest/x86_64/${DEB} localhost
-      #sudo apt-get remove podman crun
-      #brew install crun podman  
-  - run: podman --help
-    shell: bash
+      podman --version
   - name: Set up Igor's kantra installer
     shell: bash
     run: |
@@ -51,9 +46,9 @@ runs:
       mkdir ${{ github.workspace }}/report
       
       > .env
-      echo "KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
-      echo "REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
-      echo "PROJECT_PATH=${{ github.workspace }}" >> .env
+      echo "export KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
+      echo "export REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
+      echo "export PROJECT_PATH=${{ github.workspace }}" >> .env
       
       cat .env
       # Set test tier to ENV variable (could be changed)
@@ -71,6 +66,7 @@ runs:
   - name: Run TIER0 analysis test
     shell: bash
     run: |
+      . ${{ github.workspace }}/.env
       pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
