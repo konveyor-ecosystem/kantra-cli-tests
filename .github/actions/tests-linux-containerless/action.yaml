@@ -23,9 +23,16 @@ runs:
       distribution: 'microsoft'
       java-version: '21'
 
+  - name: Get kantra bundle
+    uses: actions/download-artifact@v4
+    with:
+      name: kantra-bundle
+      path: /home/runner/.kantra-bundle
+
   - name: Extract kantra
     shell: bash
     run: |
+      ls -l /home/runner/.kantra-bundle
       export KANTRA_DIR=/home/runner/.kantra
       mkdir $KANTRA_DIR
       docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}

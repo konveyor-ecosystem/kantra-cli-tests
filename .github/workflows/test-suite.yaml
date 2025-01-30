@@ -17,10 +17,10 @@ on:
         default: TIER0
 
 jobs:
-  prepare-kantra-binaries:
+  bundle-kantra:
     runs-on: ubuntu-latest
     steps:
-    - name: Extract kantra
+    - name: Extract kantra files from images
       shell: bash
       run: |
         export KANTRA_DIR=.kantra
@@ -35,8 +35,8 @@ jobs:
         docker cp kantra-download:/opt/rulesets $KANTRA_DIR/rulesets
         docker cp kantra-download:/usr/local/etc/maven.default.index $KANTRA_DIR/maven.default.index
         ls -l $KANTRA_DIR
-        chmod +x /home/runner/.kantra/kantra
-        chmod +x /home/runner/.kantra/darwin-kantra
+        chmod +x $KANTRA_DIR/kantra
+        chmod +x $KANTRA_DIR/darwin-kantra
     - uses: actions/upload-artifact@v4
       with:
         name: kantra-bundle
@@ -44,7 +44,7 @@ jobs:
 
   tests-windows-containerless:
     runs-on: windows-latest
-    needs: prepare-kantra-binaries
+    needs: bundle-kantra
     steps:
     - uses: actions/checkout@v4
     - name: Windows container-less tests
@@ -55,6 +55,7 @@ jobs:
 
   tests-linux-containerless:
     runs-on: ubuntu-latest
+    needs: bundle-kantra
     steps:
     - uses: actions/checkout@v4
     - name: Linux container-less tests
