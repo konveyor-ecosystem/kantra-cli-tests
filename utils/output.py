@@ -130,4 +130,8 @@ def trim_incident_uri(uri, input_root_path):
     if 'java-project' in uri:
        uri = uri.split('java-project')[-1]
 
+    # Remove m2.repository local maven repo prefix
+    if '".m2/repository/"' in uri:
+       uri = uri.split('.m2/repository/')[-1]
+
     return uri

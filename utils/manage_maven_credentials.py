@@ -36,8 +36,3 @@ def manage_credentials_in_maven_xml(path, reset=False):
             password_elem.text = password
 
     tree.write(path, pretty_print=True, xml_declaration=True, encoding='UTF-8')
-
-
-def get_konveyor_default_token():
-    # Default r/o public konveyor bot token, like Pranav's https://github.com/konveyor/go-konveyor-tests/blob/main/analysis/analysis_test.go#L353
-    return base64.b64decode(b'Z2hwX0FndFQ0Y21JVlJFVWd0TlhMTHhYTklZektiMm9aOTFhbG1oSw==').decode("utf-8")
