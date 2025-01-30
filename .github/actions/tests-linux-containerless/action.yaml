@@ -29,17 +29,13 @@ runs:
       chmod +x /home/runner/.kantra/kantra
       ln -s /home/runner/.kantra /home/runner/.config/.kantra
 
-      cp .env.example .env
       mkdir ${{ github.workspace }}/report
       
       > .env
       echo "export KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
       echo "export REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
       echo "export PROJECT_PATH=${{ github.workspace }}" >> .env
-      
       cat .env
-      # Set test tier to ENV variable (could be changed)
-      export ${{ inputs.tier }}=1
     working-directory: ${{ github.workspace }}
   - name: Install test dependencies
     shell: bash

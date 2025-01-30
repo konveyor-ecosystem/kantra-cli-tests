@@ -23,7 +23,7 @@ jobs:
     - name: Extract kantra files from images
       shell: bash
       run: |
-        export KANTRA_DIR=${{ github.workspace }}/.kantra
+        export KANTRA_DIR=.kantra
         mkdir $KANTRA_DIR
         docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
         docker cp kantra-download:/usr/local/bin/kantra $KANTRA_DIR/kantra
@@ -40,7 +40,7 @@ jobs:
         name: kantra-bundle
         if-no-files-found: error
         include-hidden-files: true
-        path: ${{ github.workspace }}/.kantra
+        path: .kantra
 
   tests-windows-containerless:
     runs-on: windows-latest
@@ -50,7 +50,6 @@ jobs:
     - name: Windows container-less tests
       uses: ./.github/actions/tests-windows-containerless
       with:
-        tag: ${{ inputs.tag }}
         tier: ${{ inputs.tier }}
 
   tests-linux-containerless:
@@ -61,7 +60,6 @@ jobs:
     - name: Linux container-less tests
       uses: ./.github/actions/tests-linux-containerless
       with:
-        tag: ${{ inputs.tag }}
         tier: ${{ inputs.tier }}
 
 
@@ -73,5 +71,4 @@ jobs:
     - name: Linux containers tests
       uses: ./.github/actions/tests-linux-containers
       with:
-        tag: ${{ inputs.tag }}
         tier: ${{ inputs.tier }}
