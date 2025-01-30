@@ -107,6 +107,7 @@ def normalize_output(rulesets: dict, input_root_path):
                     for incident in violation.get('incidents'):
                         # grep codeSnip lines to the one with incident to not depend on different analyzer context size
                         for line in incident['codeSnip'].splitlines():
+                            line = line.strip()
                             if line.startswith(str(incident['lineNumber'])):
                                 incident['codeSnip'] = line
                                 break
