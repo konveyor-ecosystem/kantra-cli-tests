@@ -1,0 +1,12 @@
+name: Nightly CLI test for release-0.6
+
+on:
+  schedule:
+    - cron: '08 1,13 * * *'
+
+jobs:
+  test-suite:
+    uses: konveyor-ecosystem/kantra-cli-tests/.github/workflows/test-suite.yaml@main # TODO: a corresponding kantra-cli-tests branch will be needed with next releases
+    with:
+      tag: release-0.6
+      tier: TIER0

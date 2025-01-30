@@ -32,6 +32,7 @@ runs:
       export KANTRA_DIR=/home/runner/.kantra
       mkdir $KANTRA_DIR
       docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+      docker cp kantra-download:/usr/local/bin/kantra $KANTRA_DIR/kantra
       ls -l $KANTRA_DIR
       chmod +x /home/runner/.kantra/kantra
       /home/runner/.kantra/kantra --help
