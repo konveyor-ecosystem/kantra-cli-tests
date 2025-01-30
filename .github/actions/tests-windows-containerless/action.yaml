@@ -27,20 +27,16 @@ runs:
     with:
       python-version: '3.12'
 
+  - name: Get kantra bundle
+    uses: actions/download-artifact@v4
+    with:
+      name: kantra-bundle
+      path: C:\Users\runneradmin\.kantra
+
   - name: Extract kantra
     shell: cmd
     run: |
       set KANTRA_DIR=C:\Users\runneradmin\.kantra
-      REM This uses real windows-based kantra image
-      docker run --rm mplatform/mquery quay.io/konveyor/kantra:latest
-      md %KANTRA_DIR%
-      docker create --name kantra-download --platform linux quay.io/konveyor/kantra:${{ inputs.tag }}
-      docker cp kantra-download:/app/kantra.exe %KANTRA_DIR%\windows-kantra.exe
-      REM docker cp kantra-download:/jdtls %KANTRA_DIR%
-      REM docker cp kantra-download:/bin/fernflower.jar %KANTRA_DIR%
-      docker cp kantra-download:/app/static-report %KANTRA_DIR%
-      docker cp kantra-download:/app/opt/rulesets %KANTRA_DIR%
-      REM docker cp kantra-download:/usr/local/etc/maven.default.index %KANTRA_DIR%
       dir %KANTRA_DIR%
       %KANTRA_DIR%\windows-kantra.exe --help
 

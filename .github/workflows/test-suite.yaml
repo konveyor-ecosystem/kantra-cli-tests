@@ -17,8 +17,34 @@ on:
         default: TIER0
 
 jobs:
+  prepare-kantra-binaries:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Extract kantra
+      shell: bash
+      run: |
+        export KANTRA_DIR=.kantra
+        mkdir $KANTRA_DIR
+        docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+        docker cp kantra-download:/usr/local/bin/kantra $KANTRA_DIR/kantra
+        docker cp kantra-download:/usr/local/bin/windows-kantra $KANTRA_DIR/windows-kantra.exe
+        docker cp kantra-download:/usr/local/bin/darwin-kantra $KANTRA_DIR/darwin-kantra
+        docker cp kantra-download:/jdtls $KANTRA_DIR/jdtls
+        docker cp kantra-download:/bin/fernflower.jar $KANTRA_DIR/fernflower.jar
+        docker cp kantra-download:/usr/local/static-report $KANTRA_DIR/static-report
+        docker cp kantra-download:/opt/rulesets $KANTRA_DIR/rulesets
+        docker cp kantra-download:/usr/local/etc/maven.default.index $KANTRA_DIR/maven.default.index
+        ls -l $KANTRA_DIR
+        chmod +x /home/runner/.kantra/kantra
+        chmod +x /home/runner/.kantra/darwin-kantra
+    - uses: actions/upload-artifact@v4
+      with:
+        name: kantra-bundle
+        path: .kantra
+
   tests-windows-containerless:
     runs-on: windows-latest
+    needs: prepare-kantra-binaries
     steps:
     - uses: actions/checkout@v4
     - name: Windows container-less tests
