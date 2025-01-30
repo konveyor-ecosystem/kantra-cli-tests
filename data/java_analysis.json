@@ -8,14 +8,5 @@
           "cloud-readiness",
           "linux"
       ]
-  },
-  "binary-administracion-efectivo-cloud-readiness": {
-      "input": {
-        "local": "AdministracionEfectivo.ear"
-      },
-      "sources": [],
-      "targets": [
-          "cloud-readiness"
-      ]
   }
 }

@@ -25,17 +25,14 @@ runs:
     run: |
       sudo apt install -y podman
       podman --version
-  - name: Set up Igor's kantra installer
+
+  - name: Extract kantra
     shell: bash
     run: |
-      git clone https://github.com/ibragins/konveyor-cli-deployment.git
-      cd konveyor-cli-deployment
-      pip install -r requirements.txt
-      echo '{"misc_downstream_path": "","temp_dir": "","extract_binary": "","get_images_output": "","bundle": "","no_brew": "","ssh_user": "","ssh_key": ""}' >> config.json
-      # Workaround ruleset home (?)
-      mkdir -p /home/runner/.config
-      ./install_cli.py --upstream true
-      cd ..
+      export KANTRA_DIR=/home/runner/.kantra
+      mkdir $KANTRA_DIR
+      docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+      ls -l $KANTRA_DIR
       chmod +x /home/runner/.kantra/kantra
       /home/runner/.kantra/kantra --help
 
