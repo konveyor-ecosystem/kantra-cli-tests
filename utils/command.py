@@ -3,7 +3,7 @@ import os
 from utils import constants
 
 
-def build_analysis_command(binary_name, source, target, is_bulk=False, output_path=None, **kwargs):
+def build_analysis_command(binary_name, source, target, is_bulk=False, output_path=None, settings=None, **kwargs):
     """
         Builds a string for executing the "analyze" subcommand
 
@@ -48,6 +48,9 @@ def build_analysis_command(binary_name, source, target, is_bulk=False, output_pa
 
     if target:
         command += ' --target ' + target
+
+    if settings:
+        command += ' --maven-settings ' + settings
 
     for key, value in kwargs.items():
         if '--' not in key:

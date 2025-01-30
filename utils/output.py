@@ -105,7 +105,8 @@ def normalize_output(rulesets: dict, input_root_path):
                 violation = ruleset.get('violations').get(rulename)
                 if violation:
                     for incident in violation.get('incidents'):
-                        incident['uri'] = trim_incident_uri(incident['uri'], input_root_path)    # Normalize incidents path to make compatible container with containerless, fix slashes, etc.
+                        # Normalize incidents path to make compatible container with containerless, fix slashes, etc.
+                        incident['uri'] = trim_incident_uri(incident['uri'], input_root_path)
 
     # delete not matched ruleset
     rulesets = [ruleset for ruleset in rulesets if ruleset.get('violations') or ruleset.get('tags')]

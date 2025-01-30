@@ -1,3 +1,56 @@
+- description: This ruleset detects logging configurations that may be problematic
+    when migrating an application to a cloud environment.
+  name: cloud-readiness
+  violations:
+    local-storage-00001:
+      category: mandatory
+      description: File system - Java IO
+      effort: 1
+      incidents:
+      - codeSnip: " 4  import java.io.InputStream;\n 5  import java.util.Properties;\n\
+          \ 6  \n 7  public class ApplicationConfiguration {\n 8     private Properties\
+          \ config = this.loadProperties();\n 9  \n10     private Properties loadProperties()\
+          \ {\n11        Properties properties = new Properties();\n12  \n13     \
+          \   try {\n14           InputStream inputStream = new FileInputStream(\"\
+          /opt/config/configuration.properties\");\n15  \n16           try {\n17 \
+          \             properties.load(inputStream);\n18           } catch (Throwable\
+          \ var6) {\n19              try {\n20                 inputStream.close();\n\
+          21              } catch (Throwable var5) {\n22                 var6.addSuppressed(var5);\n\
+          23              }\n24  "
+        lineNumber: 14
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: root/.m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java
+        variables:
+          file: file:///root/.m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java
+          kind: Constructor
+          name: loadProperties
+          package: io.konveyor.demo.config
+      labels:
+      - konveyor.io/source
+      - konveyor.io/target=cloud-readiness
+      - storage
+      links:
+      - title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+        url: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+      - title: 'OpenShift Container Platform: Understanding cluster logging'
+        url: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+      - title: 'OpenShift Container Platform: Understanding persistent storage'
+        url: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+      - title: 'Twelve-Factor App: Backing services'
+        url: https://12factor.net/backing-services
+      - title: 'Twelve-Factor App: Config'
+        url: https://12factor.net/config
+      - title: 'Twelve-Factor App: Logs'
+        url: https://12factor.net/logs
 - name: discovery-rules
   tags:
   - EJB XML
@@ -34,23 +87,38 @@
   - Bean=EJB XML
   - Connect=EJB XML
   - Connect=Servlet
+  - Embedded Spring Data JPA
+  - Embedded framework - Micrometer
+  - Embedded framework - Spring DI
   - Embedded framework - Spring MVC
   - Embedded framework - Spring Web
   - Embedded library - Spring Boot Actuator
+  - Embedded=Micrometer
   - Embedded=Properties
+  - Embedded=Spring DI
+  - Embedded=Spring Data JPA
   - Embedded=Spring Web
+  - Execute=Micrometer
+  - Execute=Spring DI
   - HTTP=Servlet
+  - Integration=Micrometer
+  - Inversion of Control=Spring DI
   - Java EE=EJB XML
   - Java EE=JPA named queries
   - Java EE=Servlet
   - Java Servlet
+  - Micrometer
   - Other=Properties
   - Persistence=JPA named queries
+  - Persistence=Spring Data JPA
   - Servlet
   - Spring Boot Actuator
+  - Spring DI
+  - Spring Data JPA
   - Spring MVC
   - Spring Web
   - Store=JPA named queries
+  - Store=Spring Data JPA
   - Sustain=Properties
   - View=Spring Web
   - Web=Spring Web
