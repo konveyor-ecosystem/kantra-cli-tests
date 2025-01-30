@@ -4,7 +4,7 @@ import yaml
 from utils import constants
 
 
-def assert_analysis_output_violations(expected_output_dir, output_dir, initialize_if_empty = True):
+def assert_analysis_output_violations(expected_output_dir, output_dir, input_root_path = None):
     """
     Asserts that the Violations (Issues) and their Incidents from analysis output
 
@@ -21,7 +21,7 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, initializ
     got_output_normalized_path = got_output_path + ".normalized"
     # create a preprocessed/normalized outfile file to allow its comparision across platforms and setups
     with open(got_output_normalized_path, 'w') as f:
-            yaml.dump(normalize_output(got_output), f)
+            yaml.dump(normalize_output(got_output, input_root_path), f)
     with open(got_output_normalized_path, encoding='utf-8') as file:
         got_output = yaml.safe_load(file)
 
@@ -87,12 +87,10 @@ def get_dict_from_output_file(filename, dir=None, **kwargs):
         return yaml.safe_load(file), output_path
 
 
-def normalize_output(rulesets: dict):
+def normalize_output(rulesets: dict, input_root_path):
     """
         Does a pruning on output file to delete not used fields (skipped and unmatched rules),
         makes incident paths generic to allow compare container and container-less results.
-
-        Structure: ruleset -> rules -> rule violation -> incidents
     """
     for ruleset in rulesets:
         if ruleset.get('unmatched'):
@@ -107,7 +105,7 @@ def normalize_output(rulesets: dict):
                 violation = ruleset.get('violations').get(rulename)
                 if violation:
                     for incident in violation.get('incidents'):
-                        incident['uri'] = trim_incident_uri(incident['uri'])    # Normalize incidents path to make compatible container with containerless, fix slashes, etc.
+                        incident['uri'] = trim_incident_uri(incident['uri'], input_root_path)    # Normalize incidents path to make compatible container with containerless, fix slashes, etc.
 
     # delete not matched ruleset
     rulesets = [ruleset for ruleset in rulesets if ruleset.get('violations') or ruleset.get('tags')]
@@ -117,11 +115,14 @@ def normalize_output(rulesets: dict):
 def get_files_diff(a, b):
     return os.popen("diff -u '%s' '%s'" % (a, b)).read()
 
-def trim_incident_uri(uri):
+def trim_incident_uri(uri, input_root_path):
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
     uri = uri.replace("file:////", "file:///")    # ensure windows&unix mixture will not produce invalid file protocol prefix
     uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
+    uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path
+
     # Remove all path prefix to java-project if present
     if 'java-project' in uri:
        uri = uri.split('java-project')[-1]
+
     return uri
