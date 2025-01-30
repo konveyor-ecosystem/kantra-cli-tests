@@ -40,7 +40,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: kantra-bundle
-        path: .kantra
+        path: .kantra/
 
   tests-windows-containerless:
     runs-on: windows-latest
