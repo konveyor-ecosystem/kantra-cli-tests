@@ -35,12 +35,12 @@ runs:
       set KANTRA_DIR=C:\Users\runneradmin\.kantra
       md %KANTRA_DIR%
       docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
-      docker cp kantra-download:/app/kantra.exe %KANTRA_DIR%\windows-kantra.exe
-      docker cp kantra-download:/jdtls %KANTRA_DIR%\jdtls
-      docker cp kantra-download:/bin/fernflower.jar %KANTRA_DIR%\fernflower.jar
-      docker cp kantra-download:/app/static-report %KANTRA_DIR%\static-report
-      docker cp kantra-download:/opt/rulesets %KANTRA_DIR%\rulesets
-      docker cp kantra-download:/usr/local/etc/maven.default.index %KANTRA_DIR%\maven.default.index
+      docker cp kantra-download:/usr/local/bin/windows-kantra %KANTRA_DIR%\windows-kantra.exe
+      docker cp kantra-download:/jdtls %KANTRA_DIR%
+      docker cp kantra-download:/bin/fernflower.jar %KANTRA_DIR%
+      docker cp kantra-download:/usr/local/static-report %KANTRA_DIR%
+      docker cp kantra-download:/opt/rulesets %KANTRA_DIR%
+      docker cp kantra-download:/usr/local/etc/maven.default.index %KANTRA_DIR%
       dir %KANTRA_DIR%
       %KANTRA_DIR%\windows-kantra.exe --help
 
