@@ -17,7 +17,7 @@ on:
         default: TIER0
 
 jobs:
-  bundle-kantra:
+  make-kantra-bundle:
     runs-on: ubuntu-latest
     steps:
     - name: Extract kantra files from images
@@ -46,7 +46,7 @@ jobs:
 
   tests-windows-containerless:
     runs-on: windows-latest
-    needs: bundle-kantra
+    needs: make-kantra-bundle
     steps:
     - uses: actions/checkout@v4
     - name: Windows container-less tests
@@ -57,7 +57,7 @@ jobs:
 
   tests-linux-containerless:
     runs-on: ubuntu-latest
-    needs: bundle-kantra
+    needs: make-kantra-bundle
     steps:
     - uses: actions/checkout@v4
     - name: Linux container-less tests
@@ -69,6 +69,7 @@ jobs:
 
   tests-linux-containers:
     runs-on: ubuntu-latest
+    needs: make-kantra-bundle
     steps:
     - uses: actions/checkout@v4
     - name: Linux containers tests
