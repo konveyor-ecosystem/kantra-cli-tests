@@ -26,12 +26,11 @@ runs:
     uses: actions/setup-python@v4
     with:
       python-version: '3.12'
-  - run: python -m pip install --upgrade pip
-    shell: cmd
 
   - name: Extract kantra
     shell: cmd
     run: |
+      set DOCKER_DEFAULT_PLATFORM=linux/amd64
       set KANTRA_DIR=C:\Users\runneradmin\.kantra
       md %KANTRA_DIR%
       docker create --name kantra-download --platform linux/amd64 quay.io/konveyor/kantra:${{ inputs.tag }}
@@ -47,6 +46,7 @@ runs:
   - name: Install test dependencies
     shell: cmd
     run: |
+      python -m pip install --upgrade pip
       pip install -r requirements.txt
       mkdir ${{ github.workspace }}\report
 
