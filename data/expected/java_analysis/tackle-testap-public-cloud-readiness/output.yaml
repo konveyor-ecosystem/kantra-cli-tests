@@ -7,16 +7,7 @@
       description: File system - Java IO
       effort: 1
       incidents:
-      - codeSnip: " 4  import java.io.InputStream;\n 5  import java.util.Properties;\n\
-          \ 6  \n 7  public class ApplicationConfiguration {\n 8     private Properties\
-          \ config = this.loadProperties();\n 9  \n10     private Properties loadProperties()\
-          \ {\n11        Properties properties = new Properties();\n12  \n13     \
-          \   try {\n14           InputStream inputStream = new FileInputStream(\"\
-          /opt/config/configuration.properties\");\n15  \n16           try {\n17 \
-          \             properties.load(inputStream);\n18           } catch (Throwable\
-          \ var6) {\n19              try {\n20                 inputStream.close();\n\
-          21              } catch (Throwable var5) {\n22                 var6.addSuppressed(var5);\n\
-          23              }\n24  "
+      - codeSnip: 14           InputStream inputStream = new FileInputStream("/opt/config/configuration.properties");
         lineNumber: 14
         message: "An application running inside a container could lose access to a\
           \ file in local storage.\n\n Recommendations\n\n The following recommendations\

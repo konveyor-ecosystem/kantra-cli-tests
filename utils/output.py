@@ -105,6 +105,11 @@ def normalize_output(rulesets: dict, input_root_path):
                 violation = ruleset.get('violations').get(rulename)
                 if violation:
                     for incident in violation.get('incidents'):
+                        # grep codeSnip lines to the one with incident to not depend on different analyzer context size
+                        for line in incident['codeSnip'].splitlines():
+                            if line.startswith(str(incident['lineNumber'])):
+                                incident['codeSnip'] = line
+                                break
                         # normalize incidents path to make compatible container with containerless, fix slashes, etc.
                         incident['uri'] = trim_incident_uri(incident['uri'], input_root_path)
                     if incident.get('variables'):
