@@ -8,7 +8,7 @@ import pytest
 from utils import constants
 from utils.command import build_analysis_command
 from utils.common import run_containerless_parametrize
-from utils.manage_maven_credentials import manage_credentials_in_maven_xml
+from utils.manage_maven_credentials import get_konveyor_default_token
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
 from utils.output import assert_analysis_output_violations, assert_analysis_output_dependencies
 
@@ -46,7 +46,7 @@ def test_analysis(tc_name, java_analysis_data):
         with open(tc['settings'], 'r') as f:
             raw_settings = f.read()
         raw_settings = raw_settings.replace('GITHUB_USER', os.getenv('GIT_USERNAME', 'konveyor-read-only-bot'))
-        raw_settings = raw_settings.replace('GITHUB_TOKEN', os.getenv('GIT_PASSWORD', ''))
+        raw_settings = raw_settings.replace('GITHUB_TOKEN', os.getenv('GIT_PASSWORD', get_konveyor_default_token()))
         settings_path = input_path + "_settings.xml"    # leaving this file in tmp
         with open(settings_path, 'w') as f:
             f.write(raw_settings)
