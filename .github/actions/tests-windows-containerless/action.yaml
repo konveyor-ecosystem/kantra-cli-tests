@@ -30,10 +30,11 @@ runs:
   - name: Extract kantra
     shell: cmd
     run: |
-      REM This uses real windows-based kantra image
       set KANTRA_DIR=C:\Users\runneradmin\.kantra
+      REM This uses real windows-based kantra image
+      docker run --rm mplatform/mquery quay.io/konveyor/kantra:latest
       md %KANTRA_DIR%
-      docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+      docker create --name kantra-download --platform linux quay.io/konveyor/kantra:${{ inputs.tag }}
       docker cp kantra-download:/app/kantra.exe %KANTRA_DIR%\windows-kantra.exe
       REM docker cp kantra-download:/jdtls %KANTRA_DIR%
       REM docker cp kantra-download:/bin/fernflower.jar %KANTRA_DIR%
