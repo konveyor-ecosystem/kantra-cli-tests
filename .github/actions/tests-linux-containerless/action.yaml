@@ -23,9 +23,12 @@ runs:
       name: kantra-bundle
       path: /home/runner/.kantra
 
-  - name: Configure Test Environment Variables
+  - name: Configure Test Environment
     shell: bash
     run: |
+      chmod +x /home/runner/.kantra/kantra
+      ln -s /home/runner/.kantra /home/runner/.config/.kantra
+
       cp .env.example .env
       mkdir ${{ github.workspace }}/report
       

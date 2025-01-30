@@ -35,8 +35,6 @@ jobs:
         docker cp kantra-download:/opt/rulesets $KANTRA_DIR/rulesets
         docker cp kantra-download:/usr/local/etc/maven.default.index $KANTRA_DIR/maven.default.index
         ls -l $KANTRA_DIR
-        chmod +x $KANTRA_DIR/kantra
-        chmod +x $KANTRA_DIR/darwin-kantra
     - uses: actions/upload-artifact@v4
       with:
         name: kantra-bundle
