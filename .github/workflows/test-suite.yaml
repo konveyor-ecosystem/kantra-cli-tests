@@ -23,7 +23,7 @@ jobs:
     - name: Extract kantra files from images
       shell: bash
       run: |
-        export KANTRA_DIR=.kantra
+        export KANTRA_DIR=${{ github.workspace }}/.kantra
         mkdir $KANTRA_DIR
         docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
         docker cp kantra-download:/usr/local/bin/kantra $KANTRA_DIR/kantra
@@ -40,7 +40,7 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: kantra-bundle
-        path: .kantra/
+        path: ${{ github.workspace }}/.kantra
 
   tests-windows-containerless:
     runs-on: windows-latest
