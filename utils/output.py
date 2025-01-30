@@ -116,10 +116,14 @@ def get_files_diff(a, b):
     return os.popen("diff -u '%s' '%s'" % (a, b)).read()
 
 def trim_incident_uri(uri, input_root_path):
+    uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path
+
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
     uri = uri.replace("file:////", "file:///")    # ensure windows&unix mixture will not produce invalid file protocol prefix
     uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
-    uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path
+
+    # Ensure paths are relative
+    uri = uri.replace("file:///", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix
 
     # Remove all path prefix to java-project if present
     if 'java-project' in uri:
