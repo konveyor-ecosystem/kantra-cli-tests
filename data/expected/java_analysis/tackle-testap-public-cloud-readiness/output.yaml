@@ -28,12 +28,7 @@
           \ for relational data or use a persistent data storage system.\n * Temporary\
           \ data storage: Use the file system of a running container as a brief, single-transaction\
           \ cache."
-        uri: root/.m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java
-        variables:
-          file: file:///root/.m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java
-          kind: Constructor
-          name: loadProperties
-          package: io.konveyor.demo.config
+        uri: m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java
       labels:
       - konveyor.io/source
       - konveyor.io/target=cloud-readiness
@@ -75,8 +70,6 @@
         message: When migrating environments, hard-coded IP addresses may need to
           be modified or eliminated.
         uri: src/main/resources/persistence.properties
-        variables:
-          matchingText: 10.19.2.93
       labels:
       - discovery
       - konveyor.io/target=cloud-readiness

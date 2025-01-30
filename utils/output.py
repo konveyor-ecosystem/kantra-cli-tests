@@ -38,7 +38,7 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, input_roo
         with open(expected_output_path) as f:
             expected_output = yaml.safe_load(f)
 
-    assert got_output == expected_output, "Got different analysis output, diff: \n%s" % get_files_diff(expected_output_path, got_output_normalized_path)
+    assert got_output == expected_output, "Got different analysis output: \n%s" % get_files_diff(expected_output_path, got_output_normalized_path)
 
 
 def assert_analysis_output_dependencies(expected_output_dir, output_dir):
@@ -66,7 +66,7 @@ def assert_analysis_output_dependencies(expected_output_dir, output_dir):
         with open(expected_output_path) as f:
             expected_output = yaml.safe_load(f)
 
-    assert got_output == expected_output, "Got different dependencies output, diff: \n%s" % get_files_diff(expected_output_path, got_output_path)
+    assert got_output == expected_output, "Got different dependencies output: \n%s" % get_files_diff(expected_output_path, got_output_path)
 
 
 def get_dict_from_output_file(filename, dir=None, **kwargs):
@@ -105,8 +105,10 @@ def normalize_output(rulesets: dict, input_root_path):
                 violation = ruleset.get('violations').get(rulename)
                 if violation:
                     for incident in violation.get('incidents'):
-                        # Normalize incidents path to make compatible container with containerless, fix slashes, etc.
+                        # normalize incidents path to make compatible container with containerless, fix slashes, etc.
                         incident['uri'] = trim_incident_uri(incident['uri'], input_root_path)
+                    if incident.get('variables'):
+                        del incident['variables']   # remove variables from assertion, re-add if needed
 
     # delete not matched ruleset
     rulesets = [ruleset for ruleset in rulesets if ruleset.get('violations') or ruleset.get('tags')]
@@ -126,12 +128,14 @@ def trim_incident_uri(uri, input_root_path):
     # Ensure paths are relative
     uri = uri.replace("file:///", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix
 
-    # Remove all path prefix to java-project if present
-    if 'java-project' in uri:
-       uri = uri.split('java-project')[-1]
-
-    # Remove m2.repository local maven repo prefix
-    if '".m2/repository/"' in uri:
-       uri = uri.split('.m2/repository/')[-1]
+    # Remove all path prefix to java-project or maven repo if present
+    uri = str_path_remove_prefix(uri, 'java-project')
+    uri = str_path_remove_prefix(uri, 'm2/repository')
 
     return uri
+
+def str_path_remove_prefix(s, root):
+    if root in s:
+        return root + s.split(root)[-1]
+    else:
+        return s
