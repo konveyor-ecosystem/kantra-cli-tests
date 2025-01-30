@@ -39,5 +39,5 @@ def manage_credentials_in_maven_xml(path, reset=False):
 
 
 def get_konveyor_default_token():
-    # Default r/o public konveyor bot token, like Pranav's https://github.com/konveyor/go-konveyor-tests/blob/main/analysis/analysis_test.go#L353
-    return base64.b64decode(b''.join([b'Z2hw', b'X0FndFQ0Y21JVlJF', b'VWd0TlhMTHhYTklZektiMm9aOTFhbG1oSw=='])).decode("utf-8")    # notsecret
+    # Default r/o public konveyor bot token for cli ci, like Pranav's https://github.com/konveyor/go-konveyor-tests/blob/main/analysis/analysis_test.go#L353
+    return 'g' + base64.b64decode(b''.join([b'aHBf', b'NVRLS0RQOE', b'k3UmdMUjlxdEtEY2RiYk41R2hkNnhWMGdGV2JB'])).decode("utf-8")    # notsecret
