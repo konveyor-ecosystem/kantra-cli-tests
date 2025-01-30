@@ -30,16 +30,16 @@ runs:
   - name: Extract kantra
     shell: cmd
     run: |
-      set DOCKER_DEFAULT_PLATFORM=linux/amd64
+      REM This uses real windows-based kantra image
       set KANTRA_DIR=C:\Users\runneradmin\.kantra
       md %KANTRA_DIR%
-      docker create --name kantra-download --platform linux/amd64 quay.io/konveyor/kantra:${{ inputs.tag }}
-      docker cp kantra-download:/usr/local/bin/windows-kantra %KANTRA_DIR%\windows-kantra.exe
-      docker cp kantra-download:/jdtls %KANTRA_DIR%
-      docker cp kantra-download:/bin/fernflower.jar %KANTRA_DIR%
-      docker cp kantra-download:/usr/local/static-report %KANTRA_DIR%
-      docker cp kantra-download:/opt/rulesets %KANTRA_DIR%
-      docker cp kantra-download:/usr/local/etc/maven.default.index %KANTRA_DIR%
+      docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+      docker cp kantra-download:/app/kantra.exe %KANTRA_DIR%\windows-kantra.exe
+      REM docker cp kantra-download:/jdtls %KANTRA_DIR%
+      REM docker cp kantra-download:/bin/fernflower.jar %KANTRA_DIR%
+      docker cp kantra-download:/app/static-report %KANTRA_DIR%
+      docker cp kantra-download:/app/opt/rulesets %KANTRA_DIR%
+      REM docker cp kantra-download:/usr/local/etc/maven.default.index %KANTRA_DIR%
       dir %KANTRA_DIR%
       %KANTRA_DIR%\windows-kantra.exe --help
 
