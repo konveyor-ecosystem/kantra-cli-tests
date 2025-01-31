@@ -160,7 +160,7 @@ def trim_incident_uri(uri, input_root_path):
     uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
 
     # Ensure paths are relative
-    uri = uri.replace("file:///", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix
+    uri = uri.replace("file://", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix
 
     # Remove all path prefix to java-project or maven repo if present
     uri = str_path_remove_prefix(uri, 'java-project')
