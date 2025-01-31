@@ -7,6 +7,7 @@ on:
 jobs:
   test-suite:
     uses: konveyor-ecosystem/kantra-cli-tests/.github/workflows/test-suite.yaml@main # TODO: a corresponding kantra-cli-tests branch will be needed with next releases
+    secrets: inherit
     with:
       tag: release-0.6
       tier: TIER0

@@ -18,9 +18,8 @@ on:
       maven_token:
         description: |
           Token for public github maven repo access
-        required: false
+        required: true
         type: string
-        default: ""
 
 jobs:
   make-kantra-bundle:
