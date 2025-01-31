@@ -40,6 +40,7 @@ runs:
       set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
       set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
       set PROJECT_PATH=${{ github.workspace }}
+      set GIT_PASSWORD=${{ secrets.GH_TOKEN }}
 
       pytest -s tests/analysis/java/test_tier0.py
 

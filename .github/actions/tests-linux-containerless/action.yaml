@@ -35,6 +35,7 @@ runs:
       echo "export KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
       echo "export REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
       echo "export PROJECT_PATH=${{ github.workspace }}" >> .env
+      echo "export GIT_PASSWORD=${{ secrets.GH_TOKEN }}" >> .env
       cat .env
     working-directory: ${{ github.workspace }}
   - name: Install test dependencies
