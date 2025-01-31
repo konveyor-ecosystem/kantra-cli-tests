@@ -145,7 +145,7 @@ def normalize_dependencies(dependencies: dict, input_root_path):
             del dependency['extras']
 
         if dependency.get('prefix'):
-            dependency['prefix'] = trim_incident_uri(dependency['prefix'], input_root_path)
+            dependency['prefix'] = trim_incident_uri(r'{}'.format(dependency['prefix']), r'{}'.format(input_root_path)) # Use raw strings for windows \
 
     return dependencies
 
