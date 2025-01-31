@@ -15,6 +15,12 @@ on:
         required: false
         type: string
         default: TIER0
+      maven_token:
+        description: |
+          Token for public github maven repo access
+        required: false
+        type: string
+        default: ""
 
 jobs:
   make-kantra-bundle:
@@ -51,6 +57,7 @@ jobs:
       uses: ./.github/actions/tests-windows-containerless
       with:
         tier: ${{ inputs.tier }}
+        maven_token: ${{ inputs.maven_token }}
 
   tests-linux-containerless:
     runs-on: ubuntu-latest
@@ -61,6 +68,7 @@ jobs:
       uses: ./.github/actions/tests-linux-containerless
       with:
         tier: ${{ inputs.tier }}
+        maven_token: ${{ inputs.maven_token }}
 
 
   tests-linux-containers:
@@ -72,3 +80,4 @@ jobs:
       uses: ./.github/actions/tests-linux-containers
       with:
         tier: ${{ inputs.tier }}
+        maven_token: ${{ inputs.maven_token }}

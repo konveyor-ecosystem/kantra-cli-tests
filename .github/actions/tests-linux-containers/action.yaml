@@ -7,6 +7,12 @@ inputs:
     required: false
     type: string
     default: TIER0
+  maven_token:
+    description: |
+      Token for public github maven repo access
+    required: false
+    type: string
+    default: ""
 
 runs:
   using: "composite"
@@ -37,7 +43,7 @@ runs:
       echo "export KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
       echo "export REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
       echo "export PROJECT_PATH=${{ github.workspace }}" >> .env
-      echo "export GIT_PASSWORD=${{ secrets.GH_TOKEN }}" >> .env
+      echo "export GIT_PASSWORD=${{ inputs.maven_token }}" >> .env
       cat .env
 
       # Temporary dirty workaround to execute container kantra (with run-local=false)

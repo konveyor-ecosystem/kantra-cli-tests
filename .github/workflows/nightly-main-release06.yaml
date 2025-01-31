@@ -10,3 +10,4 @@ jobs:
     with:
       tag: release-0.6
       tier: TIER0
+      maven_token: ${{ secrets.GH_TOKEN }}
