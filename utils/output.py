@@ -101,8 +101,6 @@ def normalize_output(rulesets: dict, input_root_path):
         Does a pruning on output file to delete not used fields (skipped and unmatched rules),
         makes incident paths generic to allow compare container and container-less results.
     """
-    print("#### Working in input root input and report paths")
-    print(input_root_path)
     for ruleset in rulesets:
         if ruleset.get('unmatched'):
             del ruleset['unmatched']
