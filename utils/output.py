@@ -1,8 +1,6 @@
 import os
 import yaml
 
-from utils import constants
-
 
 def assert_analysis_output_violations(expected_output_dir, output_dir, input_root_path = None):
     """
@@ -85,7 +83,7 @@ def get_dict_from_output_file(filename, dir=None, **kwargs):
             dict (from YAML file data)
 
         """
-    report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
+    report_path = os.getenv('REPORT_OUTPUT_PATH')
     report_path = kwargs.get('report_path', report_path)
     if dir:
         report_path = dir
@@ -105,7 +103,6 @@ def normalize_output(rulesets: dict, input_root_path):
     """
     print("#### Working in input root input and report paths")
     print(input_root_path)
-    print(os.getenv(constants.REPORT_OUTPUT_PATH))
     for ruleset in rulesets:
         if ruleset.get('unmatched'):
             del ruleset['unmatched']
@@ -156,15 +153,20 @@ def trim_incident_uri(uri, input_root_path):
     uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path
 
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
-    uri = uri.replace("file:////", "file:///")    # ensure windows&unix mixture will not produce invalid file protocol prefix
     uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
 
     # Ensure paths are relative
-    uri = uri.replace("file://", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix
+    uri = uri.replace("file:////", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix
+    uri = uri.replace("file:///", "")
+    uri = uri.replace("file://", "")
 
     # Remove all path prefix to java-project or maven repo if present
     uri = str_path_remove_prefix(uri, 'java-project')
     uri = str_path_remove_prefix(uri, 'm2/repository')
+
+    # Ensure there is no / prefix
+    if uri.startswith('/'):
+        uri = uri[1:]
 
     return uri
 
