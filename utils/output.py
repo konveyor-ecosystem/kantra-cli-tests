@@ -150,6 +150,9 @@ def normalize_dependencies(dependencies: dict, input_root_path):
     return dependencies
 
 def trim_incident_uri(uri, input_root_path):
+    uri = uri.replace("'", "") # remove potential repr() wrapper chars
+    input_root_path = input_root_path.replace("'", "")
+
     uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path
 
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
@@ -163,7 +166,7 @@ def trim_incident_uri(uri, input_root_path):
     uri = str_path_remove_prefix(uri, 'java-project')
     uri = str_path_remove_prefix(uri, 'm2/repository')
 
-    return uri.replace("'", "") # remove potential repr() wrapper chars
+    return uri
 
 def str_path_remove_prefix(s, root):
     if root in s:
