@@ -15,6 +15,9 @@ on:
         required: false
         type: string
         default: TIER0
+    secrets:
+      GH_TOKEN:
+        required: true
 
 jobs:
   make-kantra-bundle:
