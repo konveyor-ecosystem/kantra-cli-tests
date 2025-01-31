@@ -239,3 +239,9 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 .idea/**
+
+
+# Test output and temporary directories
+data/tmp
+data/applications/*-exploded
+data/applications/java-project

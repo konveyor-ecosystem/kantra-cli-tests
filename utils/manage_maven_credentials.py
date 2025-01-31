@@ -1,3 +1,4 @@
+import base64
 import os
 from utils import constants
 from lxml import etree
@@ -35,5 +36,3 @@ def manage_credentials_in_maven_xml(path, reset=False):
             password_elem.text = password
 
     tree.write(path, pretty_print=True, xml_declaration=True, encoding='UTF-8')
-
-

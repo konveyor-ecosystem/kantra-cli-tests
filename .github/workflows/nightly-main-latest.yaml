@@ -6,7 +6,8 @@ on:
 
 jobs:
   test-suite:
-    uses: aufi/kantra-cli-tests/.github/workflows/test-suite.yaml@basic-workflows # Replace with konveyor-ecosystem (cannot do checkout before for different OSs)
+    uses: konveyor-ecosystem/kantra-cli-tests/.github/workflows/test-suite.yaml@main
+    secrets: inherit
     with:
       tag: latest
       tier: TIER0
