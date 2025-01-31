@@ -19,6 +19,7 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, input_roo
     expected_output, expected_output_path = dict(), os.path.join(expected_output_dir, "output.yaml")
     got_output, got_output_path = get_dict_from_output_file("output.yaml", dir=output_dir)
     got_output_normalized_path = got_output_path + ".normalized.yaml"
+
     # create a preprocessed/normalized outfile file to allow its comparision across platforms and setups
     with open(got_output_normalized_path, 'w') as f:
             yaml.dump(normalize_output(got_output, input_root_path), f)
@@ -41,7 +42,7 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, input_roo
     assert got_output == expected_output, "Got different analysis output: \n%s" % get_files_diff(expected_output_path, got_output_normalized_path)
 
 
-def assert_analysis_output_dependencies(expected_output_dir, output_dir):
+def assert_analysis_output_dependencies(expected_output_dir, output_dir, input_root_path = None):
     """
     Asserts that the Dependencies from analysis output
 
@@ -53,20 +54,27 @@ def assert_analysis_output_dependencies(expected_output_dir, output_dir):
 
     """
 
-    expected_output, expected_output_path = dict(), os.path.join(expected_output_dir, "dependencies.yaml")
-    got_output, got_output_path = get_dict_from_output_file("dependencies.yaml", dir=output_dir)
+    expected_dependencies, expected_dependencies_path = dict(), os.path.join(expected_output_dir, "dependencies.yaml")
+    got_dependencies, got_dependencies_path = get_dict_from_output_file("dependencies.yaml", dir=output_dir)
+    got_dependencies_normalized_path = got_dependencies_path + ".normalized.yaml"
 
-    if not os.path.exists(expected_output_path):
-        with open(expected_output_path, 'w') as f:
+    # create a preprocessed/normalized outfile file to allow its comparision across platforms and setups
+    with open(got_dependencies_normalized_path, 'w') as f:
+            yaml.dump(normalize_dependencies(got_dependencies, input_root_path), f)
+    with open(got_dependencies_normalized_path, encoding='utf-8') as file:
+        got_output = yaml.safe_load(file)
+
+    if not os.path.exists(expected_dependencies_path):
+        with open(expected_dependencies_path, 'w') as f:
             yaml.dump(got_output, f)
 
-        assert False, "Expected dependencies file '%s' did not exist, initializing it with the current test output" % expected_output_path
+        assert False, "Expected dependencies file '%s' did not exist, initializing it with the current test output" % expected_dependencies_path
 
     else:
-        with open(expected_output_path) as f:
+        with open(expected_dependencies_path) as f:
             expected_output = yaml.safe_load(f)
 
-    assert got_output == expected_output, "Got different dependencies output: \n%s" % get_files_diff(expected_output_path, got_output_path)
+    assert got_output == expected_output, "Got different dependencies output: \n%s" % get_files_diff(expected_dependencies_path, got_dependencies_path)
 
 
 def get_dict_from_output_file(filename, dir=None, **kwargs):
@@ -87,11 +95,17 @@ def get_dict_from_output_file(filename, dir=None, **kwargs):
         return yaml.safe_load(file), output_path
 
 
+def get_files_diff(a, b):
+    return os.popen("diff -u '%s' '%s'" % (a, b)).read()
+
 def normalize_output(rulesets: dict, input_root_path):
     """
         Does a pruning on output file to delete not used fields (skipped and unmatched rules),
         makes incident paths generic to allow compare container and container-less results.
     """
+    print("#### Working in input root input and report paths")
+    print(input_root_path)
+    print(os.getenv(constants.REPORT_OUTPUT_PATH))
     for ruleset in rulesets:
         if ruleset.get('unmatched'):
             del ruleset['unmatched']
@@ -121,8 +135,19 @@ def normalize_output(rulesets: dict, input_root_path):
 
     return rulesets
 
-def get_files_diff(a, b):
-    return os.popen("diff -u '%s' '%s'" % (a, b)).read()
+def normalize_dependencies(dependencies: dict, input_root_path):
+    """
+        Does a pruning on dependencies file to delete not used fields (extras),
+        makes prefix paths generic to allow compare container and container-less results.
+    """
+    for dependency in dependencies[0]['dependencies']:
+        if dependency.get('extras'):    # Unless there is something important in extras
+            del dependency['extras']
+
+        if dependency.get('prefix'):
+            dependency['prefix'] = trim_incident_uri(dependency['prefix'], input_root_path)
+
+    return dependencies
 
 def trim_incident_uri(uri, input_root_path):
     uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path

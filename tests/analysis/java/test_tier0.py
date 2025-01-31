@@ -9,7 +9,7 @@ from utils import constants
 from utils.command import build_analysis_command
 from utils.common import run_containerless_parametrize
 from utils.manage_maven_credentials import get_konveyor_default_token
-from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
+from utils.report import assert_non_empty_report
 from utils.output import assert_analysis_output_violations, assert_analysis_output_dependencies
 
 project_path = os.getenv(constants.PROJECT_PATH)
@@ -65,7 +65,8 @@ def test_analysis(tc_name, java_analysis_data):
     expected_output_dir = os.path.join(project_path, "data", "expected", "java_analysis", tc_name)
     assert_analysis_output_violations(expected_output_dir, output_dir, input_root_path=input_path)
     
-    # Check dependencies - temporary disabled
-    # assert_analysis_output_dependencies(expected_output_dir, output_dir)
+    # Check dependencies (deeply)
+    assert_analysis_output_dependencies(expected_output_dir, output_dir, input_root_path=input_path)
 
     # Check static-report existence
+    assert_non_empty_report(output_dir)
