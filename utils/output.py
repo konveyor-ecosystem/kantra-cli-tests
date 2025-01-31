@@ -126,7 +126,7 @@ def normalize_output(rulesets: dict, input_root_path):
                                 incident['codeSnip'] = line
                                 break
                         # normalize incidents path to make compatible container with containerless, fix slashes, etc.
-                        incident['uri'] = trim_incident_uri(incident['uri'], input_root_path)
+                        incident['uri'] = trim_incident_uri(repr(incident['uri']), repr(input_root_path))
                     if incident.get('variables'):
                         del incident['variables']   # remove variables from assertion, re-add if needed
 
@@ -163,7 +163,7 @@ def trim_incident_uri(uri, input_root_path):
     uri = str_path_remove_prefix(uri, 'java-project')
     uri = str_path_remove_prefix(uri, 'm2/repository')
 
-    return uri
+    return uri.replace("'", "") # remove potential repr() wrapper chars
 
 def str_path_remove_prefix(s, root):
     if root in s:
