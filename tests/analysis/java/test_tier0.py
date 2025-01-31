@@ -7,8 +7,6 @@ import pytest
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.common import run_containerless_parametrize
-from utils.manage_maven_credentials import get_konveyor_default_token
 from utils.report import assert_non_empty_report
 from utils.output import assert_analysis_output_violations, assert_analysis_output_dependencies
 
