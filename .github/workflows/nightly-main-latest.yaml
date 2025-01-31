@@ -11,4 +11,3 @@ jobs:
     with:
       tag: latest
       tier: TIER0
-      maven_token: ${{ secrets.GH_TOKEN }}
