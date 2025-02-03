@@ -152,6 +152,7 @@ def trim_incident_uri(uri, input_root_path):
 
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
     uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
+    uri = uri.replace(input_root_path, "")  # remove input prefix path (with forward-only slashes)
 
     # Ensure paths are relative
     uri = uri.replace("file:////", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix
