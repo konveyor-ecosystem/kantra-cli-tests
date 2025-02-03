@@ -29,6 +29,7 @@ runs:
       chmod +x /home/runner/.kantra/kantra
       ln -s /home/runner/.kantra /home/runner/.config/.kantra
       mkdir ${{ github.workspace }}/report
+      env
     working-directory: ${{ github.workspace }}
   - name: Install test dependencies
     shell: bash

@@ -18,6 +18,7 @@ on:
 
 env:
   MVN_TOKEN_PARTIAL: ${{ github.env.MVN_TOKEN_PARTIAL }}
+  TEST_M_VAR: foo-bar
 
 jobs:
   make-kantra-bundle:

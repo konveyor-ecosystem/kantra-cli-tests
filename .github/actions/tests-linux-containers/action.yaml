@@ -32,7 +32,8 @@ runs:
       chmod +x /home/runner/.kantra/kantra
       mkdir ${{ github.workspace }}/report
       # Temporary dirty workaround to execute container kantra (with run-local=false)
-      sed -i 's/ analyze / analyze --run-local=false /g' utils/command.py 
+      sed -i 's/ analyze / analyze --run-local=false /g' utils/command.py
+      env
     working-directory: ${{ github.workspace }}
   - name: Install test dependencies
     shell: bash
