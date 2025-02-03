@@ -7,6 +7,11 @@ inputs:
     required: false
     type: string
     default: TIER0
+  tests_ref:
+    description: |
+      kantra-cli-tests repo ref that should be checked-out for tests execution
+    required: true
+    type: string
   maven_token:
     description: |
       Token for public github maven repo access
@@ -18,6 +23,8 @@ runs:
   using: "composite"
   steps:
   - uses: actions/checkout@v4
+    with:
+      ref: ${{ inputs.tests_ref }}
   - uses: actions/setup-java@v4
     with:
       distribution: 'microsoft'

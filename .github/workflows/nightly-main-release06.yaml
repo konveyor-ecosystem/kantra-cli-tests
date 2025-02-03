@@ -10,4 +10,5 @@ jobs:
     secrets: inherit
     with:
       tag: release-0.6
+      tests_ref: release-0.6
       tier: TIER0

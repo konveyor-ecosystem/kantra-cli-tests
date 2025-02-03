@@ -2,7 +2,7 @@ name: PR/push CLI tests for main
 
 on:
   pull_request_target:
-    branches: [ "main" ]
+    branches: [ "*" ]
     paths-ignore:
       - '**.md'
   push:
@@ -12,9 +12,10 @@ on:
 
 jobs:
   test-suite:
-    uses: konveyor-ecosystem/kantra-cli-tests/.github/workflows/test-suite.yaml@main
+    uses: aufi/kantra-cli-tests/.github/workflows/test-suite.yaml@tier0-fix-pathlib-windows
     secrets:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
       tag: latest
       tier: TIER0
+      tests_ref: ${{ github.event.pull_request.merge_commit_sha }}
