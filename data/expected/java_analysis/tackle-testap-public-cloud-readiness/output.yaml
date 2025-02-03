@@ -1,0 +1,101 @@
+- description: This ruleset detects logging configurations that may be problematic
+    when migrating an application to a cloud environment.
+  name: cloud-readiness
+  violations:
+    local-storage-00001:
+      category: mandatory
+      description: File system - Java IO
+      effort: 1
+      incidents:
+      - codeSnip: 14           InputStream inputStream = new FileInputStream("/opt/config/configuration.properties");
+        lineNumber: 14
+        message: "An application running inside a container could lose access to a\
+          \ file in local storage.\n\n Recommendations\n\n The following recommendations\
+          \ depend on the function of the file in local storage:\n\n * Logging: Log\
+          \ to standard output and use a centralized log collector to analyze the\
+          \ logs.\n * Caching: Use a cache backing service.\n * Configuration: Store\
+          \ configuration settings in environment variables so that they can be updated\
+          \ without code changes.\n * Data storage: Use a database backing service\
+          \ for relational data or use a persistent data storage system.\n * Temporary\
+          \ data storage: Use the file system of a running container as a brief, single-transaction\
+          \ cache."
+        uri: m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java
+      labels:
+      - konveyor.io/source
+      - konveyor.io/target=cloud-readiness
+      - storage
+      links:
+      - title: 'OpenShift Container Platform: Input secrets and ConfigMaps'
+        url: https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs
+      - title: 'OpenShift Container Platform: Understanding cluster logging'
+        url: https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html
+      - title: 'OpenShift Container Platform: Understanding persistent storage'
+        url: https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html
+      - title: 'Twelve-Factor App: Backing services'
+        url: https://12factor.net/backing-services
+      - title: 'Twelve-Factor App: Config'
+        url: https://12factor.net/config
+      - title: 'Twelve-Factor App: Logs'
+        url: https://12factor.net/logs
+- name: discovery-rules
+  tags:
+  - EJB XML
+  - Java Source
+  - Maven XML
+  - Properties
+  violations:
+    hardcoded-ip-address:
+      category: mandatory
+      description: Hardcoded IP Address
+      effort: 1
+      incidents:
+      - codeSnip: 2   jdbc.url=jdbc:oracle:thin:@10.19.2.93:1521:xe
+        lineNumber: 2
+        message: When migrating environments, hard-coded IP addresses may need to
+          be modified or eliminated.
+        uri: src/main/resources/persistence.properties
+      labels:
+      - discovery
+      - konveyor.io/target=cloud-readiness
+      - konveyor.io/target=discovery
+- description: This ruleset provides analysis of logging libraries.
+  name: technology-usage
+  tags:
+  - Bean=EJB XML
+  - Connect=EJB XML
+  - Connect=Servlet
+  - Embedded Spring Data JPA
+  - Embedded framework - Micrometer
+  - Embedded framework - Spring DI
+  - Embedded framework - Spring MVC
+  - Embedded framework - Spring Web
+  - Embedded library - Spring Boot Actuator
+  - Embedded=Micrometer
+  - Embedded=Properties
+  - Embedded=Spring DI
+  - Embedded=Spring Data JPA
+  - Embedded=Spring Web
+  - Execute=Micrometer
+  - Execute=Spring DI
+  - HTTP=Servlet
+  - Integration=Micrometer
+  - Inversion of Control=Spring DI
+  - Java EE=EJB XML
+  - Java EE=JPA named queries
+  - Java EE=Servlet
+  - Java Servlet
+  - Micrometer
+  - Other=Properties
+  - Persistence=JPA named queries
+  - Persistence=Spring Data JPA
+  - Servlet
+  - Spring Boot Actuator
+  - Spring DI
+  - Spring Data JPA
+  - Spring MVC
+  - Spring Web
+  - Store=JPA named queries
+  - Store=Spring Data JPA
+  - Sustain=Properties
+  - View=Spring Web
+  - Web=Spring Web

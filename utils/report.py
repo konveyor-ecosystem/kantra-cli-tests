@@ -24,12 +24,43 @@ def get_json_from_report_output_file(return_first = True, **kwargs):
     report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
     report_path = kwargs.get('report_path', report_path)
 
-    with open(report_path + "/static-report/output.js", encoding='utf-8') as file:
+    with open(os.path.join(report_path, "static-report", "output.js"), encoding='utf-8') as file:
         js_report = file.read()
     if return_first:
         return json.loads(js_report.split('window["apps"] = ')[1])[0]
     else:
         return json.loads(js_report.split('window["apps"] = ')[1])
+
+
+def assert_non_empty_report(report_path):
+    """
+    Asserts that the story points value in the report file is a number >= 0
+
+    Args:
+        report_path (str): The path to the report file. If not provided,
+        the function will use the value of the 'REPORT_OUTPUT_PATH' environment variable.
+
+    Raises:
+        AssertionError: If the report looks empty or is missing.
+
+    Returns:
+        None.
+
+    """
+    report_data = get_json_from_report_output_file(report_path=report_path)
+
+    some_incidents = False
+
+    for rule in report_data['rulesets']:
+        violations = rule.get('violations', {})
+
+        for violation in violations.values():
+            if 'incidents' in violation:
+                some_incidents = True
+                break
+
+    assert os.path.exists(os.path.join(report_path, "static-report", "index.html")), "Missing index.html file in static-report under " + report_path
+    assert some_incidents, "Missing incidents in static-report js data file"
 
 
 def assert_story_points_from_report_file():
