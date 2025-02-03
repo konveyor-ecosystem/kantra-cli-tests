@@ -44,7 +44,7 @@ def test_analysis(tc_name, java_analysis_data):
         with open(tc['settings'], 'r') as f:
             raw_settings = f.read()
         raw_settings = raw_settings.replace('GITHUB_USER', os.getenv('GIT_USERNAME', 'konveyor-read-only-bot'))
-        raw_settings = raw_settings.replace('GITHUB_TOKEN', os.getenv('GIT_PASSWORD', ''))
+        raw_settings = raw_settings.replace('GITHUB_TOKEN', os.getenv('GIT_PASSWORD', 'g' + os.getenv('MVN_TOKEN_PARTIAL', '')))
         settings_path = input_path + "_settings.xml"    # leaving this file in tmp
         with open(settings_path, 'w') as f:
             f.write(raw_settings)

@@ -7,7 +7,6 @@ on:
 jobs:
   test-suite:
     uses: konveyor-ecosystem/kantra-cli-tests/.github/workflows/test-suite.yaml@main
-    secrets: inherit
     with:
       tag: latest
       tier: TIER0
