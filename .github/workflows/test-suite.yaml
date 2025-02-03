@@ -16,6 +16,9 @@ on:
         type: string
         default: TIER0
 
+env:
+  MVN_TOKEN_PARTIAL: ${{ github.env.MVN_TOKEN_PARTIAL }}
+
 jobs:
   make-kantra-bundle:
     runs-on: ubuntu-latest
