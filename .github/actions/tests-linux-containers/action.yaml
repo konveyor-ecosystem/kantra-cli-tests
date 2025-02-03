@@ -36,16 +36,7 @@ runs:
     shell: bash
     run: |
       chmod +x /home/runner/.kantra/kantra
-
       mkdir ${{ github.workspace }}/report
-      
-      > .env
-      echo "export KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
-      echo "export REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
-      echo "export PROJECT_PATH=${{ github.workspace }}" >> .env
-      echo "export GIT_PASSWORD=${{ inputs.maven_token }}" >> .env
-      cat .env
-
       # Temporary dirty workaround to execute container kantra (with run-local=false)
       sed -i 's/ analyze / analyze --run-local=false /g' utils/command.py 
     working-directory: ${{ github.workspace }}
@@ -58,7 +49,11 @@ runs:
   - name: Run TIER0 analysis test
     shell: bash
     run: |
-      . ${{ github.workspace }}/.env
+      export KANTRA_CLI_PATH=/home/runner/.kantra/kantra
+      export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
+      export PROJECT_PATH=${{ github.workspace }}
+      export GIT_PASSWORD=${{ inputs.maven_token }}
+
       pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output

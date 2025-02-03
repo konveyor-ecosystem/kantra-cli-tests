@@ -34,15 +34,7 @@ runs:
     run: |
       chmod +x /home/runner/.kantra/kantra
       ln -s /home/runner/.kantra /home/runner/.config/.kantra
-
       mkdir ${{ github.workspace }}/report
-      
-      > .env
-      echo "export KANTRA_CLI_PATH=/home/runner/.kantra/kantra" >> .env
-      echo "export REPORT_OUTPUT_PATH=${{ github.workspace }}/report" >> .env
-      echo "export PROJECT_PATH=${{ github.workspace }}" >> .env
-      echo "export GIT_PASSWORD=${{ inputs.maven_token }}" >> .env
-      cat .env
     working-directory: ${{ github.workspace }}
   - name: Install test dependencies
     shell: bash
@@ -53,7 +45,11 @@ runs:
   - name: Run TIER0 analysis test
     shell: bash
     run: |
-      . ${{ github.workspace }}/.env
+      export KANTRA_CLI_PATH=/home/runner/.kantra/kantra
+      export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
+      export PROJECT_PATH=${{ github.workspace }}
+      export GIT_PASSWORD=${{ inputs.maven_token }}
+
       pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
