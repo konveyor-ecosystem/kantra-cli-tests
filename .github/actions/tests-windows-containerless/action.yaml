@@ -51,6 +51,7 @@ runs:
       pytest -s tests/analysis/java/test_tier0.py
 
       dir D:\a\kantra-cli-tests\kantra-cli-tests\data\tmp\
+      type D:\a\kantra-cli-tests\kantra-cli-tests\data\tmp\tackle-testap-public-cloud-readiness_settings.xml
 
   - name: Save analysis output
     uses: actions/upload-artifact@v4

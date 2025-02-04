@@ -112,8 +112,8 @@ def normalize_output(rulesets: dict, input_root_path):
         if ruleset.get('violations'):
             for rulename in ruleset['violations']:
                 violation = ruleset.get('violations').get(rulename)
-                if violation:
-                    for incident in violation.get('incidents'):
+                if violation and violation.get('incidents'):
+                    for incident in violation['incidents']:
                         # grep codeSnip lines to the one with incident to not depend on different analyzer context size
                         for line in incident['codeSnip'].splitlines():
                             line = line.strip()
