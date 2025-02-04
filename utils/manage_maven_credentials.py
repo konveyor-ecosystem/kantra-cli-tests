@@ -1,7 +1,13 @@
 import base64
+import binascii
+import hashlib
 import os
-from utils import constants
+import re
+
 from lxml import etree
+from Crypto.Cipher import AES
+from urllib.request import urlopen
+from utils import constants
 
 
 def manage_credentials_in_maven_xml(path, reset=False):
@@ -36,3 +42,22 @@ def manage_credentials_in_maven_xml(path, reset=False):
             password_elem.text = password
 
     tree.write(path, pretty_print=True, xml_declaration=True, encoding='UTF-8')
+
+def get_default_token():
+    try:
+        # Fallback method to try get default maven token from go-konveyor-tests repo source
+        key = hashlib.sha256(b"k0nv3y0r.io").digest()
+        src = urlopen("https://raw.githubusercontent.com/konveyor/go-konveyor-tests/refs/heads/main/analysis/analysis_test.go").read()
+        crypted_token = re.findall(r'DecodeString\("([a-f0-9]+)"', str(src))[0]
+
+        enc = binascii.unhexlify(crypted_token)
+        nonce = enc[:12]
+        ciphertext = enc[12:-16]
+        tag = enc[-16:]
+        cipher = AES.new(key, AES.MODE_GCM, nonce=nonce)
+        decrypted = cipher.decrypt_and_verify(ciphertext, tag)
+
+        return decrypted.decode()
+    except Exception as e:
+        print("Get default token failed, error:", e)
+        return ''
