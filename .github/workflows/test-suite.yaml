@@ -15,11 +15,9 @@ on:
         required: false
         type: string
         default: TIER0
-
-env:
-  MVN_TOKEN_PARTIAL: ${{ github.env.MVN_TOKEN_PARTIAL }}
-  MVN_TOKEN_TEST: ${{ github.env.MVN_TOKEN_TEST }}
-  MVN_TEST_M_VAR: foo-bar
+    secrets:
+      GH_TOKEN:
+        required: false
 
 jobs:
   make-kantra-bundle:
@@ -56,6 +54,7 @@ jobs:
       uses: ./.github/actions/tests-windows-containerless
       with:
         tier: ${{ inputs.tier }}
+        maven_token: ${{ secrets.GH_TOKEN }}
 
   tests-linux-containerless:
     runs-on: ubuntu-latest
@@ -66,6 +65,7 @@ jobs:
       uses: ./.github/actions/tests-linux-containerless
       with:
         tier: ${{ inputs.tier }}
+        maven_token: ${{ secrets.GH_TOKEN }}
 
 
   tests-linux-containers:
@@ -77,3 +77,4 @@ jobs:
       uses: ./.github/actions/tests-linux-containers
       with:
         tier: ${{ inputs.tier }}
+        maven_token: ${{ secrets.GH_TOKEN }}

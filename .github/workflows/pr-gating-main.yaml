@@ -13,6 +13,8 @@ on:
 jobs:
   test-suite:
     uses: aufi/kantra-cli-tests/.github/workflows/test-suite.yaml@tier0-update-2
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     with:
       tag: latest
       tier: TIER0

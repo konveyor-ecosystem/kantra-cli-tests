@@ -7,6 +7,12 @@ inputs:
     required: false
     type: string
     default: TIER0
+  maven_token:
+    description: |
+      Token for public github maven repo access
+    required: false
+    type: string
+    default: ""
 
 runs:
   using: "composite"
@@ -40,6 +46,7 @@ runs:
       set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
       set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
       set PROJECT_PATH=${{ github.workspace }}
+      set GIT_PASSWORD=${{ inputs.maven_token }}
 
       pytest -s tests/analysis/java/test_tier0.py
 

@@ -7,6 +7,12 @@ inputs:
     required: false
     type: string
     default: TIER0
+  maven_token:
+    description: |
+      Token for public github maven repo access
+    required: false
+    type: string
+    default: ""
 
 runs:
   using: "composite"
@@ -33,7 +39,6 @@ runs:
       mkdir ${{ github.workspace }}/report
       # Temporary dirty workaround to execute container kantra (with run-local=false)
       sed -i 's/ analyze / analyze --run-local=false /g' utils/command.py
-      env
     working-directory: ${{ github.workspace }}
   - name: Install test dependencies
     shell: bash
@@ -47,6 +52,7 @@ runs:
       export KANTRA_CLI_PATH=/home/runner/.kantra/kantra
       export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
       export PROJECT_PATH=${{ github.workspace }}
+      export GIT_PASSWORD=${{ inputs.maven_token }}
 
       pytest -s tests/analysis/java/test_tier0.py
 
