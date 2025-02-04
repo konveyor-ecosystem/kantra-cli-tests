@@ -32,7 +32,7 @@ runs:
   - name: Configure Test Environment
     shell: bash
     run: |
-      chmod +x /Users/runner/.kantra/kantra
+      chmod +x /Users/runner/.kantra/darwin-kantra
       ln -s /Users/runner/.kantra /Users/runner/.config/.kantra
       mkdir ${{ github.workspace }}/report
     working-directory: ${{ github.workspace }}
@@ -45,7 +45,7 @@ runs:
   - name: Run TIER0 analysis test
     shell: bash
     run: |
-      export KANTRA_CLI_PATH=/Users/runner/.kantra/kantra
+      export KANTRA_CLI_PATH=/Users/runner/.kantra/darwin-kantra
       export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
       export PROJECT_PATH=${{ github.workspace }}
       export GIT_PASSWORD=${{ inputs.maven_token }}

@@ -50,6 +50,8 @@ runs:
 
       pytest -s tests/analysis/java/test_tier0.py
 
+      dir D:\a\kantra-cli-tests\kantra-cli-tests\data\tmp\
+
   - name: Save analysis output
     uses: actions/upload-artifact@v4
     if: always()
