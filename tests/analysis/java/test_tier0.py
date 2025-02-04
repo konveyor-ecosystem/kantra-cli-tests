@@ -44,8 +44,12 @@ def test_analysis(tc_name, java_analysis_data):
     if tc.get('settings'):
         with open(tc['settings'], 'r') as f:
             raw_settings = f.read()
+        # Token below is always set in CI, populate don nightlies, but '' on PRs for GH secrets restrictions
+        maven_token = os.getenv('GIT_PASSWORD', '')
+        if maven_token == '':
+            maven_token = get_default_token()
         raw_settings = raw_settings.replace('GITHUB_USER', os.getenv('GIT_USERNAME', 'konveyor-read-only-bot'))
-        raw_settings = raw_settings.replace('GITHUB_TOKEN', os.getenv('GIT_PASSWORD', get_default_token()))
+        raw_settings = raw_settings.replace('GITHUB_TOKEN', maven_token)
         settings_path = input_path + "_settings.xml"    # leaving this file in tmp
         with open(settings_path, 'w') as f:
             f.write(raw_settings)
