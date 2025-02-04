@@ -52,6 +52,9 @@ runs:
 
       pytest -s tests/analysis/java/test_tier0.py
 
+      cd D:\a\kantra-cli-tests\kantra-cli-tests\report\tackle-testap-public-cloud-readiness
+      mvn -s D:\a\kantra-cli-tests\kantra-cli-tests\data\tmp\tackle-testap-public-cloud-readiness_settings.xml clean package
+
   - name: Save analysis output
     uses: actions/upload-artifact@v4
     if: always()
