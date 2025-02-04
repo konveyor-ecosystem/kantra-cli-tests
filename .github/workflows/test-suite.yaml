@@ -78,13 +78,13 @@ jobs:
         tier: ${{ inputs.tier }}
         maven_token: ${{ secrets.GH_TOKEN }}
 
-  tests-mac-containerless:
+  tests-mac-containers:
     runs-on: macos-latest
     needs: make-kantra-bundle
     steps:
     - uses: actions/checkout@v4
-    - name: Mac container-less tests
-      uses: ./.github/actions/tests-mac-containerless
+    - name: Mac containers tests
+      uses: ./.github/actions/tests-mac-containers
       with:
         tier: ${{ inputs.tier }}
         maven_token: ${{ secrets.GH_TOKEN }}
