@@ -23,10 +23,16 @@ class TestTrimMethods(unittest.TestCase):
             "src/main/resources/persistence.properties"
         ],
         [
-            # containerless windows input root prefix
+            # containerless CI windows input root prefix
             r'D:\a\kantra-cli-tests\kantra-cli-tests\data\tmp\tackle-testap-public-cloud-readiness\src\main\resources\persistence.properties',
             r'D:\a\kantra-cli-tests\kantra-cli-tests\data\tmp\tackle-testap-public-cloud-readiness',
             'src/main/resources/persistence.properties'
+        ],
+        [
+            # containerless local win10
+            "file:///C:/Users/SomeUser/mig/kantra-cli-tests/data/tmp/tackle-testap-public-cloud-readiness/src/main/resources/persistence.properties",
+            "C:/Users/SomeUser/mig/kantra-cli-tests/data/tmp/tackle-testap-public-cloud-readiness",
+            "src/main/resources/persistence.properties"
         ],
         [
             # m2/repository pivot
