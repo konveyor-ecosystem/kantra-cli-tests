@@ -153,6 +153,7 @@ def trim_incident_uri(uri, input_root_path):
     uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path
     print("URI_pref 1: %s" % uri)
     input_root_path = input_root_path.replace("\\", "/")   # replace windows back-slashes with unix slashes
+    input_root_path = input_root_path.replace("//", "/")
     print("root_pref slash: %s" % input_root_path)
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
     uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
