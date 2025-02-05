@@ -51,6 +51,7 @@ jobs:
     - name: Extract kantra files from arm64 images
       shell: bash
       run: |
+        brew install docker
         export KANTRA_DIR=.kantra
         mkdir $KANTRA_DIR
         docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
