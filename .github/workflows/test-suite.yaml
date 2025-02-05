@@ -46,12 +46,12 @@ jobs:
         path: .kantra
 
   make-kantra-bundle-arm64:
-    runs-on: macos-latest
+    runs-on: ubuntu-22.04-arm
     steps:
     - name: Extract kantra files from arm64 images
       shell: bash
       run: |
-        brew install docker
+        brew install docker || true
         export KANTRA_DIR=.kantra
         mkdir $KANTRA_DIR
         docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
@@ -105,7 +105,7 @@ jobs:
         maven_token: ${{ secrets.GH_TOKEN }}
 
   tests-mac-containerless:
-    runs-on: macos-latest
+    runs-on: macos-latest # M1/arm64
     needs: make-kantra-bundle-arm64
     steps:
     - uses: actions/checkout@v4
@@ -116,8 +116,8 @@ jobs:
         maven_token: ${{ secrets.GH_TOKEN }}
 
   tests-mac-containers:
-    runs-on: macos-latest # M1/arm64 # macos-13 would be Mac on Intel
-    needs: make-kantra-bundle-arm64
+    runs-on: macos-13 # Intel, M1-based macos-latest doesn't support nested virtualization (containers)
+    needs: make-kantra-bundle
     steps:
     - uses: actions/checkout@v4
     - name: Mac containers tests
