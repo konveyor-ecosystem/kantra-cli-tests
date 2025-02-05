@@ -22,6 +22,14 @@ runs:
     with:
       distribution: 'microsoft'
       java-version: '21'
+  - name: Setup Homebrew
+    uses: Homebrew/actions/setup-homebrew@master
+  - name: Install required tools
+    shell: bash
+    run: |
+      ulimit -n unlimited
+      brew install findutils gsed
+      export PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
 
   - name: Get kantra bundle
     uses: actions/download-artifact@v4

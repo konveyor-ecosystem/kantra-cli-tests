@@ -23,8 +23,11 @@ runs:
   - name: Install podman
     shell: bash
     run: |
+      ulimit -n unlimited
       brew install podman gsed
       podman --version
+      podman machine init podman-vm
+      podman machine set podman-vm --cpus 4 --memory 4096
 
   - name: Get kantra bundle
     uses: actions/download-artifact@v4
