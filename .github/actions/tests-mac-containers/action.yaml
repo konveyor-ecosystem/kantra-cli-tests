@@ -27,7 +27,7 @@ runs:
       brew install podman gsed
       podman --version
       podman machine init podman-vm
-      podman machine set podman-vm --cpus 4 --memory 4096
+      podman machine set podman-vm --cpus 2 --memory 4096
       podman machine start podman-vm
 
   - name: Get kantra bundle
