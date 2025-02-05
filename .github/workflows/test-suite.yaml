@@ -78,14 +78,24 @@ jobs:
         tier: ${{ inputs.tier }}
         maven_token: ${{ secrets.GH_TOKEN }}
 
-  # Disabled for now, failing on https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/runs/13138935266/job/36661080485?pr=52#step:3:505
-  #tests-mac-containers:
-  #  runs-on: macos-latest
-  #  needs: make-kantra-bundle
-  #  steps:
-  #  - uses: actions/checkout@v4
-  #  - name: Mac containers tests
-  #    uses: ./.github/actions/tests-mac-containers
-  #    with:
-  #      tier: ${{ inputs.tier }}
-  #      maven_token: ${{ secrets.GH_TOKEN }}
+  tests-mac-containerless:
+    runs-on: macos-latest
+    needs: make-kantra-bundle
+    steps:
+    - uses: actions/checkout@v4
+    - name: Mac containers tests
+      uses: ./.github/actions/tests-mac-containerless
+      with:
+        tier: ${{ inputs.tier }}
+        maven_token: ${{ secrets.GH_TOKEN }}
+
+  tests-mac-containers:
+    runs-on: macos-latest
+    needs: make-kantra-bundle
+    steps:
+    - uses: actions/checkout@v4
+    - name: Mac containers tests
+      uses: ./.github/actions/tests-mac-containers
+      with:
+        tier: ${{ inputs.tier }}
+        maven_token: ${{ secrets.GH_TOKEN }}

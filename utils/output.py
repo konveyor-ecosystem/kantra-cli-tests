@@ -115,13 +115,16 @@ def normalize_output(rulesets: dict, input_root_path):
                 if violation and violation.get('incidents'):
                     for incident in violation['incidents']:
                         # grep codeSnip lines to the one with incident to not depend on different analyzer context size
-                        for line in incident['codeSnip'].splitlines():
-                            line = line.strip()
-                            if line.startswith(str(incident['lineNumber'])):
-                                incident['codeSnip'] = line
-                                break
-                        # normalize incidents path to make compatible container with containerless, fix slashes, etc.
-                        incident['uri'] = trim_incident_uri(repr(incident['uri']), repr(input_root_path))
+                        if incident.get('codeSnip') and incident.get('uri'):
+                            for line in incident['codeSnip'].splitlines():
+                                line = line.strip()
+                                if line.startswith(str(incident['lineNumber'])):
+                                    incident['codeSnip'] = line
+                                    break
+                            # normalize incidents path to make compatible container with containerless, fix slashes, etc.
+                            incident['uri'] = trim_incident_uri(repr(incident['uri']), repr(input_root_path))
+                        else:
+                            print("Warning: invalid incident: %s" % incident)
                     if incident.get('variables'):
                         del incident['variables']   # remove variables from assertion, re-add if needed
 
