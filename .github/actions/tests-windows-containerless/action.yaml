@@ -41,7 +41,7 @@ runs:
       mkdir ${{ github.workspace }}\report
 
   - name: Run TIER0 analysis test
-    shell: cmd
+    shell: pwsh
     run: |
       set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
       set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
