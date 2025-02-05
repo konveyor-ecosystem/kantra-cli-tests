@@ -33,7 +33,7 @@ runs:
   - name: Get kantra bundle
     uses: actions/download-artifact@v4
     with:
-      name: kantra-bundle
+      name: kantra-bundle-arm64
       path: /Users/runner/.kantra
 
   - name: Configure Test Environment

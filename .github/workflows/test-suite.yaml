@@ -45,6 +45,31 @@ jobs:
         include-hidden-files: true
         path: .kantra
 
+  make-kantra-bundle-arm64:
+    runs-on: macos-latest
+    steps:
+    - name: Extract kantra files from arm64 images
+      shell: bash
+      run: |
+        export KANTRA_DIR=.kantra
+        mkdir $KANTRA_DIR
+        docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+        docker cp kantra-download:/usr/local/bin/kantra $KANTRA_DIR/kantra
+        docker cp kantra-download:/usr/local/bin/windows-kantra $KANTRA_DIR/windows-kantra.exe
+        docker cp kantra-download:/usr/local/bin/darwin-kantra $KANTRA_DIR/darwin-kantra
+        docker cp kantra-download:/jdtls $KANTRA_DIR/jdtls
+        docker cp kantra-download:/bin/fernflower.jar $KANTRA_DIR/fernflower.jar
+        docker cp kantra-download:/usr/local/static-report $KANTRA_DIR/static-report
+        docker cp kantra-download:/opt/rulesets $KANTRA_DIR/rulesets
+        docker cp kantra-download:/usr/local/etc/maven.default.index $KANTRA_DIR/maven.default.index
+        ls -l $KANTRA_DIR
+    - uses: actions/upload-artifact@v4
+      with:
+        name: kantra-bundle-arm64
+        if-no-files-found: error
+        include-hidden-files: true
+        path: .kantra
+
   tests-windows-containerless:
     runs-on: windows-latest
     needs: make-kantra-bundle
@@ -80,7 +105,7 @@ jobs:
 
   tests-mac-containerless:
     runs-on: macos-latest
-    needs: make-kantra-bundle
+    needs: make-kantra-bundle-arm64
     steps:
     - uses: actions/checkout@v4
     - name: Mac containers tests
@@ -90,8 +115,8 @@ jobs:
         maven_token: ${{ secrets.GH_TOKEN }}
 
   tests-mac-containers:
-    runs-on: macos-latest
-    needs: make-kantra-bundle
+    runs-on: macos-latest # M1/arm64 # macos-13 would be Mac on Intel
+    needs: make-kantra-bundle-arm64
     steps:
     - uses: actions/checkout@v4
     - name: Mac containers tests
