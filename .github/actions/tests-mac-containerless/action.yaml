@@ -29,7 +29,6 @@ runs:
     run: |
       ulimit -n unlimited
       brew install findutils gsed
-      export PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
 
   - name: Get kantra bundle
     uses: actions/download-artifact@v4
@@ -53,6 +52,7 @@ runs:
   - name: Run TIER0 analysis test
     shell: bash
     run: |
+      export PATH=$(brew --prefix)/opt/findutils/libexec/gnubin:$PATH
       export KANTRA_CLI_PATH=/Users/runner/.kantra/darwin-kantra
       export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
       export PROJECT_PATH=${{ github.workspace }}
