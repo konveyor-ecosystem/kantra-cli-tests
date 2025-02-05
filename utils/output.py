@@ -151,19 +151,12 @@ def trim_incident_uri(uri, input_root_path):
     uri = uri.replace("'", "") # remove potential repr() wrapper chars
     input_root_path = input_root_path.replace("'", "")
 
-    print("root_pref: %s" % input_root_path)
-    print("URI_pref 0: %s" % uri)
     uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path
-    print("URI_pref 1: %s" % uri)
     input_root_path = input_root_path.replace("\\", "/")   # replace windows back-slashes with unix slashes
     input_root_path = input_root_path.replace("//", "/")
-    print("root_pref slash: %s" % input_root_path)
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
     uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
-    print("URI_pref 2: %s" % uri)
     uri = uri.replace(input_root_path, "")  # remove input prefix path (with forward-only slashes)
-
-    print("URI_pref 3: %s" % uri)
 
     # Ensure paths are relative
     uri = uri.replace("file:////", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix
@@ -174,12 +167,10 @@ def trim_incident_uri(uri, input_root_path):
     uri = str_path_remove_prefix(uri, 'java-project')
     uri = str_path_remove_prefix(uri, 'm2/repository')
 
-    print("URI_pref 4: %s" % uri)
     # Ensure there is no / prefix
     if uri.startswith('/'):
         uri = uri[1:]
 
-    print("URI_pref 5: %s" % uri)
     return uri
 
 def str_path_remove_prefix(s, root):
