@@ -1,4 +1,4 @@
-name: CLI container-less on Windows
+name: CLI container-less on Linux
 
 inputs:
   tier:
@@ -22,40 +22,39 @@ runs:
     with:
       distribution: 'microsoft'
       java-version: '21'
-  - name: Set up Python
-    uses: actions/setup-python@v4
-    with:
-      python-version: '3.12'
 
   - name: Get kantra bundle
     uses: actions/download-artifact@v4
     with:
       name: kantra-bundle
-      path: C:\Users\runneradmin\.kantra
+      path: /home/runner/.kantra
 
+  - name: Configure Test Environment
+    shell: bash
+    run: |
+      chmod +x /home/runner/.kantra/kantra
+      ln -s /home/runner/.kantra /home/runner/.config/.kantra
+      mkdir ${{ github.workspace }}/report
+    working-directory: ${{ github.workspace }}
   - name: Install test dependencies
-    shell: pwsh
+    shell: bash
     run: |
       python -m pip install --upgrade pip
       pip install -r requirements.txt
-      mkdir ${{ github.workspace }}\report
 
   - name: Run TIER0 analysis test
-    shell: pwsh
+    shell: bash
     run: |
-      set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
-      set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
-      set PROJECT_PATH=${{ github.workspace }}
-      set GIT_PASSWORD=${{ inputs.maven_token }}
+      export KANTRA_CLI_PATH=/home/runner/.kantra/kantra
+      export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
+      export PROJECT_PATH=${{ github.workspace }}
+      export GIT_PASSWORD=${{ inputs.maven_token }}
 
       pytest -s tests/analysis/java/test_tier0.py
-
-      cd D:\a\kantra-cli-tests\kantra-cli-tests\report\tackle-testap-public-cloud-readiness
-      mvn -s D:\a\kantra-cli-tests\kantra-cli-tests\data\tmp\tackle-testap-public-cloud-readiness_settings.xml clean package
 
   - name: Save analysis output
     uses: actions/upload-artifact@v4
     if: always()
     with:
-      name: kantra-outputs-windows-containerless
-      path: ${{ github.workspace }}\report
+      name: kantra-outputs-linux-containerless
+      path: ${{ github.workspace }}/report
