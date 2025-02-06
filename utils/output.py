@@ -29,7 +29,7 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, input_roo
 
     if not os.path.exists(expected_output_path):
         with open(expected_output_path, 'w') as f:
-            yaml.dump(got_output, f)
+            yaml.dump(normalize_output(got_output, input_root_path), f)
 
         assert False, "Expected output file '%s' did not exist, initializing it with the current test output" % got_output_normalized_path
 
@@ -125,8 +125,8 @@ def normalize_output(rulesets: dict, input_root_path):
                             incident['uri'] = trim_incident_uri(repr(incident['uri']), repr(input_root_path))
                         else:
                             print("Warning: invalid incident: %s" % incident)
-                    if incident.get('variables'):
-                        del incident['variables']   # remove variables from assertion, re-add if needed
+                        if incident.get('variables'):
+                            del incident['variables']   # remove variables from assertion, re-add if needed
 
     # delete not matched ruleset
     rulesets = [ruleset for ruleset in rulesets if ruleset.get('violations') or ruleset.get('tags')]

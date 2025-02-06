@@ -34,14 +34,14 @@ runs:
       path: C:\Users\runneradmin\.kantra
 
   - name: Install test dependencies
-    shell: pwsh
+    shell: cmd
     run: |
       python -m pip install --upgrade pip
       pip install -r requirements.txt
       mkdir ${{ github.workspace }}\report
 
   - name: Run TIER0 analysis test
-    shell: pwsh
+    shell: cmd
     run: |
       set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
       set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
