@@ -138,12 +138,16 @@ def normalize_dependencies(dependencies: dict, input_root_path):
         Does a pruning on dependencies file to delete not used fields (extras),
         makes prefix paths generic to allow compare container and container-less results.
     """
-    for dependency in dependencies[0]['dependencies']:
+    dependencies = dependencies[0]  # unwrap, could there be more than one for a single app?
+    if dependencies.get('fileURI'):
+        dependencies['fileURI'] = trim_incident_uri(dependencies['fileURI'], repr(input_root_path))
+
+    for dependency in dependencies['dependencies']:
         if dependency.get('extras'):    # Unless there is something important in extras
             del dependency['extras']
 
         if dependency.get('prefix'):
-            dependency['prefix'] = trim_incident_uri(r'{}'.format(dependency['prefix']), r'{}'.format(input_root_path)) # Use raw strings for windows \
+            dependency['prefix'] = trim_incident_uri(repr(dependency['prefix']), repr(input_root_path))
 
     return dependencies
 

@@ -1,572 +1,572 @@
-- dependencies:
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: antlr.antlr
-    prefix: m2/repository/antlr/antlr/2.7.7
-    resolvedIdentifier: 52f15b99911ab8b8bc8744675f5cf1994a626fb8
-    type: compile
-    version: 2.7.7
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: ch.qos.logback.logback-classic
-    prefix: m2/repository/ch/qos/logback/logback-classic/1.1.7
-    resolvedIdentifier: 044c01db0f7d7aac366fb952a89c10251ed86f44
-    type: compile
-    version: 1.1.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: ch.qos.logback.logback-core
-    prefix: m2/repository/ch/qos/logback/logback-core/1.1.7
-    resolvedIdentifier: 6d1bdb1e28c56a8f989366b339f0f62545696e6d
-    type: compile
-    version: 1.1.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.fasterxml.classmate
-    prefix: m2/repository/com/fasterxml/classmate/1.5.1
-    resolvedIdentifier: d5d564526c142037daead331ee5278c088777858
-    type: compile
-    version: 1.5.1
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.fasterxml.jackson.core.jackson-annotations
-    prefix: m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.3
-    resolvedIdentifier: 87859f29ceebfab7a873c3b4f4b89c9a594b2842
-    type: compile
-    version: 2.12.3
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.fasterxml.jackson.core.jackson-core
-    prefix: m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.3
-    resolvedIdentifier: ef6abf067337134089d074f411306a51f11a4d62
-    type: compile
-    version: 2.12.3
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.fasterxml.jackson.core.jackson-databind
-    prefix: m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.3
-    resolvedIdentifier: 2b186d9cc73cfb9272171357d17f0979eac44889
-    type: compile
-    version: 2.12.3
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.fasterxml.jackson.datatype.jackson-datatype-jsr310
-    prefix: m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.3
-    resolvedIdentifier: db7822a553c167e95bdda25d0d6db44bd3abf847
-    type: runtime
-    version: 2.12.3
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.h2database.h2
-    prefix: m2/repository/com/h2database/h2/2.1.214
-    resolvedIdentifier: 2f0a1e6479ce999b413fe8f50e26c648bb714a32
-    type: compile
-    version: 2.1.214
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.oracle.database.jdbc.ojdbc11
-    prefix: m2/repository/com/oracle/database/jdbc/ojdbc11/21.1.0.0
-    resolvedIdentifier: b158fd98e1158f9d41c51b5442dda336816bc1f6
-    type: compile
-    version: 21.1.0.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.sun.istack.istack-commons-runtime
-    prefix: m2/repository/com/sun/istack/istack-commons-runtime/3.0.7
-    resolvedIdentifier: 8eb4c6b0e9b0a1fadf53fce8b3fc8415b00469ef
-    type: compile
-    version: 3.0.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: com.sun.xml.fastinfoset.FastInfoset
-    prefix: m2/repository/com/sun/xml/fastinfoset/FastInfoset/1.2.15
-    resolvedIdentifier: 945cf1f4467c72add88309fb05cdf5e340b569f9
-    type: compile
-    version: 1.2.15
-  - labels:
-    - konveyor.io/dep-source=internal
-    - konveyor.io/language=java
-    name: io.konveyor.demo.configuration-utils
-    prefix: m2/repository/io/konveyor/demo/configuration-utils/1.0.0
-    resolvedIdentifier: ba294367a09a0610ae33b9bfd82a0ab950469c5b
-    type: compile
-    version: 1.0.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: io.micrometer.micrometer-core
-    prefix: m2/repository/io/micrometer/micrometer-core/1.7.0
-    resolvedIdentifier: fd50ef746ed294d4e064c0cd3a14ca08543d139c
-    type: compile
-    version: 1.7.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: jakarta.annotation.jakarta.annotation-api
-    prefix: m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5
-    resolvedIdentifier: beb7649988a22ea30a17fcaeba8584323e86df74
-    type: compile
-    version: 1.3.5
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: jakarta.validation.jakarta.validation-api
-    prefix: m2/repository/jakarta/validation/jakarta.validation-api/2.0.2
-    resolvedIdentifier: fc029778f5494ed05e5833f8bdb57e36dbda38aa
-    type: compile
-    version: 2.0.2
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: javax.activation.javax.activation-api
-    prefix: m2/repository/javax/activation/javax.activation-api/1.2.0
-    resolvedIdentifier: 1aa9ef58e50ba6868b2e955d61fcd73be5b4cea5
-    type: compile
-    version: 1.2.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: javax.persistence.javax.persistence-api
-    prefix: m2/repository/javax/persistence/javax.persistence-api/2.2
-    resolvedIdentifier: ac7080de51fc0596317c15e12ed441f7c0a84d09
-    type: compile
-    version: '2.2'
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: javax.xml.bind.jaxb-api
-    prefix: m2/repository/javax/xml/bind/jaxb-api/2.3.1
-    resolvedIdentifier: c42c51ae84892b73ef7de5351188908e673f5c69
-    type: compile
-    version: 2.3.1
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: net.bytebuddy.byte-buddy
-    prefix: m2/repository/net/bytebuddy/byte-buddy/1.10.22
-    resolvedIdentifier: 14de25cfee49cd27ae19153674bbb34c04c45d52
-    type: compile
-    version: 1.10.22
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.apache.logging.log4j.log4j-api
-    prefix: m2/repository/org/apache/logging/log4j/log4j-api/2.14.1
-    resolvedIdentifier: 9199a73770616b1ca0b00f576db3231aaab4876a
-    type: compile
-    version: 2.14.1
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.apache.logging.log4j.log4j-to-slf4j
-    prefix: m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.14.1
-    resolvedIdentifier: 4638502177d694ad6f429a122e32f84ceba7db41
-    type: compile
-    version: 2.14.1
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.apache.tomcat.tomcat-jdbc
-    prefix: m2/repository/org/apache/tomcat/tomcat-jdbc/9.0.46
-    resolvedIdentifier: c3b975aba8359ecf35f6fca175c2e843a1d3c107
-    type: runtime
-    version: 9.0.46
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.apache.tomcat.tomcat-juli
-    prefix: m2/repository/org/apache/tomcat/tomcat-juli/9.0.46
-    resolvedIdentifier: 1596051131c8426ebf744e0effed0e0005c87d57
-    type: runtime
-    version: 9.0.46
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.apache.tomcat.tomcat-servlet-api
-    prefix: m2/repository/org/apache/tomcat/tomcat-servlet-api/9.0.46
-    resolvedIdentifier: 1f5ec6292bbca9e6c35172044b5fee0b0a97ef24
-    type: provided
-    version: 9.0.46
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.aspectj.aspectjrt
-    prefix: m2/repository/org/aspectj/aspectjrt/1.9.6
-    resolvedIdentifier: 2c4216b8c0f62edf69ec5cdd68619ba2aac5a4a1
-    type: compile
-    version: 1.9.6
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.checkerframework.checker-qual
-    prefix: m2/repository/org/checkerframework/checker-qual/3.5.0
-    resolvedIdentifier: 408a4451ff5bdef60400a49657867db100ea0f83
-    type: runtime
-    version: 3.5.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.dom4j.dom4j
-    prefix: m2/repository/org/dom4j/dom4j/2.1.3
-    resolvedIdentifier: 012854caa63db09d82bf973bc37d7226aaaef463
-    type: compile
-    version: 2.1.3
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.glassfish.jaxb.jaxb-runtime
-    prefix: m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1
-    resolvedIdentifier: 1856da23a80b9b1374d925d6dcb4a21db2144204
-    type: compile
-    version: 2.3.1
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.glassfish.jaxb.txw2
-    prefix: m2/repository/org/glassfish/jaxb/txw2/2.3.1
-    resolvedIdentifier: c78aa440484eab1a6e2104e4fe69d0945a3cb3da
-    type: compile
-    version: 2.3.1
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.hdrhistogram.HdrHistogram
-    prefix: m2/repository/org/hdrhistogram/HdrHistogram/2.1.12
-    resolvedIdentifier: 9797702ee3e52e4be6bfbbc9fd20ac5447e7a541
-    type: compile
-    version: 2.1.12
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.hibernate.common.hibernate-commons-annotations
-    prefix: m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final
-    resolvedIdentifier: 573f22ce360cd7a8bcc0dae4deecbe4e8861007d
-    type: compile
-    version: 5.1.2.Final
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.hibernate.hibernate-core
-    prefix: m2/repository/org/hibernate/hibernate-core/5.4.32.Final
-    resolvedIdentifier: 5be381f7b6f3d4f17ce746e4ff54f4b8cdce40e4
-    type: compile
-    version: 5.4.32.Final
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.hibernate.hibernate-entitymanager
-    prefix: m2/repository/org/hibernate/hibernate-entitymanager/5.4.32.Final
-    resolvedIdentifier: b315696800e16d33bfb297d66f87a792caa3facc
-    type: compile
-    version: 5.4.32.Final
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.hibernate.validator.hibernate-validator
-    prefix: m2/repository/org/hibernate/validator/hibernate-validator/6.2.0.Final
-    resolvedIdentifier: 7f1beda5229a0c99a175603c18b3c66da44f966e
-    type: compile
-    version: 6.2.0.Final
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.javassist.javassist
-    prefix: m2/repository/org/javassist/javassist/3.27.0-GA
-    resolvedIdentifier: 0b7565662bc91e9648aab437135f32beb040ac15
-    type: compile
-    version: 3.27.0-GA
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.jboss.jandex
-    prefix: m2/repository/org/jboss/jandex/2.2.3.Final
-    resolvedIdentifier: c70053a1326428ec641be311ccf5551a8ec76a63
-    type: compile
-    version: 2.2.3.Final
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.jboss.logging.jboss-logging
-    prefix: m2/repository/org/jboss/logging/jboss-logging/3.4.1.Final
-    resolvedIdentifier: 9d82f8eea1b5ed484775517d7588e320f9f7797a
-    type: compile
-    version: 3.4.1.Final
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.jboss.spec.javax.transaction.jboss-transaction-api_1.2_spec
-    prefix: m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final
-    resolvedIdentifier: 90823b310c573492696ad7e299b694ca2e70b4c1
-    type: compile
-    version: 1.1.1.Final
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.jvnet.staxex.stax-ex
-    prefix: m2/repository/org/jvnet/staxex/stax-ex/1.8
-    resolvedIdentifier: cc7022b896125220e51f46fa50f4b68e564ffec1
-    type: compile
-    version: '1.8'
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.latencyutils.LatencyUtils
-    prefix: m2/repository/org/latencyutils/LatencyUtils/2.0.3
-    resolvedIdentifier: 5baec26b6f9e5b17fdd200fc20af85eead4287c4
-    type: runtime
-    version: 2.0.3
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.postgresql.postgresql
-    prefix: m2/repository/org/postgresql/postgresql/42.2.23
-    resolvedIdentifier: cc8565ec39dbfee32c2c87f125162fe8a3010c28
-    type: compile
-    version: 42.2.23
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.slf4j.jul-to-slf4j
-    prefix: m2/repository/org/slf4j/jul-to-slf4j/1.7.30
-    resolvedIdentifier: f09448bdaeee63bc0644abae571b2d17c83d16c1
-    type: compile
-    version: 1.7.30
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.slf4j.slf4j-api
-    prefix: m2/repository/org/slf4j/slf4j-api/1.7.26
-    resolvedIdentifier: 4d3419a58d77c07f49185aaa556a787d50508d27
-    type: compile
-    version: 1.7.26
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.boot.spring-boot
-    prefix: m2/repository/org/springframework/boot/spring-boot/2.5.0
-    resolvedIdentifier: 48a6c425a45395e1ccfd99fd815c92d069040e43
-    type: compile
-    version: 2.5.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.boot.spring-boot-actuator
-    prefix: m2/repository/org/springframework/boot/spring-boot-actuator/2.5.0
-    resolvedIdentifier: ee202daac01b6399b857d187cfdbf6d97d6adc8f
-    type: compile
-    version: 2.5.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.boot.spring-boot-actuator-autoconfigure
-    prefix: m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/2.5.0
-    resolvedIdentifier: c527193b5cc67f7534c27860171e44187746aaf5
-    type: compile
-    version: 2.5.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.boot.spring-boot-autoconfigure
-    prefix: m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.5.0
-    resolvedIdentifier: da542216009c858c2e8b32cb595578acc19d2df3
-    type: compile
-    version: 2.5.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.boot.spring-boot-starter
-    prefix: m2/repository/org/springframework/boot/spring-boot-starter/2.5.0
-    resolvedIdentifier: 391cbf83221ae09c1c0a471b25ab3221dfe46ef1
-    type: compile
-    version: 2.5.0
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.boot.spring-boot-starter-actuator
-    prefix: m2/repository/org/springframework/boot/spring-boot-starter-actuator/2.5.0
-    resolvedIdentifier: 76dd6dea415751e05491337b7ff22bd08ae70c7e
-    type: compile
-    version: 2.5.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.boot.spring-boot-starter-logging
-    prefix: m2/repository/org/springframework/boot/spring-boot-starter-logging/2.5.0
-    resolvedIdentifier: 60f06908ef3b39d8c8780898e749c4c846fabb84
-    type: compile
-    version: 2.5.0
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.data.spring-data-commons
-    prefix: m2/repository/org/springframework/data/spring-data-commons/2.5.1
-    resolvedIdentifier: bceeabb4ef399ba7ff8511f2931e1924a41cc921
-    type: compile
-    version: 2.5.1
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.data.spring-data-jpa
-    prefix: m2/repository/org/springframework/data/spring-data-jpa/2.5.1
-    resolvedIdentifier: 461ebcc9fc00dca10a754b0e96583ce7d281d312
-    type: compile
-    version: 2.5.1
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-aop
-    prefix: m2/repository/org/springframework/spring-aop/5.3.7
-    resolvedIdentifier: 0bf1d9d12108b8ab2d9d71d5fd5fee02d3ee5bde
-    type: compile
-    version: 5.3.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-beans
-    prefix: m2/repository/org/springframework/spring-beans/5.3.7
-    resolvedIdentifier: 654397f55cd4a4734f8b76282e98c88884d0367a
-    type: compile
-    version: 5.3.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-context
-    prefix: m2/repository/org/springframework/spring-context/5.3.7
-    resolvedIdentifier: 67e3176098c81702c76d20977deec8101b3faf8c
-    type: compile
-    version: 5.3.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-core
-    prefix: m2/repository/org/springframework/spring-core/5.3.7
-    resolvedIdentifier: 44ce199d05bb1ce9682621cd18953ea307485fc1
-    type: compile
-    version: 5.3.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-expression
-    prefix: m2/repository/org/springframework/spring-expression/5.3.7
-    resolvedIdentifier: 30bd0b3e802e5ba4e4d9fc68e57cc0e755ba9f9f
-    type: compile
-    version: 5.3.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-jcl
-    prefix: m2/repository/org/springframework/spring-jcl/5.3.7
-    resolvedIdentifier: e1e7c14c73ae5fc616bb941ce8c1e7e62736cadf
-    type: compile
-    version: 5.3.7
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-jdbc
-    prefix: m2/repository/org/springframework/spring-jdbc/5.3.7
-    resolvedIdentifier: a4f87a03116ecde96213642141eb95da05022f51
-    type: compile
-    version: 5.3.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-orm
-    prefix: m2/repository/org/springframework/spring-orm/5.3.7
-    resolvedIdentifier: cc6911f3194cb77d493aa626c661789926027446
-    type: compile
-    version: 5.3.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-tx
-    prefix: m2/repository/org/springframework/spring-tx/5.3.7
-    resolvedIdentifier: c6df78e1d9b50b7063e4a196127d75ee9321f68b
-    type: compile
-    version: 5.3.7
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-web
-    prefix: m2/repository/org/springframework/spring-web/5.3.7
-    resolvedIdentifier: d9f78e0b045d90dc862cd4a39294a468b3cc6ba9
-    type: compile
-    version: 5.3.7
-  - labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.springframework.spring-webmvc
-    prefix: m2/repository/org/springframework/spring-webmvc/5.3.7
-    resolvedIdentifier: d0f042bff56bb90beabc6ed5d062fb87c69e652a
-    type: compile
-    version: 5.3.7
-  - indirect: true
-    labels:
-    - konveyor.io/dep-source=open-source
-    - konveyor.io/language=java
-    name: org.yaml.snakeyaml
-    prefix: m2/repository/org/yaml/snakeyaml/1.28
-    resolvedIdentifier: 3e38757e3eaf549cccd9bbdfa74b2930c177b8af
-    type: compile
-    version: '1.28'
-  fileURI: file:///opt/input/source/pom.xml
-  provider: java
+dependencies:
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: antlr.antlr
+  prefix: m2/repository/antlr/antlr/2.7.7
+  resolvedIdentifier: 52f15b99911ab8b8bc8744675f5cf1994a626fb8
+  type: compile
+  version: 2.7.7
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: ch.qos.logback.logback-classic
+  prefix: m2/repository/ch/qos/logback/logback-classic/1.1.7
+  resolvedIdentifier: 044c01db0f7d7aac366fb952a89c10251ed86f44
+  type: compile
+  version: 1.1.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: ch.qos.logback.logback-core
+  prefix: m2/repository/ch/qos/logback/logback-core/1.1.7
+  resolvedIdentifier: 6d1bdb1e28c56a8f989366b339f0f62545696e6d
+  type: compile
+  version: 1.1.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.fasterxml.classmate
+  prefix: m2/repository/com/fasterxml/classmate/1.5.1
+  resolvedIdentifier: d5d564526c142037daead331ee5278c088777858
+  type: compile
+  version: 1.5.1
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.fasterxml.jackson.core.jackson-annotations
+  prefix: m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.12.3
+  resolvedIdentifier: 87859f29ceebfab7a873c3b4f4b89c9a594b2842
+  type: compile
+  version: 2.12.3
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.fasterxml.jackson.core.jackson-core
+  prefix: m2/repository/com/fasterxml/jackson/core/jackson-core/2.12.3
+  resolvedIdentifier: ef6abf067337134089d074f411306a51f11a4d62
+  type: compile
+  version: 2.12.3
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.fasterxml.jackson.core.jackson-databind
+  prefix: m2/repository/com/fasterxml/jackson/core/jackson-databind/2.12.3
+  resolvedIdentifier: 2b186d9cc73cfb9272171357d17f0979eac44889
+  type: compile
+  version: 2.12.3
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.fasterxml.jackson.datatype.jackson-datatype-jsr310
+  prefix: m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.12.3
+  resolvedIdentifier: db7822a553c167e95bdda25d0d6db44bd3abf847
+  type: runtime
+  version: 2.12.3
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.h2database.h2
+  prefix: m2/repository/com/h2database/h2/2.1.214
+  resolvedIdentifier: 2f0a1e6479ce999b413fe8f50e26c648bb714a32
+  type: compile
+  version: 2.1.214
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.oracle.database.jdbc.ojdbc11
+  prefix: m2/repository/com/oracle/database/jdbc/ojdbc11/21.1.0.0
+  resolvedIdentifier: b158fd98e1158f9d41c51b5442dda336816bc1f6
+  type: compile
+  version: 21.1.0.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.sun.istack.istack-commons-runtime
+  prefix: m2/repository/com/sun/istack/istack-commons-runtime/3.0.7
+  resolvedIdentifier: 8eb4c6b0e9b0a1fadf53fce8b3fc8415b00469ef
+  type: compile
+  version: 3.0.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: com.sun.xml.fastinfoset.FastInfoset
+  prefix: m2/repository/com/sun/xml/fastinfoset/FastInfoset/1.2.15
+  resolvedIdentifier: 945cf1f4467c72add88309fb05cdf5e340b569f9
+  type: compile
+  version: 1.2.15
+- labels:
+  - konveyor.io/dep-source=internal
+  - konveyor.io/language=java
+  name: io.konveyor.demo.configuration-utils
+  prefix: m2/repository/io/konveyor/demo/configuration-utils/1.0.0
+  resolvedIdentifier: ba294367a09a0610ae33b9bfd82a0ab950469c5b
+  type: compile
+  version: 1.0.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: io.micrometer.micrometer-core
+  prefix: m2/repository/io/micrometer/micrometer-core/1.7.0
+  resolvedIdentifier: fd50ef746ed294d4e064c0cd3a14ca08543d139c
+  type: compile
+  version: 1.7.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: jakarta.annotation.jakarta.annotation-api
+  prefix: m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5
+  resolvedIdentifier: beb7649988a22ea30a17fcaeba8584323e86df74
+  type: compile
+  version: 1.3.5
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: jakarta.validation.jakarta.validation-api
+  prefix: m2/repository/jakarta/validation/jakarta.validation-api/2.0.2
+  resolvedIdentifier: fc029778f5494ed05e5833f8bdb57e36dbda38aa
+  type: compile
+  version: 2.0.2
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: javax.activation.javax.activation-api
+  prefix: m2/repository/javax/activation/javax.activation-api/1.2.0
+  resolvedIdentifier: 1aa9ef58e50ba6868b2e955d61fcd73be5b4cea5
+  type: compile
+  version: 1.2.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: javax.persistence.javax.persistence-api
+  prefix: m2/repository/javax/persistence/javax.persistence-api/2.2
+  resolvedIdentifier: ac7080de51fc0596317c15e12ed441f7c0a84d09
+  type: compile
+  version: '2.2'
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: javax.xml.bind.jaxb-api
+  prefix: m2/repository/javax/xml/bind/jaxb-api/2.3.1
+  resolvedIdentifier: c42c51ae84892b73ef7de5351188908e673f5c69
+  type: compile
+  version: 2.3.1
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: net.bytebuddy.byte-buddy
+  prefix: m2/repository/net/bytebuddy/byte-buddy/1.10.22
+  resolvedIdentifier: 14de25cfee49cd27ae19153674bbb34c04c45d52
+  type: compile
+  version: 1.10.22
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.apache.logging.log4j.log4j-api
+  prefix: m2/repository/org/apache/logging/log4j/log4j-api/2.14.1
+  resolvedIdentifier: 9199a73770616b1ca0b00f576db3231aaab4876a
+  type: compile
+  version: 2.14.1
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.apache.logging.log4j.log4j-to-slf4j
+  prefix: m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.14.1
+  resolvedIdentifier: 4638502177d694ad6f429a122e32f84ceba7db41
+  type: compile
+  version: 2.14.1
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.apache.tomcat.tomcat-jdbc
+  prefix: m2/repository/org/apache/tomcat/tomcat-jdbc/9.0.46
+  resolvedIdentifier: c3b975aba8359ecf35f6fca175c2e843a1d3c107
+  type: runtime
+  version: 9.0.46
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.apache.tomcat.tomcat-juli
+  prefix: m2/repository/org/apache/tomcat/tomcat-juli/9.0.46
+  resolvedIdentifier: 1596051131c8426ebf744e0effed0e0005c87d57
+  type: runtime
+  version: 9.0.46
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.apache.tomcat.tomcat-servlet-api
+  prefix: m2/repository/org/apache/tomcat/tomcat-servlet-api/9.0.46
+  resolvedIdentifier: 1f5ec6292bbca9e6c35172044b5fee0b0a97ef24
+  type: provided
+  version: 9.0.46
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.aspectj.aspectjrt
+  prefix: m2/repository/org/aspectj/aspectjrt/1.9.6
+  resolvedIdentifier: 2c4216b8c0f62edf69ec5cdd68619ba2aac5a4a1
+  type: compile
+  version: 1.9.6
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.checkerframework.checker-qual
+  prefix: m2/repository/org/checkerframework/checker-qual/3.5.0
+  resolvedIdentifier: 408a4451ff5bdef60400a49657867db100ea0f83
+  type: runtime
+  version: 3.5.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.dom4j.dom4j
+  prefix: m2/repository/org/dom4j/dom4j/2.1.3
+  resolvedIdentifier: 012854caa63db09d82bf973bc37d7226aaaef463
+  type: compile
+  version: 2.1.3
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.glassfish.jaxb.jaxb-runtime
+  prefix: m2/repository/org/glassfish/jaxb/jaxb-runtime/2.3.1
+  resolvedIdentifier: 1856da23a80b9b1374d925d6dcb4a21db2144204
+  type: compile
+  version: 2.3.1
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.glassfish.jaxb.txw2
+  prefix: m2/repository/org/glassfish/jaxb/txw2/2.3.1
+  resolvedIdentifier: c78aa440484eab1a6e2104e4fe69d0945a3cb3da
+  type: compile
+  version: 2.3.1
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.hdrhistogram.HdrHistogram
+  prefix: m2/repository/org/hdrhistogram/HdrHistogram/2.1.12
+  resolvedIdentifier: 9797702ee3e52e4be6bfbbc9fd20ac5447e7a541
+  type: compile
+  version: 2.1.12
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.hibernate.common.hibernate-commons-annotations
+  prefix: m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final
+  resolvedIdentifier: 573f22ce360cd7a8bcc0dae4deecbe4e8861007d
+  type: compile
+  version: 5.1.2.Final
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.hibernate.hibernate-core
+  prefix: m2/repository/org/hibernate/hibernate-core/5.4.32.Final
+  resolvedIdentifier: 5be381f7b6f3d4f17ce746e4ff54f4b8cdce40e4
+  type: compile
+  version: 5.4.32.Final
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.hibernate.hibernate-entitymanager
+  prefix: m2/repository/org/hibernate/hibernate-entitymanager/5.4.32.Final
+  resolvedIdentifier: b315696800e16d33bfb297d66f87a792caa3facc
+  type: compile
+  version: 5.4.32.Final
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.hibernate.validator.hibernate-validator
+  prefix: m2/repository/org/hibernate/validator/hibernate-validator/6.2.0.Final
+  resolvedIdentifier: 7f1beda5229a0c99a175603c18b3c66da44f966e
+  type: compile
+  version: 6.2.0.Final
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.javassist.javassist
+  prefix: m2/repository/org/javassist/javassist/3.27.0-GA
+  resolvedIdentifier: 0b7565662bc91e9648aab437135f32beb040ac15
+  type: compile
+  version: 3.27.0-GA
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.jboss.jandex
+  prefix: m2/repository/org/jboss/jandex/2.2.3.Final
+  resolvedIdentifier: c70053a1326428ec641be311ccf5551a8ec76a63
+  type: compile
+  version: 2.2.3.Final
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.jboss.logging.jboss-logging
+  prefix: m2/repository/org/jboss/logging/jboss-logging/3.4.1.Final
+  resolvedIdentifier: 9d82f8eea1b5ed484775517d7588e320f9f7797a
+  type: compile
+  version: 3.4.1.Final
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.jboss.spec.javax.transaction.jboss-transaction-api_1.2_spec
+  prefix: m2/repository/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final
+  resolvedIdentifier: 90823b310c573492696ad7e299b694ca2e70b4c1
+  type: compile
+  version: 1.1.1.Final
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.jvnet.staxex.stax-ex
+  prefix: m2/repository/org/jvnet/staxex/stax-ex/1.8
+  resolvedIdentifier: cc7022b896125220e51f46fa50f4b68e564ffec1
+  type: compile
+  version: '1.8'
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.latencyutils.LatencyUtils
+  prefix: m2/repository/org/latencyutils/LatencyUtils/2.0.3
+  resolvedIdentifier: 5baec26b6f9e5b17fdd200fc20af85eead4287c4
+  type: runtime
+  version: 2.0.3
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.postgresql.postgresql
+  prefix: m2/repository/org/postgresql/postgresql/42.2.23
+  resolvedIdentifier: cc8565ec39dbfee32c2c87f125162fe8a3010c28
+  type: compile
+  version: 42.2.23
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.slf4j.jul-to-slf4j
+  prefix: m2/repository/org/slf4j/jul-to-slf4j/1.7.30
+  resolvedIdentifier: f09448bdaeee63bc0644abae571b2d17c83d16c1
+  type: compile
+  version: 1.7.30
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.slf4j.slf4j-api
+  prefix: m2/repository/org/slf4j/slf4j-api/1.7.26
+  resolvedIdentifier: 4d3419a58d77c07f49185aaa556a787d50508d27
+  type: compile
+  version: 1.7.26
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.boot.spring-boot
+  prefix: m2/repository/org/springframework/boot/spring-boot/2.5.0
+  resolvedIdentifier: 48a6c425a45395e1ccfd99fd815c92d069040e43
+  type: compile
+  version: 2.5.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.boot.spring-boot-actuator
+  prefix: m2/repository/org/springframework/boot/spring-boot-actuator/2.5.0
+  resolvedIdentifier: ee202daac01b6399b857d187cfdbf6d97d6adc8f
+  type: compile
+  version: 2.5.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.boot.spring-boot-actuator-autoconfigure
+  prefix: m2/repository/org/springframework/boot/spring-boot-actuator-autoconfigure/2.5.0
+  resolvedIdentifier: c527193b5cc67f7534c27860171e44187746aaf5
+  type: compile
+  version: 2.5.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.boot.spring-boot-autoconfigure
+  prefix: m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.5.0
+  resolvedIdentifier: da542216009c858c2e8b32cb595578acc19d2df3
+  type: compile
+  version: 2.5.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.boot.spring-boot-starter
+  prefix: m2/repository/org/springframework/boot/spring-boot-starter/2.5.0
+  resolvedIdentifier: 391cbf83221ae09c1c0a471b25ab3221dfe46ef1
+  type: compile
+  version: 2.5.0
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.boot.spring-boot-starter-actuator
+  prefix: m2/repository/org/springframework/boot/spring-boot-starter-actuator/2.5.0
+  resolvedIdentifier: 76dd6dea415751e05491337b7ff22bd08ae70c7e
+  type: compile
+  version: 2.5.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.boot.spring-boot-starter-logging
+  prefix: m2/repository/org/springframework/boot/spring-boot-starter-logging/2.5.0
+  resolvedIdentifier: 60f06908ef3b39d8c8780898e749c4c846fabb84
+  type: compile
+  version: 2.5.0
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.data.spring-data-commons
+  prefix: m2/repository/org/springframework/data/spring-data-commons/2.5.1
+  resolvedIdentifier: bceeabb4ef399ba7ff8511f2931e1924a41cc921
+  type: compile
+  version: 2.5.1
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.data.spring-data-jpa
+  prefix: m2/repository/org/springframework/data/spring-data-jpa/2.5.1
+  resolvedIdentifier: 461ebcc9fc00dca10a754b0e96583ce7d281d312
+  type: compile
+  version: 2.5.1
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-aop
+  prefix: m2/repository/org/springframework/spring-aop/5.3.7
+  resolvedIdentifier: 0bf1d9d12108b8ab2d9d71d5fd5fee02d3ee5bde
+  type: compile
+  version: 5.3.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-beans
+  prefix: m2/repository/org/springframework/spring-beans/5.3.7
+  resolvedIdentifier: 654397f55cd4a4734f8b76282e98c88884d0367a
+  type: compile
+  version: 5.3.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-context
+  prefix: m2/repository/org/springframework/spring-context/5.3.7
+  resolvedIdentifier: 67e3176098c81702c76d20977deec8101b3faf8c
+  type: compile
+  version: 5.3.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-core
+  prefix: m2/repository/org/springframework/spring-core/5.3.7
+  resolvedIdentifier: 44ce199d05bb1ce9682621cd18953ea307485fc1
+  type: compile
+  version: 5.3.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-expression
+  prefix: m2/repository/org/springframework/spring-expression/5.3.7
+  resolvedIdentifier: 30bd0b3e802e5ba4e4d9fc68e57cc0e755ba9f9f
+  type: compile
+  version: 5.3.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-jcl
+  prefix: m2/repository/org/springframework/spring-jcl/5.3.7
+  resolvedIdentifier: e1e7c14c73ae5fc616bb941ce8c1e7e62736cadf
+  type: compile
+  version: 5.3.7
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-jdbc
+  prefix: m2/repository/org/springframework/spring-jdbc/5.3.7
+  resolvedIdentifier: a4f87a03116ecde96213642141eb95da05022f51
+  type: compile
+  version: 5.3.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-orm
+  prefix: m2/repository/org/springframework/spring-orm/5.3.7
+  resolvedIdentifier: cc6911f3194cb77d493aa626c661789926027446
+  type: compile
+  version: 5.3.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-tx
+  prefix: m2/repository/org/springframework/spring-tx/5.3.7
+  resolvedIdentifier: c6df78e1d9b50b7063e4a196127d75ee9321f68b
+  type: compile
+  version: 5.3.7
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-web
+  prefix: m2/repository/org/springframework/spring-web/5.3.7
+  resolvedIdentifier: d9f78e0b045d90dc862cd4a39294a468b3cc6ba9
+  type: compile
+  version: 5.3.7
+- labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.springframework.spring-webmvc
+  prefix: m2/repository/org/springframework/spring-webmvc/5.3.7
+  resolvedIdentifier: d0f042bff56bb90beabc6ed5d062fb87c69e652a
+  type: compile
+  version: 5.3.7
+- indirect: true
+  labels:
+  - konveyor.io/dep-source=open-source
+  - konveyor.io/language=java
+  name: org.yaml.snakeyaml
+  prefix: m2/repository/org/yaml/snakeyaml/1.28
+  resolvedIdentifier: 3e38757e3eaf549cccd9bbdfa74b2930c177b8af
+  type: compile
+  version: '1.28'
+fileURI: pom.xml
+provider: java
