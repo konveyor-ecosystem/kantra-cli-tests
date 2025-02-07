@@ -44,7 +44,7 @@ def test_analysis(tc_name, java_analysis_data):
     if tc.get('settings'):
         with open(tc['settings'], 'r') as f:
             raw_settings = f.read()
-        # Token below is always set in CI, populate don nightlies, but '' on PRs for GH secrets restrictions
+        # Token below is always set in CI, populated on nightlies, but '' on PRs for GH secrets restrictions
         maven_token = os.getenv('GIT_PASSWORD', '')
         if maven_token == '':
             maven_token = get_default_token()

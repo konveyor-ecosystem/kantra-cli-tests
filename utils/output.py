@@ -60,19 +60,19 @@ def assert_analysis_output_dependencies(expected_output_dir, output_dir, input_r
     with open(got_dependencies_normalized_path, 'w') as f:
             yaml.dump(normalize_dependencies(got_dependencies, input_root_path), f)
     with open(got_dependencies_normalized_path, encoding='utf-8') as file:
-        got_output = yaml.safe_load(file)
+        got_dependencies = yaml.safe_load(file)
 
     if not os.path.exists(expected_dependencies_path):
         with open(expected_dependencies_path, 'w') as f:
-            yaml.dump(got_output, f)
+            yaml.dump(normalize_dependencies(got_dependencies, input_root_path), f)
 
-        assert False, "Expected dependencies file '%s' did not exist, initializing it with the current test output" % expected_dependencies_path
+        assert False, "Expected dependencies file '%s' did not exist, initializing it with the current test output" % got_dependencies_normalized_path
 
     else:
         with open(expected_dependencies_path) as f:
-            expected_output = yaml.safe_load(f)
+            expected_dependencies = yaml.safe_load(f)
 
-    assert got_output == expected_output, "Got different dependencies output: \n%s" % get_files_diff(expected_dependencies_path, got_dependencies_path)
+    assert got_dependencies == expected_dependencies, "Got different dependencies output: \n%s" % get_files_diff(expected_dependencies_path, got_dependencies_path)
 
 
 def get_dict_from_output_file(filename, dir=None, **kwargs):
@@ -133,23 +133,23 @@ def normalize_output(rulesets: dict, input_root_path):
 
     return rulesets
 
-def normalize_dependencies(dependencies: dict, input_root_path):
+def normalize_dependencies(dependencies_set: dict, input_root_path):
     """
         Does a pruning on dependencies file to delete not used fields (extras),
         makes prefix paths generic to allow compare container and container-less results.
     """
-    dependencies = dependencies[0]  # unwrap, could there be more than one for a single app?
-    if dependencies.get('fileURI'):
-        dependencies['fileURI'] = trim_incident_uri(dependencies['fileURI'], repr(input_root_path))
+    for dependencies in dependencies_set:
+        if dependencies.get('fileURI'):
+            dependencies['fileURI'] = trim_incident_uri(dependencies['fileURI'], repr(input_root_path))
 
-    for dependency in dependencies['dependencies']:
-        if dependency.get('extras'):    # Unless there is something important in extras
-            del dependency['extras']
+        for dependency in dependencies['dependencies']:
+            if dependency.get('extras'):    # Unless there is something important in extras
+                del dependency['extras']
 
-        if dependency.get('prefix'):
-            dependency['prefix'] = trim_incident_uri(repr(dependency['prefix']), repr(input_root_path))
+            if dependency.get('prefix'):
+                dependency['prefix'] = trim_incident_uri(repr(dependency['prefix']), repr(input_root_path))
 
-    return dependencies
+    return dependencies_set
 
 def trim_incident_uri(uri, input_root_path):
     uri = uri.replace("'", "") # remove potential repr() wrapper chars
