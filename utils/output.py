@@ -72,7 +72,7 @@ def assert_analysis_output_dependencies(expected_output_dir, output_dir, input_r
         with open(expected_dependencies_path) as f:
             expected_dependencies = yaml.safe_load(f)
 
-    assert got_dependencies == expected_dependencies, "Got different dependencies output: \n%s" % get_files_diff(expected_dependencies_path, got_dependencies_path)
+    assert got_dependencies == expected_dependencies, "Got different dependencies output: \n%s" % get_files_diff(expected_dependencies_path, got_dependencies_normalized_path)
 
 
 def get_dict_from_output_file(filename, dir=None, **kwargs):
