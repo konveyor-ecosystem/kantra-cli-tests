@@ -568,5 +568,5 @@
     resolvedIdentifier: 3e38757e3eaf549cccd9bbdfa74b2930c177b8af
     type: compile
     version: '1.28'
-  fileURI: file:///opt/input/source/pom.xml
+  fileURI: pom.xml
   provider: java

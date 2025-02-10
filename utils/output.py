@@ -29,7 +29,7 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, input_roo
 
     if not os.path.exists(expected_output_path):
         with open(expected_output_path, 'w') as f:
-            yaml.dump(got_output, f)
+            yaml.dump(normalize_output(got_output, input_root_path), f)
 
         assert False, "Expected output file '%s' did not exist, initializing it with the current test output" % got_output_normalized_path
 
@@ -60,19 +60,19 @@ def assert_analysis_output_dependencies(expected_output_dir, output_dir, input_r
     with open(got_dependencies_normalized_path, 'w') as f:
             yaml.dump(normalize_dependencies(got_dependencies, input_root_path), f)
     with open(got_dependencies_normalized_path, encoding='utf-8') as file:
-        got_output = yaml.safe_load(file)
+        got_dependencies = yaml.safe_load(file)
 
     if not os.path.exists(expected_dependencies_path):
         with open(expected_dependencies_path, 'w') as f:
-            yaml.dump(got_output, f)
+            yaml.dump(normalize_dependencies(got_dependencies, input_root_path), f)
 
-        assert False, "Expected dependencies file '%s' did not exist, initializing it with the current test output" % expected_dependencies_path
+        assert False, "Expected dependencies file '%s' did not exist, initializing it with the current test output" % got_dependencies_normalized_path
 
     else:
         with open(expected_dependencies_path) as f:
-            expected_output = yaml.safe_load(f)
+            expected_dependencies = yaml.safe_load(f)
 
-    assert got_output == expected_output, "Got different dependencies output: \n%s" % get_files_diff(expected_dependencies_path, got_dependencies_path)
+    assert got_dependencies == expected_dependencies, "Got different dependencies output: \n%s" % get_files_diff(expected_dependencies_path, got_dependencies_normalized_path)
 
 
 def get_dict_from_output_file(filename, dir=None, **kwargs):
@@ -112,46 +112,55 @@ def normalize_output(rulesets: dict, input_root_path):
         if ruleset.get('violations'):
             for rulename in ruleset['violations']:
                 violation = ruleset.get('violations').get(rulename)
-                if violation:
-                    for incident in violation.get('incidents'):
+                if violation and violation.get('incidents'):
+                    for incident in violation['incidents']:
                         # grep codeSnip lines to the one with incident to not depend on different analyzer context size
-                        for line in incident['codeSnip'].splitlines():
-                            line = line.strip()
-                            if line.startswith(str(incident['lineNumber'])):
-                                incident['codeSnip'] = line
-                                break
-                        # normalize incidents path to make compatible container with containerless, fix slashes, etc.
-                        incident['uri'] = trim_incident_uri(repr(incident['uri']), repr(input_root_path))
-                    if incident.get('variables'):
-                        del incident['variables']   # remove variables from assertion, re-add if needed
+                        if incident.get('codeSnip') and incident.get('uri'):
+                            for line in incident['codeSnip'].splitlines():
+                                line = line.strip()
+                                if line.startswith(str(incident['lineNumber'])):
+                                    incident['codeSnip'] = line
+                                    break
+                            # normalize incidents path to make compatible container with containerless, fix slashes, etc.
+                            incident['uri'] = trim_incident_uri(repr(incident['uri']), repr(input_root_path))
+                        else:
+                            print("Warning: invalid incident: %s" % incident)
+                        if incident.get('variables'):
+                            del incident['variables']   # remove variables from assertion, re-add if needed
 
     # delete not matched ruleset
     rulesets = [ruleset for ruleset in rulesets if ruleset.get('violations') or ruleset.get('tags')]
 
     return rulesets
 
-def normalize_dependencies(dependencies: dict, input_root_path):
+def normalize_dependencies(dependencies_set: dict, input_root_path):
     """
         Does a pruning on dependencies file to delete not used fields (extras),
         makes prefix paths generic to allow compare container and container-less results.
     """
-    for dependency in dependencies[0]['dependencies']:
-        if dependency.get('extras'):    # Unless there is something important in extras
-            del dependency['extras']
+    for dependencies in dependencies_set:
+        if dependencies.get('fileURI'):
+            dependencies['fileURI'] = trim_incident_uri(dependencies['fileURI'], repr(input_root_path))
 
-        if dependency.get('prefix'):
-            dependency['prefix'] = trim_incident_uri(r'{}'.format(dependency['prefix']), r'{}'.format(input_root_path)) # Use raw strings for windows \
+        for dependency in dependencies['dependencies']:
+            if dependency.get('extras'):    # Unless there is something important in extras
+                del dependency['extras']
 
-    return dependencies
+            if dependency.get('prefix'):
+                dependency['prefix'] = trim_incident_uri(repr(dependency['prefix']), repr(input_root_path))
+
+    return dependencies_set
 
 def trim_incident_uri(uri, input_root_path):
     uri = uri.replace("'", "") # remove potential repr() wrapper chars
     input_root_path = input_root_path.replace("'", "")
 
     uri = uri.replace(input_root_path, "")  # remove containerless test input prefix path
-
+    input_root_path = input_root_path.replace("\\", "/")   # replace windows back-slashes with unix slashes
+    input_root_path = input_root_path.replace("//", "/")
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
     uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
+    uri = uri.replace(input_root_path, "")  # remove input prefix path (with forward-only slashes)
 
     # Ensure paths are relative
     uri = uri.replace("file:////", "")    # ensure windows&unix mixture will not produce invalid file protocol prefix

@@ -1,5 +1,5 @@
 {
-  "tackle-testap-public-cloud-readiness": {
+  "tackle-testapp-public-cloud-readiness": {
       "input": {
         "git": "https://github.com/konveyor/tackle-testapp-public"
       },

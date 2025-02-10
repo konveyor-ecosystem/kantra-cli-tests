@@ -1,0 +1,68 @@
+name: CLI containes on Mac
+
+inputs:
+  tier:
+    description: |
+      Test TIER name
+    required: false
+    type: string
+    default: TIER0
+  maven_token:
+    description: |
+      Token for public github maven repo access
+    required: false
+    type: string
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+  - uses: actions/checkout@v4
+  - name: Setup Homebrew
+    uses: Homebrew/actions/setup-homebrew@master
+  - name: Install podman
+    shell: bash
+    run: |
+      ulimit -n unlimited
+      brew install podman gsed
+      podman --version
+      podman machine init podman-vm
+      podman machine set podman-vm --cpus 2 --memory 4096
+      podman machine start podman-vm
+
+  - name: Get kantra bundle
+    uses: actions/download-artifact@v4
+    with:
+      name: kantra-bundle
+      path: /Users/runner/.kantra
+
+  - name: Configure Test Environment
+    shell: bash
+    run: |
+      chmod +x /Users/runner/.kantra/darwin-kantra
+      mkdir ${{ github.workspace }}/report
+      # Temporary dirty workaround to execute container kantra (with run-local=false)
+      gsed -i 's/ analyze / analyze --run-local=false /g' utils/command.py
+    working-directory: ${{ github.workspace }}
+  - name: Install test dependencies
+    shell: bash
+    run: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+
+  - name: Run TIER0 analysis test
+    shell: bash
+    run: |
+      export KANTRA_CLI_PATH=/Users/runner/.kantra/darwin-kantra
+      export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
+      export PROJECT_PATH=${{ github.workspace }}
+      export GIT_PASSWORD=${{ inputs.maven_token }}
+
+      pytest -s tests/analysis/java/test_tier0.py
+
+  - name: Save analysis output
+    uses: actions/upload-artifact@v4
+    if: always()
+    with:
+      name: kantra-outputs-mac-containers
+      path: ${{ github.workspace }}/report
