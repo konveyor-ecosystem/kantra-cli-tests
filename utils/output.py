@@ -149,6 +149,10 @@ def normalize_dependencies(dependencies_set: dict, input_root_path):
             if dependency.get('prefix'):
                 dependency['prefix'] = trim_incident_uri(repr(dependency['prefix']), repr(input_root_path))
 
+            if dependency.get('type') and dependency.get('type').endswith('\r'):
+                dependency['type'] = dependency['type'][:-1]    # workaround until https://github.com/konveyor/analyzer-lsp/issues/774 is solved
+
+
     return dependencies_set
 
 def trim_incident_uri(uri, input_root_path):
