@@ -39,6 +39,12 @@ class TestTrimMethods(unittest.TestCase):
             "file:///root/.m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java",
             "",
             "m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java"
+        ],
+        [
+            # m2/repository pivot Windows
+            "C://Users//runneradmin//.m2//repository//io//konveyor//demo//configuration-utils//1.0.0//io//konveyor//demo//config//ApplicationConfiguration.java",
+            "",
+            "m2/repository/io/konveyor/demo/configuration-utils/1.0.0/io/konveyor/demo/config/ApplicationConfiguration.java"
         ]
     ]
 
