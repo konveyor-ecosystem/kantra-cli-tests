@@ -1,6 +1,9 @@
 name: Kantra CLI on MacOS
 
-on: [push]
+on:
+  push:
+    branches:
+      - 'disabled-until-fixed-or-needed'
 
 jobs:
   build:

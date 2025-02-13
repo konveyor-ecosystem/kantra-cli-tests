@@ -149,6 +149,10 @@ def normalize_dependencies(dependencies_set: dict, input_root_path):
             if dependency.get('prefix'):
                 dependency['prefix'] = trim_incident_uri(repr(dependency['prefix']), repr(input_root_path))
 
+            if dependency.get('type') and dependency.get('type').endswith('\r'):
+                dependency['type'] = dependency['type'][:-1]    # workaround until https://github.com/konveyor/analyzer-lsp/issues/774 is solved
+
+
     return dependencies_set
 
 def trim_incident_uri(uri, input_root_path):
@@ -159,7 +163,8 @@ def trim_incident_uri(uri, input_root_path):
     input_root_path = input_root_path.replace("\\", "/")   # replace windows back-slashes with unix slashes
     input_root_path = input_root_path.replace("//", "/")
     uri = uri.replace("\\", "/")   # replace windows back-slashes with unix slashes
-    uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix, TODO: file:///root/.m2, etc
+    uri = uri.replace("file:///opt/input/source/", "") # remove container analysis input mount prefix
+    uri = uri.replace("//", "/")
     uri = uri.replace(input_root_path, "")  # remove input prefix path (with forward-only slashes)
 
     # Ensure paths are relative
