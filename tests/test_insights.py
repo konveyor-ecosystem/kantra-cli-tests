@@ -4,16 +4,19 @@ import pytest
 
 from utils import constants
 from utils.command import build_analysis_command
+from utils.common import run_containerless_parametrize
 from utils.report import assert_insights_from_report_file, get_json_from_report_output_file
 
 # Polarion TC 598
-def test_insights_binary_app(analysis_data):
+@run_containerless_parametrize
+def test_insights_binary_app(analysis_data, additional_args):
     application_data = analysis_data['jee_example_app']
 
     command = build_analysis_command(
         application_data['file_name'],
         application_data['source'],
-        application_data['target']
+        application_data['target'],
+        **additional_args
     )
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE,
@@ -23,8 +26,9 @@ def test_insights_binary_app(analysis_data):
     assert_insights_from_report_file()
 
 # Polarion TC 576, 577, 578, 589, 606
-@pytest.mark.parametrize('analysis_mode', ["source-only", "full"])
-def test_insights_custom_rules_bug_mta_3352(analysis_data, analysis_mode):
+@run_containerless_parametrize
+@pytest.mark.parametrize('analysis_mode', ["source-only,", "full,"])
+def test_insights_custom_rules_bug_mta_3352(analysis_data, analysis_mode, additional_args):
     application_data = analysis_data['tackle-testapp-project']
     custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/yaml',
         'custom_rule_insights.yaml')
@@ -36,13 +40,15 @@ def test_insights_custom_rules_bug_mta_3352(analysis_data, analysis_mode):
             application_data['target'],
             **{'rules': custom_rule_path},
             **{'mode': 'source-only'},
+            **additional_args
         )
     else:
         command = build_analysis_command(
             application_data['file_name'],
             application_data['source'],
             application_data['target'],
-            **{'rules': custom_rule_path}
+            **{'rules': custom_rule_path},
+            **additional_args
         )
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE,
         encoding='utf-8').stdout
