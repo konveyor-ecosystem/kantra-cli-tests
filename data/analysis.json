@@ -2,8 +2,8 @@
   "jee_example_app": {
     "app_name": "jee_example_app",
     "file_name": "jee-example-app-1.0.0.ear",
-    "target": "eap7",
-    "source": "weblogic"
+    "target": "",
+    "source": "java-ee"
   },
   "kafka_clients_sb_sample": {
     "app_name": "kafka_clients_sb_sample",
