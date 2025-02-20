@@ -1,4 +1,5 @@
 import os
+import platform
 import tempfile
 import zipfile
 from contextlib import contextmanager
@@ -29,15 +30,18 @@ def extract_zip_to_temp_dir(application_path):
     yield tempdir.name
 
 def run_containerless_parametrize(func):
+    args_list = [{"--run-local=true": None}]  # Always include local mode
+
+    if platform.system().lower() != "windows":
+        args_list.append({"--run-local=false": None})  # Add container mode only if not Windows
+
     @pytest.mark.parametrize(
         "additional_args",
-        [
-            {"--run-local=true": None},  # Running without container
-            {"--run-local=false": None}  # Running in container mode
-        ],
-        ids=lambda args: next(iter(args.keys()))  # Customizing output for better readability
+        args_list,
+        ids=lambda args: list(args)[0]  # More readable way
     )
     @wraps(func)
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
+
     return wrapper
