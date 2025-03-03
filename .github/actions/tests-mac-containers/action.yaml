@@ -52,16 +52,17 @@ runs:
 
   - name: Run TIER0 analysis test
     uses: nick-fields/retry@v3
-    timeout_minutes: 20
-    max_attempts: 3
-    shell: bash
-    run: |
-      export KANTRA_CLI_PATH=/Users/runner/.kantra/darwin-kantra
-      export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
-      export PROJECT_PATH=${{ github.workspace }}
-      export GIT_PASSWORD=${{ inputs.maven_token }}
+    with:
+      timeout_minutes: 20
+      max_attempts: 3
+      shell: bash
+      command: |
+        export KANTRA_CLI_PATH=/Users/runner/.kantra/darwin-kantra
+        export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
+        export PROJECT_PATH=${{ github.workspace }}
+        export GIT_PASSWORD=${{ inputs.maven_token }}
 
-      pytest -s tests/analysis/java/test_tier0.py
+        pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
     uses: actions/upload-artifact@v4
