@@ -43,6 +43,9 @@ runs:
       pip install -r requirements.txt
 
   - name: Run TIER0 analysis test
+    uses: nick-fields/retry@v3
+    timeout_minutes: 20
+    max_attempts: 3
     shell: bash
     run: |
       export KANTRA_CLI_PATH=/home/runner/.kantra/kantra

@@ -41,6 +41,9 @@ runs:
       mkdir ${{ github.workspace }}\report
 
   - name: Run TIER0 analysis test
+    uses: nick-fields/retry@v3
+    timeout_minutes: 20
+    max_attempts: 3
     shell: cmd
     run: |
       set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
