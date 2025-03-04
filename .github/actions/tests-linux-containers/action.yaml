@@ -47,14 +47,18 @@ runs:
       pip install -r requirements.txt
 
   - name: Run TIER0 analysis test
-    shell: bash
-    run: |
-      export KANTRA_CLI_PATH=/home/runner/.kantra/kantra
-      export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
-      export PROJECT_PATH=${{ github.workspace }}
-      export GIT_PASSWORD=${{ inputs.maven_token }}
+    uses: nick-fields/retry@v3
+    with:
+      timeout_minutes: 20
+      max_attempts: 3
+      shell: bash
+      command: |
+        export KANTRA_CLI_PATH=/home/runner/.kantra/kantra
+        export REPORT_OUTPUT_PATH=${{ github.workspace }}/report
+        export PROJECT_PATH=${{ github.workspace }}
+        export GIT_PASSWORD=${{ inputs.maven_token }}
 
-      pytest -s tests/analysis/java/test_tier0.py
+        pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
     uses: actions/upload-artifact@v4

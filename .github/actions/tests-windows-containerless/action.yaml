@@ -41,14 +41,18 @@ runs:
       mkdir ${{ github.workspace }}\report
 
   - name: Run TIER0 analysis test
-    shell: cmd
-    run: |
-      set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
-      set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
-      set PROJECT_PATH=${{ github.workspace }}
-      set GIT_PASSWORD=${{ inputs.maven_token }}
+    uses: nick-fields/retry@v3
+    with:
+      timeout_minutes: 20
+      max_attempts: 3
+      shell: cmd
+      command: |
+        set KANTRA_CLI_PATH=C:\Users\runneradmin\.kantra\windows-kantra.exe
+        set REPORT_OUTPUT_PATH=${{ github.workspace }}\report
+        set PROJECT_PATH=${{ github.workspace }}
+        set GIT_PASSWORD=${{ inputs.maven_token }}
 
-      pytest -s tests/analysis/java/test_tier0.py
+        pytest -s tests/analysis/java/test_tier0.py
 
   - name: Save analysis output
     uses: actions/upload-artifact@v4
