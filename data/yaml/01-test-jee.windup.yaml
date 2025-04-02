@@ -1,0 +1,17 @@
+- category: potential
+  customVariables: []
+  description: Test-002 Remote Exception
+  effort: 2
+  labels:
+  - konveyor.io/target=cloud-readiness
+  - konveyor.io/source
+  - Hazelcast
+  links:
+  - title: Test-002 Test link
+    url: http://nufc.com
+  message: Test-002 Message markdown
+  ruleID: Test-002-00001
+  when:
+    java.referenced:
+      location: IMPORT
+      pattern: javax.naming*
