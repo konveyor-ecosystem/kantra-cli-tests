@@ -11,11 +11,10 @@ from utils.manage_maven_credentials import get_default_token
 from utils.report import assert_non_empty_report
 from utils.output import assert_analysis_output_violations, assert_analysis_output_dependencies
 
-project_path = os.getenv(constants.PROJECT_PATH)
-output_root_path = os.getenv(constants.REPORT_OUTPUT_PATH, "./output")
-
 @pytest.mark.parametrize('tc_name', json.load(open(os.path.join("data", "java_analysis.json"))))
 def test_analysis(tc_name, java_analysis_data):
+    project_path = os.getenv(constants.PROJECT_PATH, "./")
+    output_root_path = os.getenv(constants.REPORT_OUTPUT_PATH, "./output")
     tc = java_analysis_data[tc_name]
     output_dir = os.path.join(output_root_path, tc_name)
     settings_path = None
