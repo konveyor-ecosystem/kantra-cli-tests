@@ -26,7 +26,7 @@ def test_java_provider_analysis(analysis_data):
 
     report_data = get_json_from_report_output_file()
 
-    ruleset = next((item for item in report_data['rulesets'] if item.get('description') == 'temp ruleset'), None)
+    ruleset = next((item for item in report_data['rulesets'] if "javax-package-custom-target-00001" in item.get('violations', {})), None)
 
     assert ruleset is not None, "Ruleset property not found in output"
     assert len(ruleset.get('skipped', [])) == 0, "Custom Rule was skipped"
