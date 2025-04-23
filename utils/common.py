@@ -45,3 +45,12 @@ def run_containerless_parametrize(func):
         return func(*args, **kwargs)
 
     return wrapper
+
+def verify_triggered_rule(report_data, rule_id: str):
+    ruleset = next((item for item in report_data['rulesets'] if rule_id in item.get('violations', {})), None)
+
+    assert ruleset is not None, "Ruleset property not found in output"
+    assert len(ruleset.get('skipped', [])) == 0, "Custom Rule was skipped"
+    assert len(ruleset.get('unmatched', [])) == 0, "Custom Rule was unmatched"
+    assert 'violations' in ruleset, "Custom rules didn't trigger any violation"
+    assert rule_id in ruleset['violations'], "The test rule triggered no violations"

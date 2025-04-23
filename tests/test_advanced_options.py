@@ -5,7 +5,7 @@ import time
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.common import run_containerless_parametrize
+from utils.common import run_containerless_parametrize, verify_triggered_rule
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
 
@@ -49,14 +49,7 @@ def test_custom_rules(analysis_data):
     assert_story_points_from_report_file()
 
     report_data = get_json_from_report_output_file()
-
-    ruleset = next((item for item in report_data['rulesets'] if "Test-002-00001" in item.get('violations', {})), None)
-
-    assert ruleset is not None, "Ruleset property not found in output"
-    assert len(ruleset.get('skipped', [])) == 0, "Custom Rule was skipped"
-    assert len(ruleset.get('unmatched', [])) == 0, "Custom Rule was unmatched"
-    assert 'violations' in ruleset, "Custom rules didn't trigger any violation"
-    assert "Test-002-00001" in ruleset.get('violations', {}), "test-002 custom rule triggered no violations"
+    verify_triggered_rule(report_data, 'Test-002-00001')
 
 
 @run_containerless_parametrize

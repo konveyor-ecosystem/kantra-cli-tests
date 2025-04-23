@@ -1,12 +1,14 @@
 import json
 import os
+import pathlib
+import shutil
 import subprocess
 
 import pytest
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.common import run_containerless_parametrize
+from utils.common import run_containerless_parametrize, verify_triggered_rule
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
 
@@ -28,8 +30,29 @@ def test_standard_analysis(app_name, analysis_data, additional_args):
 
     assert_story_points_from_report_file()
 
+# Polarion TC 588
+def test_java_analysis_without_pom(analysis_data):
+    application_data = analysis_data['tackle-testapp-public']
+    app_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/applications', application_data['file_name'])
+    app_no_pom_path = f"{app_path}-no-pom"
+    shutil.rmtree(app_no_pom_path, ignore_errors=True)
+    shutil.copytree(app_path, app_no_pom_path)
+    pathlib.Path.unlink(pathlib.Path(os.path.join(app_no_pom_path, "pom.xml")))
 
-def test_bug_3863_dependency_rule_analysis(analysis_data):
+    command = build_analysis_command(
+        app_no_pom_path,
+        application_data['source'],
+        "",
+    )
+
+    output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
+
+    assert 'generating static report' in output
+
+    assert_story_points_from_report_file()
+    shutil.rmtree(app_no_pom_path)
+
+def test_dependency_rule_analysis(analysis_data):
     application_data = analysis_data['tackle-testapp-project']
     custom_maven_settings = os.path.join(
         os.getenv(constants.PROJECT_PATH),
@@ -49,7 +72,7 @@ def test_bug_3863_dependency_rule_analysis(analysis_data):
         "",
         **{
             'maven-settings': custom_maven_settings,
-            'rules': custom_rule_path
+            'rules': custom_rule_path,
         }
     )
 
@@ -61,10 +84,4 @@ def test_bug_3863_dependency_rule_analysis(analysis_data):
 
     report_data = get_json_from_report_output_file()
 
-    ruleset = next((item for item in report_data['rulesets'] if item.get('description') == 'temp ruleset'), None)
-
-    assert ruleset is not None, "Ruleset property not found in output"
-    assert len(ruleset.get('skipped', [])) == 0, "Custom Rule was skipped"
-    assert len(ruleset.get('unmatched', [])) == 0, "Custom Rule was unmatched"
-    assert 'violations' in ruleset, "Custom rules didn't trigger any violation"
-    assert 'tackle-dependency-test-rule' in ruleset['violations'], "The test rule triggered no violations"
+    verify_triggered_rule(report_data, 'tackle-dependency-test-rule')
