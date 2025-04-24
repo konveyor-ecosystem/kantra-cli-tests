@@ -52,5 +52,11 @@
     "file_name": "tackle-testapp-public",
     "target": "cloud-readiness",
     "source": ""
+  },
+  "kitchensink": {
+    "app_name": "kitchensink",
+    "file_name": "kitchensink.war",
+    "target": "eap7",
+    "source": ""
   }
 }
