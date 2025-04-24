@@ -61,7 +61,7 @@ def build_analysis_command(binary_name, source, target, is_bulk=False, output_pa
         command += ' ' + key
 
         if value:
-            command += ' ' + value
+            command += '=' + value
 
     print(command)
     return command

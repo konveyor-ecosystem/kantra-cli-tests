@@ -3,11 +3,12 @@ import subprocess
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.common import extract_zip_to_temp_dir
+from utils.common import extract_zip_to_temp_dir, verify_triggered_rule
+from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
 
 
 # Polarion TC MTA-568
-def test_hello_world_analysis_with_rules(dotnet_analysis_data):
+def test_hello_world_linux_analysis_with_rules(dotnet_analysis_data):
     # Avoid running this test on Windows
     if os.name == 'nt':
         return
@@ -25,9 +26,16 @@ def test_hello_world_analysis_with_rules(dotnet_analysis_data):
             tempdir,
             "",
             "",
-            **{'rules': custom_rules_path}
+            **{
+                'rules': custom_rules_path,
+                'run-local': 'false',
+                'provider': 'dotnet'
+            }
         )
 
         output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
         assert 'Static report created' in output
+        assert_story_points_from_report_file()
+        report_data = get_json_from_report_output_file()
+        verify_triggered_rule(report_data, 'custom-rule-dotnet-framework')
