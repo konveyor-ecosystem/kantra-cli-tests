@@ -51,6 +51,29 @@ def test_custom_rules(analysis_data):
     report_data = get_json_from_report_output_file()
     verify_triggered_rule(report_data, 'Test-002-00001')
 
+# Automates Bug 4784
+def test_description_display_in_report(analysis_data):
+    application_data = analysis_data['jee_example_app']
+
+    command = build_analysis_command(
+        application_data['file_name'],
+        application_data['source'],
+        ""
+    )
+
+    output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
+
+    assert 'generating static report' in output
+    assert_story_points_from_report_file()
+
+    report_data = get_json_from_report_output_file()
+    ruleset = next(
+        (ruleset for ruleset in report_data["rulesets"] if "singleton-sessionbean-00001" in ruleset.get("violations", {})),
+        None
+    )
+    assert ruleset is not None, "The expected rule was not triggered"
+    assert "When a singleton EJB bean class implements `javax.ejb.SessionBean` interface" in ruleset["violations"]["singleton-sessionbean-00001"]["description"], "The reported issue did not include the description"
+
 
 @run_containerless_parametrize
 def test_bulk_analysis(analysis_data, additional_args):
