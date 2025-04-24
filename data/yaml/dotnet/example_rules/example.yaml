@@ -1,14 +1,15 @@
 - category: mandatory
   customVariables: []
-  description: MVC Method names have changed from .NET Framework
+  description: CUSTOM RULE | METHOD DEFINITION .NET Framework
   effort: 1
   labels:
   - konveyor.io/source=dotnetframework
   message: |-
-    HttpNotFound was replaced with NotFound in .NET Core
-  ruleID: removed-dotnet-framework-00000
+    Custom rule for .net framework for hello-world-app https://github.com/konveyor/analyzer-lsp/tree/main/external-providers/dotnet-external-provider/examples/nerd-dinner
+  ruleID: custom-rule-dotnet-framework
   when:
     or:
     - dotnet.referenced:
-        pattern: "HttpNotFound"
-        namespace: "System.Web.Mvc"
+        location: "METHOD"
+        pattern: "NonPortableMethod"
+        namespace: "HelloWorld"
