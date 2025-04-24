@@ -8,7 +8,7 @@ from utils.report import assert_story_points_from_report_file, get_json_from_rep
 
 
 # Polarion TC MTA-568
-def test_hello_world_analysis_with_rules(dotnet_analysis_data):
+def test_hello_world_linux_analysis_with_rules(dotnet_analysis_data):
     # Avoid running this test on Windows
     if os.name == 'nt':
         return
