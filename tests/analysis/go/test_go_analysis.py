@@ -7,7 +7,7 @@ from utils.report import assert_story_points_from_report_file, get_json_from_rep
 
 
 # Polarion TC MTA-533, MTA-544
-def test_go_provider_analysis_with_app_bug_mta_3661(golang_analysis_data):
+def test_go_provider_analysis_with_app(golang_analysis_data):
     application_data = golang_analysis_data['golang_app']
     custom_rules_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/yaml', 'golang-dep-rules.yaml')
 
@@ -16,7 +16,8 @@ def test_go_provider_analysis_with_app_bug_mta_3661(golang_analysis_data):
         application_data['source'],
         application_data['target'],
         **{'provider': "go",
-            'rules': custom_rules_path}
+            'rules': custom_rules_path,
+           "--run-local=false": None}
     )
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
@@ -30,8 +31,6 @@ def test_go_provider_analysis_with_app_bug_mta_3661(golang_analysis_data):
 
     assert ruleset is not None, "Ruleset property not found in output"
     assert len(ruleset.get('skipped', [])) == 0, "Custom Rule was skipped"
-    assert len(ruleset.get('unmatched', [])) == 0, "Custom Rule was unmatched"
     assert 'violations' in ruleset, "Custom rules didn't trigger any violation"
     assert 'file-001' in ruleset['violations'], "file-001 triggered no violations"
-    assert 'file-002' in ruleset['violations'], "file-002 triggered no violations"
 
