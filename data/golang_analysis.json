@@ -2,7 +2,7 @@
    "golang_app": {
     "app_name": "golang",
     "file_name": "golang",
-    "target": "eap8",
+    "target": "",
     "source": ""
   }
 }
