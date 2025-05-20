@@ -72,8 +72,10 @@
   - Embedded library - Spring Boot Actuator
   - Embedded=Micrometer
   - Embedded=Properties
+  - Embedded=Spring Boot Actuator
   - Embedded=Spring DI
   - Embedded=Spring Data JPA
+  - Embedded=Spring MVC
   - Embedded=Spring Web
   - Execute=Micrometer
   - Execute=Spring DI
@@ -84,7 +86,9 @@
   - Java EE=JPA named queries
   - Java EE=Servlet
   - Java Servlet
+  - MVC=Spring MVC
   - Micrometer
+  - Observability=Spring Boot Actuator
   - Other=Properties
   - Persistence=JPA named queries
   - Persistence=Spring Data JPA
@@ -97,5 +101,7 @@
   - Store=JPA named queries
   - Store=Spring Data JPA
   - Sustain=Properties
+  - Sustain=Spring Boot Actuator
+  - View=Spring MVC
   - View=Spring Web
   - Web=Spring Web
