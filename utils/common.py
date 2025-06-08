@@ -46,11 +46,21 @@ def run_containerless_parametrize(func):
 
     return wrapper
 
-def verify_triggered_rule(report_data, rule_id: str):
+def verify_triggered_rule(report_data, rule_id: str, expected_unmatched_rules = 0):
+    """
+
+    Args:
+        report_data: Report data that includes rulesets
+        rule_id: actual rule ID we are looking for
+        expected_unmatched_rules: Sometimes rulesets can include unmatched rules (on purpose) so expected_unmatched_rules was added to avoid failure
+
+    Returns:
+
+    """
     ruleset = next((item for item in report_data['rulesets'] if rule_id in item.get('violations', {})), None)
 
     assert ruleset is not None, "Ruleset property not found in output"
     assert len(ruleset.get('skipped', [])) == 0, "Custom Rule was skipped"
-    assert len(ruleset.get('unmatched', [])) == 0, "Custom Rule was unmatched"
+    assert len(ruleset.get('unmatched', [])) == expected_unmatched_rules, "Custom Rule was unmatched"
     assert 'violations' in ruleset, "Custom rules didn't trigger any violation"
     assert rule_id in ruleset['violations'], "The test rule triggered no violations"

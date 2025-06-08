@@ -3,6 +3,7 @@ import subprocess
 
 from utils import constants
 from utils.command import build_analysis_command
+from utils.common import verify_triggered_rule
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
 
 
@@ -20,7 +21,7 @@ def test_python_analysis_with_rules(python_analysis_data):
         application_data['file_name'],
         application_data['source'],
         application_data['target'],
-        **{'provider': "go",
+        **{'provider': "python",
             'rules': custom_rules_path,
            "--run-local=false": None}
     )
@@ -28,10 +29,11 @@ def test_python_analysis_with_rules(python_analysis_data):
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
 
     report_data = get_json_from_report_output_file()
-    ruleset = next((item for item in report_data['rulesets'] if item.get('description') == 'temp ruleset'), None)
+
 
 
     assert 'generating static report' in output
-    assert ruleset is not None, "Ruleset property not found in output"
-    assert len(ruleset.get('skipped', [])) == 0, "Custom Rule was skipped"
-    assert 'violations' in ruleset, "Custom rules didn't trigger any violation"
+
+    for rule_id in ['python-sample-rule-001', 'python-sample-rule-002']:
+        verify_triggered_rule(report_data, rule_id, 1)
+
