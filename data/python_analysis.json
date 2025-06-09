@@ -2,7 +2,7 @@
   "python_app_project": {
     "app_name": "python_app",
     "file_name": "python_app",
-    "target": "openjdk",
+    "target": "",
     "source": ""
   }
 }
