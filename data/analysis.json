@@ -51,7 +51,8 @@
     "app_name": "tackle-testapp-public",
     "file_name": "tackle-testapp-public",
     "target": "cloud-readiness",
-    "source": ""
+    "source": "",
+    "languages": ["Java", "TSQL", "SQLPL", "PLSQL", "PLpgSQL"]
   },
   "kitchensink": {
     "app_name": "kitchensink",
