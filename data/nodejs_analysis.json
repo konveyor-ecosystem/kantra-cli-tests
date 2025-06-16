@@ -3,6 +3,7 @@
     "app_name": "nodejs_app",
     "file_name": "nodejs_app",
     "target": "quarkus",
-    "source": ""
+    "source": "",
+    "languages": ["TypeScript"]
   }
 }

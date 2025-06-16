@@ -39,7 +39,7 @@ def build_analysis_command(binary_name, source, target, is_bulk=False, output_pa
     if os.path.isabs(binary_name):
         binary_path = binary_name
     else:
-        binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/applications', binary_name)
+        binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'applications', binary_name)
 
     if not os.path.exists(binary_path):
         raise Exception("Input application `%s` does not exist" % binary_path)
@@ -54,6 +54,48 @@ def build_analysis_command(binary_name, source, target, is_bulk=False, output_pa
 
     if settings:
         command += ' --maven-settings ' + settings
+
+    for key, value in kwargs.items():
+        if '--' not in key:
+            key = '--' + key
+        command += ' ' + key
+
+        if value:
+            command += '=' + value
+
+    print(command)
+    return command
+
+def build_discovery_command(binary_name,  **kwargs):
+    """
+        Builds a string for executing the "--list-language" subcommand
+
+        Args:
+            binary_name (str): binary file of the application to be analyzed.
+            **kwargs (str): Optional keyword arguments to be passed to Kantra as additional options.
+                this argument takes a dict, where each key is the argument, which can be passed with or without the '--'
+
+        Returns:
+            str: The full command to execute with the specified options and arguments.
+
+        Raises:
+            Exception: If `binary_path` is not provided.
+    """
+    kantra_path = os.getenv(constants.KANTRA_CLI_PATH)
+
+    if not binary_name:
+        raise Exception('Binary path is required')
+
+
+    if os.path.isabs(binary_name):
+        binary_path = binary_name
+    else:
+        binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'applications', binary_name)
+
+    if not os.path.exists(binary_path):
+        raise Exception("Input application `%s` does not exist" % binary_path)
+
+    command = kantra_path + ' analyze ' + '--list-languages --input ' + binary_path
 
     for key, value in kwargs.items():
         if '--' not in key:

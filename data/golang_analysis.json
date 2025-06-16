@@ -3,6 +3,7 @@
     "app_name": "golang",
     "file_name": "golang",
     "target": "",
-    "source": ""
+    "source": "",
+     "languages": ["Go", "Modula-2", "AMPL"]
   }
 }

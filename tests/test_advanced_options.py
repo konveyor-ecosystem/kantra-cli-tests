@@ -4,7 +4,7 @@ import subprocess
 import time
 
 from utils import constants
-from utils.command import build_analysis_command
+from utils.command import build_analysis_command, build_discovery_command
 from utils.common import run_containerless_parametrize, verify_triggered_rule
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
@@ -152,3 +152,17 @@ def test_no_container_leftovers(analysis_data):
     for line in leftover_output.splitlines():
         assert "analysis-" not in line, f"Found a leftover analysis container: \n{line}"
         assert "provider-" not in line, f"Found a leftover provider container: \n {line}"
+
+
+def test_language_discovery(analysis_data, python_analysis_data, golang_analysis_data, nodejs_analysis_data):
+    applications_data = [
+        analysis_data['tackle-testapp-public'],
+        python_analysis_data["python_app_project"],
+        golang_analysis_data["golang_app"],
+        nodejs_analysis_data["nodejs_app_project"]
+    ]
+    for application_data in applications_data:
+        command = build_discovery_command(application_data['file_name'])
+        output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
+        for language in application_data["languages"]:
+            assert language in output, f"Language {language} was not detected in the {application_data['app_name']} app"
