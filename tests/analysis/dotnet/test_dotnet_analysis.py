@@ -38,4 +38,4 @@ def test_hello_world_linux_analysis_with_rules(dotnet_analysis_data):
         assert 'Static report created' in output
         assert_story_points_from_report_file()
         report_data = get_json_from_report_output_file()
-        verify_triggered_rule(report_data, 'custom-rule-dotnet-framework')
+        verify_triggered_rule(report_data, ['custom-rule-dotnet-framework'])

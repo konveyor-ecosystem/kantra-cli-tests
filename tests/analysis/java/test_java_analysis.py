@@ -84,4 +84,4 @@ def test_dependency_rule_analysis(analysis_data):
 
     report_data = get_json_from_report_output_file()
 
-    verify_triggered_rule(report_data, 'tackle-dependency-test-rule')
+    verify_triggered_rule(report_data, ['tackle-dependency-test-rule'])

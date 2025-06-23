@@ -4,17 +4,12 @@ import subprocess
 from utils import constants
 from utils.command import build_analysis_command
 from utils.common import verify_triggered_rule
-from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
+from utils.report import get_json_from_report_output_file
 
 
 def test_python_analysis_with_rules(python_analysis_data):
     application_data = python_analysis_data["python_app_project"]
-    application_path = os.path.join(
-        os.getenv(constants.PROJECT_PATH),
-        'data',
-        'applications',
-        application_data['file_name']
-    )
+
     custom_rules_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data','yaml', 'python_rules.yaml')
 
     command = build_analysis_command(
@@ -34,6 +29,5 @@ def test_python_analysis_with_rules(python_analysis_data):
 
     assert 'generating static report' in output
 
-    for rule_id in ['python-sample-rule-001', 'python-sample-rule-002']:
-        verify_triggered_rule(report_data, rule_id, 1)
+    verify_triggered_rule(report_data, ['python-sample-rule-001', 'python-sample-rule-002'], 1)
 
