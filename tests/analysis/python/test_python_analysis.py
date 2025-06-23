@@ -3,7 +3,7 @@ import subprocess
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.common import verify_triggered_rule
+from utils.common import verify_triggered_rules
 from utils.report import get_json_from_report_output_file
 
 
@@ -29,5 +29,5 @@ def test_python_analysis_with_rules(python_analysis_data):
 
     assert 'generating static report' in output
 
-    verify_triggered_rule(report_data, ['python-sample-rule-001', 'python-sample-rule-002'], 1)
+    verify_triggered_rules(report_data, ['python-sample-rule-001', 'python-sample-rule-002'], 1)
 

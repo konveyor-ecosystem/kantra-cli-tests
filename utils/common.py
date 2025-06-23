@@ -46,7 +46,7 @@ def run_containerless_parametrize(func):
 
     return wrapper
 
-def verify_triggered_rule(report_data, rule_id_list, expected_unmatched_rules = 0):
+def verify_triggered_rules(report_data, rule_id_list, expected_unmatched_rules = 0):
     """
 
     Args:

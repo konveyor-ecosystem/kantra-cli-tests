@@ -5,7 +5,7 @@ import time
 
 from utils import constants
 from utils.command import build_analysis_command, build_discovery_command
-from utils.common import run_containerless_parametrize, verify_triggered_rule
+from utils.common import run_containerless_parametrize, verify_triggered_rules
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
 
@@ -49,7 +49,7 @@ def test_custom_rules(analysis_data):
     assert_story_points_from_report_file()
 
     report_data = get_json_from_report_output_file()
-    verify_triggered_rule(report_data, ['Test-002-00001'])
+    verify_triggered_rules(report_data, ['Test-002-00001'])
 
 # Automates Bug 4784
 def test_description_display_in_report(analysis_data):
@@ -168,7 +168,8 @@ def test_language_discovery(analysis_data, python_analysis_data, golang_analysis
             assert language in output, f"Language {language} was not detected in the {application_data['app_name']} app"
 
 
-def test_custom_rules_disable_default(analysis_data):
+def test_custom_rules_disable_default_issue_769(analysis_data):
+    # This test hits a known issue https://github.com/konveyor/analyzer-lsp/issues/769
     application_data = analysis_data['tackle-testapp-project']
     assert os.getenv(constants.PROJECT_PATH) is not None
     custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'yaml', 'test-rules')
@@ -212,4 +213,4 @@ def test_custom_rules_disable_default(analysis_data):
     ]
 
     report_data = get_json_from_report_output_file()
-    verify_triggered_rule(report_data, expected_rule_id_list)
+    verify_triggered_rules(report_data, expected_rule_id_list)

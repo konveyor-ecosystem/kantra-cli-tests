@@ -8,7 +8,7 @@ import pytest
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.common import run_containerless_parametrize, verify_triggered_rule
+from utils.common import run_containerless_parametrize, verify_triggered_rules
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
 
@@ -84,4 +84,4 @@ def test_dependency_rule_analysis(analysis_data):
 
     report_data = get_json_from_report_output_file()
 
-    verify_triggered_rule(report_data, ['tackle-dependency-test-rule'])
+    verify_triggered_rules(report_data, ['tackle-dependency-test-rule'])
