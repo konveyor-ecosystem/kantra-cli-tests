@@ -5,7 +5,7 @@ import time
 
 from utils import constants
 from utils.command import build_analysis_command, build_discovery_command
-from utils.common import run_containerless_parametrize, verify_triggered_rule
+from utils.common import run_containerless_parametrize, verify_triggered_rules
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
 from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
 
@@ -49,7 +49,7 @@ def test_custom_rules(analysis_data):
     assert_story_points_from_report_file()
 
     report_data = get_json_from_report_output_file()
-    verify_triggered_rule(report_data, 'Test-002-00001')
+    verify_triggered_rules(report_data, ['Test-002-00001'])
 
 # Automates Bug 4784
 def test_description_display_in_report(analysis_data):
@@ -166,3 +166,51 @@ def test_language_discovery(analysis_data, python_analysis_data, golang_analysis
         output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
         for language in application_data["languages"]:
             assert language in output, f"Language {language} was not detected in the {application_data['app_name']} app"
+
+
+def test_custom_rules_disable_default_issue_769(analysis_data):
+    # This test hits a known issue https://github.com/konveyor/analyzer-lsp/issues/769
+    application_data = analysis_data['tackle-testapp-project']
+    assert os.getenv(constants.PROJECT_PATH) is not None
+    custom_rule_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'yaml', 'test-rules')
+
+    command = build_analysis_command(
+        application_data['file_name'],
+        application_data['source'],
+        application_data['target'],
+        **{
+            'rules': custom_rule_path,
+            'enable-default-rulesets': 'false'
+        }
+    )
+
+    output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
+
+    assert 'generating static report' in output
+    assert_story_points_from_report_file()
+
+    expected_rule_id_list = [
+        'basic-location-001',
+        'basic-location-002',
+        'basic-location-003',
+        'basic-location-004',
+        'basic-location-005',
+        'basic-location-006',
+        'basic-location-007',
+        'basic-location-008',
+        'basic-location-009',
+        'basic-location-010',
+        'basic-location-011',
+        'basic-location-012',
+        'basic-location-013',
+        'basic-location-014',
+        'basic-location-015',
+        'basic-location-016',
+        'basic-location-017',
+        'basic-location-018',
+        'basic-location-019',
+        'basic-location-020'
+    ]
+
+    report_data = get_json_from_report_output_file()
+    verify_triggered_rules(report_data, expected_rule_id_list)
