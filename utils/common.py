@@ -57,11 +57,28 @@ def verify_triggered_rules(report_data, rule_id_list, expected_unmatched_rules =
     Returns:
 
     """
+
+    errors = []
     for rule_id in rule_id_list:
+        # print(f"Checking rule: {rule_id}")
         ruleset = next((item for item in report_data['rulesets'] if rule_id in item.get('violations', {})), None)
 
-        assert ruleset is not None, f"Ruleset property {rule_id} not found in output"
-        assert len(ruleset.get('skipped', [])) == 0, f"Custom Rule {rule_id} was skipped"
-        assert len(ruleset.get('unmatched', [])) == expected_unmatched_rules, f'Custom Rule {rule_id} was unmatched'
-        assert 'violations' in ruleset, f"Custom rule {rule_id} didn't trigger any violation"
-        assert rule_id in ruleset['violations'], f"The test rule {rule_id} triggered no violations"
+        if ruleset is None:
+            errors.append(f"Error for rule ID '{rule_id}': Ruleset property not found in output.")
+            continue # Move to the next rule if the ruleset isn't found
+
+        if len(ruleset.get('skipped', [])) != 0:
+            errors.append(f"Error for rule ID '{rule_id}': Custom Rule was skipped. Skipped rules: {ruleset.get('skipped', [])}")
+
+        if len(ruleset.get('unmatched', [])) != expected_unmatched_rules:
+            errors.append(f"Error for rule ID '{rule_id}': Custom Rule was unmatched. Unmatched rules: {ruleset.get('unmatched', [])}. Expected unmatched: {expected_unmatched_rules}")
+
+        if 'violations' not in ruleset:
+            errors.append(f"Error for rule ID '{rule_id}': Custom rules didn't trigger any violation.")
+        elif rule_id not in ruleset['violations']:
+            errors.append(f"Error for rule ID '{rule_id}': The test rule triggered no violations for this specific rule ID.")
+
+    if errors:
+        error_message = "The following rule validation errors occurred:\n" + "\n".join(errors)
+        print(f"Failed assertions: {error_message}")
+        raise AssertionError(error_message)
