@@ -11,3 +11,20 @@ jobs:
     with:
       tag: release-0.7
       tier: TIER0
+  report_failure:
+    needs: test-suite
+    if: ${{ always() && contains(needs.*.result, 'failure') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send failure data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.26.0
+        with:
+          payload: |
+            {
+              "test": "CLI kantra",
+              "branch": "release-0.7",
+              "note": "Failed run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
