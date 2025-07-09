@@ -19,6 +19,9 @@ This repository contains the e2e tests for Kantra.
 ## Run tests
 
 ### TIER0
+Tier 0 includes only 1 test, analysis on tackle-testapp-public-cloud-readiness.
+
+To run tier0 use below command:
 
 ```
 $ pytest -s tests/analysis/java/test_tier0.py
