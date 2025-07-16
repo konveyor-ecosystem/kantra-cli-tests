@@ -125,6 +125,9 @@ def build_pa_discovery_command(cloudfoundry_manifest,  **kwargs):
     """
     kantra_path = os.getenv(constants.KANTRA_CLI_PATH)
 
+    if not kantra_path:
+        raise Exception("Environment variable for KANTRA_CLI_PATH is not set")
+
     if not cloudfoundry_manifest:
         raise Exception('CloudFoundry manifest is required')
 
