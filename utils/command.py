@@ -107,3 +107,45 @@ def build_discovery_command(binary_name,  **kwargs):
 
     print(command)
     return command
+
+def build_pa_discovery_command(cloudfoundry_manifest,  **kwargs):
+    """
+        Builds a string for executing the "--discovery" subcommand
+
+        Args:
+            cloudfoundry_manifest (str): CF manifest to be transformed.
+            **kwargs (str): Optional keyword arguments to be passed to Kantra as additional options.
+                this argument takes a dict, where each key is the argument, which can be passed with or without the '--'
+
+        Returns:
+            str: The full command to execute with the specified options and arguments.
+
+        Raises:
+            Exception: If `cloudfoundry_manifest` is not provided.
+    """
+    kantra_path = os.getenv(constants.KANTRA_CLI_PATH)
+
+    if not cloudfoundry_manifest:
+        raise Exception('CloudFoundry manifest is required')
+
+
+    if os.path.isabs(cloudfoundry_manifest):
+        binary_path = cloudfoundry_manifest
+    else:
+        binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'applications', cloudfoundry_manifest)
+
+    if not os.path.exists(binary_path):
+        raise Exception("Input application `%s` does not exist" % binary_path)
+
+    command = kantra_path + ' discover cloud-foundry' + ' --input ' + binary_path
+
+    for key, value in kwargs.items():
+        if '--' not in key:
+            key = '--' + key
+        command += ' ' + key
+
+        if value:
+            command += '=' + value
+
+    print(command)
+    return command
