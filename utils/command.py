@@ -135,7 +135,7 @@ def build_pa_discovery_command(cloudfoundry_manifest,  **kwargs):
     if os.path.isabs(cloudfoundry_manifest):
         binary_path = cloudfoundry_manifest
     else:
-        binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'applications', cloudfoundry_manifest)
+        binary_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'yaml', cloudfoundry_manifest)
 
     if not os.path.exists(binary_path):
         raise Exception("Input application `%s` does not exist" % binary_path)
