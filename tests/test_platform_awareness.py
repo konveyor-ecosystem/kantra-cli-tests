@@ -1,17 +1,28 @@
 import glob
 import os
 import subprocess
+import pytest
+import shutil
 from pathlib import Path
 
 from utils import constants
 from utils.command import build_pa_discovery_command
 from utils.asset_generation import compare_yaml_keys_and_values
 
+@pytest.fixture(scope="function")
+def cleanup_output_directory():
+    # Teardown: Delete the directory and its contents
+    yield
+    dir_path = Path(os.getenv(constants.ASSET_GENERATION_OUTPUT))
+    print("DIR PATH", dir_path)
+    if dir_path.exists():
+        shutil.rmtree(dir_path)
+
 # Polarion TC MTA-617
-def test_cloudfoundry_local_discovery():
+def test_cloudfoundry_local_discovery(cleanup_output_directory):
     input_yaml = os.path.join(os.getenv(
         constants.PROJECT_PATH), 'data', 'yaml', 'asset_generation', 'cf-nodejs-app.yaml')
-    output_dir = os.path.join(os.getenv(constants.PROJECT_PATH), 'output_dir')
+    output_dir = os.getenv(constants.ASSET_GENERATION_OUTPUT)
 
     command = build_pa_discovery_command(input_yaml,
         **{'output-dir': output_dir}
