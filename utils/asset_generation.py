@@ -46,9 +46,5 @@ def compare_yaml_keys_and_values(input_yaml, output_yaml):
         for key in common_keys
         if input_map[key] != output_map[key]
     }
+    return extra_keys, missing_keys, mismatched_values
 
-    return {
-        'extra_keys_in_output': extra_keys,
-        'missing_keys_in_output': missing_keys,
-        'mismatched_values': mismatched_values
-    }
