@@ -10,7 +10,7 @@ from utils import constants
 from utils.command import build_analysis_command
 from utils.common import run_containerless_parametrize, verify_triggered_rules
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
-from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
+from utils.report import assert_story_points_from_report_file, get_json_from_report_output_js_file
 
 @run_containerless_parametrize
 @pytest.mark.parametrize('app_name', json.load(open("data/analysis.json")))
@@ -82,6 +82,6 @@ def test_dependency_rule_analysis(analysis_data):
 
     assert 'generating static report' in output
 
-    report_data = get_json_from_report_output_file()
+    report_data = get_json_from_report_output_js_file()
 
     verify_triggered_rules(report_data, ['tackle-dependency-test-rule'])

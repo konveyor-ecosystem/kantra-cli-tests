@@ -5,7 +5,7 @@ import pytest
 from utils import constants
 from utils.command import build_analysis_command
 from utils.common import run_containerless_parametrize
-from utils.report import assert_insights_from_report_file, get_json_from_report_output_file
+from utils.report import assert_insights_from_report_file, get_json_from_report_output_js_file
 
 # Polarion TC 598
 @run_containerless_parametrize
@@ -54,7 +54,7 @@ def test_insights_custom_rules_bug_mta_3352(analysis_data, analysis_mode, additi
         encoding='utf-8').stdout
     assert 'generating static report' in output
 
-    report_data = get_json_from_report_output_file()
+    report_data = get_json_from_report_output_js_file()
     for rule in report_data['rulesets']:
         insights = rule.get('insights', {})
 

@@ -18,7 +18,7 @@ def assert_analysis_output_violations(expected_output_dir, output_dir, input_roo
     got_output, got_output_path = get_dict_from_output_file("output.yaml", dir=output_dir)
     got_output_normalized_path = got_output_path + ".normalized.yaml"
 
-    # create a preprocessed/normalized outfile file to allow its comparision across platforms and setups
+    # create a preprocessed/normalized outfile file to allow its comparison across platforms and setups
     with open(got_output_normalized_path, 'w') as f:
             yaml.dump(normalize_output(got_output, input_root_path), f)
     with open(got_output_normalized_path, encoding='utf-8') as file:
