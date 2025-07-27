@@ -13,8 +13,8 @@ def test_go_provider_analysis_with_app(golang_analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'provider': "go",
             'rules': custom_rules_path,
            "--run-local=false": None}

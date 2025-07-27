@@ -13,8 +13,8 @@ def test_java_provider_analysis(analysis_data):
     custom_rules_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/yaml', '01-javax-package-custom-target.windup.yaml')
     command = build_analysis_command(
             application_data['file_name'],
-            application_data['source'],
-            application_data['target'],
+            application_data['sources'],
+            application_data['targets'],
             **{'provider': "java",
                'rules': custom_rules_path}
         )

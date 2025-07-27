@@ -19,8 +19,8 @@ def test_standard_analysis(app_name, analysis_data, additional_args):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **additional_args
     )
 
@@ -41,7 +41,7 @@ def test_java_analysis_without_pom(analysis_data):
 
     command = build_analysis_command(
         app_no_pom_path,
-        application_data['source'],
+        application_data['sources'],
         "",
     )
 
@@ -68,7 +68,7 @@ def test_dependency_rule_analysis(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
+        application_data['sources'],
         "",
         **{
             'maven-settings': custom_maven_settings,

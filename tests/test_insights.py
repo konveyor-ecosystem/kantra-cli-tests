@@ -14,8 +14,8 @@ def test_insights_binary_app(analysis_data, additional_args):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **additional_args
     )
 
@@ -36,8 +36,8 @@ def test_insights_custom_rules_bug_mta_3352(analysis_data, analysis_mode, additi
     if analysis_mode == 'source-only':
         command = build_analysis_command(
             application_data['file_name'],
-            application_data['source'],
-            application_data['target'],
+            application_data['sources'],
+            application_data['targets'],
             **{'rules': custom_rule_path},
             **{'mode': 'source-only'},
             **additional_args
@@ -45,8 +45,8 @@ def test_insights_custom_rules_bug_mta_3352(analysis_data, analysis_mode, additi
     else:
         command = build_analysis_command(
             application_data['file_name'],
-            application_data['source'],
-            application_data['target'],
+            application_data['sources'],
+            application_data['targets'],
             **{'rules': custom_rule_path},
             **additional_args
         )

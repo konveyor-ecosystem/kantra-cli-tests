@@ -18,8 +18,8 @@ def test_skip_report(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'skip-static-report': ''}
     )
 
@@ -39,8 +39,8 @@ def test_custom_rules(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'rules': custom_rule_path}
     )
 
@@ -58,7 +58,7 @@ def test_description_display_in_report(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
+        application_data['sources'],
         ""
     )
 
@@ -84,8 +84,8 @@ def test_bulk_analysis(analysis_data, additional_args):
     for application in applications:
         command = build_analysis_command(
             application['file_name'],
-            application['source'],
-            application['target'],
+            application['sources'],
+            application['targets'],
             True,
             **additional_args
         )
@@ -115,8 +115,8 @@ def test_analysis_of_private_repo(analysis_data, additional_args):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'maven-settings': custom_maven_settings},
         **additional_args
     )
@@ -136,8 +136,8 @@ def test_no_container_leftovers(analysis_data):
     application_data = analysis_data['jee_example_app']
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{"--run-local=": "false"} # Checking for container leftovers only if running in container mode
     )
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
@@ -177,8 +177,8 @@ def test_custom_rules_disable_default_issue_769(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{
             'rules': custom_rule_path,
             'enable-default-rulesets': 'false'

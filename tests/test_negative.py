@@ -10,7 +10,7 @@ def test_analysis_wrong_target(analysis_data, additional_args):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
+        application_data['sources'],
         "some_wrong_target",
         **additional_args
     )

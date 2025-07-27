@@ -132,7 +132,7 @@ def assert_insights_from_report_file():
         None.
 
     """
-    report_data = get_dict_from_output_yaml_file()
+    report_data = get_json_from_report_output_js_file()
 
     occurrences = -1
     for rule in report_data['rulesets']:
