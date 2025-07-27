@@ -10,16 +10,15 @@ from utils.report import assert_story_points_from_report_file, get_dict_from_out
 
 
 def test_book_server_analysis(book_server_data):
-    application_data = book_server_data
     reference_data_path = os.path.join(
         os.getenv(constants.PROJECT_PATH),
         "data", "ci", "shared_tests", "analysis_book-server"
     )
 
     command = build_analysis_command(
-        application_data['filename'],
-        application_data['sources'],
-        application_data['targets']
+        book_server_data['filename'],
+        book_server_data['sources'],
+        book_server_data['targets']
     )
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
@@ -30,7 +29,7 @@ def test_book_server_analysis(book_server_data):
     # Parsing report and reference
     report_data = normalize_output(
         get_dict_from_output_yaml_file(),
-        os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'applications', application_data['filename'])
+        os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'applications', book_server_data['filename'])
     )
     reference_data = get_dict_from_output_yaml_file(
         filename="output.yaml",

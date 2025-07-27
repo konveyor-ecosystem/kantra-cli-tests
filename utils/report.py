@@ -47,8 +47,7 @@ def get_dict_from_output_yaml_file(filename = "output.yaml", **kwargs):
 
         """
 
-    report_path = os.getenv(constants.REPORT_OUTPUT_PATH)
-    report_path = kwargs.get('report_path', report_path)
+    report_path = kwargs.get('report_path', os.getenv(constants.REPORT_OUTPUT_PATH))
 
     with open(os.path.join(report_path, filename), encoding='utf-8') as file:
         data = yaml.load(file, Loader=yaml.SafeLoader)
