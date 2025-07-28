@@ -1,5 +1,7 @@
 import json
 import pytest
+import yaml
+
 
 @pytest.fixture(scope="session")
 def analysis_data():
@@ -36,3 +38,9 @@ def python_analysis_data():
     with open('data/python_analysis.json', 'r') as file:
         json_list = json.load(file)
     return json_list
+
+@pytest.fixture(scope="session")
+def book_server_data():
+    with open('data/ci/shared_tests/analysis_book-server/tc.yaml', 'r') as file:
+        yaml_data = yaml.safe_load(file)
+    return yaml_data

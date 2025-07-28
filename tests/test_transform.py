@@ -53,7 +53,7 @@ def test_transform_code_with_openrewrite(transformation_name, openrewrite_transf
     with zipfile.ZipFile(application_path, 'r') as zip_ref:
         zip_ref.extractall(extraction_path)
 
-    command = f"{kantra_path} transform openrewrite --input {extracted_app_path} --target {application_data['target']}"
+    command = f"{kantra_path} transform openrewrite --input {extracted_app_path} --target {application_data['targets']}"
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
     assert 'BUILD SUCCESS' in output, "Failed command is: " + command

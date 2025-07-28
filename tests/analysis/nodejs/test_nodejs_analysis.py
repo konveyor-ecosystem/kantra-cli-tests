@@ -12,8 +12,8 @@ def test_nodejs_provider_analysis(nodejs_analysis_data):
     custom_rules_path = os.path.join(os.getenv(constants.PROJECT_PATH), 'data/yaml', 'python_rules.yaml')
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'rules': custom_rules_path,
            'provider': "nodejs"}
     )

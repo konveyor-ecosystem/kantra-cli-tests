@@ -2,21 +2,21 @@
   "complete_duke_jakarta_xml": {
     "app_name": "complete-duke",
     "file_name": "complete-duke.zip",
-    "target": "jakarta-xml",
+    "targets": "jakarta-xml",
     "assertion_file": "src/main/resources/META-INF/persistence.xml",
     "assertion": "https://jakarta.ee/xml/ns/persistence"
   },
   "complete_duke_jakarta_bootstrapping": {
     "app_name": "complete-duke",
     "file_name": "complete-duke.zip",
-    "target": "jakarta-bootstrapping",
+    "targets": "jakarta-bootstrapping",
     "assertion_file": "src/main/resources/META-INF/services/jakarta.enterprise.inject.spi.Extension",
     "assertion": "DukesExtension"
   },
   "complete_duke_jakarta_imports": {
     "app_name": "complete-duke",
     "file_name": "complete-duke.zip",
-    "target": "jakarta-imports",
+    "targets": "jakarta-imports",
     "assertion_file": "src/main/java/eu/agilejava/dukes/greeting/DukesRepository.java",
     "assertion": "import jakarta"
   }

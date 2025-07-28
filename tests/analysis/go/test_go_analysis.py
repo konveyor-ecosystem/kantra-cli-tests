@@ -3,7 +3,7 @@ import subprocess
 
 from utils import constants
 from utils.command import build_analysis_command
-from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
+from utils.report import assert_story_points_from_report_file, get_json_from_report_output_js_file
 
 
 # Polarion TC MTA-533, MTA-544
@@ -13,8 +13,8 @@ def test_go_provider_analysis_with_app(golang_analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'provider': "go",
             'rules': custom_rules_path,
            "--run-local=false": None}
@@ -25,7 +25,7 @@ def test_go_provider_analysis_with_app(golang_analysis_data):
     assert 'generating static report' in output
     assert_story_points_from_report_file()
 
-    report_data = get_json_from_report_output_file()
+    report_data = get_json_from_report_output_js_file()
 
     ruleset = next((item for item in report_data['rulesets'] if item.get('description') == 'temp ruleset'), None)
 

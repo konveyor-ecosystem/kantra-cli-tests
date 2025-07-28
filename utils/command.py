@@ -3,7 +3,7 @@ import os
 from utils import constants
 
 
-def build_analysis_command(binary_name, source, target, is_bulk=False, output_path=None, settings=None, **kwargs):
+def build_analysis_command(binary_name, sources, targets, is_bulk=False, output_path=None, settings=None, **kwargs):
     """
         Builds a string for executing the "analyze" subcommand
 
@@ -46,11 +46,13 @@ def build_analysis_command(binary_name, source, target, is_bulk=False, output_pa
 
     command = kantra_path + ' analyze ' + run_type + ' --input ' + binary_path + ' --output ' + report_path
 
-    if source:
-        command += ' --source ' + source
+    if sources:
+        for source in sources:
+            command += ' --source ' + source.lower()
 
-    if target:
-        command += ' --target ' + target
+    if targets:
+        for target in targets:
+            command += ' --target ' + target.lower()
 
     if settings:
         command += ' --maven-settings ' + settings

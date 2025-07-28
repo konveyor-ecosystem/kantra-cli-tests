@@ -5,9 +5,10 @@ import time
 
 from utils import constants
 from utils.command import build_analysis_command, build_discovery_command
-from utils.common import run_containerless_parametrize, verify_triggered_rules
+from utils.common import run_containerless_parametrize, verify_triggered_rules, verify_triggered_yaml_rules
 from utils.manage_maven_credentials import manage_credentials_in_maven_xml
-from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file, clearReportDir
+from utils.report import assert_story_points_from_report_file, get_json_from_report_output_js_file, clearReportDir, \
+    get_dict_from_output_yaml_file
 
 
 # Polarion TC 373
@@ -17,8 +18,8 @@ def test_skip_report(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'skip-static-report': ''}
     )
 
@@ -38,8 +39,8 @@ def test_custom_rules(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'rules': custom_rule_path}
     )
 
@@ -48,7 +49,7 @@ def test_custom_rules(analysis_data):
     assert 'generating static report' in output
     assert_story_points_from_report_file()
 
-    report_data = get_json_from_report_output_file()
+    report_data = get_json_from_report_output_js_file()
     verify_triggered_rules(report_data, ['Test-002-00001'])
 
 # Automates Bug 4784
@@ -57,7 +58,7 @@ def test_description_display_in_report(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
+        application_data['sources'],
         ""
     )
 
@@ -66,7 +67,7 @@ def test_description_display_in_report(analysis_data):
     assert 'generating static report' in output
     assert_story_points_from_report_file()
 
-    report_data = get_json_from_report_output_file()
+    report_data = get_json_from_report_output_js_file()
     ruleset = next(
         (ruleset for ruleset in report_data["rulesets"] if "singleton-sessionbean-00001" in ruleset.get("violations", {})),
         None
@@ -83,8 +84,8 @@ def test_bulk_analysis(analysis_data, additional_args):
     for application in applications:
         command = build_analysis_command(
             application['file_name'],
-            application['source'],
-            application['target'],
+            application['sources'],
+            application['targets'],
             True,
             **additional_args
         )
@@ -92,7 +93,7 @@ def test_bulk_analysis(analysis_data, additional_args):
 
         assert 'generating static report' in output
 
-    report_data = get_json_from_report_output_file(False)
+    report_data = get_json_from_report_output_js_file(False)
     assert len(report_data) >= 2, "Less than 2 application analysis detected"
     for current_report in report_data:
         assert len(current_report['rulesets']) >= 0, "No rulesets were applied"
@@ -114,8 +115,8 @@ def test_analysis_of_private_repo(analysis_data, additional_args):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{'maven-settings': custom_maven_settings},
         **additional_args
     )
@@ -123,7 +124,7 @@ def test_analysis_of_private_repo(analysis_data, additional_args):
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
     assert 'generating static report' in output
 
-    report_data = get_json_from_report_output_file(False)
+    report_data = get_json_from_report_output_js_file(False)
     assert len(report_data[0]['depItems']) >= 0, "No dependencies were found"
     violations = [item for item in report_data[0]['rulesets'] if item.get('violations')]
     assert len(violations) > 1, "Expected issues are missing";
@@ -135,8 +136,8 @@ def test_no_container_leftovers(analysis_data):
     application_data = analysis_data['jee_example_app']
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{"--run-local=": "false"} # Checking for container leftovers only if running in container mode
     )
     process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
@@ -176,8 +177,8 @@ def test_custom_rules_disable_default_issue_769(analysis_data):
 
     command = build_analysis_command(
         application_data['file_name'],
-        application_data['source'],
-        application_data['target'],
+        application_data['sources'],
+        application_data['targets'],
         **{
             'rules': custom_rule_path,
             'enable-default-rulesets': 'false'
@@ -212,5 +213,5 @@ def test_custom_rules_disable_default_issue_769(analysis_data):
         'basic-location-020'
     ]
 
-    report_data = get_json_from_report_output_file()
-    verify_triggered_rules(report_data, expected_rule_id_list)
+    report_data = get_dict_from_output_yaml_file()
+    verify_triggered_yaml_rules(report_data, expected_rule_id_list)

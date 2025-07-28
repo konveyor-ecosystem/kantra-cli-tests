@@ -2,12 +2,13 @@ import json
 import os
 import shutil
 
+import yaml
 from bs4 import BeautifulSoup
 
 from utils import constants
 
 
-def get_json_from_report_output_file(return_first = True, **kwargs):
+def get_json_from_report_output_js_file(return_first = True, **kwargs):
     """
         Loads and returns a JSON from the output.js file of the report
 
@@ -31,6 +32,27 @@ def get_json_from_report_output_file(return_first = True, **kwargs):
     else:
         return json.loads(js_report.split('window["apps"] = ')[1])
 
+def get_dict_from_output_yaml_file(filename = "output.yaml", **kwargs):
+    """
+        Loads and returns a JSON from the output.js file of the report
+
+        Args:
+            filename: Which filename should be used. Useful in case of bulk analysis as filename can differ
+            **kwargs: Optional keyword arguments.
+                report_path (str): The path to the report file. If not provided,
+                    the function will use the value of the 'REPORT_OUTPUT_PATH' environment variable.
+
+        Returns:
+            JSON data
+
+        """
+
+    report_path = kwargs.get('report_path', os.getenv(constants.REPORT_OUTPUT_PATH))
+
+    with open(os.path.join(report_path, filename), encoding='utf-8') as file:
+        data = yaml.load(file, Loader=yaml.SafeLoader)
+    return data
+
 
 def assert_non_empty_report(report_path):
     """
@@ -47,7 +69,7 @@ def assert_non_empty_report(report_path):
         None.
 
     """
-    report_data = get_json_from_report_output_file(report_path=report_path)
+    report_data = get_json_from_report_output_js_file(report_path=report_path)
 
     some_incidents = False
 
@@ -79,7 +101,7 @@ def assert_story_points_from_report_file():
         None.
 
     """
-    report_data = get_json_from_report_output_file()
+    report_data = get_json_from_report_output_js_file()
 
     story_points = -1
     for rule in report_data['rulesets']:
@@ -110,7 +132,7 @@ def assert_insights_from_report_file():
         None.
 
     """
-    report_data = get_json_from_report_output_file()
+    report_data = get_json_from_report_output_js_file()
 
     occurrences = -1
     for rule in report_data['rulesets']:

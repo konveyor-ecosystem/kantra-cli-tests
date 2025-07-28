@@ -4,7 +4,7 @@ import subprocess
 from utils import constants
 from utils.command import build_analysis_command
 from utils.common import extract_zip_to_temp_dir, verify_triggered_rules
-from utils.report import assert_story_points_from_report_file, get_json_from_report_output_file
+from utils.report import assert_story_points_from_report_file, get_json_from_report_output_js_file
 
 
 # Polarion TC MTA-568
@@ -37,5 +37,5 @@ def test_hello_world_linux_analysis_with_rules(dotnet_analysis_data):
 
         assert 'Static report created' in output
         assert_story_points_from_report_file()
-        report_data = get_json_from_report_output_file()
+        report_data = get_json_from_report_output_js_file()
         verify_triggered_rules(report_data, ['custom-rule-dotnet-framework'])

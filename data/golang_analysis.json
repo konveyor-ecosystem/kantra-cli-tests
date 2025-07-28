@@ -2,8 +2,8 @@
    "golang_app": {
     "app_name": "golang",
     "file_name": "golang",
-    "target": "",
-    "source": "",
+    "targets": [],
+    "sources": [],
      "languages": ["Go", "Modula-2", "AMPL"]
   }
 }
