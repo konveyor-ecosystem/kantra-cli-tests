@@ -56,8 +56,8 @@ def test_analysis(tc_name, java_analysis_data):
     # Build and execute analysis command
     command = build_analysis_command(
         input_path,
-        " --source ".join(tc['sources']),
-        " --target ".join(tc['targets']),
+        tc['sources'],
+        tc['targets'],
         output_path=output_dir,
         settings=settings_path
     )
