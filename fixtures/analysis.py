@@ -1,4 +1,6 @@
 import json
+import pprint
+
 import pytest
 import yaml
 
@@ -39,8 +41,12 @@ def python_analysis_data():
         json_list = json.load(file)
     return json_list
 
-@pytest.fixture(scope="session")
-def book_server_data():
-    with open('data/ci/shared_tests/analysis_book-server/tc.yaml', 'r') as file:
-        yaml_data = yaml.safe_load(file)
-    return yaml_data
+def ci_data():
+    with open('data/ci/shared_tests/test_cases.yml', 'r') as file:
+        extracted_data = []
+        ci_test_cases = yaml.safe_load(file)
+        for tc_name in ci_test_cases.keys():
+            tc = ci_test_cases[tc_name]
+            tc['referencesDir'] = tc['name'] = tc_name
+            extracted_data.append(tc)
+        return extracted_data
