@@ -1,24 +1,29 @@
 import os
 import subprocess
 
+import pytest
 from deepdiff import DeepDiff
 
+from fixtures.analysis import ci_data
 from utils import constants
 from utils.command import build_analysis_command
 from utils.output import normalize_output
 from utils.report import assert_story_points_from_report_file, get_dict_from_output_yaml_file
 
 
-def test_book_server_analysis(book_server_data):
+@pytest.mark.parametrize("application_data", ci_data(),
+                         ids=lambda case: f"{case['name']}: {case['description']}")
+def test_bvp(application_data):
     reference_data_path = os.path.join(
         os.getenv(constants.PROJECT_PATH),
-        "data", "ci", "shared_tests", "analysis_book-server"
+        "data", "ci", "shared_tests", application_data['referencesDir']
     )
 
     command = build_analysis_command(
-        book_server_data['filename'],
-        book_server_data['sources'],
-        book_server_data['targets']
+        application_data['filename'],
+        application_data['sources'],
+        application_data['targets'],
+        with_deps=application_data["withDeps"]
     )
 
     output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, encoding='utf-8').stdout
@@ -29,7 +34,7 @@ def test_book_server_analysis(book_server_data):
     # Parsing report and reference
     report_data = normalize_output(
         get_dict_from_output_yaml_file(),
-        os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'applications', book_server_data['filename'])
+        os.path.join(os.getenv(constants.PROJECT_PATH), 'data', 'applications', application_data['filename'])
     )
     reference_data = get_dict_from_output_yaml_file(
         filename="output.yaml",
