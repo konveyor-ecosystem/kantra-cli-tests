@@ -12,7 +12,7 @@ from utils.report import assert_story_points_from_report_file, get_dict_from_out
 
 
 @pytest.mark.parametrize("application_data", ci_data(),
-                         ids=lambda case: f"{case['name']}: {case['description']}")
+                         ids=lambda case: f"{case['name']}")
 def test_bvp(application_data):
     reference_data_path = os.path.join(
         os.getenv(constants.PROJECT_PATH),
