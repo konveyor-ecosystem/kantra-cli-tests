@@ -3,4 +3,4 @@
 	url = https://github.com/ibraginsky/book-server
 [submodule "data/ci"]
 	path = data/ci
-	url = git@github.com:konveyor/ci.git
+	url = https://github.com/konveyor/ci.git
