@@ -3,6 +3,12 @@ name: CLI test suite
 on:
   workflow_call:
     inputs:
+      image:
+        description: |
+          Kantra image URL (without tag)
+        required: false
+        type: string
+        default: quay.io/konveyor/kantra
       tag:
         description: |
           Tag release
@@ -28,7 +34,7 @@ jobs:
       run: |
         export KANTRA_DIR=.kantra
         mkdir $KANTRA_DIR
-        docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+        docker create --name kantra-download ${{ inputs.image }}:${{ inputs.tag }}
         docker cp kantra-download:/usr/local/bin/kantra $KANTRA_DIR/kantra
         docker cp kantra-download:/usr/local/bin/windows-kantra $KANTRA_DIR/windows-kantra.exe
         docker cp kantra-download:/usr/local/bin/darwin-kantra $KANTRA_DIR/darwin-kantra
@@ -54,7 +60,7 @@ jobs:
         brew install docker || true
         export KANTRA_DIR=.kantra
         mkdir $KANTRA_DIR
-        docker create --name kantra-download quay.io/konveyor/kantra:${{ inputs.tag }}
+        docker create --name kantra-download ${{ inputs.image }}:${{ inputs.tag }}
         docker cp kantra-download:/usr/local/bin/kantra $KANTRA_DIR/kantra
         docker cp kantra-download:/usr/local/bin/windows-kantra $KANTRA_DIR/windows-kantra.exe
         docker cp kantra-download:/usr/local/bin/darwin-kantra $KANTRA_DIR/darwin-kantra
