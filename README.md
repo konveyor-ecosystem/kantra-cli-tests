@@ -2,7 +2,6 @@
 
 [![Nightly CLI test for main](https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/workflows/nightly-main-latest.yaml/badge.svg)](https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/workflows/nightly-main-latest.yaml)
 [![Nightly CLI test for release-0.7](https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/workflows/nightly-main-release07.yaml/badge.svg)](https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/workflows/nightly-main-release07.yaml)
-[![Nightly CLI test for release-0.6](https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/workflows/nightly-main-release06.yaml/badge.svg)](https://github.com/konveyor-ecosystem/kantra-cli-tests/actions/workflows/nightly-main-release06.yaml)
 
 Kantra is an experimental CLI that unifies analysis and transformation capabilities of Konveyor.
 
