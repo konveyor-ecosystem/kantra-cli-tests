@@ -1,4 +1,4 @@
-name: Nightly CLI test for release-0.6
+name: Nightly CLI test for release-0.8
 
 on:
   schedule:
@@ -9,5 +9,5 @@ jobs:
     uses: konveyor-ecosystem/kantra-cli-tests/.github/workflows/test-suite.yaml@main # TODO: a corresponding kantra-cli-tests branch will be needed with next releases
     secrets: inherit
     with:
-      tag: release-0.6
+      tag: release-0.8
       tier: TIER0
