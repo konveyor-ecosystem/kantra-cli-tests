@@ -74,7 +74,7 @@ def test_description_display_in_report(analysis_data):
         None
     )
     assert ruleset is not None, "The expected rule was not triggered"
-    assert "When a singleton EJB bean class implements `javax.ejb.SessionBean` interface" in ruleset["violations"]["singleton-sessionbean-00001"]["description"], "The reported issue did not include the description"
+    assert "Removed SessionBean interface" in ruleset["violations"]["singleton-sessionbean-00001"]["description"], "The reported issue did not include the description"
 
 
 @run_containerless_parametrize
