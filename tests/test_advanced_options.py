@@ -1,6 +1,7 @@
 import os
 import signal
 import subprocess
+import sys
 import time
 
 from utils import constants
@@ -138,21 +139,45 @@ def test_no_container_leftovers(analysis_data):
         application_data['file_name'],
         application_data['sources'],
         application_data['targets'],
-        **{"--run-local=": "false"} # Checking for container leftovers only if running in container mode
+        **{"--run-local=": "false"}  # Only in container mode
     )
-    process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8')
+
+    process = subprocess.Popen(
+        command,
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding='utf-8'
+    )
 
     time.sleep(10)
-    process.send_signal(signal.SIGINT)
+
+    # Cross-platform process interruption
+    if sys.platform.startswith("win"):
+        # On Windows: send CTRL_BREAK_EVENT if possible, else terminate
+        try:
+            process.send_signal(signal.CTRL_BREAK_EVENT)
+        except Exception:
+            process.terminate()
+    else:
+        process.send_signal(signal.SIGINT)
 
     process.wait()
 
-    leftover = subprocess.run("podman ps", shell=True, stdout=subprocess.PIPE, encoding='utf-8')
+    leftover = subprocess.run(
+        ["podman", "ps"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        encoding="utf-8",
+        shell=(sys.platform.startswith("win"))  # required on Windows if PATH lookup is needed
+    )
+
     leftover_output = leftover.stdout.strip()
 
     for line in leftover_output.splitlines():
         assert "analysis-" not in line, f"Found a leftover analysis container: \n{line}"
         assert "provider-" not in line, f"Found a leftover provider container: \n {line}"
+
 
 
 def test_language_discovery(analysis_data, python_analysis_data, golang_analysis_data, nodejs_analysis_data):
