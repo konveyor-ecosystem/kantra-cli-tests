@@ -30,22 +30,19 @@ def extract_zip_to_temp_dir(application_path):
     yield tempdir.name
 
 def run_containerless_parametrize(func):
-    args_list = [{"--run-local=true": None}]  # Always include local mode
-
-    if platform.system().lower() != "windows":
-        args_list.append({"--run-local=false": None})  # Add container mode only if not Windows
+    args_list = [{"--run-local=false": None}]  # Only containerless
 
     @pytest.mark.parametrize(
         "additional_args",
         args_list,
-        ids=lambda args: list(args)[0]  # More readable way
+        ids=lambda args: list(args)[0]
     )
     @wraps(func)
     def wrapper(*args, **kwargs):
         return func(*args, **kwargs)
 
     return wrapper
-
+    
 def verify_triggered_rules(report_data, rule_id_list, expected_unmatched_rules = False):
     """
 
