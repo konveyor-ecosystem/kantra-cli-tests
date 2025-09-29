@@ -8,9 +8,6 @@ buildscript {
   repositories {
     jcenter()
   }
-  dependencies {
-    classpath 'com.github.jengelman.gradle.plugins:shadow:2.0.1'
-  }
 }
 
 allprojects {
@@ -24,7 +21,6 @@ apply from: file('gradle/check.gradle')
 apply from: file('gradle/heroku/clean.gradle')
 
 subprojects {
-  apply plugin: 'com.github.johnrengelman.shadow'
   apply plugin: 'java'
 
   group = "io.jeffchao.${rootProject.name}"

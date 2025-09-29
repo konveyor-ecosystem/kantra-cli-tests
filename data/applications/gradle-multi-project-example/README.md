@@ -6,7 +6,6 @@ Basic gradle template with subprojects, deployable to Heroku as separate dyno pr
 
 1. Gradle Plugins
     - application plugin
-    - shadowjar plugin
 2. Code Style
     - checkstyle
     - findbugs
