@@ -44,6 +44,27 @@ def print_test_summary(json_file='test-results/report.json'):
     skipped = summary.get('skipped', 0)
     error = summary.get('error', 0)
 
+    tests = data.get('tests', [])
+
+    # Print failed test details first if any
+    failed_tests = [t for t in tests if t.get('outcome') == 'failed']
+    if failed_tests:
+        print("\n" + "="*80)
+        print("FAILED TEST DETAILS")
+        print("="*80 + "\n")
+
+        for test in failed_tests:
+            print(f"Test: {test.get('nodeid', 'Unknown')}")
+            print(f"Duration: {test.get('duration', 0):.2f}s")
+
+            # Print failure message if available
+            call = test.get('call', {})
+            longrepr = call.get('longrepr', '')
+            if longrepr:
+                print(f"Error:\n{longrepr}")
+
+            print("-" * 80 + "\n")
+
     # Print overall summary
     print("\n" + "="*80)
     print("TEST SUMMARY")
@@ -66,7 +87,6 @@ def print_test_summary(json_file='test-results/report.json'):
     print("="*80 + "\n")
 
     table_data = []
-    tests = data.get('tests', [])
 
     for test in tests:
         nodeid = test.get('nodeid', 'Unknown')
