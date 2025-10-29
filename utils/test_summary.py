@@ -139,6 +139,7 @@ def print_test_summary_compact(json_file='test-results/report.json'):
     total = summary.get('total', 0)
     passed = summary.get('passed', 0)
     failed = summary.get('failed', 0)
+    error = summary.get('error', 0)
 
     # One-line summary
     print(f"\nTest Results: {passed}/{total} passed, {failed} failed")
@@ -156,19 +157,21 @@ def print_test_summary_compact(json_file='test-results/report.json'):
 
     print(tabulate(table_data, headers=['', 'Test', 'Time'], tablefmt='simple'))
 
-    return 0 if failed == 0 else 1
+    return 0 if failed == 0 and error == 0 else 1
 
 
 if __name__ == '__main__':
     # Default to looking for report in test-results directory
     report_file = 'test-results/report.json'
 
-    # Allow custom report file path from command line
-    if len(sys.argv) > 1:
-        report_file = sys.argv[1]
-
     # Check if compact mode is requested
     compact_mode = '--compact' in sys.argv
+
+    # Allow custom report file path from command line
+    # Filter out --compact flag to find the actual file path
+    args = [arg for arg in sys.argv[1:] if arg != '--compact']
+    if args:
+        report_file = args[0]
 
     if compact_mode:
         exit_code = print_test_summary_compact(report_file)
