@@ -164,7 +164,7 @@ if __name__ == '__main__':
     # Default to looking for report in test-results directory
     report_file = 'test-results/report.json'
 
-    # Check if compact mode is requested
+    # If compact mode is requested
     compact_mode = '--compact' in sys.argv
 
     # Allow custom report file path from command line
